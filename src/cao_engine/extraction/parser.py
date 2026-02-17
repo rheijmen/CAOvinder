@@ -33,6 +33,30 @@ def _get_json_schema(model_class: type) -> dict:
     return model_class.model_json_schema()
 
 
+def _clean_llm_output(data: dict) -> dict:
+    """Recursively clean LLM output to replace None with appropriate defaults.
+
+    This handles cases where the LLM explicitly returns null/None for fields
+    that have default_factory values in Pydantic models.
+    """
+    if not isinstance(data, dict):
+        return data
+
+    cleaned = {}
+    for key, value in data.items():
+        if value is None:
+            # Skip None values - let Pydantic use defaults
+            continue
+        elif isinstance(value, dict):
+            cleaned[key] = _clean_llm_output(value)
+        elif isinstance(value, list):
+            cleaned[key] = [_clean_llm_output(item) if isinstance(item, dict) else item
+                           for item in value]
+        else:
+            cleaned[key] = value
+    return cleaned
+
+
 class CAOExtractor:
     """Extracts structured CAO data from OCR markdown using Mistral LLM."""
 
@@ -73,7 +97,8 @@ class CAOExtractor:
         )
 
         content = response.choices[0].message.content
-        return json.loads(content)
+        data = json.loads(content)
+        return _clean_llm_output(data)
 
     def extract_metadata(self, markdown_text: str) -> CAOMetadata:
         """Extract CAO metadata from OCR markdown."""

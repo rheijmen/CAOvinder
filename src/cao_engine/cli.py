@@ -89,8 +89,11 @@ def extract(
     cao_naam: str | None = typer.Option(
         None, "--cao", help="CAO name (auto-detected if not set)"
     ),
+    parallel: bool = typer.Option(
+        True, "--parallel/--sequential", help="Use parallel extraction (5x faster)"
+    ),
 ) -> None:
-    """Extract structured CAO data from OCR markdown output."""
+    """Extract structured CAO data from OCR markdown output (parallel by default)."""
     settings = _get_settings()
     from cao_engine.extraction.moment_extractor import MomentExtractor
     from cao_engine.extraction.parser import CAOExtractor
@@ -107,26 +110,36 @@ def extract(
 
     console.print(f"[bold]Extracting data from:[/bold] {ocr_path.name}")
 
-    # Extract all components
-    extractor = CAOExtractor(settings)
+    if parallel:
+        # NEW: Parallel extraction (5x faster!)
+        from cao_engine.extraction.parallel_extractor import ParallelCAOExtractor
 
-    console.print("  Extracting metadata...")
-    metadata = extractor.extract_metadata(markdown_text)
-    name = metadata.cao_naam or name
+        console.print("  [bold cyan]→ Running parallel extraction (5x faster)...[/bold cyan]")
+        extractor = ParallelCAOExtractor(settings)
+        metadata, loongebouw, arbeidsvoorwaarden, inlenersbeloning, momenten_set = (
+            extractor.extract_all_parallel(markdown_text, name)
+        )
+        name = metadata.cao_naam or name
+    else:
+        # OLD: Sequential extraction (slower)
+        extractor = CAOExtractor(settings)
 
-    console.print("  Extracting loongebouw...")
-    loongebouw = extractor.extract_loongebouw(markdown_text)
+        console.print("  Extracting metadata...")
+        metadata = extractor.extract_metadata(markdown_text)
+        name = metadata.cao_naam or name
 
-    console.print("  Extracting arbeidsvoorwaarden...")
-    arbeidsvoorwaarden = extractor.extract_arbeidsvoorwaarden(markdown_text)
+        console.print("  Extracting loongebouw...")
+        loongebouw = extractor.extract_loongebouw(markdown_text)
 
-    console.print("  Extracting inlenersbeloning...")
-    inlenersbeloning = extractor.extract_inlenersbeloning(markdown_text)
+        console.print("  Extracting arbeidsvoorwaarden...")
+        arbeidsvoorwaarden = extractor.extract_arbeidsvoorwaarden(markdown_text)
 
-    # Extract moments
-    console.print("  [bold]Extracting momenten...[/bold]")
-    moment_extractor = MomentExtractor(settings)
-    momenten_set = moment_extractor.extract_moments(markdown_text, name)
+        console.print("  Extracting inlenersbeloning...")
+        inlenersbeloning = extractor.extract_inlenersbeloning(markdown_text)
+
+        console.print("  [bold]Extracting momenten...[/bold]")
+        moment_extractor = MomentExtractor(settings)
+        momenten_set = moment_extractor.extract_moments(markdown_text, name)
 
     # Assemble full document
     now = datetime.utcnow()
