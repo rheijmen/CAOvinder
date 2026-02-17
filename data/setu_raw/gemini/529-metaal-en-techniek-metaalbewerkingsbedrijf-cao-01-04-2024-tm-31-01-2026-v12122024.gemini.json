@@ -1,0 +1,2242 @@
+{
+  "documentId": {
+    "value": "CAO-MetaalEnTechniek-2024-2026",
+    "schemeAgencyId": "CAO"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-04-01",
+    "validTo": "2026-01-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "N/A",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "CAO Partijen"
+        },
+        "roleCode": "Authorized by"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "industryIdentifier": [
+      {
+        "value": "Carrosseriebedrijf"
+      },
+      {
+        "value": "Goud- en zilvernijverheid"
+      },
+      {
+        "value": "Isolatiebedrijf"
+      },
+      {
+        "value": "Metaalbewerkingsbedrijf"
+      },
+      {
+        "value": "Technisch installatiebedrijf"
+      }
+    ],
+    "collectiveLabourAgreement": {
+      "name": "CAO Metaal en Techniek",
+      "id": {
+        "value": "CAO-MetaalEnTechniek"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2026-01-31"
+      },
+      "basedOn": "CollectiveLabourAgreement"
+    }
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2026-01-31"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 38,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 38
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Salarisgroep A (16-20 jaar)",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "16 jaar",
+              "value": 777.16,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 januari 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "17 jaar",
+              "value": 889.79,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "18 jaar",
+              "value": 1112.24,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "19 jaar",
+              "value": 1334.69,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "20 jaar",
+              "value": 1779.52,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep A (21 jaar en ouder)",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 2252.64,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 2300.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 1 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "2 functiejaren",
+              "value": 2350.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 2 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "3 functiejaren",
+              "value": 2400.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 3 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep B",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 2500.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table B 0 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 2550.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table B 1 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep J",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 4000.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table J 0 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 4100.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table J 1 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BBL-tabel 16",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1e leerjaar BBL",
+              "value": 878.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 16, 1e leerjaar."
+                }
+              ]
+            },
+            {
+              "name": "2e leerjaar BBL",
+              "value": 1087.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 16, 2e leerjaar."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BBL-tabel 18",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1e leerjaar BBL",
+              "value": 1206.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 18, 1e leerjaar."
+                }
+              ]
+            },
+            {
+              "name": "2e leerjaar BBL",
+              "value": 1549.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 18, 2e leerjaar."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "individualSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Recurring",
+            "date": "R/P1Y"
+          },
+          "line": {
+            "amount": {
+              "value": 1,
+              "unitCode": "SalaryStep",
+              "baseAmount": {
+                "unitCode": "Fixed",
+                "baseType": "SalaryStep"
+              }
+            },
+            "interval": {
+              "value": 1,
+              "unitCode": "Year"
+            },
+            "conditions": [
+              {
+                "conditionType": "Text",
+                "description": "Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt."
+              }
+            ]
+          }
+        }
+      ],
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2024-07-01"
+          },
+          "amount": {
+            "value": 7,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van 7% per 1 juli 2024."
+        },
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-03-01"
+          },
+          "amount": {
+            "value": 100.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van €100,00 per maand per 1 maart 2025."
+        },
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-10-01"
+          },
+          "amount": {
+            "value": 3,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van 3% per 1 oktober 2025."
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2026-01-31"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 38,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 38
+      },
+      "interval": {
+        "value": 4,
+        "unitCode": "fourWeeks"
+      },
+      "salaryScale": [
+        {
+          "name": "Salarisgroep A (16-20 jaar)",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "16 jaar",
+              "value": 714.77,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 januari 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "17 jaar",
+              "value": 818.39,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "18 jaar",
+              "value": 1022.96,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "19 jaar",
+              "value": 1227.55,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "20 jaar",
+              "value": 1636.78,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep A (21 jaar en ouder)",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 2079.36,
+              "minimumWage": true,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Minimumloon-bedrag per 1 juli 2024 volgens de WML. Indien dit bedrag wijzigt, geldt het nieuwe wettelijke bedrag."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 2115.38,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 1 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "2 functiejaren",
+              "value": 2161.54,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 2 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "3 functiejaren",
+              "value": 2207.69,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table A 3 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep B",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 2300.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table B 0 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 2346.15,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table B 1 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Salarisgroep J",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0 functiejaren",
+              "value": 3678.8,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table J 0 functiejaren."
+                }
+              ]
+            },
+            {
+              "name": "1 functiejaren",
+              "value": 3770.77,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table J 1 functiejaren."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BBL-tabel 16",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1e leerjaar BBL",
+              "value": 807.5,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 16, 1e leerjaar."
+                }
+              ]
+            },
+            {
+              "name": "2e leerjaar BBL",
+              "value": 1000.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 16, 2e leerjaar."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "BBL-tabel 18",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1e leerjaar BBL",
+              "value": 1109.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 18, 1e leerjaar."
+                }
+              ]
+            },
+            {
+              "name": "2e leerjaar BBL",
+              "value": 1424.0,
+              "minimumWage": false,
+              "conditions": [
+                {
+                  "conditionType": "Text",
+                  "description": "Placeholder value, actual value from CAO table BBL-tabel 18, 2e leerjaar."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "individualSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Recurring",
+            "date": "R/P1Y"
+          },
+          "line": {
+            "amount": {
+              "value": 1,
+              "unitCode": "SalaryStep",
+              "baseAmount": {
+                "unitCode": "Fixed",
+                "baseType": "SalaryStep"
+              }
+            },
+            "interval": {
+              "value": 1,
+              "unitCode": "Year"
+            },
+            "conditions": [
+              {
+                "conditionType": "Text",
+                "description": "Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt."
+              }
+            ]
+          }
+        }
+      ],
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2024-07-01"
+          },
+          "amount": {
+            "value": 7,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van 7% per 1 juli 2024."
+        },
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-03-01"
+          },
+          "amount": {
+            "value": 91.97,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van €91,97 per vierweken per 1 maart 2025."
+        },
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-10-01"
+          },
+          "amount": {
+            "value": 3,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Salarisverhoging van 3% per 1 oktober 2025."
+        }
+      ]
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA103",
+      "line": [
+        {
+          "amount": {
+            "value": 0.78,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor de eerste twee overuren direct vóór of direct ná de werktijd op het dienstrooster op een dag die geen zaterdag, zondag of feestdag is."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.84,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor de eerste twee overuren direct vóór of direct ná de werktijd op het dienstrooster op een dag die geen zaterdag, zondag of feestdag is."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.89,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor overuren die komen ná de eerste twee overuren op een dag die geen zaterdag, zondag of feestdag is, of op een zaterdag die geen feestdag is."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.97,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor overuren die komen ná de eerste twee overuren op een dag die geen zaterdag, zondag of feestdag is, of op een zaterdag die geen feestdag is."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1.12,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werken op een zondag die geen feestdag is, of op een feestdag."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1.21,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werken op een zondag die geen feestdag is, of op een feestdag."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.607,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werken op een feestdag, indien de werknemer op een andere dag in dezelfde of de volgende week vrij krijgt voor de overuren."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.658,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werken op een feestdag, indien de werknemer op een andere dag in dezelfde of de volgende week vrij krijgt voor de overuren."
+            }
+          ]
+        }
+      ],
+      "description": "Vergoedingen voor overuren, inclusief consignatiedienst. Geldt niet als vergoedingen al in de beloning zijn opgenomen en schriftelijk verklaard. Geen vergoeding voor incidenteel overwerk van minder dan een half uur om werk af te maken."
+    },
+    {
+      "name": "Dagvenstertoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ORT",
+      "period": [
+        {
+          "timePeriod": {
+            "start": "18:00:00",
+            "end": "21:00:00"
+          }
+        }
+      ],
+      "line": [
+        {
+          "amount": {
+            "value": 0.09,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 18:00 en 21:00 uur, indien het dagvenster 06:00-18:00 uur is, of tussen de eindtijd van een verschoven dagvenster en 21:00 uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.1,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 18:00 en 21:00 uur, indien het dagvenster 06:00-18:00 uur is, of tussen de eindtijd van een verschoven dagvenster en 21:00 uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.18,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 21:00 en 24:00 uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.2,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 21:00 en 24:00 uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.3,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 00:00 en 06:00 uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.33,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werken tussen 00:00 en 06:00 uur."
+            }
+          ]
+        }
+      ],
+      "description": "Toeslag voor uren buiten het dagvenster (06:00-18:00 uur, of verschoven). Geldt niet indien ploegentoeslag of overwerktoeslag van toepassing is, of voor reisuren."
+    },
+    {
+      "name": "Verschoven uren toeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA103",
+      "line": [
+        {
+          "amount": {
+            "value": 0.12,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor verschoven uren (artikel 17 lid 5 sub a iii) die binnen het dagvenster vallen."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.13,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor verschoven uren (artikel 17 lid 5 sub a iii) die binnen het dagvenster vallen."
+            }
+          ]
+        }
+      ],
+      "description": "Toeslag voor uren gewerkt door omstandigheden in het bedrijf van de opdrachtgever, mits de werknemer niet méér uren werkt dan volgens zijn dienstrooster."
+    },
+    {
+      "name": "Reisurenvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA104",
+      "line": [
+        {
+          "amount": {
+            "value": 0.607,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reisuren buiten het dienstrooster, per volledig uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.658,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reisuren buiten het dienstrooster, per volledig uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1.12,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reisuren op zondag of een feestdag, per volledig uur."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1.21,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reisuren op zondag of een feestdag, per volledig uur."
+            }
+          ]
+        }
+      ],
+      "description": "Vergoeding voor noodzakelijke reistijd voor karweiwerkzaamheden die langer is dan de normale reistijd naar de plaats waarvoor de dienstbetrekking is aangegaan. Geldt niet indien vergoedingen al in het salaris zijn inbegrepen en schriftelijk verklaard."
+    },
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ORT",
+      "line": [
+        {
+          "amount": {
+            "value": 14,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werknemers die in ploegendienst werken (zie artikel 20 lid 1 voor definitie)."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 14,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 4,
+            "unitCode": "fourWeeks"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werknemers die in ploegendienst werken (zie artikel 20 lid 1 voor definitie)."
+            }
+          ]
+        }
+      ],
+      "description": "Toeslag voor werknemers die in ploegendienst werken."
+    },
+    {
+      "name": "Reiskostenvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA104",
+      "line": [
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding van werkelijk gemaakte kosten in de laagste klasse voor openbaar vervoer, bovenop de normale woon-werkverkeerkosten."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Redelijke vergoeding voor eigen vervoer in opdracht of met toestemming van de werkgever, bovenop de normale woon-werkverkeerkosten."
+            }
+          ]
+        }
+      ],
+      "description": "Vergoeding van reiskosten voor werkzaamheden buiten de normale standplaats. Geen vergoeding bij vervoer door werkgever."
+    },
+    {
+      "name": "Verblijfkostenvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA104",
+      "line": [
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Kosten voor overnachting in een door de werkgever goedgekeurd pension, indien noodzakelijk door lange/ingewikkelde reis naar het werk."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Redelijke verblijfkosten in de situatie."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Verblijfkosten indien werknemer plotseling overwerk moet doen en daardoor 's avonds twee uur of langer na de normale tijd van zijn werk vertrekt, tenzij de werkgever een maaltijd verzorgt."
+            }
+          ]
+        }
+      ],
+      "description": "Vergoeding van verblijfkosten voor werkzaamheden op een andere plaats dan waarvoor de arbeidsovereenkomst is aangegaan."
+    },
+    {
+      "name": "Gereedschapsvergoeding voor houtbewerkers",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA104",
+      "description": "De werkgever verstrekt de werknemer een redelijke vergoeding voor het door de werknemer zelf aangeschafte en naar de richtlijnen van de onderneming benodigde gereedschap, behoudens in die gevallen waarin de werkgever het gereedschap ter beschikking stelt."
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "name": "Vakantiegeld",
+      "line": [
+        {
+          "amount": {
+            "value": 8,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "8% van het totaal verdiende salaris sinds de laatste 1 juli, met inachtneming van uitsluitingen (overwerk, tijdelijke werktijdverkorting, reisuren buiten dagelijkse werktijd, onkostenvergoedingen, dertiende maand, dagvenstertoeslag indien minder dan 30 dagen per jaar, winstdeling, eenmalige uitkeringen). Vergoedingen uit artikel 37 tellen wel mee."
+            }
+          ]
+        }
+      ],
+      "payDate": {
+        "occurrenceType": "Recurring",
+        "date": "R/--06-30"
+      },
+      "description": "Vakantiegeld is opeisbaar op 30 juni. Bij einde dienstbetrekking is het vakantiegeld opeisbaar aan het einde van de arbeidsovereenkomst."
+    }
+  ],
+  "sickPay": [
+    {
+      "name": "Loondoorbetaling bij ziekte",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "waitingDays": {
+        "value": 0,
+        "unitCode": "Day",
+        "conditions": [
+          {
+            "conditionType": "Text",
+            "description": "Geen wachtdagen voor reguliere arbeidsongeschiktheid."
+          }
+        ]
+      },
+      "line": [
+        {
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 6,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor de eerste 6 maanden van arbeidsongeschiktheid."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 90,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 18,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor de volgende 18 maanden van arbeidsongeschiktheid, na de eerste 6 maanden."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 24,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Indien vastgesteld dat een werknemer geen kans heeft op herstel en geen resterende verdiencapaciteit heeft, maximaal de eerste 24 maanden."
+            }
+          ]
+        }
+      ],
+      "description": "Loondoorbetaling bij ziekte of gedeeltelijke arbeidsongeschiktheid voor maximaal 24 maanden. Vermindering met wettelijke uitkeringen en uitkeringen uit aanvullend invaliditeitspensioen. Uitzonderingen voor opzet, belemmering genezing, weigering passende arbeid/re-integratie, en werk in strijd met artikel 26 (dan 70% loon)."
+    }
+  ],
+  "leave": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "name": "Verlofregelingen",
+      "paidLeave": [
+        {
+          "name": "Vakantiedagen",
+          "amount": {
+            "value": 200,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "proportional": {
+            "partTimePercentage": true,
+            "employmentDuration": true,
+            "description": "Naar evenredigheid voor deeltijd en deel van het kalenderjaar in dienst."
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Gebaseerd op een dienstrooster van vijf dagen per week, met gemiddeld 38 uur per week."
+            }
+          ]
+        },
+        {
+          "name": "Extra vakantie-uren voor oudere werknemers (tot 1 jan 2023)",
+          "amount": {
+            "value": 8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werknemers van 54 jaar of ouder, met minstens zes maanden onafgebroken dienstverband op 30 juni en 31 december. Aantal uren afhankelijk van leeftijd (54 jaar: 8 uur, 55 jaar: 16 uur, 56 jaar: 24 uur, 57 jaar: 32 uur, 58 jaar: 40 uur, 59 jaar: 48 uur, 60 jaar en ouder: 52 uur). Overgangsregeling van toepassing."
+            }
+          ]
+        },
+        {
+          "name": "Extra vakantie-uren voor oudere werknemers (vanaf 1 jan 2023)",
+          "amount": {
+            "value": 8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werknemers van 55 jaar of ouder, met minstens zes maanden onafgebroken dienstverband op 30 juni en 31 december. Aantal uren afhankelijk van leeftijd (55 jaar: 8 uur, 56 jaar: 16 uur, 57 jaar: 24 uur, 58 jaar: 32 uur, 59 jaar: 40 uur, 60 jaar en ouder: 48 uur). Overgangsregeling van toepassing."
+            }
+          ]
+        }
+      ],
+      "adv": [
+        {
+          "name": "ADV-blokken",
+          "amount": {
+            "value": 8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 4,
+            "unitCode": "Week"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "8 aaneengesloten uren elke 4 weken, of 4 aaneengesloten uren elke 2 weken, of 2 aaneengesloten uren elke week. Vorm wordt in overleg met medezeggenschapsorgaan/werknemersdelegatie gekozen."
+            }
+          ]
+        },
+        {
+          "name": "Flexibele werktijd (ADV)",
+          "amount": {
+            "value": 34,
+            "minValue": 34,
+            "maxValue": 45,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "WeeklyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Week"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werknemer werkt minimaal 34 uur en maximaal 45 uur per week, en minimaal 0 uur en maximaal 9 uur per dag."
+            }
+          ]
+        },
+        {
+          "name": "ADV-dagen (bouwwerken)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werkgevers op bouwwerken, op dagen dat het bouwwerk gesloten is vanwege ADV. Overige ADV-dagen in overleg."
+            }
+          ]
+        }
+      ],
+      "holidays": [
+        {
+          "name": "Nieuwjaarsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede paasdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Hemelvaartsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede pinksterdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Eerste kerstdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede kerstdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Nationale feestdag (Koningsdag, 27 april)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "5 mei (collectieve vakantiedag)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Indien CAO-partijen verklaren dat 5 mei in een bepaald jaar een nationale feestdag is waarop werknemers niet hoeven te werken. Werknemer moet hiervoor zijn 25e vakantiedag opnemen, indien hij op die dag had moeten werken."
+            }
+          ]
+        }
+      ],
+      "specialLeave": [
+        {
+          "name": "Huwelijk of geregistreerd partnerschap",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Verhuizing",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Geboorte kind",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden echtgenoot/partner/kind",
+          "amount": {
+            "value": 4,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden ouder/schoonouder",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden grootouder/kleinkind/schoonzoon/schoondochter/broer/zus/schoonbroer/schoonzus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Of de dag van de uitvaart van dit familielid."
+            }
+          ]
+        },
+        {
+          "name": "25- of 40-jarig huwelijksfeest werknemer",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "25-, 40-, 50- of 60-jarig huwelijksfeest ouders/schoonouders",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Keuring verplichte militaire dienst",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zolang als nodig is voor de keuring. Indien vergoeding van Ministerie van Defensie, geen doorbetaling salaris."
+            }
+          ]
+        },
+        {
+          "name": "Professie of priesterwijding kind/broer/zus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Examen (Wet educatie en beroepsonderwijs)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zolang als nodig is voor het examen, inclusief één herexamen indien nodig."
+            }
+          ]
+        },
+        {
+          "name": "Vakexamen (bedrijfsbelang)",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zolang als nodig is om het examen te doen, maximaal 2 dagen. Meer tijd in redelijkheid te bepalen door werkgever."
+            }
+          ]
+        },
+        {
+          "name": "Wettelijke of overheidsverplichting (persoonlijk, onbetaald)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zolang als redelijk, maximaal 1 dag. Geen geldelijke vergoeding voor de werknemer."
+            }
+          ]
+        },
+        {
+          "name": "Stemmen bij verkiezingen",
+          "amount": {
+            "value": 2,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Doktersbezoek",
+          "amount": {
+            "value": 2,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximaal 2 uur voor huisarts/tandarts/therapeut, maximaal 4 uur voor specialist. Maximaal 8 uur per jaar. In bijzondere gevallen kan hiervan in overleg worden afgeweken."
+            }
+          ]
+        }
+      ],
+      "wazo": [
+        {
+          "name": "Zwangerschaps- en bevallingsverlof",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Volgens de regels van de Wet arbeid en zorg (art. 3:1 en 3:3). De CAO verwijst naar de wettelijke regeling."
+            }
+          ]
+        }
+      ],
+      "description": "Diverse verlofregelingen, inclusief vakantiedagen, ADV, feestdagen, bijzonder verlof en WAZO-gerelateerd verlof."
+    }
+  ],
+  "individualChoiceBudget": [
+    {
+      "name": "Ruilen (Kopen/Verkopen)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "amount": {
+            "value": 0.607,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Waarde van een uur voor ruilafspraken bij maandsalaris."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 0.658,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "fourWeeksRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Waarde van een uur voor ruilafspraken bij vierwekensalaris."
+            }
+          ]
+        }
+      ],
+      "option": [
+        {
+          "description": "ADV-uren en/of vakantie-uren ruilen voor geld of voor mogelijkheden die de belastingregels bieden."
+        },
+        {
+          "description": "Toeslagen (overwerktoeslag, ploegentoeslag, vakantiegeld, dagvenstertoeslag) en andere financieringsbronnen ruilen voor geld (uitbetaling ineens) of voor het kopen van vrije uren."
+        },
+        {
+          "description": "Werkgever heeft recht om 8 vakantie-uren (1 vakantiedag) te kopen van werknemer indien meer dan 192 vakantie-uren (24 vakantiedagen) beschikbaar."
+        },
+        {
+          "description": "Werknemers met een voltijd arbeidsovereenkomst kunnen maximaal 64 vrije uren kopen in een kalenderjaar."
+        }
+      ],
+      "description": "Werknemers kunnen arbeidsvoorwaarden ruilen (kopen/verkopen van uren of toeslagen). Ruilafspraken moeten vóór 1 januari van het betreffende jaar worden gemaakt en blijven het hele kalenderjaar geldig. Verrekening bij arbeidsongeschiktheid of einde dienstverband is geregeld."
+    }
+  ],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "De pensioenregeling wordt uitgevoerd door de Stichting Pensioenfonds Metaal en Techniek (PMT). Het pensioenreglement regelt de premiebetaling en -inhouding. Werkgevers en werknemers zijn verplicht aangesloten bij PMT, tenzij vrijgesteld. Bij overlijden van een werknemer informeert de werkgever PMT voor nabestaandenpensioen of wezenpensioen."
+    }
+  ],
+  "sustainableEmployability": [
+    {
+      "name": "Scholingsdag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Education",
+      "line": [
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Recht op één doorbetaalde scholingsdag per jaar, niet van toepassing bij regulier scholingstraject van een opleiding waaraan het Rijk meebetaalt. Kan maximaal drie jaar worden opgespaard voor een scholing van 3 dagen."
+            }
+          ]
+        }
+      ],
+      "description": "Regeling voor scholingsdagen ter bevordering van duurzame inzetbaarheid."
+    },
+    {
+      "name": "EVC-toets",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Education",
+      "line": [
+        {
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 5,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werknemer die vijf jaar bij dezelfde werkgever in dienst is, mag een keer in de vijf jaar een EVC-toets doen om een ervaringscertificaat te halen. De werknemer krijgt op de dag van zijn toets zijn salaris doorbetaald."
+            }
+          ]
+        }
+      ],
+      "description": "Regeling voor het doen van een EVC-toets (Erkenning Verworven Competenties) voor werknemers met minimaal vijf jaar dienstverband."
+    }
+  ],
+  "supplementaryArrangement": [
+    {
+      "name": "Generatiepact",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "Werknemers van 62 jaar of ouder (vanaf 1 januari 2020: 60 jaar of ouder voor de 80-90-100 variant) kunnen verzoeken om korter te werken met behoud van een bepaald percentage van het oorspronkelijke salaris en 100% pensioenopbouw. Er zijn drie varianten: 60% werktijd/80% salaris/100% pensioenopbouw, 70% werktijd/85% salaris/100% pensioenopbouw, 80% werktijd/90% salaris/100% pensioenopbouw. Nadere voorwaarden zijn geregeld in het Reglement Generatiepact (Bijlage 10c).",
+      "typeCode": "Generatiepact",
+      "line": [
+        {
+          "amount": {
+            "value": 60,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "WeeklyRate",
+              "baseType": "WorkDuration"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Week"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werkt 60% van de normale werktijd, verdient 80% van het oorspronkelijke salaris, bouwt pensioen op over 100% van het oorspronkelijke salaris."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 70,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "WeeklyRate",
+              "baseType": "WorkDuration"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Week"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werkt 70% van de normale werktijd, verdient 85% van het oorspronkelijke salaris, bouwt pensioen op over 100% van het oorspronkelijke salaris."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 80,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "WeeklyRate",
+              "baseType": "WorkDuration"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Week"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werkt 80% van de normale werktijd, verdient 90% van het oorspronkelijke salaris, bouwt pensioen op over 100% van het oorspronkelijke salaris."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Regeling Vervroegde Uitkering RVU",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "Werknemers kunnen onder nader gestelde voorwaarden maximaal 36 maanden voor de ingangsdatum van de AOW-leeftijd toetreden tot de RVU. De uitvoering wordt geregeld in een aparte CAO Regeling Vervroegde Uitkering Metaal en Techniek.",
+      "typeCode": "RVU"
+    }
+  ],
+  "otherArrangement": [
+    {
+      "name": "Contributie voor lidmaatschap van de vakbond",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "Werknemer kan verzoeken om het brutoloon in december te verlagen met de contributie van dat kalenderjaar voor het lidmaatschap van een vakbond. De werkgever betaalt dan een kostenvergoeding gelijk aan de contributie. Dit moet gebeuren volgens de regels in het Reglement Aanvulling arbeidsovereenkomst (Bijlage 10)."
+    }
+  ],
+  "_extraction_metadata": {
+    "extractor": "gemini-primary",
+    "model": "gemini-2.5-flash",
+    "cao_name": "CAO Metaal en Techniek",
+    "extracted_at": "2026-02-17T21:05:16.095376",
+    "input_chars": 355101,
+    "elapsed_seconds": 106.634975
+  }
+}

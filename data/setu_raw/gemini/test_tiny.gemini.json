@@ -1,0 +1,211 @@
+{
+  "documentId": {
+    "value": "CAO-Test-Document-1",
+    "schemeAgencyId": "Employer"
+  },
+  "effectivePeriod": {
+    "validFrom": null,
+    "validTo": null
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "12345678",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "John Doe"
+        },
+        "roleCode": "Authorized by",
+        "positionTitle": "HR Manager"
+      }
+    ]
+  },
+  "baseDefinition": [],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Test CAO",
+      "id": {
+        "value": "TestCAO"
+      },
+      "effectivePeriod": {
+        "validFrom": null,
+        "validTo": null
+      }
+    },
+    "customLabourAgreement": false
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      }
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": null,
+        "validTo": null
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "minValue": 2500,
+          "maxValue": 2500,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2500
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2800,
+          "maxValue": 2800,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2800
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              }
+            }
+          ]
+        }
+      ],
+      "individualSalaryIncrease": [],
+      "generalSalaryIncrease": [],
+      "conditions": []
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA103",
+      "line": [
+        {
+          "amount": {
+            "value": 20,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA101",
+      "line": [
+        {
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [],
+  "sickPay": [],
+  "leave": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Vakantiedagen",
+          "amount": {
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "adv": [],
+      "holidays": [],
+      "specialLeave": [],
+      "wazo": []
+    }
+  ],
+  "individualChoiceBudget": [],
+  "pension": [],
+  "sustainableEmployability": [],
+  "supplementaryArrangement": [],
+  "otherArrangement": [],
+  "_extraction_metadata": {
+    "extractor": "gemini-primary",
+    "model": "gemini-2.5-flash",
+    "cao_name": "Test CAO",
+    "extracted_at": "2026-02-17T22:37:33.131830",
+    "input_chars": 269,
+    "elapsed_seconds": 51.502446
+  }
+}

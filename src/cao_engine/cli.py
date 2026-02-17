@@ -1,5 +1,6 @@
 """CLI application for the CAO Intelligence Engine."""
 
+import json
 from datetime import datetime
 from pathlib import Path
 
@@ -279,6 +280,402 @@ def moment_detail(
     console.print(f"[red]Moment not found: {moment_id}[/red]")
 
 
+# --- SETU Extraction Commands ---
+
+
+@app.command()
+def extract_setu(
+    ocr_path: Path = typer.Argument(..., help="Path to OCR markdown file (.md)"),
+    cao_naam: str | None = typer.Option(
+        None, "--cao", help="CAO name (for metadata)"
+    ),
+    output: Path | None = typer.Option(
+        None, "--output", "-o", help="Output path for SETU JSON (default: data/setu/)"
+    ),
+    second_opinion: bool = typer.Option(
+        True, "--second-opinion/--single-llm", help="Use dual-LLM validation (Mistral + Gemini)"
+    ),
+) -> None:
+    """Extract SETU v2.0 compliant JSON from CAO markdown using Mistral + Gemini 2.5 Flash."""
+    settings = _get_settings()
+
+    if not ocr_path.exists():
+        console.print(f"[red]File not found: {ocr_path}[/red]")
+        raise typer.Exit(1)
+
+    markdown_text = ocr_path.read_text(encoding="utf-8")
+    name = cao_naam or ocr_path.stem
+
+    console.print(f"[bold cyan]Extracting SETU v2.0 from:[/bold cyan] {ocr_path.name}")
+
+    if second_opinion:
+        # Dual-LLM extraction with second opinion
+        from cao_engine.extraction.second_opinion_orchestrator import DualLLMSETUExtractor
+
+        console.print(f"[dim]Using: Mistral {settings.extraction_model} + Gemini 2.5 Flash (Second Opinion)[/dim]\n")
+
+        extractor = DualLLMSETUExtractor(
+            mistral_api_key=settings.mistral_api_key,
+            gemini_api_key=settings.google_api_key,
+        )
+
+        setu_data = extractor.extract_with_second_opinion(markdown_text, name)
+
+        # Extract confidence metadata
+        metadata = setu_data.get("_orchestrator_metadata", {})
+        agreements = len(metadata.get("field_agreements", []))
+        disagreements = metadata.get("field_disagreements", [])
+        confidence = metadata.get("overall_confidence", 0.0)
+
+        # Display validation results
+        if disagreements:
+            console.print("[yellow]⚠️  Field Disagreements:[/yellow]")
+            for item in disagreements[:5]:  # Show first 5
+                console.print(f"  • {item['field']}: {item['resolution']}")
+            if len(disagreements) > 5:
+                console.print(f"  ... and {len(disagreements) - 5} more")
+            console.print()
+
+    else:
+        # Single LLM extraction (Mistral only)
+        from cao_engine.extraction.setu_extractor import MistralSETUExtractor
+
+        console.print(f"[dim]Using: Mistral {settings.extraction_model} (Single LLM)[/dim]\n")
+
+        extractor = MistralSETUExtractor(
+            api_key=settings.mistral_api_key,
+            model=settings.extraction_model,
+        )
+
+        setu_data = extractor.extract(markdown_text, name)
+        confidence = None
+
+    # Determine output path
+    if output is None:
+        setu_dir = settings.data_dir / "setu"
+        setu_dir.mkdir(parents=True, exist_ok=True)
+        output = setu_dir / f"{ocr_path.stem}.setu.json"
+
+    output.write_text(json.dumps(setu_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    # Display summary
+    summary_lines = [
+        f"[green]CAO:[/green] {name}",
+        f"[green]Has Remuneration:[/green] {bool(setu_data.get('remuneration'))}",
+        f"[green]Allowances:[/green] {len(setu_data.get('allowance', []))}",
+        f"[green]Leave Arrangements:[/green] {len(setu_data.get('leave', []))}",
+    ]
+
+    if second_opinion and confidence is not None:
+        summary_lines.append(f"[green]Confidence Score:[/green] {confidence:.1%}")
+        summary_lines.append(f"[green]Field Agreements:[/green] {agreements}")
+        summary_lines.append(f"[green]Field Disagreements:[/green] {len(disagreements)}")
+
+    summary_lines.append(f"[green]Output:[/green] {output}")
+
+    console.print(Panel(
+        "\n".join(summary_lines),
+        title="✅ SETU v2.0 Extraction Complete",
+    ))
+
+
+@app.command()
+def extract_statutory(
+    ocr_path: Path = typer.Argument(..., help="Path to OCR markdown file (.md)"),
+    cao_naam: str | None = typer.Option(None, "--cao", help="CAO name (for logging)"),
+    setu_id: str | None = typer.Option(None, "--setu-id", help="Link to SETU documentId.value"),
+    output: Path | None = typer.Option(
+        None, "--output", "-o", help="Output path (default: data/statutory/)"
+    ),
+) -> None:
+    """Extract Statutory References (WML, SV-premies, fiscal limits) from CAO markdown."""
+    settings = _get_settings()
+    from cao_engine.extraction.statutory_extractor import MistralStatutoryExtractor
+    from cao_engine.storage.statutory_store import StatutoryStore
+
+    if not ocr_path.exists():
+        console.print(f"[red]File not found: {ocr_path}[/red]")
+        raise typer.Exit(1)
+
+    markdown_text = ocr_path.read_text(encoding="utf-8")
+    name = cao_naam or ocr_path.stem
+
+    console.print(f"[bold cyan]Extracting Statutory References from:[/bold cyan] {ocr_path.name}")
+    console.print(f"[dim]Using: Mistral {settings.extraction_model}[/dim]\n")
+
+    extractor = MistralStatutoryExtractor(
+        api_key=settings.mistral_api_key,
+        model=settings.extraction_model,
+    )
+
+    statutory_data = extractor.extract(markdown_text, name, setu_id)
+
+    # Save to statutory store
+    if output is None:
+        store = StatutoryStore(settings)
+        output = store.save(statutory_data)
+    else:
+        output.write_text(json.dumps(statutory_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    # Display summary
+    summary_lines = [
+        f"[green]CAO:[/green] {name}",
+        f"[green]Has WML:[/green] {bool(statutory_data.get('minimumWage'))}",
+        f"[green]Has SV-premies:[/green] {bool(statutory_data.get('socialInsurancePremiums'))}",
+        f"[green]Has Fiscal Limits:[/green] {bool(statutory_data.get('fiscalLimits'))}",
+        f"[green]Has AOW Data:[/green] {bool(statutory_data.get('stateRetirementAge'))}",
+        f"[green]Has Pension Params:[/green] {bool(statutory_data.get('pensionParameters'))}",
+        f"[green]Regulatory Changes:[/green] {len(statutory_data.get('regulatoryChanges', []))}",
+    ]
+
+    if setu_id:
+        summary_lines.append(f"[green]Linked SETU ID:[/green] {setu_id}")
+
+    summary_lines.append(f"[green]Output:[/green] {output}")
+
+    console.print(Panel(
+        "\n".join(summary_lines),
+        title="✅ Statutory References Extraction Complete",
+    ))
+
+
+@app.command()
+def validate_cross_reference(
+    setu_path: Path = typer.Argument(..., help="Path to SETU JSON file"),
+    statutory_path: Path | None = typer.Option(
+        None, "--statutory", help="Path to Statutory JSON (auto-detected if not provided)"
+    ),
+) -> None:
+    """Validate SETU document against Statutory References (7 compliance rules)."""
+    settings = _get_settings()
+    from cao_engine.storage.statutory_store import StatutoryStore
+    from cao_engine.validation import CrossReferenceValidator, ValidationSeverity
+
+    if not setu_path.exists():
+        console.print(f"[red]SETU file not found: {setu_path}[/red]")
+        raise typer.Exit(1)
+
+    setu_data = json.loads(setu_path.read_text(encoding="utf-8"))
+    setu_id = setu_data.get("documentId", {}).get("value", "unknown")
+
+    # Auto-detect statutory file if not provided
+    if statutory_path is None:
+        store = StatutoryStore(settings)
+        statutory_data = store.load_by_setu_id(setu_id)
+        if not statutory_data:
+            console.print("[yellow]No linked statutory references found. Trying latest...[/yellow]")
+            all_files = store.list_all()
+            if all_files:
+                statutory_data = store.load(all_files[-1])
+                console.print(f"[dim]Using: {all_files[-1].name}[/dim]\n")
+            else:
+                console.print("[red]No statutory references found in data/statutory/[/red]")
+                raise typer.Exit(1)
+    else:
+        if not statutory_path.exists():
+            console.print(f"[red]Statutory file not found: {statutory_path}[/red]")
+            raise typer.Exit(1)
+        statutory_data = json.loads(statutory_path.read_text(encoding="utf-8"))
+
+    console.print(f"[bold cyan]Validating SETU ↔ Statutory cross-references[/bold cyan]")
+    console.print(f"[dim]SETU Document: {setu_id}[/dim]")
+    console.print(f"[dim]Statutory Period: {statutory_data.get('effectivePeriod', {})}[/dim]\n")
+
+    validator = CrossReferenceValidator()
+    report = validator.validate(setu_data, statutory_data)
+
+    # Display results
+    if not report.issues:
+        console.print("[green]✅ No validation issues found![/green]")
+        return
+
+    # Group by severity
+    criticals = [i for i in report.issues if i.severity == ValidationSeverity.CRITICAL]
+    errors = [i for i in report.issues if i.severity == ValidationSeverity.ERROR]
+    warnings = [i for i in report.issues if i.severity == ValidationSeverity.WARNING]
+    infos = [i for i in report.issues if i.severity == ValidationSeverity.INFO]
+
+    # Summary
+    console.print(f"\n[bold]Validation Summary:[/bold]")
+    console.print(f"  [red]Critical:[/red] {len(criticals)}")
+    console.print(f"  [red]Errors:[/red] {len(errors)}")
+    console.print(f"  [yellow]Warnings:[/yellow] {len(warnings)}")
+    console.print(f"  [blue]Info:[/blue] {len(infos)}\n")
+
+    # Display each issue
+    for issue in criticals + errors:
+        color = "red" if issue.severity == ValidationSeverity.CRITICAL else "red"
+        console.print(f"[{color}]● {issue.rule}[/{color}]: {issue.description}")
+        if issue.setu_field:
+            console.print(f"  SETU: {issue.setu_field} = {issue.setu_value}")
+        if issue.statutory_field:
+            console.print(f"  Statutory: {issue.statutory_field} = {issue.statutory_value}")
+        if issue.recommendation:
+            console.print(f"  → {issue.recommendation}")
+        console.print()
+
+    if warnings:
+        console.print("[yellow]Warnings:[/yellow]")
+        for issue in warnings:
+            console.print(f"[yellow]⚠ {issue.rule}[/yellow]: {issue.description}")
+            if issue.recommendation:
+                console.print(f"  → {issue.recommendation}")
+        console.print()
+
+    if infos:
+        console.print("[blue]Information:[/blue]")
+        for issue in infos:
+            console.print(f"[blue]ℹ {issue.rule}[/blue]: {issue.description}")
+
+    if report.has_errors:
+        console.print(f"\n[red]❌ Validation failed with {report.error_count} critical/error issues[/red]")
+        raise typer.Exit(1)
+    else:
+        console.print(f"\n[green]✅ Validation passed ({len(warnings)} warnings, {len(infos)} info)[/green]")
+
+
+# --- Collection Commands ---
+
+
+def _print_collection_results(
+    results: list, stats: "CrawlStats", title: str = "Collection Complete"
+) -> None:
+    """Shared summary printer for collection commands."""
+    # Only show table for new downloads
+    new_results = [r for r in results if r.is_new]
+    if new_results:
+        table = Table(title="New CAO PDFs")
+        table.add_column("Sector")
+        table.add_column("File")
+        table.add_column("Size", justify="right")
+
+        for r in new_results:
+            table.add_row(
+                f"{r.sector}/{r.subsector}" if r.subsector else r.sector,
+                r.filename[:60],
+                f"{r.size_kb} KB" if r.size_kb else "-",
+            )
+        console.print(table)
+
+    console.print(Panel(
+        f"[green]Pages crawled:[/green] {stats.pages_visited}\n"
+        f"[dim]Pages skipped (unchanged):[/dim] {stats.pages_skipped}\n"
+        f"[green]PDFs found:[/green] {stats.pdfs_found}\n"
+        f"[bold green]New downloads:[/bold green] {stats.pdfs_new}\n"
+        f"[dim]Already had:[/dim] {stats.pdfs_skipped}\n"
+        f"[red]Failed:[/red] {stats.pdfs_failed}",
+        title=title,
+    ))
+
+
+@app.command()
+def collect_fnv(
+    output_dir: Path | None = typer.Option(
+        None, "--output", "-o", help="Output directory (default: data/raw/)"
+    ),
+    cao_only: bool = typer.Option(
+        False, "--cao-only", help="Only download files that look like actual CAO documents"
+    ),
+    full: bool = typer.Option(
+        False, "--full", help="Force a full scan instead of incremental"
+    ),
+) -> None:
+    """Collect CAO PDFs from fnv.nl (incremental by default, full with --full).
+
+    Uses the FNV sitemap to detect which pages changed since the last scan.
+    On first run (or with --full), crawls everything. Subsequent runs only
+    check modified pages — typically finishing in seconds.
+    """
+    settings = _get_settings()
+    from cao_engine.collection.fnv_collector import collect_full, collect_incremental
+
+    dest = output_dir or settings.raw_dir
+    dest.mkdir(parents=True, exist_ok=True)
+
+    mode = "full" if full else "incremental"
+    console.print(f"[bold cyan]FNV CAO Collector[/bold cyan] ({mode})")
+    console.print(f"Output: {dest.resolve()}\n")
+
+    if full:
+        results, stats = collect_full(dest, cao_only=cao_only)
+    else:
+        results, stats = collect_incremental(dest, cao_only=cao_only)
+
+    _print_collection_results(results, stats)
+
+
+@app.command()
+def triage_raw(
+    raw_dir: Path | None = typer.Option(
+        None, "--dir", "-d", help="Raw PDF directory (default: data/raw/)"
+    ),
+    execute: bool = typer.Option(
+        False, "--execute", help="Actually move files (default: dry-run preview)"
+    ),
+    limit: int | None = typer.Option(
+        None, "--limit", "-n", help="Only process N archive candidates (for testing)"
+    ),
+) -> None:
+    """Classify raw PDFs and archive non-relevant files.
+
+    Keeps: CAO documents, sociale plannen, functiehandboeken.
+    Archives to data/raw/old/: translations, older versions, brochures, reports, etc.
+
+    Default is dry-run (preview). Use --execute to actually move files.
+    """
+    settings = _get_settings()
+    from cao_engine.collection.triage import (
+        TriageAction, execute_triage, triage_directory,
+    )
+
+    dest = raw_dir or settings.raw_dir
+    if not dest.is_dir():
+        console.print(f"[red]Not a directory: {dest}[/red]")
+        raise typer.Exit(1)
+
+    results = triage_directory(dest, limit=limit)
+    if not results:
+        console.print("[yellow]No PDF files found.[/yellow]")
+        return
+
+    to_archive = [r for r in results if r.action == TriageAction.ARCHIVE]
+    to_keep = [r for r in results if r.action == TriageAction.KEEP]
+
+    # Show archive candidates
+    if to_archive:
+        table = Table(title=f"Archiveren ({len(to_archive)} bestanden)")
+        table.add_column("Bestand", max_width=65)
+        table.add_column("Categorie")
+        table.add_column("Reden", max_width=40)
+
+        for r in to_archive:
+            reason = r.reason
+            if r.newer_version:
+                reason += f" → {r.newer_version[:40]}"
+            table.add_row(r.filename[:65], r.category.value, reason)
+        console.print(table)
+
+    # Summary
+    mode = "[bold green]UITVOEREN[/bold green]" if execute else "[yellow]PREVIEW[/yellow]"
+    console.print(Panel(
+        f"Modus: {mode}\n"
+        f"[green]Behouden:[/green] {len(to_keep)}\n"
+        f"[yellow]Archiveren:[/yellow] {len(to_archive)}\n"
+        f"[dim]Totaal:[/dim] {len(results)}",
+        title="Triage Resultaat",
+    ))
+
+    if execute and to_archive:
+        kept, archived = execute_triage(dest, results, dry_run=False)
+        console.print(
+            f"\n[green]Klaar![/green] {archived} bestanden verplaatst naar {dest / 'old'}"
+        )
+    elif to_archive and not execute:
+        console.print(
+            "\n[dim]Dit is een preview. Gebruik --execute om bestanden daadwerkelijk te verplaatsen.[/dim]"
+        )
+
+
 # --- Info Commands ---
 
 
@@ -311,6 +708,88 @@ def info() -> None:
             ms = moment_store.load(cao_naam)
             if ms:
                 console.print(f"  {cao_naam}: {ms.count} momenten")
+
+
+@app.command()
+def extract_setu_pipeline(
+    ocr_path: Path,
+    cao: str | None = typer.Option(None, "--cao", help="CAO name for metadata"),
+) -> None:
+    """Extract SETU v2.0 using 3-LLM pipeline: Gemini (primary) → Mistral (reviewer) → Judge.
+
+    Sequential pipeline:
+    1. Gemini 2.5 Flash - Primary extraction (1M context, full document)
+    2. Mistral Large - Reviews Gemini's work, finds gaps
+    3. Mistral Small 2506 - Judges which output is best, produces final SETU + report
+
+    Outputs:
+    - data/setu_raw/gemini/*.json - Gemini's extraction
+    - data/setu_raw/mistral/*.json - Mistral's review
+    - data/setu/*.json - Final judged SETU v2.0
+    - data/setu_reports/*.json - Judge's decision report
+    """
+    settings = _get_settings()
+    settings.ensure_dirs()
+
+    from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
+    from cao_engine.extraction.mistral_reviewer import MistralReviewer
+    from cao_engine.extraction.mistral_judge import MistralJudge
+
+    # Read OCR markdown
+    markdown_text = ocr_path.read_text(encoding="utf-8")
+    console.print(f"[bold cyan]3-LLM SETU Pipeline[/bold cyan]")
+    console.print(f"Input: {ocr_path.name} ({len(markdown_text):,} chars)")
+    console.print(f"CAO: {cao or 'Unknown'}\n")
+
+    # Step 1: Gemini Primary Extraction
+    console.print("[bold]Step 1/3:[/bold] Gemini 2.5 Flash (Primary Extractor)")
+    gemini = GeminiPrimaryExtractor(settings.google_api_key, settings.gemini_model)
+    gemini_output = gemini.extract(markdown_text, cao)
+
+    # Save Gemini's output
+    gemini_file = settings.setu_raw_dir / "gemini" / f"{ocr_path.stem}.gemini.json"
+    gemini_file.write_text(json.dumps(gemini_output, indent=2, ensure_ascii=False))
+    console.print(f"  ✓ Gemini extraction saved: {gemini_file.relative_to(settings.data_dir)}")
+    console.print(f"  Fields extracted: {len(gemini_output)}\n")
+
+    # Step 2: Mistral Review
+    console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
+    reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction_model)
+    mistral_output = reviewer.review(markdown_text, gemini_output, cao)
+
+    # Save Mistral's output
+    mistral_file = settings.setu_raw_dir / "mistral" / f"{ocr_path.stem}.mistral.json"
+    mistral_file.write_text(json.dumps(mistral_output, indent=2, ensure_ascii=False))
+    console.print(f"  ✓ Mistral review saved: {mistral_file.relative_to(settings.data_dir)}")
+    console.print(f"  Fields extracted: {len(mistral_output)}\n")
+
+    # Step 3: Judge
+    console.print("[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
+    judge = MistralJudge(settings.mistral_api_key, settings.judge_model)
+    result = judge.judge(gemini_output, mistral_output, cao)
+
+    final_setu = result["final_setu"]
+    judge_report = result.get("judge_report", {})
+
+    # Save final SETU
+    setu_file = settings.setu_dir / f"{ocr_path.stem}.setu.json"
+    setu_file.write_text(json.dumps(final_setu, indent=2, ensure_ascii=False))
+
+    # Save judge report
+    report_file = settings.setu_reports_dir / f"{ocr_path.stem}.judge_report.json"
+    report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
+
+    console.print(Panel(
+        f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
+        f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
+        f"[bold]Judge Statistics:[/bold]\n"
+        f"  Total fields compared: {judge_report.get('total_fields_compared', '?')}\n"
+        f"  Agreements: {judge_report.get('agreements', '?')}\n"
+        f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
+        f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
+        f"  Merged: {judge_report.get('merged', '?')}",
+        title="✅ 3-LLM Pipeline Complete",
+    ))
 
 
 if __name__ == "__main__":

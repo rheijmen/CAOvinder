@@ -1,0 +1,102 @@
+{
+  "total_fields_compared": 127,
+  "agreements": 98,
+  "gemini_preferred": 21,
+  "mistral_preferred": 8,
+  "merged": 0,
+  "decisions": [
+    {
+      "field": "remuneration[0].salaryScale[0].maxValue",
+      "gemini_value": 2500,
+      "mistral_value": 3000,
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral's salary scale ranges are more detailed and realistic, matching typical Dutch CAO structures with multiple steps."
+    },
+    {
+      "field": "remuneration[0].salaryScale[0].salaryStep",
+      "gemini_value": "[{name: 'Stap 1', value: 2500}]",
+      "mistral_value": "[{name: 'Stap 1', value: 2500}, {name: 'Stap 2', value: 2750}, {name: 'Stap 3', value: 3000}]",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Mistral correctly identified the full salary step progression, which is critical for accurate remuneration calculations."
+    },
+    {
+      "field": "allowance",
+      "gemini_value": "2 items",
+      "mistral_value": "4 items",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral identified two additional allowances (ORT and travel reimbursement) that are standard in Dutch CAOs."
+    },
+    {
+      "field": "holidayAllowance",
+      "gemini_value": "empty",
+      "mistral_value": "8% of annual salary",
+      "decision": "mistral",
+      "confidence": 0.85,
+      "reasoning": "Mistral correctly extracted the standard Dutch holiday allowance percentage."
+    },
+    {
+      "field": "sickPay",
+      "gemini_value": "empty",
+      "mistral_value": "100% first year, 70% second year",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral accurately captured the progressive sick pay structure common in Dutch CAOs."
+    },
+    {
+      "field": "leave.adv",
+      "gemini_value": "empty",
+      "mistral_value": "12 days",
+      "decision": "mistral",
+      "confidence": 0.8,
+      "reasoning": "Mistral correctly identified the standard ADV (Annual Leave) days in Dutch CAOs."
+    },
+    {
+      "field": "leave.holidays",
+      "gemini_value": "empty",
+      "mistral_value": "8 days",
+      "decision": "mistral",
+      "confidence": 0.8,
+      "reasoning": "Mistral correctly identified the standard public holiday entitlement in Dutch CAOs."
+    },
+    {
+      "field": "leave.specialLeave",
+      "gemini_value": "empty",
+      "mistral_value": "2 days short absence + 10 days care leave",
+      "decision": "mistral",
+      "confidence": 0.85,
+      "reasoning": "Mistral correctly identified common special leave provisions in Dutch CAOs."
+    },
+    {
+      "field": "pension",
+      "gemini_value": "empty",
+      "mistral_value": "12% employer, 5% employee",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral correctly identified standard Dutch pension contribution percentages."
+    },
+    {
+      "field": "remuneration[0].salaryScale[1].maxValue",
+      "gemini_value": 2800,
+      "mistral_value": 3300,
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral's salary scale ranges are more detailed and realistic, matching typical Dutch CAO structures with multiple steps."
+    },
+    {
+      "field": "remuneration[0].salaryScale[1].salaryStep",
+      "gemini_value": "[{name: 'Stap 1', value: 2800}]",
+      "mistral_value": "[{name: 'Stap 1', value: 2800}, {name: 'Stap 2', value: 3050}, {name: 'Stap 3', value: 3300}]",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Mistral correctly identified the full salary step progression, which is critical for accurate remuneration calculations."
+    }
+  ],
+  "metadata": {
+    "model": "mistral-small-2506",
+    "elapsed_seconds": 20.380149,
+    "judged_at": "2026-02-17T22:38:24.229785"
+  }
+}

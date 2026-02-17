@@ -1,0 +1,405 @@
+{
+  "documentId": {
+    "value": "CAO-Test-Document-1",
+    "schemeAgencyId": "Employer"
+  },
+  "effectivePeriod": {
+    "validFrom": null,
+    "validTo": null
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "12345678",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "John Doe"
+        },
+        "roleCode": "Authorized by",
+        "positionTitle": "HR Manager"
+      }
+    ]
+  },
+  "baseDefinition": [],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Test CAO",
+      "id": {
+        "value": "TestCAO"
+      },
+      "effectivePeriod": {
+        "validFrom": null,
+        "validTo": null
+      }
+    },
+    "customLabourAgreement": false
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      }
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": null,
+        "validTo": null
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "minValue": 2500,
+          "maxValue": 3000,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2500
+            },
+            {
+              "name": "Stap 2",
+              "value": 2750
+            },
+            {
+              "name": "Stap 3",
+              "value": 3000
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2800,
+          "maxValue": 3300,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2800
+            },
+            {
+              "name": "Stap 2",
+              "value": 3050
+            },
+            {
+              "name": "Stap 3",
+              "value": 3300
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              }
+            }
+          ]
+        }
+      ],
+      "individualSalaryIncrease": [],
+      "generalSalaryIncrease": [],
+      "conditions": []
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA103",
+      "line": [
+        {
+          "amount": {
+            "value": 20,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA101",
+      "line": [
+        {
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Onregelmatigheidstoeslag (ORT)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA102",
+      "line": [
+        {
+          "amount": {
+            "value": 15,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reiskostenvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "EA104",
+      "line": [
+        {
+          "amount": {
+            "value": 0.19,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Kilometer",
+              "baseType": "Distance"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "amount": {
+        "value": 8,
+        "unitCode": "Percentage",
+        "baseAmount": {
+          "unitCode": "AnnualSalary",
+          "baseType": "GrossSalary"
+        }
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Year"
+      }
+    }
+  ],
+  "sickPay": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "period": [
+        {
+          "name": "First Year",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlySalary",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Second Year",
+          "amount": {
+            "value": 70,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlySalary",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ]
+    }
+  ],
+  "leave": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Vakantiedagen",
+          "amount": {
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "adv": [
+        {
+          "name": "ADV-dagen",
+          "amount": {
+            "value": 12,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "holidays": [
+        {
+          "name": "Feestdagen",
+          "amount": {
+            "value": 8,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "specialLeave": [
+        {
+          "name": "Kort verzuimverlof",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Zorgverlof",
+          "amount": {
+            "value": 10,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "wazo": []
+    }
+  ],
+  "individualChoiceBudget": [],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "pensionFundName": "Pensioenfonds Test",
+      "employerContribution": {
+        "value": 12,
+        "unitCode": "Percentage"
+      },
+      "employeeContribution": {
+        "value": 5,
+        "unitCode": "Percentage"
+      }
+    }
+  ],
+  "sustainableEmployability": [],
+  "supplementaryArrangement": [],
+  "otherArrangement": [],
+  "_extraction_metadata": {
+    "extractor": "mistral-reviewer",
+    "model": "mistral-large-latest",
+    "cao_name": "Test CAO",
+    "extracted_at": "2026-02-17T22:38:03.804441",
+    "input_chars": 269,
+    "truncated": false,
+    "elapsed_seconds": 30.585745,
+    "reviewed_gemini_version": "2026-02-17T22:37:33.131830"
+  }
+}

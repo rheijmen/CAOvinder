@@ -9,12 +9,20 @@ class OCRPageDimensions(BaseModel):
     width: int
 
 
+class OCRTable(BaseModel):
+    """Table extracted from a page."""
+    id: str
+    content: str  # Markdown formatted table content
+    format: str = "markdown"
+
+
 class OCRPage(BaseModel):
     index: int
     markdown: str
     dimensions: OCRPageDimensions | None = None
     header: str | None = None
     footer: str | None = None
+    tables: list[OCRTable] = Field(default_factory=list)
 
 
 class OCRUsageInfo(BaseModel):
@@ -33,13 +41,21 @@ class OCRResult(BaseModel):
 
     @property
     def full_markdown(self) -> str:
-        """Combine all pages into a single markdown document."""
+        """Combine all pages into a single markdown document with tables inline."""
         parts = []
         for page in self.pages:
             parts.append(f"<!-- Page {page.index} -->")
             if page.header:
                 parts.append(f"> Header: {page.header}")
-            parts.append(page.markdown)
+
+            # Replace table references with actual table content
+            markdown = page.markdown
+            for table in page.tables:
+                # Replace [tbl-X.md](tbl-X.md) with the actual table content
+                markdown = markdown.replace(f"[{table.id}]({table.id})", f"\n{table.content}\n")
+
+            parts.append(markdown)
+
             if page.footer:
                 parts.append(f"> Footer: {page.footer}")
         return "\n\n---\n\n".join(parts)
