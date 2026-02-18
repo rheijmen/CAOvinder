@@ -792,5 +792,227 @@ def extract_setu_pipeline(
     ))
 
 
+# --- Timeline Commands ---
+
+
+@app.command()
+def generate_timeline(
+    cao_naam: str = typer.Argument(..., help="Name of the CAO to generate timeline for"),
+    format: str = typer.Option("both", "--format", help="Output format: html, json, or both"),
+    include_future: bool = typer.Option(True, "--include-future/--no-future", help="Include future events"),
+    include_notifications: bool = typer.Option(True, "--include-notifications/--no-notifications", help="Include notification events"),
+    output_dir: Path | None = typer.Option(None, "--output-dir", help="Custom output directory"),
+) -> None:
+    """Generate a visual timeline for a specific CAO."""
+    from cao_engine.storage.moment_store import MomentStore
+    from cao_engine.timeline.generator import TimelineGenerator
+    from cao_engine.timeline.visualization import TimelineVisualizer
+    from cao_engine.timeline.storage import TimelineStorage
+
+    settings = _get_settings()
+
+    # Initialize components
+    moment_store = MomentStore(settings)
+    generator = TimelineGenerator(moment_store)
+    visualizer = TimelineVisualizer()
+    storage = TimelineStorage(output_dir or settings.data_dir / "timelines")
+
+    console.print(f"[bold cyan]Generating timeline for: {cao_naam}[/bold cyan]")
+
+    try:
+        # Generate timeline
+        timeline = generator.generate_timeline(
+            cao_naam=cao_naam,
+            include_future=include_future,
+            include_notifications=include_notifications,
+        )
+
+        if timeline.total_entries == 0:
+            console.print(f"[yellow]Warning: No timeline entries found for {cao_naam}[/yellow]")
+            return
+
+        # Generate HTML if requested
+        html_content = None
+        if format in ["html", "both"]:
+            html_content = visualizer.generate_html(timeline)
+
+        # Save timeline
+        json_path, html_path = storage.save_timeline(
+            timeline=timeline,
+            format=format,
+            html_content=html_content,
+        )
+
+        # Create summary
+        summary = generator.create_timeline_summary(timeline)
+
+        # Display results
+        table = Table(title=f"Timeline: {cao_naam}")
+        table.add_column("Metric", style="cyan")
+        table.add_column("Value", style="white")
+
+        table.add_row("Total Events", str(summary["total_entries"]))
+        table.add_row("Future Events", str(summary["future_entries"]))
+        table.add_row("Past Events", str(summary["past_entries"]))
+        table.add_row("Recurring Events", str(summary["recurring_entries"]))
+        table.add_row("Upcoming (30 days)", str(summary["upcoming_30_days"]))
+
+        if summary["date_range"]["start"] and summary["date_range"]["end"]:
+            table.add_row(
+                "Date Range",
+                f"{summary['date_range']['start']} to {summary['date_range']['end']}"
+            )
+
+        console.print(table)
+
+        # Show category breakdown
+        if summary["categories"]:
+            cat_table = Table(title="Events by Category")
+            cat_table.add_column("Category", style="cyan")
+            cat_table.add_column("Count", style="white")
+
+            for category, count in summary["categories"].items():
+                cat_table.add_row(category.replace("_", " ").title(), str(count))
+
+            console.print(cat_table)
+
+        # Show output paths
+        console.print("\n[green]✓ Timeline generated successfully![/green]")
+        if json_path:
+            console.print(f"  JSON: {json_path}")
+        if html_path:
+            console.print(f"  HTML: {html_path}")
+            console.print(f"\n[yellow]Open the HTML file in a browser to view the interactive timeline[/yellow]")
+
+    except Exception as e:
+        console.print(f"[red]Error generating timeline: {e}[/red]")
+        raise typer.Exit(1)
+
+
+@app.command()
+def generate_all_timelines(
+    format: str = typer.Option("both", "--format", help="Output format: html, json, or both"),
+    include_future: bool = typer.Option(True, "--include-future/--no-future", help="Include future events"),
+    include_notifications: bool = typer.Option(True, "--include-notifications/--no-notifications", help="Include notification events"),
+    output_dir: Path | None = typer.Option(None, "--output-dir", help="Custom output directory"),
+) -> None:
+    """Generate timelines for all CAOs with available moments."""
+    from cao_engine.storage.moment_store import MomentStore
+    from cao_engine.timeline.generator import TimelineGenerator
+    from cao_engine.timeline.visualization import TimelineVisualizer
+    from cao_engine.timeline.storage import TimelineStorage
+
+    settings = _get_settings()
+
+    # Initialize components
+    moment_store = MomentStore(settings)
+    generator = TimelineGenerator(moment_store)
+    visualizer = TimelineVisualizer()
+    storage = TimelineStorage(output_dir or settings.data_dir / "timelines")
+
+    console.print("[bold cyan]Generating timelines for all CAOs...[/bold cyan]")
+
+    # Get all CAOs
+    cao_names = moment_store.list_caos()
+    if not cao_names:
+        console.print("[yellow]No CAOs with moments found[/yellow]")
+        return
+
+    console.print(f"Found {len(cao_names)} CAO(s) with moments\n")
+
+    # Generate timelines
+    all_timelines = {}
+    success_count = 0
+    failed_caos = []
+
+    with console.status("Generating timelines...") as status:
+        for cao_naam in cao_names:
+            status.update(f"Processing {cao_naam}...")
+
+            try:
+                # Generate timeline
+                timeline = generator.generate_timeline(
+                    cao_naam=cao_naam,
+                    include_future=include_future,
+                    include_notifications=include_notifications,
+                )
+
+                if timeline.total_entries > 0:
+                    # Generate HTML if requested
+                    html_content = None
+                    if format in ["html", "both"]:
+                        html_content = visualizer.generate_html(timeline)
+
+                    # Save timeline
+                    storage.save_timeline(
+                        timeline=timeline,
+                        format=format,
+                        html_content=html_content,
+                    )
+
+                    all_timelines[cao_naam] = timeline
+                    success_count += 1
+                    console.print(f"  ✓ {cao_naam}: {timeline.total_entries} events")
+                else:
+                    console.print(f"  ⚠ {cao_naam}: No events found")
+
+            except Exception as e:
+                failed_caos.append(cao_naam)
+                console.print(f"  ✗ {cao_naam}: {str(e)}", style="red")
+
+    # Generate index HTML if we have timelines
+    if all_timelines and format in ["html", "both"]:
+        index_path = storage.save_index_html(all_timelines)
+        console.print(f"\n[green]✓ Generated index file: {index_path}[/green]")
+
+    # Summary
+    console.print(Panel(
+        f"[green]Successfully generated:[/green] {success_count} timeline(s)\n"
+        f"[yellow]Failed:[/yellow] {len(failed_caos)} CAO(s)\n"
+        f"[blue]Total events:[/blue] {sum(t.total_entries for t in all_timelines.values())}",
+        title="✅ Timeline Generation Complete",
+    ))
+
+    if format in ["html", "both"]:
+        console.print(f"\n[yellow]Open data/timelines/index.html in a browser to view all timelines[/yellow]")
+
+
+@app.command()
+def list_timelines(
+    output_dir: Path | None = typer.Option(None, "--output-dir", help="Custom timeline directory"),
+) -> None:
+    """List all available timelines."""
+    from cao_engine.timeline.storage import TimelineStorage
+
+    settings = _get_settings()
+    storage = TimelineStorage(output_dir or settings.data_dir / "timelines")
+
+    timelines = storage.list_timelines()
+
+    if not timelines:
+        console.print("[yellow]No timelines found[/yellow]")
+        return
+
+    table = Table(title="Available Timelines")
+    table.add_column("CAO Name", style="cyan")
+    table.add_column("Files", style="white")
+
+    for cao_name in timelines:
+        files = []
+        cao_name_clean = cao_name.lower().replace(" ", "_")
+        json_file = f"{cao_name_clean}_timeline.json"
+        html_file = f"{cao_name_clean}_timeline.html"
+
+        if (storage.data_dir / json_file).exists():
+            files.append("JSON")
+        if (storage.data_dir / html_file).exists():
+            files.append("HTML")
+
+        table.add_row(cao_name, ", ".join(files))
+
+    console.print(table)
+    console.print(f"\n[blue]Timeline directory: {storage.data_dir}[/blue]")
+
+
 if __name__ == "__main__":
     app()

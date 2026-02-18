@@ -165,26 +165,18 @@ class MistralJudge:
 
         content = content.strip()
 
-        # Extract just the JSON object (handle extra text after JSON)
-        # Find the first { and last }
-        start = content.find('{')
-        if start == -1:
-            raise ValueError(f"No JSON object found in judge response: {content[:200]}")
+        # Use a robust method to extract the JSON object, which may have surrounding text.
+        try:
+            # Find the start of the first JSON object
+            json_start_index = content.find('{')
+            if json_start_index == -1:
+                raise ValueError("No JSON object found in judge response")
 
-        # Count braces to find matching closing brace
-        brace_count = 0
-        end = start
-        for i in range(start, len(content)):
-            if content[i] == '{':
-                brace_count += 1
-            elif content[i] == '}':
-                brace_count -= 1
-                if brace_count == 0:
-                    end = i + 1
-                    break
-
-        json_str = content[start:end]
-        result = json.loads(json_str)
+            # Use raw_decode to parse the first valid JSON object from the string
+            result, _ = json.JSONDecoder().raw_decode(content[json_start_index:])
+        except (json.JSONDecodeError, ValueError) as e:
+            logger.error("Failed to parse JSON from judge response", content=content, error=str(e))
+            raise ValueError(f"Could not decode JSON from judge response: {e}") from e
 
         # Add judge metadata
         if "final_setu" not in result:

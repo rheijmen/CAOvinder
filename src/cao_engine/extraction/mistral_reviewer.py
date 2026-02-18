@@ -131,8 +131,8 @@ class MistralReviewer:
 
         # Build review prompt with compliance insights
         prompt = (
-            f"{compliance_prompt}\n\n"
-            f"YOUR ROLE: REVIEWER checking Gemini's work\n\n"
+            f"{MISTRAL_REVIEWER_PROMPT}\n\n"
+            f"COMPLIANCE GUIDELINES & SCHEMA:\n{compliance_prompt}\n\n"
             f"GEMINI'S COMPLIANCE ISSUES:\n"
             f"- Status: {gemini_status.value}\n"
             f"- Coverage: {gemini_report['coverage']:.1f}%\n"
@@ -147,31 +147,44 @@ class MistralReviewer:
             f"\nFOCUS ON FIXING THESE GAPS!\n\n"
             f"GEMINI'S EXTRACTION:\n```json\n{json.dumps(gemini_output, indent=2, ensure_ascii=False)}\n```\n\n"
             f"CAO Name: {cao_name or 'Unknown'}\n\n"
-            f"CAO Document (first 100K chars to save tokens):\n\n{text[:100_000]}"
+            f"CAO Document (up to 500K chars):\n\n{text}"
         )
 
         start_time = datetime.now()
-        response = self._client.chat.complete(
-            model=self._model,
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-            ],
-            temperature=0.1,
-        )
+        try:
+            response = self._client.chat.complete(
+                model=self._model,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                temperature=0.1,
+            )
+        except Exception as e:
+            logger.error("Mistral API call failed during review", error=str(e))
+            raise
         elapsed = (datetime.now() - start_time).total_seconds()
 
         # Parse JSON response (clean markdown artifacts if present)
         content = response.choices[0].message.content.strip()
+
         if content.startswith("```json"):
             content = content[7:]
         if content.startswith("```"):
             content = content[3:]
         if content.endswith("```"):
             content = content[:-3]
-        data = json.loads(content.strip())
+
+        try:
+            json_start_index = content.find('{')
+            if json_start_index == -1:
+                raise ValueError("No JSON object found in reviewer response")
+            data, _ = json.JSONDecoder().raw_decode(content[json_start_index:])
+        except (json.JSONDecodeError, ValueError) as e:
+            logger.error("Failed to parse JSON from reviewer response", content=content, error=str(e))
+            raise ValueError(f"Could not decode JSON from reviewer response: {e}") from e
 
         # Validate Mistral's extraction against SETU schema
         mistral_status, mistral_report = self._compliance_engine.validate_extraction(data)

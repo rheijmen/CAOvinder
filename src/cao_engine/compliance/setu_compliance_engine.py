@@ -162,7 +162,7 @@ CRITICAL REQUIREMENTS - These fields are MANDATORY:
 EXTRACTION RULES:
 
 1. DOCUMENT IDENTIFICATION
-   - documentId: Must be unique, use format "CAO-{number}-{year}"
+   - documentId: Must be unique, use format "CAO-[number]-[year]"
    - versionId: Use CAO version if specified, otherwise "1.0"
    - issued: Current datetime in ISO 8601 format
 

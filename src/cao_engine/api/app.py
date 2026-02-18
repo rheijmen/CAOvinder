@@ -2,6 +2,7 @@
 
 
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 
 from cao_engine import __version__
 from cao_engine.config import Settings
@@ -14,6 +15,15 @@ app = FastAPI(
     version=__version__,
 )
 
+# CORS middleware for frontend connection
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 def _get_settings() -> Settings:
     return Settings()
@@ -24,16 +34,17 @@ async def health():
     return {"status": "ok", "version": __version__}
 
 
-@app.get("/api/v1/caos")
-async def list_caos():
-    """List all processed CAO documents."""
-    settings = _get_settings()
-    store = JSONStore(settings)
-    docs = store.list_documents()
-    return {
-        "caos": [p.stem for p in docs],
-        "count": len(docs),
-    }
+# OLD ENDPOINT - Commented out to use the modern API from cao_routes.py
+# @app.get("/api/v1/caos")
+# async def list_caos():
+#     """List all processed CAO documents."""
+#     settings = _get_settings()
+#     store = JSONStore(settings)
+#     docs = store.list_documents()
+#     return {
+#         "caos": [p.stem for p in docs],
+#         "count": len(docs),
+#     }
 
 
 @app.get("/api/v1/momenten")
@@ -75,3 +86,8 @@ async def get_moment(moment_id: str):
                 return m.model_dump(mode="json")
 
     return {"error": "Moment not found"}
+
+
+# Import and include the modern API routes
+from cao_engine.api.routes.cao_routes import router as cao_router
+app.include_router(cao_router)
