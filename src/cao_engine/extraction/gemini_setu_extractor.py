@@ -6,6 +6,8 @@ Gemini 2.5 Flash features:
 - Very cheap (~$0.075 per 1M input tokens)
 - Native JSON Schema support
 - Good at structured extraction
+
+GOLD STANDARD: Uses SETU Compliance Engine for schema-driven extraction.
 """
 
 import json
@@ -13,6 +15,14 @@ from datetime import datetime
 from pathlib import Path
 
 import structlog
+
+try:
+    from cao_engine.compliance.setu_compliance_engine import get_compliance_engine
+except ImportError:
+    # Fallback for module imports
+    import sys
+    sys.path.append(str(Path(__file__).parent.parent))
+    from compliance.setu_compliance_engine import get_compliance_engine
 
 logger = structlog.get_logger(__name__)
 
@@ -22,44 +32,6 @@ _SETU_SCHEMA_RAW = json.loads(SETU_SCHEMA_PATH.read_text())
 
 # Strip JSON Schema metadata fields that Gemini doesn't support
 SETU_SCHEMA = {k: v for k, v in _SETU_SCHEMA_RAW.items() if k not in ("$schema", "$id")}
-
-GEMINI_SETU_PROMPT = """You are an expert in Dutch CAO (Collective Labour Agreement) documents and SETU v2.0 standards for the staffing industry.
-
-Extract ONLY the employment conditions OFFERED BY THE INLENER (hiring company) from this CAO and structure according to SETU Inquiry Pay Equity v2.0 schema.
-
-CRITICAL ROUTING RULE - Store separately, compare at read time, NEVER merge:
-- SETU = what the inlener OFFERS (CAO conditions, salary scales, allowances, leave days)
-- Statutory = what the government MANDATES (WML, SV-premies, fiscal limits, AOW age)
-- Extract ONLY what the inlener offers. IGNORE statutory minimum wages, social insurance premiums, fiscal exemptions.
-
-DISAMBIGUATION RULES:
-1. "Pensioenregeling met 4% werkgeversbijdrage" → SETU pension
-   "StiPP basis premie 12%" → IGNORE (statutory)
-2. "Reiskostenvergoeding €0.23/km" → SETU allowance
-   "Onbelaste reiskosten max €0.23" → IGNORE (statutory fiscal limit)
-3. Salary scale with "minimumloon" flag → salaryStep.minimumWage = true
-   The WML amount itself → IGNORE (statutory minimumWage)
-4. "CAO-verhoging 3% per 1-7-2026" → SETU generalSalaryIncrease
-   "WML stijgt naar €14.06" → IGNORE (statutory)
-5. "Generatiepact" / "80-90-100" → supplementaryArrangement (NOT otherArrangement)
-6. "ADV" / "ATV" / "roostervrije dagen" → leave.adv (NOT paidLeave)
-7. "Feestdagen" → leave.holidays (NOT leave.paidLeave)
-
-EXTRACT COMPLETELY:
-- ALL functiegroepen (job groups), schalen (scales), treden (steps), amounts from salary tables
-- ALL toeslagen (ORT, ploegentoeslag, overwerktoeslag, reiskostenvergoeding, etc.)
-- Vakantietoeslag (holiday allowance) percentage and payment moment
-- ADV days, public holidays, special leave (in correct leave subcategories)
-- Pension schemes as offered by the inlener
-- IKB, duurzame inzetbaarheid, generatiepact
-- Use EXACT Dutch terminology from the CAO
-- For unknown fields: null (NOT empty strings)
-- Pay special attention to HTML tables in markdown - they contain critical salary data
-
-Output MUST be valid SETU v2.0 InquiryPayEquity JSON.
-
-Be thorough. This is for legal compliance in the Dutch staffing industry.
-"""
 
 
 class GeminiSETUExtractor:
@@ -78,7 +50,13 @@ class GeminiSETUExtractor:
                 },
             )
             self._model_name = model
-            logger.info("Gemini 2.5 Flash extractor initialized", model=model)
+
+            # Initialize SETU Compliance Engine
+            self._compliance_engine = get_compliance_engine()
+
+            logger.info("Gemini 2.5 Flash extractor initialized with SETU Compliance Engine",
+                       model=model,
+                       setu_version=self._compliance_engine.current_version)
         except ImportError:
             logger.error("google-generativeai package not installed - run: pip install google-generativeai")
             raise
@@ -88,21 +66,35 @@ class GeminiSETUExtractor:
 
         Sends ENTIRE CAO (up to 1M tokens) in one call.
         Returns complete SETU v2.0 JSON.
+
+        GOLD STANDARD: Uses SETU Compliance Engine for extraction prompt.
         """
         logger.info(
-            "Extracting SETU v2.0 with Gemini 2.5 Flash",
+            "Extracting SETU v2.0 with Gemini 2.5 Flash + Compliance Engine",
             model=self._model_name,
             cao=cao_name,
             input_chars=len(markdown),
+            setu_version=self._compliance_engine.current_version,
         )
         start = datetime.utcnow()
+
+        # Check for SETU schema updates
+        update = self._compliance_engine.check_for_updates()
+        if update:
+            logger.warning("SETU schema update available",
+                          new_version=update.version,
+                          breaking_changes=update.breaking_changes)
+
+        # Get GOLD STANDARD extraction prompt from compliance engine
+        compliance_prompt = self._compliance_engine.generate_extraction_prompt()
 
         # Gemini 2.5 Flash has 1M token context (~4M chars)
         # Send the ENTIRE CAO!
         text = markdown  # No truncation!
 
+        # Add schema for Gemini (it supports JSON schema natively)
         prompt = (
-            f"{GEMINI_SETU_PROMPT}\n\n"
+            f"{compliance_prompt}\n\n"
             f"SETU v2.0 Schema (follow this structure exactly):\n```json\n{json.dumps(SETU_SCHEMA, indent=2)}\n```\n\n"
             f"CAO Name: {cao_name or 'Unknown'}\n\n"
             f"COMPLETE CAO Document (Markdown from Mistral OCR):\n\n{text}"
@@ -113,12 +105,29 @@ class GeminiSETUExtractor:
         # Gemini returns JSON when response_mime_type is set to application/json
         data = json.loads(response.text)
 
+        # Validate extraction against SETU schema
+        status, report = self._compliance_engine.validate_extraction(data)
+
         elapsed = (datetime.utcnow() - start).total_seconds()
         logger.info(
-            "Gemini extraction complete",
+            "Gemini extraction complete with compliance validation",
             model=self._model_name,
             elapsed_seconds=elapsed,
             has_remuneration=bool(data.get("remuneration")),
+            compliance_status=status.value,
+            coverage=report["coverage"],
+            errors=len(report.get("errors", [])),
+            warnings=len(report.get("warnings", [])),
         )
+
+        # Add compliance metadata to extraction
+        data["_compliance"] = {
+            "status": status.value,
+            "coverage": report["coverage"],
+            "validated_at": datetime.now().isoformat(),
+            "setu_version": self._compliance_engine.current_version,
+            "errors": report.get("errors", []),
+            "warnings": report.get("warnings", [])
+        }
 
         return data

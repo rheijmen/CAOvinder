@@ -4,6 +4,8 @@ This is the REVIEWER in the 3-LLM sequential pipeline:
 1. Gemini - Extract SETU v2.0 completely (PRIMARY)
 2. Mistral Large (this) - Review & find gaps
 3. Mistral Small - Judge which output is best
+
+GOLD STANDARD: Uses SETU Compliance Engine for schema-aware review.
 """
 
 import json
@@ -12,6 +14,14 @@ from pathlib import Path
 
 import structlog
 from mistralai import Mistral
+
+try:
+    from cao_engine.compliance.setu_compliance_engine import get_compliance_engine
+except ImportError:
+    # Fallback for module imports
+    import sys
+    sys.path.append(str(Path(__file__).parent.parent))
+    from compliance.setu_compliance_engine import get_compliance_engine
 
 logger = structlog.get_logger(__name__)
 
@@ -74,7 +84,13 @@ class MistralReviewer:
     def __init__(self, api_key: str, model: str = "mistral-large-latest") -> None:
         self._client = Mistral(api_key=api_key)
         self._model = model
-        logger.info("Mistral Large REVIEWER initialized", model=model)
+
+        # Initialize SETU Compliance Engine
+        self._compliance_engine = get_compliance_engine()
+
+        logger.info("Mistral Large REVIEWER initialized with SETU Compliance Engine",
+                   model=model,
+                   setu_version=self._compliance_engine.current_version)
 
     def review(
         self,
@@ -96,18 +112,40 @@ class MistralReviewer:
         text = markdown[:500_000]
         truncated = len(markdown) > 500_000
 
+        # First validate Gemini's extraction to understand gaps
+        gemini_status, gemini_report = self._compliance_engine.validate_extraction(gemini_output)
+
         logger.info(
-            "Reviewing Gemini extraction with Mistral Large",
+            "Reviewing Gemini extraction with Mistral Large + Compliance Engine",
             cao=cao_name,
             input_chars=len(text),
             truncated=truncated,
             model=self._model,
+            gemini_compliance=gemini_status.value,
+            gemini_coverage=gemini_report["coverage"],
+            gemini_errors=gemini_report.get("errors", []),
         )
 
-        # Build review prompt (SCHEMA REMOVED - too large, causes API hangs)
+        # Get compliance-aware extraction prompt
+        compliance_prompt = self._compliance_engine.generate_extraction_prompt()
+
+        # Build review prompt with compliance insights
         prompt = (
-            f"{MISTRAL_REVIEWER_PROMPT}\n\n"
-            f"GEMINI'S EXTRACTION (to review):\n```json\n{json.dumps(gemini_output, indent=2, ensure_ascii=False)}\n```\n\n"
+            f"{compliance_prompt}\n\n"
+            f"YOUR ROLE: REVIEWER checking Gemini's work\n\n"
+            f"GEMINI'S COMPLIANCE ISSUES:\n"
+            f"- Status: {gemini_status.value}\n"
+            f"- Coverage: {gemini_report['coverage']:.1f}%\n"
+        )
+
+        if gemini_report.get("errors"):
+            prompt += f"- Errors: {', '.join(gemini_report['errors'][:5])}\n"
+        if gemini_report.get("warnings"):
+            prompt += f"- Warnings: {', '.join(gemini_report['warnings'][:3])}\n"
+
+        prompt += (
+            f"\nFOCUS ON FIXING THESE GAPS!\n\n"
+            f"GEMINI'S EXTRACTION:\n```json\n{json.dumps(gemini_output, indent=2, ensure_ascii=False)}\n```\n\n"
             f"CAO Name: {cao_name or 'Unknown'}\n\n"
             f"CAO Document (first 100K chars to save tokens):\n\n{text[:100_000]}"
         )
@@ -135,6 +173,9 @@ class MistralReviewer:
             content = content[:-3]
         data = json.loads(content.strip())
 
+        # Validate Mistral's extraction against SETU schema
+        mistral_status, mistral_report = self._compliance_engine.validate_extraction(data)
+
         # Add review metadata
         data["_extraction_metadata"] = {
             "extractor": "mistral-reviewer",
@@ -147,11 +188,28 @@ class MistralReviewer:
             "reviewed_gemini_version": gemini_output.get("_extraction_metadata", {}).get("extracted_at"),
         }
 
+        # Add compliance metadata
+        data["_compliance"] = {
+            "status": mistral_status.value,
+            "coverage": mistral_report["coverage"],
+            "validated_at": datetime.now().isoformat(),
+            "setu_version": self._compliance_engine.current_version,
+            "errors": mistral_report.get("errors", []),
+            "warnings": mistral_report.get("warnings", []),
+            "improvement_over_gemini": {
+                "coverage_delta": mistral_report["coverage"] - gemini_report["coverage"],
+                "errors_delta": len(mistral_report.get("errors", [])) - len(gemini_report.get("errors", [])),
+            }
+        }
+
         logger.info(
-            "Mistral REVIEW complete",
+            "Mistral REVIEW complete with compliance validation",
             elapsed_seconds=elapsed,
             has_remuneration="remuneration" in data,
             has_allowances="allowances" in data,
+            compliance_status=mistral_status.value,
+            coverage=mistral_report["coverage"],
+            improvement=data["_compliance"]["improvement_over_gemini"]["coverage_delta"],
             model=self._model,
         )
 
