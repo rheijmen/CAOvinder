@@ -1,13 +1,16 @@
 {
   "documentId": {
-    "value": "CAO-Test-Document-1",
+    "value": "CAO-TestTiny-2024",
     "schemeAgencyId": "Employer"
   },
+  "versionId": "1.0",
+  "issued": "2026-03-03T21:00:00Z",
   "effectivePeriod": {
-    "validFrom": null,
-    "validTo": null
+    "validFrom": "2024-01-01",
+    "validTo": "2024-12-31"
   },
   "customer": {
+    "name": "Test Tiny Sector",
     "legalId": [
       {
         "value": "12345678",
@@ -17,26 +20,25 @@
     "personContacts": [
       {
         "name": {
-          "formattedName": "John Doe"
+          "formattedName": "CAO Administrator"
         },
         "roleCode": "Authorized by",
         "positionTitle": "HR Manager"
       }
     ]
   },
-  "baseDefinition": [],
   "labourAgreements": {
     "collectiveLabourAgreement": {
-      "name": "Test CAO",
+      "name": "CAO Test Tiny",
       "id": {
-        "value": "TestCAO"
+        "value": "CAO-TestTiny"
       },
       "effectivePeriod": {
-        "validFrom": null,
-        "validTo": null
-      }
-    },
-    "customLabourAgreement": false
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "basedOn": "CAO"
+    }
   },
   "positionProfile": [
     {
@@ -55,8 +57,8 @@
         "type": "CollectiveLabourAgreement"
       },
       "effectivePeriod": {
-        "validFrom": null,
-        "validTo": null
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
       },
       "workDuration": {
         "amount": {
@@ -76,62 +78,63 @@
       "salaryScale": [
         {
           "name": "Schaal 1",
-          "minValue": 2500,
-          "maxValue": 3000,
+          "minValue": 2500.0,
+          "maxValue": 2500.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Stap 1",
-              "value": 2500
-            },
-            {
-              "name": "Stap 2",
-              "value": 2750
-            },
-            {
-              "name": "Stap 3",
-              "value": 3000
+              "name": "Step 1",
+              "value": 2500.0,
+              "aanvang": 2500.0,
+              "eind": 2500.0
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
                 "value": "Functiegroep A"
-              }
+              },
+              "description": "Applicable for Functiegroep A"
             }
           ]
         },
         {
           "name": "Schaal 2",
-          "minValue": 2800,
-          "maxValue": 3300,
+          "minValue": 2800.0,
+          "maxValue": 2800.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Stap 1",
-              "value": 2800
-            },
-            {
-              "name": "Stap 2",
-              "value": 3050
-            },
-            {
-              "name": "Stap 3",
-              "value": 3300
+              "name": "Step 1",
+              "value": 2800.0,
+              "aanvang": 2800.0,
+              "eind": 2800.0
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
                 "value": "Functiegroep A"
-              }
+              },
+              "description": "Applicable for Functiegroep A"
             }
           ]
         }
       ],
-      "individualSalaryIncrease": [],
-      "generalSalaryIncrease": [],
-      "conditions": []
+      "holidayAllowance": {
+        "amount": {
+          "value": 0.08,
+          "unitCode": "Percentage",
+          "baseAmount": {
+            "unitCode": "AnnualSalary",
+            "baseType": "GrossSalary"
+          }
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Year"
+        }
+      }
     }
   ],
   "allowance": [
@@ -140,7 +143,7 @@
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "EA103",
+      "typeCode": "ShiftAllowance",
       "line": [
         {
           "amount": {
@@ -163,7 +166,7 @@
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "EA101",
+      "typeCode": "OvertimeAllowance",
       "line": [
         {
           "amount": {
@@ -186,7 +189,7 @@
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "EA102",
+      "typeCode": "IrregularWorkAllowance",
       "line": [
         {
           "amount": {
@@ -200,7 +203,8 @@
           "interval": {
             "value": 1,
             "unitCode": "Occurrence"
-          }
+          },
+          "condition": "For work outside regular hours"
         }
       ]
     },
@@ -209,16 +213,12 @@
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "EA104",
+      "typeCode": "TravelAllowance",
       "line": [
         {
           "amount": {
             "value": 0.19,
-            "unitCode": "Euro",
-            "baseAmount": {
-              "unitCode": "Kilometer",
-              "baseType": "Distance"
-            }
+            "unitCode": "EuroPerKilometer"
           },
           "interval": {
             "value": 1,
@@ -230,11 +230,12 @@
   ],
   "holidayAllowance": [
     {
+      "name": "Vakantietoeslag",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
       "amount": {
-        "value": 8,
+        "value": 0.08,
         "unitCode": "Percentage",
         "baseAmount": {
           "unitCode": "AnnualSalary",
@@ -247,53 +248,15 @@
       }
     }
   ],
-  "sickPay": [
-    {
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "period": [
-        {
-          "name": "First Year",
-          "amount": {
-            "value": 100,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlySalary",
-              "baseType": "GrossSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          }
-        },
-        {
-          "name": "Second Year",
-          "amount": {
-            "value": 70,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlySalary",
-              "baseType": "GrossSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          }
-        }
-      ]
-    }
-  ],
   "leave": [
     {
+      "name": "Vakantiedagen",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
       "paidLeave": [
         {
-          "name": "Vakantiedagen",
+          "name": "Standaard Vakantiedagen",
           "amount": {
             "value": 25,
             "unitCode": "Day",
@@ -306,26 +269,16 @@
             "unitCode": "Year"
           }
         }
-      ],
-      "adv": [
+      ]
+    },
+    {
+      "name": "Feestdagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
         {
-          "name": "ADV-dagen",
-          "amount": {
-            "value": 12,
-            "unitCode": "Day",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          }
-        }
-      ],
-      "holidays": [
-        {
-          "name": "Feestdagen",
+          "name": "Nationale feestdagen",
           "amount": {
             "value": 8,
             "unitCode": "Day",
@@ -338,26 +291,18 @@
             "unitCode": "Year"
           }
         }
-      ],
-      "specialLeave": [
+      ]
+    },
+    {
+      "name": "ADV/ATV dagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
         {
-          "name": "Kort verzuimverlof",
+          "name": "ADV/ATV dagen",
           "amount": {
-            "value": 2,
-            "unitCode": "Day",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          }
-        },
-        {
-          "name": "Zorgverlof",
-          "amount": {
-            "value": 10,
+            "value": 12,
             "unitCode": "Day",
             "baseAmount": {
               "unitCode": "Fixed"
@@ -368,38 +313,46 @@
             "unitCode": "Year"
           }
         }
-      ],
-      "wazo": []
+      ]
     }
   ],
-  "individualChoiceBudget": [],
-  "pension": [
-    {
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "pensionFundName": "Pensioenfonds Test",
-      "employerContribution": {
-        "value": 12,
-        "unitCode": "Percentage"
-      },
-      "employeeContribution": {
-        "value": 5,
-        "unitCode": "Percentage"
-      }
+  "pension": {
+    "name": "Pensioenfonds Test Tiny",
+    "employerContribution": {
+      "value": 0.12,
+      "unitCode": "Percentage"
+    },
+    "employeeContribution": {
+      "value": 0.05,
+      "unitCode": "Percentage"
+    },
+    "franchise": 15000,
+    "origin": {
+      "type": "CollectiveLabourAgreement"
     }
-  ],
-  "sustainableEmployability": [],
-  "supplementaryArrangement": [],
-  "otherArrangement": [],
+  },
   "_extraction_metadata": {
     "extractor": "mistral-reviewer",
     "model": "mistral-large-latest",
-    "cao_name": "Test CAO",
-    "extracted_at": "2026-02-17T22:38:03.804441",
+    "cao_name": "Test Tiny",
+    "extracted_at": "2026-03-03T20:56:25.655681",
     "input_chars": 269,
     "truncated": false,
-    "elapsed_seconds": 30.585745,
-    "reviewed_gemini_version": "2026-02-17T22:37:33.131830"
+    "elapsed_seconds": 27.919055,
+    "reviewed_gemini_version": "2026-03-03T20:55:57.472261"
+  },
+  "_compliance": {
+    "status": "partial",
+    "coverage": 80.0,
+    "validated_at": "2026-03-03T20:56:25.655685",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [
+      "Remuneration data incomplete"
+    ],
+    "improvement_over_gemini": {
+      "coverage_delta": 26.666666666666664,
+      "errors_delta": 0
+    }
   }
 }

@@ -9,8 +9,8 @@ import { QueryProvider } from "@/components/providers/query-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CAO Intelligence Admin",
-  description: "AI-native platform for processing Dutch CAO documents",
+  title: "CAO Centraal",
+  description: "Central platform for Dutch Collective Labour Agreement processing",
 };
 
 export default function RootLayout({

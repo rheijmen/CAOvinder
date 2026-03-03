@@ -105,7 +105,7 @@ export default function ModernCAOManagement() {
     } catch (error) {
       toast({
         title: "Upload Failed",
-        description: error.message,
+        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     }
@@ -129,7 +129,7 @@ export default function ModernCAOManagement() {
     } catch (error) {
       toast({
         title: "Failed to Start Processing",
-        description: error.message,
+        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     }
@@ -153,7 +153,7 @@ export default function ModernCAOManagement() {
     } catch (error) {
       toast({
         title: "Resolution Failed",
-        description: error.message,
+        description: error instanceof Error ? error.message : "An error occurred",
         variant: "destructive",
       });
     }
@@ -242,7 +242,7 @@ export default function ModernCAOManagement() {
                   </p>
                   <div className="flex gap-2 mt-2">
                     <Badge>{cao.status}</Badge>
-                    <Badge variant="outline">{cao.compliance_status}</Badge>
+                    <Badge variant="outline">{cao.complianceStatus}</Badge>
                   </div>
                 </div>
 

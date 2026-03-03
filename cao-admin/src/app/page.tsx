@@ -26,6 +26,9 @@ import { ProcessingStatus, ComplianceStatus } from "@/types";
 import { useCaoDocuments, useProcessingJobs } from "@/lib/api/hooks";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
+import { retryJob, pollJobStatus } from "@/lib/api/processing";
+import { useState } from "react";
+import { Progress } from "@/components/ui/progress";
 
 const getStatusBadge = (status: ProcessingStatus) => {
   const variants: Record<ProcessingStatus, any> = {
@@ -51,7 +54,10 @@ const getStatusBadge = (status: ProcessingStatus) => {
   );
 };
 
-const getComplianceBadge = (compliance: ComplianceStatus) => {
+const getComplianceBadge = (compliance: ComplianceStatus | undefined | null) => {
+  // Handle undefined or null compliance status
+  const status = compliance || "unknown";
+
   const variants: Record<ComplianceStatus, string> = {
     compliant: "success",
     partial: "warning",
@@ -61,8 +67,8 @@ const getComplianceBadge = (compliance: ComplianceStatus) => {
   };
 
   return (
-    <Badge variant={variants[compliance] as any}>
-      {compliance.replace(/_/g, " ")}
+    <Badge variant={variants[status] as any}>
+      {status.replace(/_/g, " ")}
     </Badge>
   );
 };
@@ -70,13 +76,42 @@ const getComplianceBadge = (compliance: ComplianceStatus) => {
 export default function DashboardPage() {
   // Fetch REAL data from backend
   const { data: caoResponse, isLoading: caosLoading } = useCaoDocuments({
-    limit: 5,
     page: 1
   });
 
-  const { data: jobsData, isLoading: jobsLoading } = useProcessingJobs({
-    limit: 10
-  });
+  const { data: jobsData, isLoading: jobsLoading } = useProcessingJobs();
+
+  // Retry state
+  const [isRetrying, setIsRetrying] = useState(false);
+  const [retryStatus, setRetryStatus] = useState<string | null>(null);
+
+  const handleRetry = async (jobId: string) => {
+    setIsRetrying(true);
+    setRetryStatus("Initiating retry...");
+
+    try {
+      const result = await retryJob(jobId);
+      setRetryStatus("Retry started successfully");
+
+      // Poll for job status updates
+      await pollJobStatus(
+        jobId,
+        (job) => {
+          setRetryStatus(`${job.stage}: ${job.message}`);
+        },
+        2000
+      );
+
+      setRetryStatus("Pipeline completed successfully!");
+    } catch (error) {
+      console.error("Retry failed:", error);
+      setRetryStatus(`Retry failed: ${error instanceof Error ? error.message : "Unknown error"}`);
+    } finally {
+      setIsRetrying(false);
+      // Clear status after 5 seconds
+      setTimeout(() => setRetryStatus(null), 5000);
+    }
+  };
 
   // Calculate real stats from backend data
   const totalCAOs = caoResponse?.total || 0;
@@ -92,11 +127,11 @@ export default function DashboardPage() {
 
   // Count pending review
   const pendingReview = recentCAOs.filter(
-    cao => cao.status === 'requires_review' || cao.compliance_status === 'partial'
+    cao => cao.status === 'requires_review' || cao.complianceStatus === 'partial'
   ).length;
 
   // Calculate average processing time from jobs
-  const avgProcessingTime = jobsData?.length > 0
+  const avgProcessingTime = jobsData && jobsData.length > 0
     ? jobsData.reduce((acc, job) => acc + (job.progress || 0), 0) / jobsData.length
     : 0;
 
@@ -253,21 +288,21 @@ export default function DashboardPage() {
                       <TableCell>{getStatusBadge(cao.status)}</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">
-                          {getComplianceBadge(cao.compliance_status)}
+                          {getComplianceBadge(cao.complianceStatus)}
                         </div>
                       </TableCell>
                       <TableCell className="text-right">
-                        {cao.confidence > 0 ? (
+                        {cao.metadata?.confidence ? (
                           <span
                             className={
-                              cao.confidence > 90
+                              cao.metadata.confidence > 90
                                 ? "text-green-600"
-                                : cao.confidence > 70
+                                : cao.metadata.confidence > 70
                                 ? "text-yellow-600"
                                 : "text-red-600"
                             }
                           >
-                            {cao.confidence.toFixed(1)}%
+                            {cao.metadata.confidence.toFixed(1)}%
                           </span>
                         ) : (
                           <span className="text-muted-foreground">-</span>
@@ -297,24 +332,83 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {/* Active Jobs */}
+              {/* Show real jobs from API if any are running or failed */}
+              {activeJobs.length > 0 ? (
+                activeJobs
+                  .filter((job: any) => job.status === 'failed' || job.status === 'running')
+                  .slice(0, 1) // Show only the most recent job
+                  .map((job: any) => (
+                    <div key={job.id} className={`rounded-lg p-4 border shadow-sm ${
+                      job.status === 'failed'
+                        ? 'bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border-red-300 dark:border-red-700'
+                        : 'bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border-blue-300 dark:border-blue-700'
+                    }`}>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="relative">
+                            <div className={`h-3 w-3 ${job.status === 'failed' ? 'bg-red-500' : 'bg-blue-500 animate-pulse'} rounded-full`}></div>
+                          </div>
+                          <div>
+                            <p className={`text-sm font-bold ${job.status === 'failed' ? 'text-red-900 dark:text-red-100' : 'text-blue-900 dark:text-blue-100'}`}>
+                              {job.status === 'failed' ? '⚠️ FAILED: ' : '🔄 PROCESSING: '}{job.cao_name}
+                            </p>
+                            <p className={`text-xs ${job.status === 'failed' ? 'text-red-700 dark:text-red-300' : 'text-blue-700 dark:text-blue-300'}`}>
+                              {job.message || job.error_details}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className={`text-lg font-bold ${job.status === 'failed' ? 'text-red-900 dark:text-red-100' : 'text-blue-900 dark:text-blue-100'}`}>
+                            {job.progress}%
+                          </p>
+                          <p className={`text-xs ${job.status === 'failed' ? 'text-red-600 dark:text-red-400' : 'text-blue-600 dark:text-blue-400'}`}>
+                            {job.status}
+                          </p>
+                        </div>
+                      </div>
+                      <Progress value={job.progress} className={`h-2 ${job.status === 'failed' ? 'bg-red-100 dark:bg-red-900' : 'bg-blue-100 dark:bg-blue-900'}`} />
+                      {job.status === 'failed' && job.retry_from_step && (
+                        <div className="mt-2 pt-2 border-t border-red-200 dark:border-red-800">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="text-xs"
+                            onClick={() => handleRetry(job.id)}
+                            disabled={isRetrying}
+                          >
+                            {isRetrying ? "⏳ Retrying..." : `🔄 Retry from Step ${job.retry_from_step}`}
+                          </Button>
+                          {retryStatus && (
+                            <p className="mt-1 text-xs text-muted-foreground">{retryStatus}</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))
+              ) : (
+                <div className="rounded-lg border p-4">
+                  <p className="text-sm text-muted-foreground text-center">No active processing jobs</p>
+                </div>
+              )}
+
+              {/* Active Jobs Summary */}
               <div className="flex items-center justify-between rounded-lg border p-3">
                 <div className="flex items-center gap-3">
                   <div className={`h-2 w-2 ${activeJobs.length > 0 ? 'animate-pulse bg-green-500' : 'bg-gray-300'} rounded-full`} />
                   <div>
-                    <p className="text-sm font-medium">Active Jobs</p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm font-medium">Queue Status</p>
+                    <div className="text-xs text-muted-foreground">
                       {jobsLoading ? (
                         <Skeleton className="h-3 w-24" />
                       ) : (
-                        `${activeJobs.length} documents processing`
+                        `${activeJobs.length} documents in pipeline`
                       )}
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <Link href="/pipeline">
                   <Button variant="ghost" size="sm">
-                    View
+                    View All
                   </Button>
                 </Link>
               </div>
@@ -325,13 +419,13 @@ export default function DashboardPage() {
                   <Clock className="h-4 w-4 text-muted-foreground" />
                   <div>
                     <p className="text-sm font-medium">Queue</p>
-                    <p className="text-xs text-muted-foreground">
+                    <div className="text-xs text-muted-foreground">
                       {jobsLoading ? (
                         <Skeleton className="h-3 w-24" />
                       ) : (
                         `${queuedJobs.length} documents waiting`
                       )}
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <Link href="/pipeline">

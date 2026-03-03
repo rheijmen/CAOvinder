@@ -112,7 +112,20 @@ class GeminiPrimaryExtractor:
         elapsed = (datetime.now() - start_time).total_seconds()
 
         # Gemini returns JSON when response_mime_type is set to application/json
-        data = json.loads(response.text)
+        try:
+            data = json.loads(response.text)
+        except json.JSONDecodeError as e:
+            logger.error(f"Failed to parse Gemini response as JSON: {e}")
+            logger.error(f"Response text preview: {response.text[:500]}...")
+            # Return a minimal valid SETU structure on error
+            data = {
+                "documentId": f"error-{datetime.now().isoformat()}",
+                "versionCode": "1.0",
+                "creationDateTime": datetime.now().isoformat(),
+                "inlener": {"name": cao_name or "Unknown"},
+                "_error": str(e),
+                "_raw_response": response.text[:5000]  # Keep first 5000 chars for debugging
+            }
 
         # Add extraction metadata
         data["_extraction_metadata"] = {

@@ -34,6 +34,13 @@ class APIClient {
   }
 
   /**
+   * Alias for setAuthToken (for test compatibility)
+   */
+  setToken(token: string) {
+    this.setAuthToken(token);
+  }
+
+  /**
    * Generic fetch wrapper with auth headers
    */
   private async fetch<T>(
@@ -42,9 +49,8 @@ class APIClient {
   ): Promise<T> {
     const url = `${this.baseURL}${endpoint}`;
 
-    const headers: HeadersInit = {
+    const headers: Record<string, string> = {
       'Content-Type': 'application/json',
-      ...options.headers,
     };
 
     // Add auth token if available
@@ -360,6 +366,8 @@ class APIClient {
  * Custom API Error class
  */
 class APIError extends Error {
+  public status: number; // Add status property for compatibility
+
   constructor(
     message: string,
     public statusCode: number,
@@ -367,11 +375,28 @@ class APIError extends Error {
   ) {
     super(message);
     this.name = 'APIError';
+    this.status = statusCode; // Set both status and statusCode
   }
 }
 
 // Export singleton instance
 export const apiClient = new APIClient();
+
+// Export convenience functions for testing and direct usage
+export const getCaoFiles = () => apiClient.getCaoDocuments();
+export const getOcrFiles = () => apiClient.getProcessingJobs({ status: 'running' });
+export const getSetuFiles = () => apiClient.getProcessingJobs({ status: 'completed' });
+export const processOcr = (filename: string) => apiClient.startProcessing(filename, 'ocr');
+// export const validateCompliance = (filename: string) => apiClient.validateCompliance(filename, 'wml');
+export const getOverviewStats = () => apiClient.getCostAnalytics('month');
+export const getRecentActivity = () => apiClient.getProcessingJobs({ status: 'completed', limit: 5 });
+// export const getSystemHealth = () => apiClient.getSystemHealth();
+// TODO: Implement these methods in APIClient
+// export const downloadFile = (filename: string) => apiClient.downloadFile(filename);
+// export const getStatutoryData = (period?: string) => apiClient.getStatutoryData(period);
+// export const getStatutoryPeriods = () => apiClient.getAnalytics({ metric: 'periods' });
+// export const exportComplianceReport = (cao: string, data: any) => apiClient.exportReport({ cao, data });
+// export const validateBatch = (files: any[]) => Promise.all(files.map(f => apiClient.validateSETU(f.filename)));
 
 // Export for use in React Query hooks
 export default apiClient;

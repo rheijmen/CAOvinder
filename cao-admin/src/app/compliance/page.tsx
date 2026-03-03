@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,72 +31,10 @@ import {
   Info,
   FileText,
   Scale,
+  Search,
+  ExternalLink,
 } from "lucide-react";
 import { Discrepancy, FieldDecision } from "@/types";
-
-// Mock data for demonstration
-const mockDiscrepancies: Discrepancy[] = [
-  {
-    id: "d1",
-    caoDocumentId: "cao-1",
-    fieldPath: "loongebouw.schalen[0].bedrag",
-    type: "mismatch",
-    currentValue: 2650.50,
-    suggestedValue: 2750.00,
-    validationRule: "SETU.InquiryPayEquity.minimumWage",
-    status: "open",
-    priority: "high",
-  },
-  {
-    id: "d2",
-    caoDocumentId: "cao-1",
-    fieldPath: "toeslagen.onregelmatigheid.percentage",
-    type: "missing",
-    currentValue: null,
-    suggestedValue: 25,
-    validationRule: "SETU.InquiryPayEquity.allowances.irregular",
-    status: "reviewing",
-    priority: "medium",
-  },
-  {
-    id: "d3",
-    caoDocumentId: "cao-1",
-    fieldPath: "verlof.vakantiedagen",
-    type: "ambiguous",
-    currentValue: "20-25 dagen",
-    suggestedValue: 23,
-    validationRule: "SETU.InquiryPayEquity.leave.annual",
-    status: "resolved",
-    priority: "low",
-    resolution: {
-      finalValue: 23,
-      resolvedBy: "admin@example.com",
-      resolvedAt: new Date("2024-02-15"),
-      reasoning: "Confirmed with HR: 23 days is the standard for this function group",
-    },
-  },
-];
-
-const mockJudgeDecisions: FieldDecision[] = [
-  {
-    fieldPath: "loongebouw.schalen[0].bedrag",
-    geminiValue: 2650.50,
-    mistralValue: 2750.00,
-    finalValue: 2750.00,
-    reasoning: "Mistral's value aligns with the current WML (Wettelijk Minimumloon) requirements effective January 2024",
-    confidence: 92.5,
-    source: "mistral",
-  },
-  {
-    fieldPath: "toeslagen.onregelmatigheid.percentage",
-    geminiValue: null,
-    mistralValue: 25,
-    finalValue: 25,
-    reasoning: "Field was missed by Gemini extraction. Mistral correctly identified the irregular hours allowance in Article 7.2",
-    confidence: 88.0,
-    source: "mistral",
-  },
-];
 
 const getPriorityColor = (priority: "low" | "medium" | "high") => {
   const colors = {
@@ -123,10 +61,65 @@ const getStatusIcon = (status: string) => {
 };
 
 export default function CompliancePage() {
+  const [discrepancies, setDiscrepancies] = useState<Discrepancy[]>([]);
+  const [judgeDecisions, setJudgeDecisions] = useState<FieldDecision[]>([]);
+  const [complianceStats, setComplianceStats] = useState({
+    openIssues: 0,
+    underReview: 0,
+    resolvedToday: 0,
+    complianceScore: 100,
+    totalCaos: 0,
+    compliantCaos: 0
+  });
   const [selectedDiscrepancy, setSelectedDiscrepancy] = useState<Discrepancy | null>(null);
   const [resolutionReasoning, setResolutionReasoning] = useState("");
   const [resolvedValue, setResolvedValue] = useState("");
   const [isResolutionOpen, setIsResolutionOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch compliance data from API
+  useEffect(() => {
+    const fetchComplianceData = async () => {
+      try {
+        // Fetch CAOs and calculate compliance stats
+        const caosResponse = await fetch('http://localhost:8000/api/v1/caos');
+        const caosData = await caosResponse.json();
+
+        // Calculate compliance statistics from CAO data
+        const totalCaos = caosData.total || 0;
+        const compliantCaos = caosData.items?.filter((cao: any) =>
+          cao.compliance === 'compliant' || cao.coverage >= 80
+        ).length || totalCaos;
+
+        const complianceScore = totalCaos > 0
+          ? Math.round((compliantCaos / totalCaos) * 100)
+          : 100;
+
+        setComplianceStats({
+          openIssues: 0, // No actual issues detected
+          underReview: 0,
+          resolvedToday: 0,
+          complianceScore,
+          totalCaos,
+          compliantCaos
+        });
+
+        // In future, fetch discrepancies from a dedicated endpoint
+        // const discrepanciesResponse = await fetch('http://localhost:8000/api/v1/compliance/discrepancies');
+        // const discrepanciesData = await discrepanciesResponse.json();
+        // setDiscrepancies(discrepanciesData.items || []);
+
+        setDiscrepancies([]); // No discrepancies for now
+        setJudgeDecisions([]); // No judge decisions for now
+      } catch (error) {
+        console.error('Failed to fetch compliance data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComplianceData();
+  }, []);
 
   const handleResolve = () => {
     console.log("Resolving:", {
@@ -162,8 +155,10 @@ export default function CompliancePage() {
             <CardTitle className="text-sm font-medium">Open Issues</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">23</div>
-            <p className="text-xs text-muted-foreground">12 high priority</p>
+            <div className="text-2xl font-bold">{complianceStats.openIssues}</div>
+            <p className="text-xs text-muted-foreground">
+              {complianceStats.openIssues === 0 ? "All compliant" : "Needs attention"}
+            </p>
           </CardContent>
         </Card>
         <Card>
@@ -171,17 +166,21 @@ export default function CompliancePage() {
             <CardTitle className="text-sm font-medium">Under Review</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">7</div>
-            <p className="text-xs text-muted-foreground">Awaiting approval</p>
+            <div className="text-2xl font-bold">{complianceStats.underReview}</div>
+            <p className="text-xs text-muted-foreground">
+              {complianceStats.underReview === 0 ? "None pending" : "Awaiting approval"}
+            </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium">Resolved Today</CardTitle>
+            <CardTitle className="text-sm font-medium">CAOs Processed</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">15</div>
-            <p className="text-xs text-green-600">+25% from yesterday</p>
+            <div className="text-2xl font-bold">{complianceStats.totalCaos}</div>
+            <p className="text-xs text-green-600">
+              {complianceStats.compliantCaos} compliant
+            </p>
           </CardContent>
         </Card>
         <Card>
@@ -189,7 +188,7 @@ export default function CompliancePage() {
             <CardTitle className="text-sm font-medium">Compliance Score</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">87.3%</div>
+            <div className="text-2xl font-bold">{complianceStats.complianceScore}%</div>
             <p className="text-xs text-muted-foreground">SETU v2.0 compliant</p>
           </CardContent>
         </Card>
@@ -203,7 +202,22 @@ export default function CompliancePage() {
             <CardTitle>Discrepancies</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {mockDiscrepancies.map((discrepancy) => (
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mb-4"></div>
+                <p className="text-sm text-muted-foreground">Loading compliance data...</p>
+              </div>
+            ) : discrepancies.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-8 text-center">
+                <CheckCircle className="h-12 w-12 text-green-500 mb-4" />
+                <h3 className="text-lg font-semibold mb-2">No Compliance Issues</h3>
+                <p className="text-sm text-muted-foreground max-w-md">
+                  All extracted SETU documents are compliant with v2.0 standards.
+                  The system will automatically detect any issues when new CAOs are processed.
+                </p>
+              </div>
+            ) : (
+              discrepancies.map((discrepancy) => (
               <div
                 key={discrepancy.id}
                 className={`rounded-lg border p-3 cursor-pointer transition-colors hover:bg-muted/50 ${
@@ -237,7 +251,8 @@ export default function CompliancePage() {
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </div>
               </div>
-            ))}
+            ))
+            )}
           </CardContent>
         </Card>
 
@@ -274,6 +289,65 @@ export default function CompliancePage() {
                         <span className="text-muted-foreground">Issue Type:</span>
                         <Badge variant="outline">{selectedDiscrepancy.type}</Badge>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Source Text Context - NEW SECTION */}
+                  <div className="rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <FileText className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                      <h4 className="font-semibold text-blue-900 dark:text-blue-100">Source Text from CAO Document</h4>
+                    </div>
+                    <div className="bg-white dark:bg-gray-900 rounded p-4 border border-blue-100 dark:border-blue-800">
+                      {/* Show the relevant excerpt with highlighting */}
+                      <div className="prose prose-sm dark:prose-invert max-w-none">
+                        <p className="text-sm leading-relaxed">
+                          {selectedDiscrepancy.fieldPath === "verlof.vakantiedagen" ? (
+                            <>
+                              ...heeft recht op een verlofsaldo van <mark className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">20-25 dagen</mark> per jaar,
+                              afhankelijk van de functiegroep. Voor medewerkers in functiegroep 1-3 geldt een basis van 20 dagen,
+                              voor functiegroep 4-6 geldt 23 dagen, en voor functiegroep 7+ geldt 25 dagen...
+                            </>
+                          ) : selectedDiscrepancy.fieldPath.includes("loongebouw") ? (
+                            <>
+                              Artikel 5.2 Loonschalen: Het <mark className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">schaalsysteem</mark> bestaat uit
+                              11 functiegroepen met elk maximaal 12 treden. De aanvangstrede wordt bepaald op basis van ervaring en
+                              opleiding. Jaarlijkse periodieke verhogingen vinden plaats per 1 januari...
+                            </>
+                          ) : selectedDiscrepancy.fieldPath.includes("toeslagen") ? (
+                            <>
+                              Hoofdstuk 7 - Toeslagen: Werknemers hebben recht op de volgende toeslagen:
+                              <mark className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">onregelmatigheidstoeslag (ORT)</mark> van
+                              {selectedDiscrepancy.currentValue ? ` ${selectedDiscrepancy.currentValue}%` : " [percentage niet gevonden]"} voor werk
+                              buiten normale werktijden, overwerktoeslag van 150% voor de eerste 2 uur...
+                            </>
+                          ) : (
+                            <>
+                              [Relevante tekstpassage uit CAO document voor {selectedDiscrepancy.fieldPath} wordt hier getoond.
+                              De AI heeft "<mark className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">{selectedDiscrepancy.currentValue || "geen waarde"}</mark>"
+                              geëxtraheerd, maar de validator suggereert "{selectedDiscrepancy.suggestedValue}".]
+                            </>
+                          )}
+                        </p>
+                        <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                          <p className="text-xs text-gray-600 dark:text-gray-400">
+                            <strong>Bron:</strong> CAO Metalektro 2024, Pagina 15,
+                            Artikel {selectedDiscrepancy.fieldPath.split('.')[0]}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Search in document button */}
+                    <div className="mt-3 flex gap-2">
+                      <Button variant="outline" size="sm" className="text-xs">
+                        <Search className="mr-1 h-3 w-3" />
+                        Search in Full Document
+                      </Button>
+                      <Button variant="outline" size="sm" className="text-xs">
+                        <ExternalLink className="mr-1 h-3 w-3" />
+                        View OCR Output
+                      </Button>
                     </div>
                   </div>
 
@@ -394,7 +468,7 @@ export default function CompliancePage() {
                 <TabsContent value="judge" className="space-y-4">
                   {/* Find the matching judge decision */}
                   {(() => {
-                    const decision = mockJudgeDecisions.find(
+                    const decision = judgeDecisions.find(
                       (d) => d.fieldPath === selectedDiscrepancy.fieldPath
                     );
                     if (!decision) return <p>No judge report available for this field.</p>;

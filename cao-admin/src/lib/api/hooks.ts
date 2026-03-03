@@ -163,9 +163,9 @@ export function useProcessingJob(jobId: string) {
     queryKey: ['jobs', jobId],
     queryFn: () => apiClient.getProcessingJob(jobId),
     enabled: !!jobId,
-    refetchInterval: (data) => {
+    refetchInterval: (query) => {
       // Only refetch if job is running
-      return data?.status === 'running' ? 2000 : false;
+      return query.state.data?.status === 'running' ? 2000 : false;
     },
   });
 }

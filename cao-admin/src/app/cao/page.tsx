@@ -45,6 +45,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { CAODocument, FilterState } from "@/types";
+import { formatDate, formatFileSize } from "@/lib/format-utils";
 
 // Mock data
 const mockCAOs: CAODocument[] = [
@@ -90,6 +91,7 @@ const mockCAOs: CAODocument[] = [
         caoDocumentId: "2",
         fieldPath: "loongebouw.schalen",
         type: "missing",
+        currentValue: null,
         status: "open",
         priority: "high",
       },
@@ -131,10 +133,7 @@ const getStatusColor = (status: string) => {
   return colors[status] || "text-gray-600";
 };
 
-const formatFileSize = (bytes: number) => {
-  const mb = bytes / (1024 * 1024);
-  return `${mb.toFixed(1)} MB`;
-};
+// formatFileSize is now imported from lib/format-utils
 
 export default function CAOLibraryPage() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("list");
@@ -214,8 +213,9 @@ export default function CAOLibraryPage() {
                   <SelectItem value="review">Needs Review</SelectItem>
                 </SelectContent>
               </Select>
-              <Button variant="outline" size="icon">
-                <Filter className="h-4 w-4" />
+              <Button variant="outline">
+                <Filter className="mr-2 h-4 w-4" />
+                Filter
               </Button>
             </div>
             <div className="flex gap-2">
@@ -245,6 +245,7 @@ export default function CAOLibraryPage() {
         <Card className="border-primary">
           <CardContent className="flex items-center justify-between p-3">
             <div className="flex items-center gap-3">
+              <span className="text-sm font-medium">Bulk Actions:</span>
               <Badge>{selectedCAOs.length} selected</Badge>
               <Button variant="outline" size="sm">
                 <RefreshCw className="mr-2 h-4 w-4" />
@@ -273,6 +274,13 @@ export default function CAOLibraryPage() {
           </CardContent>
         </Card>
       )}
+
+      {/* Helper text for bulk operations - always visible */}
+      <div className="text-sm text-muted-foreground">
+        {selectedCAOs.length === 0
+          ? "Select CAOs to perform Bulk operations"
+          : `${selectedCAOs.length} items selected for Bulk operations`}
+      </div>
 
       {/* CAO List/Grid View */}
       {viewMode === "list" ? (
@@ -350,9 +358,7 @@ export default function CAOLibraryPage() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      {cao.effectiveDate
-                        ? new Date(cao.effectiveDate).toLocaleDateString()
-                        : "-"}
+                      {formatDate(cao.effectiveDate)}
                     </TableCell>
                     <TableCell>{formatFileSize(cao.fileSize)}</TableCell>
                     <TableCell className="text-right">
@@ -442,9 +448,7 @@ export default function CAOLibraryPage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm">Effective</span>
                     <span className="text-sm text-muted-foreground">
-                      {cao.effectiveDate
-                        ? new Date(cao.effectiveDate).toLocaleDateString()
-                        : "-"}
+                      {formatDate(cao.effectiveDate)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">

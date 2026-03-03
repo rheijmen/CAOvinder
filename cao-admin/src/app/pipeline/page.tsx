@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ClientOnly } from "@/components/ui/client-only";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -32,6 +33,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { ProcessingJob, PipelineStage, StageProgress } from "@/types";
+import { formatDateTime, formatNumber } from "@/lib/format-utils";
 
 // Mock pipeline stages
 const pipelineStages: PipelineStage[] = [
@@ -42,20 +44,20 @@ const pipelineStages: PipelineStage[] = [
   { id: "validate", type: "validate", provider: "custom", config: {}, enabled: true, order: 5 },
 ];
 
-// Mock active jobs
+// Mock active jobs - with real Metalektro processing status
 const mockJobs: ProcessingJob[] = [
   {
-    id: "job-1",
+    id: "metalektro-2024",
     organizationId: "org-1",
-    caoDocumentId: "cao-1",
+    caoDocumentId: "cao-metalektro-2024",
     pipeline: {
-      name: "Standard 3-LLM Pipeline",
+      name: "3-LLM SETU Pipeline (Metalektro)",
       stages: pipelineStages,
       retryPolicy: { maxAttempts: 3, backoffMs: 5000 },
       costLimit: 10,
     },
-    status: "running",
-    progress: 65,
+    status: "failed", // Mistral timeout
+    progress: 50, // Completed Gemini, failed at Mistral
     stages: [
       { stageId: "ocr", status: "completed", completedAt: new Date(), tokensUsed: 1500, cost: 0.15 },
       { stageId: "extract", status: "completed", completedAt: new Date(), tokensUsed: 8000, cost: 0.80 },
@@ -68,7 +70,7 @@ const mockJobs: ProcessingJob[] = [
       actual: 0.95,
       breakdown: { ocr: 0.15, llm: 0.80, storage: 0 },
     },
-    startedAt: new Date(Date.now() - 300000), // 5 minutes ago
+    startedAt: new Date(Date.now() - 5 * 60 * 1000), // Started 5 minutes ago
   },
   {
     id: "job-2",
@@ -117,9 +119,20 @@ export default function PipelinePage() {
   const [activeTab, setActiveTab] = useState("active");
 
   const formatDuration = (start: Date) => {
-    const diff = Date.now() - start.getTime();
-    const minutes = Math.floor(diff / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
+    // Ensure we have a valid date
+    if (!start || isNaN(start.getTime())) {
+      return "0m 0s";
+    }
+
+    const now = Date.now();
+    const diff = Math.max(0, now - start.getTime()); // Ensure positive
+
+    // Cap at reasonable maximum (e.g., 60 minutes)
+    const cappedDiff = Math.min(diff, 60 * 60 * 1000);
+
+    const minutes = Math.floor(cappedDiff / 60000);
+    const seconds = Math.floor((cappedDiff % 60000) / 1000);
+
     return `${minutes}m ${seconds}s`;
   };
 
@@ -227,7 +240,7 @@ export default function PipelinePage() {
                         </div>
                         {job.startedAt && (
                           <p className="text-xs text-muted-foreground">
-                            Running for {formatDuration(job.startedAt)}
+                            Running for <ClientOnly fallback="calculating...">{formatDuration(job.startedAt)}</ClientOnly>
                           </p>
                         )}
                       </div>
@@ -275,6 +288,9 @@ export default function PipelinePage() {
         <Card className="lg:col-span-2">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Job Details</CardTitle>
+            <div className="text-xs text-muted-foreground">
+              Controls: Pause • Resume • Cancel
+            </div>
             {selectedJob && (
               <div className="flex gap-2">
                 {selectedJob.status === "running" ? (
@@ -369,7 +385,7 @@ export default function PipelinePage() {
                           <div className="text-right">
                             {stage.tokensUsed && (
                               <p className="text-xs text-muted-foreground">
-                                {stage.tokensUsed.toLocaleString()} tokens
+                                {formatNumber(stage.tokensUsed)} tokens
                               </p>
                             )}
                             {stage.cost && (
@@ -427,7 +443,7 @@ export default function PipelinePage() {
                       <span className="text-muted-foreground">Started:</span>
                       <span>
                         {selectedJob.startedAt
-                          ? new Date(selectedJob.startedAt).toLocaleString()
+                          ? formatDateTime(selectedJob.startedAt)
                           : "Not started"}
                       </span>
                     </div>
@@ -458,7 +474,7 @@ export default function PipelinePage() {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-3">
-            {["Gemini 2.5 Flash", "Mistral Large", "Mistral Small"].map((llm) => (
+            {["Gemini", "Mistral", "Claude"].map((llm) => (
               <div key={llm} className="rounded-lg border p-4">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold">{llm}</h4>

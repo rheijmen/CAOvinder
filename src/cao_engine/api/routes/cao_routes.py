@@ -8,6 +8,7 @@ The frontend NEVER accesses the database directly - all data flows through these
 from datetime import datetime, timedelta
 from typing import List, Optional
 from uuid import UUID
+import json
 
 from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Query, BackgroundTasks
 from fastapi.responses import JSONResponse
@@ -86,47 +87,103 @@ async def list_cao_documents(
     """
     logger.info("Listing CAO documents", search=search, sector=sector, status=status)
 
-    # Get all documents from storage
+    # Get all documents from storage (both structured and SETU)
     all_docs = store.list_documents()
+
+    # Also get SETU documents
+    settings = get_settings()
+    setu_docs = list(settings.setu_dir.glob("*.json"))
+
+    # Combine both sources
+    all_doc_paths = list(all_docs) + setu_docs
 
     # Apply filters (in production, this would be a database query)
     filtered_docs = []
-    for doc_path in all_docs:
+    for doc_path in all_doc_paths:
         try:
-            # Load the CAODocument object
-            cao_doc = store.load(doc_path)
+            # Check if this is a SETU document or structured document
+            if doc_path.parent.name == "setu":
+                # Load SETU document directly as JSON
+                with open(doc_path, 'r') as f:
+                    setu_data = json.load(f)
 
-            # Convert to dict for easier access
-            doc_data = cao_doc.model_dump()
+                # Extract CAO name from customer or extraction metadata
+                cao_name = "Unknown CAO"
+                if "customer" in setu_data and "name" in setu_data["customer"]:
+                    cao_name = setu_data["customer"]["name"]
+                elif "_extraction_metadata" in setu_data and "cao_name" in setu_data["_extraction_metadata"]:
+                    cao_name = setu_data["_extraction_metadata"]["cao_name"]
 
-            # Apply search filter
-            if search and search.lower() not in cao_doc.metadata.cao_naam.lower():
-                continue
+                # Apply search filter
+                if search and search.lower() not in cao_name.lower():
+                    continue
 
-            # Apply sector filter (if we have sector in metadata)
-            if sector:
-                # Skip filter for now since sector is not in our current model
-                pass
+                # Get effective period
+                effective_from = None
+                effective_to = None
+                if "effectivePeriod" in setu_data:
+                    effective_from = setu_data["effectivePeriod"].get("validFrom")
+                    effective_to = setu_data["effectivePeriod"].get("validTo")
 
-            # Apply status filter (if applicable)
-            if status:
-                # Skip filter for now since status is not in our current model
-                pass
+                # Get compliance status
+                compliance_status = "unknown"
+                if "_compliance" in setu_data:
+                    compliance_status = setu_data["_compliance"].get("status", "unknown")
 
-            # Transform for frontend
-            filtered_docs.append({
-                "id": doc_path.stem,
-                "name": cao_doc.metadata.cao_naam,
-                "sector": getattr(cao_doc.metadata, "sector", None),
-                "company": cao_doc.metadata.company if cao_doc.metadata.company else None,
-                "status": "complete",  # All loaded docs are complete
-                "compliance_status": "unknown",  # We don't have SETU compliance check yet
-                "version": 1,
-                "effective_date": cao_doc.metadata.effective_date.isoformat() if cao_doc.metadata.effective_date else None,
-                "file_size": doc_path.stat().st_size if doc_path.exists() else 0,
-                "processed_at": cao_doc.metadata.extraction_date.isoformat() if cao_doc.metadata.extraction_date else None,
-                "confidence": cao_doc.metadata.overall_confidence if cao_doc.metadata.overall_confidence else 0,
-            })
+                # Transform for frontend
+                filtered_docs.append({
+                    "id": doc_path.stem.replace(".setu", ""),
+                    "name": cao_name,
+                    "sector": None,  # Could extract from SETU if available
+                    "company": setu_data.get("customer", {}).get("name", None),
+                    "status": "complete",
+                    "compliance_status": compliance_status,
+                    "version": 1,
+                    "effective_date": effective_from,
+                    "effectivePeriod": {
+                        "validFrom": effective_from,
+                        "validTo": effective_to
+                    } if effective_from else None,
+                    "file_size": doc_path.stat().st_size if doc_path.exists() else 0,
+                    "processed_at": setu_data.get("_extraction_metadata", {}).get("extracted_at", None),
+                    "confidence": setu_data.get("_compliance", {}).get("coverage", 0),
+                })
+            else:
+                # Load structured CAODocument object
+                cao_doc = store.load(doc_path)
+
+                # Convert to dict for easier access
+                doc_data = cao_doc.model_dump()
+
+                # Apply search filter
+                if search and search.lower() not in cao_doc.metadata.cao_naam.lower():
+                    continue
+
+                # Apply sector filter (if we have sector in metadata)
+                if sector:
+                    # Skip filter for now since sector is not in our current model
+                    pass
+
+                # Apply status filter (if applicable)
+                if status:
+                    # Skip filter for now since status is not in our current model
+                    pass
+
+                # Transform for frontend
+                filtered_docs.append({
+                    "id": doc_path.stem,
+                    "name": cao_doc.metadata.cao_naam,
+                    "sector": getattr(cao_doc.metadata, "sector", None),
+                    "company": getattr(cao_doc.metadata, "company", None),
+                    "status": "complete",  # All loaded docs are complete
+                    "compliance_status": "unknown",  # We don't have SETU compliance check yet
+                    "version": 1,
+                    "effective_date": cao_doc.metadata.effective_date.isoformat() if hasattr(cao_doc.metadata, "effective_date") and cao_doc.metadata.effective_date else None,
+                    "effectivePeriod": None,
+                    "file_size": doc_path.stat().st_size if doc_path.exists() else 0,
+                    "processed_at": cao_doc.metadata.extraction_date.isoformat() if hasattr(cao_doc.metadata, "extraction_date") and cao_doc.metadata.extraction_date else None,
+                    "confidence": cao_doc.metadata.overall_confidence if hasattr(cao_doc.metadata, "overall_confidence") and cao_doc.metadata.overall_confidence else 0,
+                })
         except Exception as e:
             logger.error(f"Error loading document {doc_path}: {e}")
             continue
@@ -152,14 +209,35 @@ async def get_cao_document(
     logger.info("Fetching CAO document", cao_id=cao_id)
 
     # Try to load the document by its ID (which is the filename stem)
+    # First try structured documents
     doc_path = store._dir / f"{cao_id}.json"
+
+    # If not found in structured, try SETU documents
+    if not doc_path.exists():
+        settings = get_settings()
+        # Try with .setu suffix
+        setu_path = settings.setu_dir / f"{cao_id}.setu.json"
+        if setu_path.exists():
+            doc_path = setu_path
+        else:
+            # Try without .setu suffix
+            setu_path = settings.setu_dir / f"{cao_id}.json"
+            if setu_path.exists():
+                doc_path = setu_path
 
     if not doc_path.exists():
         raise HTTPException(status_code=404, detail=f"CAO document {cao_id} not found")
 
     try:
-        cao_doc = store.load(doc_path)
-        return cao_doc.model_dump()
+        # Check if this is a SETU document
+        if doc_path.parent.name == "setu":
+            # Load SETU document directly as JSON
+            with open(doc_path, 'r') as f:
+                return json.load(f)
+        else:
+            # Load structured CAODocument
+            cao_doc = store.load(doc_path)
+            return cao_doc.model_dump()
     except Exception as e:
         logger.error(f"Error loading document {cao_id}: {e}")
         raise HTTPException(status_code=500, detail=f"Error loading document: {str(e)}")
