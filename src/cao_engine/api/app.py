@@ -91,6 +91,11 @@ async def get_moment(moment_id: str):
 # Import and include the modern API routes
 from cao_engine.api.routes.cao_routes import router as cao_router
 from cao_engine.api.routes.processing_routes import router as processing_router
+from cao_engine.api.v2.public_routes import router as v2_public_router
 
+# Internal API routes (no authentication required for admin frontend)
 app.include_router(cao_router)
 app.include_router(processing_router)
+
+# Public B2B API routes (require API key authentication)
+app.include_router(v2_public_router)

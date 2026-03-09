@@ -1,0 +1,970 @@
+{
+  "documentId": {
+    "value": "CAO-Achmea-2023-2025",
+    "schemeAgencyId": "Achmea"
+  },
+  "versionId": "1.0",
+  "issued": "2023-12-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-12-01",
+    "validTo": "2025-08-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "30258440",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "name": "Achmea Interne Diensten N.V.",
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "J.J. Blok"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "Achmea Interne Diensten"
+      },
+      {
+        "name": {
+          "formattedName": "J. van den Brink"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "FNV"
+      },
+      {
+        "name": {
+          "formattedName": "D.P Wiersinga"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "CNV"
+      },
+      {
+        "name": {
+          "formattedName": "P. Fortuin"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "H. Brinkers"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "R. Castelein"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      }
+    ]
+  },
+  "baseDefinition": [
+    {
+      "baseType": "Maandsalaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [],
+      "description": "Bruto maandsalaris in de salarisschaal inclusief vaste persoonlijke toeslag (die meetelt voor vakantietoeslag en eindejaarsuitkering). Exclusief overwerktoeslag, inconveniëntentoeslag, ploegendienstvergoeding, cao toeslag 2014 en stand-by vergoeding."
+    },
+    {
+      "baseType": "Pensioengevend salaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "VariabelSalaris"
+        },
+        {
+          "typeCode": "Overwerktoeslag"
+        },
+        {
+          "typeCode": "Inconveniententoeslag"
+        },
+        {
+          "typeCode": "StandByVergoeding"
+        },
+        {
+          "typeCode": "Ploegendienstvergoeding"
+        }
+      ],
+      "description": "12x bruto maandsalaris dat geldt op 1 januari, verhoogd met vakantietoeslag en eindejaarsuitkering, variabel salaris en variabele inkomensbestanddelen zoals overwerktoeslag, inconveniëntentoeslag, stand-by vergoeding en ploegendienstvergoeding. Maximaal € 137.800 (2024)."
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Achmea CAO",
+      "id": {
+        "value": "2023-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      },
+      "basedOn": "CollectiveLabourAgreement"
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep B"
+      },
+      "positionTitle": "Functiegroep B",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep C"
+      },
+      "positionTitle": "Functiegroep C",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep D"
+      },
+      "positionTitle": "Functiegroep D",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep E"
+      },
+      "positionTitle": "Functiegroep E",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep F"
+      },
+      "positionTitle": "Functiegroep F",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep G"
+      },
+      "positionTitle": "Functiegroep G",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep H"
+      },
+      "positionTitle": "Functiegroep H",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep I"
+      },
+      "positionTitle": "Functiegroep I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep J"
+      },
+      "positionTitle": "Functiegroep J",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep K"
+      },
+      "positionTitle": "Functiegroep K",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "value": 34,
+        "unitCode": "HUR"
+      },
+      "interval": "Month",
+      "salaryScale": [
+        {
+          "name": "Schaal A",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 2219.37,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 2283.4,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 2347.43,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal B",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 2251.69,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 2313.28,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 2374.87,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 2436.46,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 2498.05,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 2559.64,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal C",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 2296.65,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 2367.44,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 2438.23,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 2509.02,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 2579.81,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 2650.6,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 2721.39,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 2792.18,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 2862.97,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal D",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 2445.05,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 2529.29,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 2613.53,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 2697.77,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 2782.01,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 2866.25,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 2950.49,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 3034.73,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 3118.97,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 3203.21,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal E",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 2732.16,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 2827.88,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 2923.6,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 3019.32,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 3115.04,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 3210.76,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 3306.48,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 3402.2,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 3497.92,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 3593.64,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal F",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 3087.15,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 3192.81,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 3298.47,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 3404.13,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 3509.79,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 3615.45,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 3721.11,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 3826.77,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 3932.43,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 4038.09,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal G",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 3431.95,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 3555.38,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 3678.81,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 3802.24,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 3925.67,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 4049.1,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 4172.53,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 4295.96,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 4419.39,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 4542.82,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal H",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 3854.74,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 3998.56,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 4142.38,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 4286.2,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 4430.02,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 4573.84,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 4717.66,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 4861.48,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 5005.3,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 5149.12,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal I",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 4332.66,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 4494.36,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 4656.06,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 4817.76,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 4979.46,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 5141.16,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 5302.86,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 5464.56,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 5626.26,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 5787.96,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal J",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 4873.37,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 5061.02,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 5248.67,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 5436.32,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 5623.97,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 5811.62,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 5999.27,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 6186.92,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 6374.57,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 6562.22,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal K",
+          "steps": [
+            {
+              "step": 1,
+              "amount": 5498.15,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 2,
+              "amount": 5714.1,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 3,
+              "amount": 5930.05,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 4,
+              "amount": 6146.0,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 5,
+              "amount": 6361.95,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 6,
+              "amount": 6577.9,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 7,
+              "amount": 6793.85,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 8,
+              "amount": 7009.8,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 9,
+              "amount": 7225.75,
+              "validFrom": "2024-01-01"
+            },
+            {
+              "step": 10,
+              "amount": 7441.7,
+              "validFrom": "2024-01-01"
+            }
+          ],
+          "youthScales": []
+        }
+      ],
+      "allowances": [
+        {
+          "typeCode": "ORT",
+          "description": "Onregelmatigheidstoeslag voor werken buiten standaard bedrijfstijd",
+          "calculationMethod": {
+            "percentage": 28,
+            "applicableTo": "HourlySalary",
+            "conditions": "Maandag t/m vrijdag van 19:00 tot 22:00 uur"
+          }
+        },
+        {
+          "typeCode": "ORT",
+          "description": "Onregelmatigheidstoeslag voor werken op zaterdag",
+          "calculationMethod": {
+            "percentage": 46,
+            "applicableTo": "HourlySalary",
+            "conditions": "Zaterdag van 9:00 tot 17:00 uur"
+          }
+        },
+        {
+          "typeCode": "Overwerktoeslag",
+          "description": "Toeslag voor overwerk",
+          "calculationMethod": {
+            "percentage": 35,
+            "applicableTo": "HourlySalary",
+            "conditions": "Maandag t/m vrijdag van 07:00 tot 21:00 uur"
+          }
+        },
+        {
+          "typeCode": "Overwerktoeslag",
+          "description": "Toeslag voor overwerk op zaterdag",
+          "calculationMethod": {
+            "percentage": 60,
+            "applicableTo": "HourlySalary",
+            "conditions": "Zaterdag van 9:00 tot 17:00 uur"
+          }
+        },
+        {
+          "typeCode": "Overwerktoeslag",
+          "description": "Toeslag voor overwerk op zondagen en feestdagen",
+          "calculationMethod": {
+            "percentage": 100,
+            "applicableTo": "HourlySalary",
+            "conditions": "Zondagen, tweede paasdag, Koningsdag, 5 mei (lustrumjaar), Hemelvaartsdag, tweede pinksterdag, 24 december van 16:00 tot 27 december 07:00 uur, 31 december van 16:00 tot 2 januari 07:00 uur"
+          }
+        },
+        {
+          "typeCode": "StandByVergoeding",
+          "description": "Toeslag voor stand-by uren",
+          "calculationMethod": {
+            "fixedAmount": 2.56,
+            "applicableTo": "Hour",
+            "conditions": "Maandag t/m vrijdag van 00:00 tot 24:00 uur (2025)"
+          }
+        },
+        {
+          "typeCode": "StandByVergoeding",
+          "description": "Toeslag voor stand-by uren op zaterdag, zondag en feestdagen",
+          "calculationMethod": {
+            "fixedAmount": 4.25,
+            "applicableTo": "Hour",
+            "conditions": "Zaterdag, zondag en feestdagen van 00:00 tot 24:00 uur (2025)"
+          }
+        },
+        {
+          "typeCode": "Reiskostenvergoeding",
+          "description": "Vergoeding voor woon-werkverkeer met eigen vervoer",
+          "calculationMethod": {
+            "fixedAmount": 0.23,
+            "applicableTo": "Kilometer",
+            "conditions": "Enkele reis meer dan 10 km, maximaal 50 km per enkele reis (vanaf 1 juli 2024)"
+          }
+        },
+        {
+          "typeCode": "Reiskostenvergoeding",
+          "description": "Vergoeding voor woon-werkverkeer met fiets of elektrisch vervoermiddel",
+          "calculationMethod": {
+            "fixedAmount": 0.23,
+            "applicableTo": "Kilometer",
+            "conditions": "Enkele reis meer dan 10 km, maximaal 50 km per enkele reis (vanaf 1 juli 2024)"
+          }
+        },
+        {
+          "typeCode": "Reiskostenvergoeding",
+          "description": "Vergoeding voor woon-werkverkeer met vervoermiddel met fossiele brandstof",
+          "calculationMethod": {
+            "fixedAmount": 0.21,
+            "applicableTo": "Kilometer",
+            "conditions": "Enkele reis meer dan 10 km, maximaal 50 km per enkele reis (vanaf 1 juli 2024)"
+          }
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": {
+    "percentage": 8,
+    "description": "Vakantietoeslag over het jaarsalaris"
+  },
+  "leaveArrangements": {
+    "paidLeaveDays": {
+      "annualLeave": 25,
+      "description": "Vakantiedagen per jaar (bij 34 uur per week)"
+    },
+    "publicHolidays": [
+      "Nieuwjaarsdag",
+      "Tweede paasdag",
+      "Koningsdag",
+      "5 mei (één keer per 5 jaar, het lustrumjaar)",
+      "Hemelvaartsdag",
+      "Tweede pinksterdag",
+      "Eerste kerstdag",
+      "Tweede kerstdag"
+    ],
+    "specialLeave": {
+      "marriageOrPartnershipRegistration": {
+        "days": 1,
+        "paid": true
+      },
+      "relocation": {
+        "days": 2,
+        "paid": true
+      },
+      "bereavement": {
+        "days": 3,
+        "paid": true,
+        "description": "Minimaal 3 dagen rouwverlof, meer mogelijk in overleg"
+      },
+      "birthLeavePartner": {
+        "weeks": 6,
+        "paid": true,
+        "description": "Inclusief wettelijk geboorteverlof"
+      },
+      "additionalBirthLeavePartner": {
+        "weeks": 5,
+        "paid": true,
+        "description": "Aanvullend geboorteverlof voor kinderen geboren op of na 1 januari 2020"
+      }
+    },
+    "ADV": {
+      "days": 12,
+      "description": "ADV/ATV dagen per jaar (bij 34 uur per week)"
+    }
+  },
+  "pension": {
+    "employerContributionPercentage": 37.4,
+    "pensionFundName": "Stichting Pensioenfonds Achmea (SPA)",
+    "employeeContributionPercentage": 3.25,
+    "description": "Pensioenregeling met een CDC-structuur (Collective Defined Contribution)"
+  },
+  "_extraction_metadata": {
+    "extractor": "mistral-judge",
+    "model": "mistral-small-2506",
+    "cao_name": "Achmea",
+    "extracted_at": "2026-03-03T22:09:10.068014",
+    "elapsed_seconds": 66.256089,
+    "gemini_version": "2026-03-03T22:06:06.036436",
+    "mistral_version": "2026-03-03T22:08:03.772494"
+  },
+  "_compliance": {
+    "status": "compliant",
+    "coverage": 66.66666666666666,
+    "validated_at": "2026-03-03T22:09:10.068019",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [],
+    "source_comparisons": {
+      "gemini": {
+        "status": "unknown",
+        "coverage": 0
+      },
+      "mistral": {
+        "status": "compliant",
+        "coverage": 66.66666666666666
+      }
+    }
+  }
+}

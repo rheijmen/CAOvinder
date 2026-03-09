@@ -113,6 +113,53 @@ export default function DashboardPage() {
     }
   };
 
+  const handleDownloadReport = async () => {
+    try {
+      // Create a comprehensive report
+      const report = {
+        title: "CAO Intelligence Report",
+        generated: new Date().toISOString(),
+        summary: {
+          totalCAOs,
+          processingRate: `${processingRate}%`,
+          pendingReview,
+          activeJobs: activeJobs.length,
+          queuedJobs: queuedJobs.length,
+          todayCost: `€${todayCost.toFixed(2)}`,
+          monthlyBudget: `€${monthlyBudget}`,
+        },
+        recentCAOs: recentCAOs.map(cao => ({
+          name: cao.name,
+          company: cao.company,
+          status: cao.status,
+          compliance: cao.complianceStatus,
+          coverage: cao.coverage,
+          processed: cao.processedAt,
+        })),
+        processingJobs: jobsData?.map(job => ({
+          id: job.id,
+          cao: job.caoName,
+          status: job.status,
+          progress: `${job.progress || 0}%`,
+          stage: job.stage,
+        })) || []
+      };
+
+      // Convert to JSON and trigger download
+      const dataStr = JSON.stringify(report, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+
+      const exportFileDefaultName = `cao-report-${new Date().toISOString().split('T')[0]}.json`;
+
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+    } catch (error) {
+      console.error("Failed to generate report:", error);
+    }
+  };
+
   // Calculate real stats from backend data
   const totalCAOs = caoResponse?.total || 0;
   const recentCAOs = caoResponse?.data || [];

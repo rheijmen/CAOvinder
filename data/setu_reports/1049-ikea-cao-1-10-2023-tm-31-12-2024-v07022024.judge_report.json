@@ -1,0 +1,88 @@
+{
+  "total_fields_compared": 127,
+  "agreements": 98,
+  "gemini_preferred": 21,
+  "mistral_preferred": 8,
+  "merged": 0,
+  "decisions": [
+    {
+      "field": "documentId",
+      "gemini_value": "error-2026-03-03T21:41:43.424861",
+      "mistral_value": "CAO-IKEA-2023-2024",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Gemini's output contains an error and is incomplete. Mistral provides a valid document ID format."
+    },
+    {
+      "field": "customer.legalId",
+      "gemini_value": "N/A",
+      "mistral_value": "33191274 (IKEA Nederland B.V.) and 27146795 (Inter IKEA Systems B.V.)",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral provides specific legal IDs which are more useful for compliance purposes."
+    },
+    {
+      "field": "customer.personContacts",
+      "gemini_value": "N/A",
+      "mistral_value": "Unit People & Culture Manager",
+      "decision": "mistral",
+      "confidence": 0.85,
+      "reasoning": "Mistral provides a specific contact role which is more useful for compliance."
+    },
+    {
+      "field": "labourAgreements.collectiveLabourAgreement.name",
+      "gemini_value": "IKEA CAO",
+      "mistral_value": "IKEA CAO 2023-2024",
+      "decision": "mistral",
+      "confidence": 0.8,
+      "reasoning": "Mistral includes the year range which is more specific and useful for identification."
+    },
+    {
+      "field": "remuneration.salaryScale",
+      "gemini_value": "Missing",
+      "mistral_value": "Complete salary scale data",
+      "decision": "mistral",
+      "confidence": 0.99,
+      "reasoning": "Gemini completely missed this critical section while Mistral provided comprehensive salary scale information."
+    },
+    {
+      "field": "remuneration.allowances",
+      "gemini_value": "Missing",
+      "mistral_value": "Complete allowances data",
+      "decision": "mistral",
+      "confidence": 0.99,
+      "reasoning": "Gemini completely missed this critical section while Mistral provided comprehensive allowances information."
+    },
+    {
+      "field": "remuneration.leaveArrangements",
+      "gemini_value": "Missing",
+      "mistral_value": "Complete leave arrangements data",
+      "decision": "mistral",
+      "confidence": 0.99,
+      "reasoning": "Gemini completely missed this critical section while Mistral provided comprehensive leave arrangements information."
+    },
+    {
+      "field": "remuneration.pension",
+      "gemini_value": "Missing",
+      "mistral_value": "Complete pension data",
+      "decision": "mistral",
+      "confidence": 0.99,
+      "reasoning": "Gemini completely missed this critical section while Mistral provided comprehensive pension information."
+    },
+    {
+      "field": "positionProfile.salaryScale",
+      "gemini_value": "Missing for most positions",
+      "mistral_value": "Complete salary scale mapping for all positions",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Mistral provides complete salary scale information for all positions while Gemini missed this critical mapping."
+    }
+  ],
+  "metadata": {
+    "model": "mistral-small-2506",
+    "elapsed_seconds": 64.579964,
+    "final_compliance": "compliant",
+    "final_coverage": 53.333333333333336,
+    "judged_at": "2026-03-03T21:45:36.104943"
+  }
+}

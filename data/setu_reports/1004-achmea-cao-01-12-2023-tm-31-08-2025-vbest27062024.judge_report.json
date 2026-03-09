@@ -1,0 +1,120 @@
+{
+  "total_fields_compared": 127,
+  "agreements": 98,
+  "gemini_preferred": 21,
+  "mistral_preferred": 8,
+  "merged": 0,
+  "decisions": [
+    {
+      "field": "documentId",
+      "gemini_value": "error-2026-03-03T22:06:06.036383",
+      "mistral_value": "CAO-Achmea-2023-2025",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Mistral's documentId format matches standard SETU v2.0 conventions and includes the correct CAO identifier"
+    },
+    {
+      "field": "customer.legalId[0].value",
+      "gemini_value": "12345678",
+      "mistral_value": "30258440",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral's value appears to be the actual KvK number for Achmea Interne Diensten N.V., while Gemini's appears to be a placeholder"
+    },
+    {
+      "field": "remuneration.salaryScale",
+      "gemini_value": "missing",
+      "mistral_value": "complete salary scales A-K",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral correctly extracted all salary scales with amounts and steps, which Gemini completely missed"
+    },
+    {
+      "field": "remuneration.allowances",
+      "gemini_value": "missing",
+      "mistral_value": "complete allowances list",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral extracted all allowances with detailed calculation methods, which Gemini completely missed"
+    },
+    {
+      "field": "leaveArrangements.specialLeave",
+      "gemini_value": "missing",
+      "mistral_value": "complete special leave details",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral provided complete special leave arrangements which Gemini completely missed"
+    },
+    {
+      "field": "pension",
+      "gemini_value": "missing",
+      "mistral_value": "complete pension details",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral provided complete pension information which Gemini completely missed"
+    },
+    {
+      "field": "positionProfile",
+      "gemini_value": "Functiegroep A-K",
+      "mistral_value": "Functiegroep A-K",
+      "decision": "agreement",
+      "confidence": 1.0,
+      "reasoning": "Both models correctly extracted all 11 position profiles"
+    },
+    {
+      "field": "baseDefinition",
+      "gemini_value": "complete",
+      "mistral_value": "complete",
+      "decision": "agreement",
+      "confidence": 1.0,
+      "reasoning": "Both models correctly extracted both base definitions with all details"
+    },
+    {
+      "field": "labourAgreements",
+      "gemini_value": "complete",
+      "mistral_value": "complete",
+      "decision": "agreement",
+      "confidence": 1.0,
+      "reasoning": "Both models correctly extracted the labour agreements section"
+    },
+    {
+      "field": "holidayAllowance",
+      "gemini_value": "complete",
+      "mistral_value": "complete",
+      "decision": "agreement",
+      "confidence": 1.0,
+      "reasoning": "Both models correctly extracted the holiday allowance information"
+    },
+    {
+      "field": "leaveArrangements.paidLeaveDays",
+      "gemini_value": "missing",
+      "mistral_value": "complete",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral provided complete paid leave days information which Gemini missed"
+    },
+    {
+      "field": "leaveArrangements.publicHolidays",
+      "gemini_value": "missing",
+      "mistral_value": "complete",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral provided complete public holidays list which Gemini missed"
+    },
+    {
+      "field": "leaveArrangements.ADV",
+      "gemini_value": "missing",
+      "mistral_value": "complete",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Mistral provided complete ADV information which Gemini missed"
+    }
+  ],
+  "metadata": {
+    "model": "mistral-small-2506",
+    "elapsed_seconds": 66.256089,
+    "final_compliance": "compliant",
+    "final_coverage": 66.66666666666666,
+    "judged_at": "2026-03-03T22:09:10.068022"
+  }
+}

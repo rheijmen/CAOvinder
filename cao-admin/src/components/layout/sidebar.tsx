@@ -68,12 +68,8 @@ const navigation: NavItem[] = [
   },
   {
     title: "Organization",
+    href: "/organization",
     icon: Building,
-    children: [
-      { title: "Teams", href: "/org/teams", icon: Users },
-      { title: "Settings", href: "/org/settings", icon: Settings },
-      { title: "Billing", href: "/org/billing", icon: Settings },
-    ],
   },
 ];
 
