@@ -5,20 +5,17 @@ This module provides the API endpoints that the frontend calls.
 The frontend NEVER accesses the database directly - all data flows through these APIs.
 """
 
-from datetime import datetime, timedelta
-from typing import List, Optional
-from uuid import UUID
 import json
+from datetime import datetime, timedelta
 
-from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Query, BackgroundTasks
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 import structlog
+from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Query, UploadFile
+from pydantic import BaseModel
 
-from cao_engine.config import Settings
-from cao_engine.storage.json_store import JSONStore
-from cao_engine.ocr.processor import OCRProcessor
 from cao_engine.compliance.setu_compliance_engine import SETUComplianceEngine
+from cao_engine.config import Settings
+from cao_engine.ocr.processor import OCRProcessor
+from cao_engine.storage.json_store import JSONStore
 
 logger = structlog.get_logger()
 
@@ -42,20 +39,20 @@ def get_compliance_engine():
 # ==========================================
 
 class CAOListResponse(BaseModel):
-    data: List[dict]
+    data: list[dict]
     total: int
     page: int = 1
     limit: int = 20
 
 class CAOUploadRequest(BaseModel):
     name: str
-    sector: Optional[str] = None
-    company: Optional[str] = None
-    effective_date: Optional[datetime] = None
+    sector: str | None = None
+    company: str | None = None
+    effective_date: datetime | None = None
     metadata: dict = {}
 
 class ProcessingRequest(BaseModel):
-    pipeline_config: Optional[dict] = None
+    pipeline_config: dict | None = None
     priority: str = "normal"
 
 class ProcessingJobResponse(BaseModel):
@@ -64,7 +61,7 @@ class ProcessingJobResponse(BaseModel):
     status: str
     progress: int
     estimated_cost: float
-    started_at: Optional[datetime]
+    started_at: datetime | None
     message: str
 
 # ==========================================
@@ -73,9 +70,9 @@ class ProcessingJobResponse(BaseModel):
 
 @router.get("/caos")
 async def list_cao_documents(
-    search: Optional[str] = Query(None),
-    sector: Optional[str] = Query(None),
-    status: Optional[str] = Query(None),
+    search: str | None = Query(None),
+    sector: str | None = Query(None),
+    status: str | None = Query(None),
     page: int = Query(1, ge=1),
     limit: int = Query(20, ge=1, le=100),
     store: JSONStore = Depends(get_json_store)
@@ -104,7 +101,7 @@ async def list_cao_documents(
             # Check if this is a SETU document or structured document
             if doc_path.parent.name == "setu":
                 # Load SETU document directly as JSON
-                with open(doc_path, 'r') as f:
+                with open(doc_path) as f:
                     setu_data = json.load(f)
 
                 # Extract CAO name from customer or extraction metadata
@@ -232,7 +229,7 @@ async def get_cao_document(
         # Check if this is a SETU document
         if doc_path.parent.name == "setu":
             # Load SETU document directly as JSON
-            with open(doc_path, 'r') as f:
+            with open(doc_path) as f:
                 return json.load(f)
         else:
             # Load structured CAODocument
@@ -246,7 +243,7 @@ async def get_cao_document(
 async def upload_cao_document(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
-    metadata: Optional[str] = None,
+    metadata: str | None = None,
     settings: Settings = Depends(get_settings),
     store: JSONStore = Depends(get_json_store)
 ):
@@ -418,7 +415,7 @@ async def get_judge_report(
 
 @router.get("/jobs")
 async def list_processing_jobs(
-    status: Optional[str] = Query(None),
+    status: str | None = Query(None),
     limit: int = Query(20, ge=1, le=100)
 ):
     """List all processing jobs with optional status filter."""

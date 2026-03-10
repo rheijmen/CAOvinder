@@ -1,15 +1,12 @@
 """
 Processing jobs API routes for real-time pipeline monitoring
 """
-from datetime import datetime, timezone
-from typing import List, Optional, Dict, Any
-from fastapi import APIRouter, Query, HTTPException, BackgroundTasks
-from pydantic import BaseModel
-import uuid
 import asyncio
-import subprocess
-from pathlib import Path
-import json
+import uuid
+from datetime import UTC, datetime
+
+from fastapi import APIRouter, BackgroundTasks, HTTPException, Query
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -19,14 +16,14 @@ class ProcessingJob(BaseModel):
     status: str  # "queued", "running", "complete", "failed"
     stage: str  # "ocr", "gemini", "mistral_review", "judge", "validation"
     progress: int  # 0-100
-    started_at: Optional[datetime] = None
+    started_at: datetime | None = None
     message: str = ""
-    error_details: Optional[str] = None
-    retry_from_step: Optional[int] = None
-    ocr_file: Optional[str] = None
+    error_details: str | None = None
+    retry_from_step: int | None = None
+    ocr_file: str | None = None
 
 # In-memory storage for active jobs (in production, use Redis or DB)
-active_jobs: Dict[str, ProcessingJob] = {}
+active_jobs: dict[str, ProcessingJob] = {}
 
 # Removed mock job - using real data now
 # metalektro_job = ProcessingJob(...)
@@ -42,14 +39,14 @@ async def create_job(cao_name: str):
         status="running",
         stage="ocr",
         progress=0,
-        started_at=datetime.now(timezone.utc),
+        started_at=datetime.now(UTC),
         message="Starting OCR processing..."
     )
     active_jobs[job_id] = job
     return job
 
 @router.get("/api/v1/jobs")
-async def list_jobs(status: Optional[str] = Query(None)):
+async def list_jobs(status: str | None = Query(None)):
     """List all processing jobs"""
     jobs = list(active_jobs.values())
     if status:
@@ -86,7 +83,7 @@ async def run_retry_in_background(job_id: str, ocr_file: str, step: int, cao_nam
             job.status = "running"
             job.message = f"Retrying from step {step}"
             job.error_details = None
-            job.started_at = datetime.now(timezone.utc)
+            job.started_at = datetime.now(UTC)
 
             # Set appropriate stage based on retry step
             if step == 2:

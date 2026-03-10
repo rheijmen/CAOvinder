@@ -1,26 +1,26 @@
 """SETU v2.0 Validation Framework for 100% accuracy."""
 
-from decimal import Decimal
-from typing import Dict, List, Tuple, Optional
-from pydantic import BaseModel, Field
 import json
+from decimal import Decimal
 from pathlib import Path
+
+from pydantic import BaseModel
 
 
 class ValidationError(BaseModel):
     field: str
     severity: str  # "critical", "warning", "info"
     message: str
-    expected: Optional[str] = None
-    actual: Optional[str] = None
+    expected: str | None = None
+    actual: str | None = None
 
 
 class ValidationReport(BaseModel):
     cao_name: str
     total_fields: int
     validated_fields: int
-    errors: List[ValidationError] = []
-    warnings: List[ValidationError] = []
+    errors: list[ValidationError] = []
+    warnings: list[ValidationError] = []
     score: float = 0.0
 
     @property
@@ -34,7 +34,7 @@ class SETUValidator:
     def __init__(self):
         self.rules = self._load_validation_rules()
 
-    def _load_validation_rules(self) -> Dict:
+    def _load_validation_rules(self) -> dict:
         """Load SETU v2.0 validation rules."""
         return {
             # CRITICAL: Must be present and valid
@@ -76,7 +76,7 @@ class SETUValidator:
             ]
         }
 
-    def validate_extraction(self, setu_json: Dict, source_md: str) -> ValidationReport:
+    def validate_extraction(self, setu_json: dict, source_md: str) -> ValidationReport:
         """Validate SETU extraction against source and rules."""
 
         report = ValidationReport(
@@ -108,7 +108,7 @@ class SETUValidator:
 
         return report
 
-    def _validate_formats(self, setu: Dict, report: ValidationReport):
+    def _validate_formats(self, setu: dict, report: ValidationReport):
         """Validate field formats."""
         # Date fields
         date_fields = ["geldigVan", "geldigTot"]
@@ -118,7 +118,7 @@ class SETUValidator:
                     report.errors.append(ValidationError(
                         field=field,
                         severity="critical",
-                        message=f"Invalid date format",
+                        message="Invalid date format",
                         expected="YYYY-MM-DD",
                         actual=setu[field]
                     ))
@@ -136,7 +136,7 @@ class SETUValidator:
                                 actual=str(schaal["periodeloon"])
                             ))
 
-    def _validate_business_rules(self, setu: Dict, report: ValidationReport):
+    def _validate_business_rules(self, setu: dict, report: ValidationReport):
         """Validate business logic rules."""
 
         # Check salary progression
@@ -166,7 +166,7 @@ class SETUValidator:
                     actual=f"{setu['geldigVan']} >= {setu['geldigTot']}"
                 ))
 
-    def _validate_against_source(self, setu: Dict, source_md: str, report: ValidationReport):
+    def _validate_against_source(self, setu: dict, source_md: str, report: ValidationReport):
         """Cross-reference extracted values with source markdown."""
 
         # Example: Check if extracted salary values exist in source
@@ -208,7 +208,7 @@ class SETUValidator:
 
         return max(0.0, min(100.0, score))
 
-    def _check_field_exists(self, obj: Dict, path: str) -> bool:
+    def _check_field_exists(self, obj: dict, path: str) -> bool:
         """Check if a field exists in nested structure."""
         parts = path.replace("[", ".").replace("]", "").split(".")
         current = obj
@@ -229,7 +229,7 @@ class SETUValidator:
 
         return True
 
-    def _count_fields(self, obj: Dict, count: int = 0) -> int:
+    def _count_fields(self, obj: dict, count: int = 0) -> int:
         """Count total fields in nested structure."""
         if isinstance(obj, dict):
             for key, value in obj.items():
@@ -261,10 +261,10 @@ def create_validation_report(setu_file: Path, ocr_file: Path) -> ValidationRepor
     validator = SETUValidator()
 
     # Load files
-    with open(setu_file, 'r') as f:
+    with open(setu_file) as f:
         setu_data = json.load(f)
 
-    with open(ocr_file, 'r') as f:
+    with open(ocr_file) as f:
         ocr_markdown = f.read()
 
     # Validate

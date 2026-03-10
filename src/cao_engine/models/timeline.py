@@ -2,12 +2,11 @@
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Any
 
 from pydantic import BaseModel, Field
 
 from .events import CAOEvent, CAOEventType
-from .momenten import Moment, MomentCategorie, MomentType
+from .momenten import Moment, MomentCategorie
 
 
 class TimelineEntryType(StrEnum):

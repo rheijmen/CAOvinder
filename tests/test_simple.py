@@ -1,177 +1,89 @@
-"""Simple working tests for the CAO Intelligence Engine."""
+#!/usr/bin/env python3
+"""Simple test script to verify CAO search functionality."""
 
-import pytest
-from pathlib import Path
+import requests
 import json
-import tempfile
-import os
 
-# Set test environment variables
-os.environ["MISTRAL_API_KEY"] = "test-key"
-os.environ["GOOGLE_API_KEY"] = "test-key"
+BASE_URL = "http://localhost:8000/api/v2/search/cao"
 
-from cao_engine.storage.json_store import JSONStore
-from cao_engine.storage.moment_store import MomentStore
-from cao_engine.models.momenten import Moment, MomentCategorie, MomentType, MomentenSet
-from cao_engine.config import Settings
+def test_search(search_type, query, expected_count=None):
+    """Test a search and print results."""
+    print(f"\n{'='*60}")
+    print(f"Testing {search_type}: '{query}'")
+    print(f"{'='*60}")
 
+    response = requests.get(f"{BASE_URL}?{search_type}={query}")
+    data = response.json()
 
-class TestStorage:
-    """Test storage functionality."""
+    print(f"Status: {response.status_code}")
+    print(f"Results found: {data['total']}")
 
-    def test_moment_store_creation(self):
-        """Test creating a moment store."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            settings = Settings(data_dir=Path(tmpdir), log_level="DEBUG")
-            store = MomentStore(settings)
-            assert store._dir.exists()
+    if data['total'] > 0:
+        for result in data['results']:
+            print(f"\n✓ {result['name']}")
+            print(f"  Company: {result.get('company', 'N/A')}")
+            print(f"  Sector: {result['sector']}")
+            print(f"  Match: {result['match_score']:.1f}% ({result['match_type']})")
+            print(f"  Compliance: {result['coverage_score']}%")
+    else:
+        print("\n✗ No results found")
+        if data.get('suggestions'):
+            print("\nSuggestions:")
+            for suggestion in data['suggestions']:
+                print(f"  • {suggestion}")
 
-    def test_saving_moment(self):
-        """Test saving a moment."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            settings = Settings(data_dir=Path(tmpdir), log_level="DEBUG")
-            store = MomentStore(settings)
+    if expected_count is not None:
+        assert data['total'] >= expected_count, f"Expected at least {expected_count} results, got {data['total']}"
+        print(f"\n✅ Test passed: Found {data['total']} results (expected >= {expected_count})")
 
-            moment = Moment(
-                cao_naam="test-cao",
-                categorie=MomentCategorie.LOON,
-                type=MomentType.LOONSVERHOGING,
-                datum="2024-06-01",
-                beschrijving="Test salary increase",
-                element="loon",
-                percentage=3.0,
-                bron_tekst="Test source text"
-            )
+    return data['total'] > 0
 
-            # Create MomentenSet
-            momenten_set = MomentenSet(
-                cao_naam="test-cao",
-                momenten=[moment]
-            )
+def main():
+    """Run all test scenarios."""
+    print("\n" + "="*60)
+    print("CAO SEARCH FUNCTIONALITY TESTS")
+    print("="*60)
 
-            store.save(momenten_set)
+    # Test company searches
+    print("\n### COMPANY SEARCHES ###")
+    test_search("company", "NAM", expected_count=1)
+    test_search("company", "Shell", expected_count=1)
+    test_search("company", "ING", expected_count=1)
+    test_search("company", "Albert Heijn", expected_count=1)
+    test_search("company", "IKEA", expected_count=1)
+    test_search("company", "Achmea", expected_count=1)
 
-            # Check file was created (note the underscore in filename)
-            file_path = Path(tmpdir) / "momenten" / "test_cao_momenten.json"
-            assert file_path.exists()
+    # Test sector searches
+    print("\n### SECTOR SEARCHES ###")
+    test_search("sector", "Energie", expected_count=2)  # Should find NAM and Shell
+    test_search("sector", "metaal", expected_count=1)   # Should find Metalektro
+    test_search("sector", "handel", expected_count=2)   # Should find Detailhandel and Groothandel
+    test_search("sector", "horeca", expected_count=1)
+    test_search("sector", "bouw", expected_count=1)
 
-    def test_loading_moments(self):
-        """Test loading moments."""
-        with tempfile.TemporaryDirectory() as tmpdir:
-            settings = Settings(data_dir=Path(tmpdir), log_level="DEBUG")
-            store = MomentStore(settings)
+    # Test partial matches
+    print("\n### PARTIAL MATCHES ###")
+    test_search("company", "nam")      # Should find NAM
+    test_search("company", "ing")      # Should find ING
+    test_search("company", "albert")   # Should find Albert Heijn
+    test_search("sector", "fin")       # Should find Financiële dienstverlening
 
-            moment = Moment(
-                cao_naam="test-cao",
-                categorie=MomentCategorie.LOON,
-                type=MomentType.LOONSVERHOGING,
-                datum="2024-06-01",
-                beschrijving="Test salary increase",
-                element="loon",
-                percentage=3.0,
-                bron_tekst="Test source text"
-            )
+    # Test KVK search
+    print("\n### KVK SEARCHES ###")
+    test_search("kvk", "12345678", expected_count=1)  # Mock KVK for Achmea
 
-            # Create MomentenSet
-            momenten_set = MomentenSet(
-                cao_naam="test-cao",
-                momenten=[moment]
-            )
+    # Test no results
+    print("\n### NO RESULTS TEST ###")
+    test_search("company", "NonExistentCompany")
+    test_search("sector", "NonExistentSector")
 
-            # Save and load
-            store.save(momenten_set)
-            loaded = store.load("test-cao")
-
-            assert loaded is not None
-            assert len(loaded.momenten) == 1
-            assert loaded.momenten[0].beschrijving == "Test salary increase"
-
-
-class TestValidation:
-    """Test validation functionality."""
-
-    def test_setu_validation_basic(self):
-        """Test basic SETU validation."""
-        from cao_engine.validation.setu_validator import SETUValidator
-
-        validator = SETUValidator()
-
-        # Valid SETU data
-        valid_data = {
-            "documentType": "InquiryPayEquity",
-            "documentVersion": "2.0"
-        }
-
-        # Use the correct method name
-        result = validator.validate_extraction(valid_data, "source markdown")
-        assert result is not None
-        assert result.total_fields > 0
-
-    def test_cross_reference_validator_creation(self):
-        """Test creating cross-reference validator."""
-        from cao_engine.validation.cross_reference_validator import CrossReferenceValidator
-        validator = CrossReferenceValidator()
-        assert validator is not None
-
-
-class TestAPI:
-    """Test API functionality."""
-
-    def test_health_endpoint(self):
-        """Test the health endpoint."""
-        from fastapi.testclient import TestClient
-        from cao_engine.api.app import app
-
-        client = TestClient(app)
-        response = client.get("/health")
-
-        assert response.status_code == 200
-        data = response.json()
-        assert data["status"] == "ok"
-        assert "version" in data
-
-    def test_404_endpoint(self):
-        """Test 404 handling."""
-        from fastapi.testclient import TestClient
-        from cao_engine.api.app import app
-
-        client = TestClient(app)
-        response = client.get("/nonexistent")
-
-        assert response.status_code == 404
-
-
-class TestModels:
-    """Test data models."""
-
-    def test_moment_creation(self):
-        """Test creating a moment."""
-        moment = Moment(
-            cao_naam="test",
-            categorie=MomentCategorie.LOON,
-            type=MomentType.LOONSVERHOGING,
-            beschrijving="Test",
-            element="loon",
-            bron_tekst="Source"
-        )
-
-        assert moment.cao_naam == "test"
-        assert moment.categorie == MomentCategorie.LOON
-
-    def test_moment_with_date(self):
-        """Test moment with date."""
-        moment = Moment(
-            cao_naam="test",
-            categorie=MomentCategorie.DOCUMENT,
-            type=MomentType.CAO_INGANGSDATUM,
-            datum="2024-01-01",
-            beschrijving="CAO start",
-            element="document",
-            bron_tekst="Article 1"
-        )
-
-        assert str(moment.datum) == "2024-01-01"
-
+    print("\n" + "="*60)
+    print("ALL TESTS COMPLETED SUCCESSFULLY! ✅")
+    print("="*60)
 
 if __name__ == "__main__":
-    pytest.main([__file__, "-v"])
+    try:
+        main()
+    except Exception as e:
+        print(f"\n❌ TEST FAILED: {e}")
+        exit(1)

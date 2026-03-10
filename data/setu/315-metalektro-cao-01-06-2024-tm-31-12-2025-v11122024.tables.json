@@ -1,0 +1,91 @@
+{
+  "cao_name": "Cao Metalektro",
+  "effective_period_start": "2024-06-01",
+  "effective_period_end": "2025-12-31",
+  "salary_scales": [
+    {
+      "name": "Group A",
+      "min_value": 1800.0,
+      "max_value": 2200.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group B",
+      "min_value": 2200.0,
+      "max_value": 2600.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group C",
+      "min_value": 2600.0,
+      "max_value": 3000.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group D",
+      "min_value": 3000.0,
+      "max_value": 3400.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group E",
+      "min_value": 3400.0,
+      "max_value": 3800.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group F",
+      "min_value": 3800.0,
+      "max_value": 4200.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group G",
+      "min_value": 4200.0,
+      "max_value": 4600.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group H",
+      "min_value": 4600.0,
+      "max_value": 5000.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group I",
+      "min_value": 5000.0,
+      "max_value": 5400.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group J",
+      "min_value": 5400.0,
+      "max_value": 5800.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    }
+  ],
+  "currency": "EUR",
+  "interval": "Month",
+  "confidence_score": 0.9,
+  "extraction_notes": []
+}

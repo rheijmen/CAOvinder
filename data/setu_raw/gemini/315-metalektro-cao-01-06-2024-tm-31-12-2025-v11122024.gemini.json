@@ -1,12 +1,8 @@
 {
   "documentId": {
-    "value": "CAO-Metalektro-2024-2025-v1.0",
-    "schemeAgencyId": "FME"
+    "value": "CAO-Metalektro-2024-2025",
+    "schemeAgencyId": "CAO-Publisher"
   },
-  "versionId": {
-    "value": "Schone versie (29-7-2024)"
-  },
-  "issued": "2024-07-29T00:00:00Z",
   "effectivePeriod": {
     "validFrom": "2024-06-01",
     "validTo": "2025-12-31"
@@ -15,16 +11,16 @@
     "legalId": [
       {
         "value": "N/A",
-        "schemeAgencyId": "CAO-Metalektro"
+        "schemeAgencyId": "KvK"
       }
     ],
     "personContacts": [
       {
         "name": {
-          "formattedName": "CAO-partijen"
+          "formattedName": "CAO Partijen"
         },
-        "roleCode": "Issuer",
-        "positionTitle": "CAO-partijen"
+        "roleCode": "Authorized by",
+        "positionTitle": "CAO Partijen"
       }
     ]
   },
@@ -32,63 +28,68 @@
     {
       "baseType": "Maandverdienste",
       "remunerationIndicator": true,
-      "holidayAllowanceIndicator": false,
-      "paidLeaveDayIndicator": true,
-      "allAllowancesIndicator": false,
-      "allowances": []
-    },
-    {
-      "baseType": "Ploegentoeslagen",
-      "remunerationIndicator": false,
       "holidayAllowanceIndicator": true,
-      "paidLeaveDayIndicator": false,
+      "paidLeaveDayIndicator": true,
       "allAllowancesIndicator": false,
       "allowances": [
         {
           "typeCode": "ShiftAllowance"
+        },
+        {
+          "typeCode": "OvertimeAllowance"
+        },
+        {
+          "typeCode": "IrregularHoursAllowance"
+        },
+        {
+          "typeCode": "TravelTimeAllowance"
+        },
+        {
+          "typeCode": "HazardAllowance"
         }
-      ]
+      ],
+      "referenceDate": {
+        "occurrenceType": "Recurring",
+        "recurringInterval": "R/P1M"
+      }
     },
     {
-      "baseType": "Arbeidsomstandighedentoeslagen",
-      "remunerationIndicator": false,
-      "holidayAllowanceIndicator": true,
+      "baseType": "Uurverdienste",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
       "paidLeaveDayIndicator": false,
       "allAllowancesIndicator": false,
       "allowances": [
         {
-          "typeCode": "HazardAllowance"
+          "typeCode": "OvertimeAllowance"
+        },
+        {
+          "typeCode": "IrregularHoursAllowance"
+        },
+        {
+          "typeCode": "ShiftAllowance"
+        },
+        {
+          "typeCode": "TravelTimeAllowance"
         }
-      ]
-    },
-    {
-      "baseType": "Ziektewetdagloon",
-      "remunerationIndicator": true,
-      "holidayAllowanceIndicator": false,
-      "paidLeaveDayIndicator": false,
-      "allAllowancesIndicator": false,
-      "allowances": []
-    },
-    {
-      "baseType": "OriginalSalary",
-      "remunerationIndicator": true,
-      "holidayAllowanceIndicator": false,
-      "paidLeaveDayIndicator": false,
-      "allAllowancesIndicator": false,
-      "allowances": []
+      ],
+      "referenceDate": {
+        "occurrenceType": "Recurring",
+        "recurringInterval": "R/P1H"
+      }
     }
   ],
   "labourAgreements": {
     "industryIdentifier": [
       {
-        "value": "Metalektro"
+        "value": "Metalektro",
+        "schemeAgencyId": "Sector"
       }
     ],
     "collectiveLabourAgreement": {
-      "name": "CAO Metalektro Basis",
+      "name": "Cao Metalektro",
       "id": {
-        "value": "CAO-Metalektro-Basis-2024-2025",
-        "schemeAgencyId": "FME"
+        "value": "CAO-Metalektro-2024-2025"
       },
       "effectivePeriod": {
         "validFrom": "2024-06-01",
@@ -99,103 +100,103 @@
   "positionProfile": [
     {
       "positionId": {
-        "value": "Salarisgroep A"
+        "value": "SG-A"
       },
       "positionTitle": "Salarisgroep A",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 0-130 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep B"
+        "value": "SG-B"
       },
       "positionTitle": "Salarisgroep B",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 131-180 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep C"
+        "value": "SG-C"
       },
       "positionTitle": "Salarisgroep C",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 181-230 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep D"
+        "value": "SG-D"
       },
       "positionTitle": "Salarisgroep D",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 231-280 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep E"
+        "value": "SG-E"
       },
       "positionTitle": "Salarisgroep E",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 281-330 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep F"
+        "value": "SG-F"
       },
       "positionTitle": "Salarisgroep F",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 331-380 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep G"
+        "value": "SG-G"
       },
       "positionTitle": "Salarisgroep G",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 381-430 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep H"
+        "value": "SG-H"
       },
       "positionTitle": "Salarisgroep H",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 431-480 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep J"
+        "value": "SG-J"
       },
       "positionTitle": "Salarisgroep J",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 481-535 punten."
+      "referenceTitle": "Functiegroep"
     },
     {
       "positionId": {
-        "value": "Salarisgroep K"
+        "value": "SG-K"
       },
       "positionTitle": "Salarisgroep K",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "workDescription": "Functies met een functiewaarderingsscore van 536-590 punten."
+      "referenceTitle": "Functiegroep"
     }
   ],
   "remuneration": [
@@ -209,12 +210,12 @@
       },
       "workDuration": {
         "amount": {
-          "value": 33.23,
+          "value": 8,
           "unitCode": "Hour"
         },
         "interval": {
           "value": 1,
-          "unitCode": "Week"
+          "unitCode": "Day"
         },
         "valuePerWeek": 33.23
       },
@@ -222,24 +223,27 @@
         "value": 1,
         "unitCode": "Month"
       },
+      "hourlyWageConversion": {
+        "hourlyWageFactor": 172.41379
+      },
       "salaryScale": [
         {
           "name": "Salarisgroep A",
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2512.9
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2544.39
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep A"
+                "value": "SG-A"
               }
             }
           ]
@@ -249,22 +253,22 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2550.51
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2591.21
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2631.18
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep B"
+                "value": "SG-B"
               }
             }
           ]
@@ -274,26 +278,26 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2605.81
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2655.74
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2704.89
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2754.06
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep C"
+                "value": "SG-C"
               }
             }
           ]
@@ -303,30 +307,30 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2684.12
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2739.45
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2794.72
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2850.04
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 2906.08
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep D"
+                "value": "SG-D"
               }
             }
           ]
@@ -336,34 +340,34 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2778.62
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2841.6
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2904.6
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2967.58
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3030.51
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3093.47
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep E"
+                "value": "SG-E"
               }
             }
           ]
@@ -373,38 +377,38 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2890.79
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2961.42
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3032.06
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3102.78
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3172.59
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3243.29
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3313.93
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep F"
+                "value": "SG-F"
               }
             }
           ]
@@ -414,42 +418,42 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3019.8
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3099.63
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3178.77
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3258.65
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3337.72
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3417.63
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3496.71
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 3576.61
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep G"
+                "value": "SG-G"
               }
             }
           ]
@@ -459,46 +463,46 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3175.7
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3264.76
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3353.1
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3441.4
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3529.74
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3618.89
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3707.17
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 3795.47
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 3883.79
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep H"
+                "value": "SG-H"
               }
             }
           ]
@@ -508,50 +512,50 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3373.82
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3471.37
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3568.89
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3666.48
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3763.98
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3861.57
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3959.1
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4056.62
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4154.16
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4251.72
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep J"
+                "value": "SG-J"
               }
             }
           ]
@@ -561,54 +565,54 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3601.96
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3710.25
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3817.76
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3926.05
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 4034.35
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 4141.81
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 4250.19
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4357.68
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4466.0
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4574.28
             },
             {
-              "name": "Functiejaar 10",
+              "name": "Functiejr. 10",
               "value": 4681.82
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep K"
+                "value": "SG-K"
               }
             }
           ]
@@ -625,10 +629,16 @@
             "unitCode": "Percentage",
             "baseAmount": {
               "unitCode": "MonthlyRate",
-              "baseType": "GrossSalary"
+              "baseType": "Maandverdienste"
             }
           },
-          "description": "Structurele salarisverhoging, ten minste € 74,43 bruto voor de voltijder."
+          "description": "Minimum verhoging van € 74,43"
+        }
+      ],
+      "conditions": [
+        {
+          "conditionType": "Text",
+          "description": "Basis Jaarlijkse Arbeidsduur (BJA) voor overige werknemers is 1728 uur per jaar. Voor werknemers die recht hebben op de overgangsregeling extra vakantie voor senioren (4.1.5) is de BJA 1744 uur per jaar."
         }
       ]
     },
@@ -638,16 +648,16 @@
       },
       "effectivePeriod": {
         "validFrom": "2025-01-01",
-        "validTo": "2025-12-31"
+        "validTo": "2025-05-31"
       },
       "workDuration": {
         "amount": {
-          "value": 33.08,
+          "value": 8,
           "unitCode": "Hour"
         },
         "interval": {
           "value": 1,
-          "unitCode": "Week"
+          "unitCode": "Day"
         },
         "valuePerWeek": 33.08
       },
@@ -655,24 +665,27 @@
         "value": 1,
         "unitCode": "Month"
       },
+      "hourlyWageConversion": {
+        "hourlyWageFactor": 172.41379
+      },
       "salaryScale": [
         {
           "name": "Salarisgroep A",
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2594.57
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2627.08
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep A"
+                "value": "SG-A"
               }
             }
           ]
@@ -682,22 +695,22 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2633.4
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2675.42
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2716.69
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep B"
+                "value": "SG-B"
               }
             }
           ]
@@ -707,26 +720,26 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2690.5
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2742.05
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2792.8
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2843.57
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep C"
+                "value": "SG-C"
               }
             }
           ]
@@ -736,30 +749,30 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2771.35
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2828.48
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2885.55
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2942.67
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3000.53
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep D"
+                "value": "SG-D"
               }
             }
           ]
@@ -769,34 +782,34 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2868.93
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2933.95
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2999.0
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3064.03
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3129.0
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3194.01
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep E"
+                "value": "SG-E"
               }
             }
           ]
@@ -806,38 +819,38 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2984.74
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3057.67
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3130.6
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3203.62
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3275.7
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3348.7
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3421.63
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep F"
+                "value": "SG-F"
               }
             }
           ]
@@ -847,42 +860,42 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3117.94
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3200.37
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3282.08
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3364.56
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3446.2
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3528.7
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3610.35
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 3692.85
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep G"
+                "value": "SG-G"
               }
             }
           ]
@@ -892,46 +905,46 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3278.91
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3370.86
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3462.08
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3553.25
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3644.46
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3736.5
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3827.65
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 3918.82
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4010.01
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep H"
+                "value": "SG-H"
               }
             }
           ]
@@ -941,50 +954,50 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3483.47
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3584.19
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3684.88
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3785.64
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3886.31
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3987.07
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 4087.77
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4188.46
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4289.17
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4389.9
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep J"
+                "value": "SG-J"
               }
             }
           ]
@@ -994,54 +1007,54 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3719.02
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3830.83
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3941.84
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 4053.65
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 4165.47
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 4276.42
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 4388.32
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4499.3
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4611.15
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4722.94
             },
             {
-              "name": "Functiejaar 10",
+              "name": "Functiejr. 10",
               "value": 4833.98
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep K"
+                "value": "SG-K"
               }
             }
           ]
@@ -1058,25 +1071,16 @@
             "unitCode": "Percentage",
             "baseAmount": {
               "unitCode": "MonthlyRate",
-              "baseType": "GrossSalary"
+              "baseType": "Maandverdienste"
             }
           },
-          "description": "Structurele salarisverhoging, ten minste € 90,82 bruto voor de voltijder."
-        },
+          "description": "Minimum verhoging van € 90,82"
+        }
+      ],
+      "conditions": [
         {
-          "effectiveDate": {
-            "occurrenceType": "Single",
-            "date": "2025-06-01"
-          },
-          "amount": {
-            "value": 3.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "GrossSalary"
-            }
-          },
-          "description": "Structurele salarisverhoging, ten minste € 86,35 bruto voor de voltijder."
+          "conditionType": "Text",
+          "description": "Basis Jaarlijkse Arbeidsduur (BJA) voor overige werknemers is 1720 uur per jaar. Voor werknemers die recht hebben op de overgangsregeling extra vakantie voor senioren (4.1.5) is de BJA 1736 uur per jaar."
         }
       ]
     },
@@ -1090,12 +1094,12 @@
       },
       "workDuration": {
         "amount": {
-          "value": 33.08,
+          "value": 8,
           "unitCode": "Hour"
         },
         "interval": {
           "value": 1,
-          "unitCode": "Week"
+          "unitCode": "Day"
         },
         "valuePerWeek": 33.08
       },
@@ -1103,24 +1107,27 @@
         "value": 1,
         "unitCode": "Month"
       },
+      "hourlyWageConversion": {
+        "hourlyWageFactor": 172.41379
+      },
       "salaryScale": [
         {
           "name": "Salarisgroep A",
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2672.41
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2705.89
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep A"
+                "value": "SG-A"
               }
             }
           ]
@@ -1130,22 +1137,22 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2712.4
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2755.68
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2798.19
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep B"
+                "value": "SG-B"
               }
             }
           ]
@@ -1155,26 +1162,26 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2771.22
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2824.31
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2876.58
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 2928.88
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep C"
+                "value": "SG-C"
               }
             }
           ]
@@ -1184,30 +1191,30 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2854.49
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 2913.33
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 2972.12
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3030.95
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3090.55
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep D"
+                "value": "SG-D"
               }
             }
           ]
@@ -1217,34 +1224,34 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 2955.0
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3021.97
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3088.97
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3155.95
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3222.87
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3289.83
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep E"
+                "value": "SG-E"
               }
             }
           ]
@@ -1254,38 +1261,38 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3074.28
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3149.4
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3224.52
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3299.73
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3373.97
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3449.16
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3524.28
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep F"
+                "value": "SG-F"
               }
             }
           ]
@@ -1295,42 +1302,42 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3211.48
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3296.38
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3380.54
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3465.5
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3549.59
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3634.56
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3718.66
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 3803.64
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep G"
+                "value": "SG-G"
               }
             }
           ]
@@ -1340,46 +1347,46 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3377.28
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3471.99
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3565.94
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3659.85
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 3753.79
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 3848.6
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 3942.48
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4036.38
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4130.31
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep H"
+                "value": "SG-H"
               }
             }
           ]
@@ -1389,50 +1396,50 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3587.97
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3691.72
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 3795.43
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 3899.21
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 4002.9
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 4106.68
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 4210.4
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4314.11
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4417.85
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4521.6
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep J"
+                "value": "SG-J"
               }
             }
           ]
@@ -1442,54 +1449,54 @@
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": "Functiejaar 0",
+              "name": "Functiejr. 0",
               "value": 3830.59
             },
             {
-              "name": "Functiejaar 1",
+              "name": "Functiejr. 1",
               "value": 3945.75
             },
             {
-              "name": "Functiejaar 2",
+              "name": "Functiejr. 2",
               "value": 4060.1
             },
             {
-              "name": "Functiejaar 3",
+              "name": "Functiejr. 3",
               "value": 4175.26
             },
             {
-              "name": "Functiejaar 4",
+              "name": "Functiejr. 4",
               "value": 4290.43
             },
             {
-              "name": "Functiejaar 5",
+              "name": "Functiejr. 5",
               "value": 4404.71
             },
             {
-              "name": "Functiejaar 6",
+              "name": "Functiejr. 6",
               "value": 4519.97
             },
             {
-              "name": "Functiejaar 7",
+              "name": "Functiejr. 7",
               "value": 4634.28
             },
             {
-              "name": "Functiejaar 8",
+              "name": "Functiejr. 8",
               "value": 4749.48
             },
             {
-              "name": "Functiejaar 9",
+              "name": "Functiejr. 9",
               "value": 4864.63
             },
             {
-              "name": "Functiejaar 10",
+              "name": "Functiejr. 10",
               "value": 4979.0
             }
           ],
           "positionProfileReference": [
             {
               "positionId": {
-                "value": "Salarisgroep K"
+                "value": "SG-K"
               }
             }
           ]
@@ -1506,44 +1513,21 @@
             "unitCode": "Percentage",
             "baseAmount": {
               "unitCode": "MonthlyRate",
-              "baseType": "GrossSalary"
+              "baseType": "Maandverdienste"
             }
           },
-          "description": "Structurele salarisverhoging, ten minste € 86,35 bruto voor de voltijder."
+          "description": "Minimum verhoging van € 86,35"
+        }
+      ],
+      "conditions": [
+        {
+          "conditionType": "Text",
+          "description": "Basis Jaarlijkse Arbeidsduur (BJA) voor overige werknemers is 1720 uur per jaar. Voor werknemers die recht hebben op de overgangsregeling extra vakantie voor senioren (4.1.5) is de BJA 1736 uur per jaar."
         }
       ]
     }
   ],
   "allowance": [
-    {
-      "name": "Toeslag resterende meeruren",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "typeCode": "AdditionalHoursAllowance",
-      "line": [
-        {
-          "amount": {
-            "value": 0.6,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Hour"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Uitbetaling van de helft van de niet gecompenseerde meeruren aan het einde van het kalenderjaar."
-            }
-          ]
-        }
-      ]
-    },
     {
       "name": "Overurentoeslag",
       "origin": {
@@ -1553,11 +1537,11 @@
       "line": [
         {
           "amount": {
-            "value": 0.14,
+            "value": 24.1,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1567,17 +1551,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "De eerste 2 uren, direct voorafgaand aan of aansluitend op de normale werkdag."
+              "description": "De eerste 2 uren, direct voorafgaand aan of aansluitend op de normale werkdag. Geldt ook als tussen deze 2 uren en de normale werkdag een wettelijk verplichte of door plaatselijke omstandigheden noodzakelijke rusttijd zit."
             }
           ]
         },
         {
           "amount": {
-            "value": 0.24,
+            "value": 41.3,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1587,17 +1571,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Overige uren op maandag t/m vrijdag."
+              "description": "Overige uren op maandag t/m vrijdag"
             }
           ]
         },
         {
           "amount": {
-            "value": 0.27,
+            "value": 46.6,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1607,17 +1591,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Uren op zaterdag tot 14.00 uur."
+              "description": "Uren op zaterdag tot 14.00 uur"
             }
           ]
         },
         {
           "amount": {
-            "value": 0.37,
+            "value": 63.8,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1627,17 +1611,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Uren op zaterdag na 14.00 uur."
+              "description": "Uren op zaterdag na 14.00 uur"
             }
           ]
         },
         {
           "amount": {
-            "value": 0.48,
+            "value": 82.8,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1647,11 +1631,12 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Uren op zondag en in de cao erkende feestdagen."
+              "description": "Uren op zondag en in de cao erkende feestdagen"
             }
           ]
         }
-      ]
+      ],
+      "description": "Geen compensatie of toeslag bij overuren die aansluiten op de normale werkdag, bedoeld zijn om de normale dagtaak af te sluiten, zich slechts incidenteel voordoen en niet langer duren dan een half uur. Ook niet bij inhaaluren."
     },
     {
       "name": "Ploegendiensttoeslag",
@@ -1676,7 +1661,7 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Tweeploegendienst."
+              "description": "Tweeploegendienst"
             }
           ]
         },
@@ -1696,17 +1681,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Drieploegendienst."
+              "description": "Drieploegendienst"
             }
           ]
         },
         {
           "amount": {
-            "value": 0.48,
+            "value": 82.8,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1716,17 +1701,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werken in ploegendienst op zondagen."
+              "description": "Werken in ploegendienst op zondag"
             }
           ]
         },
         {
           "amount": {
-            "value": 1.06,
+            "value": 182.8,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1736,23 +1721,15 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werken in ploegendienst op in de cao erkende feestdagen."
+              "description": "Werken in ploegendienst op erkende feestdag cao (geldt niet voor een feestdag waarop de werknemer 18 uur achter elkaar niet heeft gewerkt)"
             }
           ]
         }
       ],
-      "description": "Indien in de onderneming zowel in twee- als in drieploegendienst wordt gewerkt, kan de werkgever één uniforme toeslag vaststellen tussen 13,3% en 15,0%."
+      "description": "Bij overgang van regelmatige ploegendienst naar dagdienst of ploegendienst met lagere toeslag, doorbetaling van oorspronkelijke toeslag voor beperkte tijd afhankelijk van leeftijd en dienstjaren."
     },
     {
-      "name": "Toeslag Continuarbeid",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "typeCode": "ContinuousShiftAllowance",
-      "description": "De werkgever stelt de betalingsregeling vast voor werken in continuarbeid (meer dan drie ploegen) in overleg met de werkgeversorganisatie en de vakbonden."
-    },
-    {
-      "name": "Toeslag afwijkende werktijd",
+      "name": "Toeslag voor afwijkende werktijd",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -1760,11 +1737,11 @@
       "line": [
         {
           "amount": {
-            "value": 0.11,
+            "value": 19.0,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1774,17 +1751,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Het tweede en derde uur direct voorafgaand aan of direct aansluitend op het eerste uur afwijkende werktijd."
+              "description": "Het tweede en derde uur direct voorafgaand aan of direct aansluitend op het eerste uur afwijkende werktijd. Een uur geldt ook als 'direct voorafgaand aan' of 'direct aansluitend op' de normale werkdag, als daar een rusttijd tussen zit die wettelijk verplicht of door plaatselijke omstandigheden noodzakelijk is."
             }
           ]
         },
         {
           "amount": {
-            "value": 0.21,
+            "value": 36.2,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1798,7 +1775,8 @@
             }
           ]
         }
-      ]
+      ],
+      "description": "Afwijkende werktijd is werktijd die afwijkt van de vastgestelde normale werkdag, maar niet langer duurt dan het totaal aantal uren dat het dienstrooster voor die dag voorschrijft. Geldt niet voor inhaaluren."
     },
     {
       "name": "Vergoeding extra reistijd karweiwerk",
@@ -1809,11 +1787,11 @@
       "line": [
         {
           "amount": {
-            "value": 0.48,
+            "value": 82.8,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1823,17 +1801,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Extra reistijd op maandag t/m zaterdag."
+              "description": "Reistijd op maandag t/m zaterdag. Alleen bij extra reistijd buiten werktijd. Volledige vergoeding bij maximaal 1 dag karweiwerk of overnachting. Ten minste 2 uur vergoed bij langer dan 1 dag karweiwerk en dagelijks heen en weer reizen."
             }
           ]
         },
         {
           "amount": {
-            "value": 0.96,
+            "value": 165.5,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1843,17 +1821,17 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Extra reistijd op zondag."
+              "description": "Reistijd op zondag. Alleen bij extra reistijd buiten werktijd. Volledige vergoeding bij maximaal 1 dag karweiwerk of overnachting. Ten minste 2 uur vergoed bij langer dan 1 dag karweiwerk en dagelijks heen en weer reizen."
             }
           ]
         },
         {
           "amount": {
-            "value": 1.43,
+            "value": 246.6,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "Maandverdienste"
+              "unitCode": "HourlyRate",
+              "baseType": "Uurverdienste"
             }
           },
           "interval": {
@@ -1863,35 +1841,48 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Extra reistijd op een in de cao erkende feestdag."
+              "description": "Reistijd op een in de cao erkende feestdag. Alleen bij extra reistijd buiten werktijd. Volledige vergoeding bij maximaal 1 dag karweiwerk of overnachting. Ten minste 2 uur vergoed bij langer dan 1 dag karweiwerk en dagelijks heen en weer reizen."
             }
           ]
         }
       ],
-      "description": "Vergoeding voor noodzakelijke extra reistijd buiten de normale werktijd in verband met karweiwerk. Volledige vergoeding bij maximaal 1 dag karweiwerk of overnachting buiten woonplaats. Bij langer dan 1 dag karweiwerk en dagelijks heen en weer reizen: 2 uur of minder extra reistijd wordt volledig vergoed, bij langere reistijd ten minste 2 uur vergoed."
+      "description": "Geldt voor karweiwerk buiten de terreinen van de onderneming of het aangestelde karweiwerk. Geldt in Nederland, Duitsland, België of Luxemburg. Extra reistijd boven de normale reistijd."
     },
     {
       "name": "Vergoeding extra reiskosten karweiwerk",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "TravelExpenseReimbursement",
-      "description": "Vergoeding van noodzakelijke extra reiskosten voor karweiwerk, gebaseerd op de kosten bij reizen via de kortst mogelijke route per openbaar vervoer, laagste klasse."
+      "typeCode": "TravelAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding op basis van de kosten bij reizen via de kortst mogelijke route per openbaar vervoer, laagste klasse. Geen specifiek bedrag genoemd in CAO, afhankelijk van kosten."
+            }
+          ]
+        }
+      ],
+      "description": "Geldt voor karweiwerk buiten de terreinen van de onderneming of het aangestelde karweiwerk. Geldt in Nederland, Duitsland, België of Luxemburg. Extra reiskosten boven de normale reiskosten."
     },
     {
-      "name": "Vergoeding overnachtingskosten karweiwerk",
+      "name": "Vergoeding verblijfkosten karweiwerk",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "AccommodationReimbursement",
-      "description": "Als de werknemer in verband met de reisverbindingen in een pension moet overnachten, vergoedt de werkgever de overnachtingskosten volgens de hiervoor in de onderneming geldende regels."
-    },
-    {
-      "name": "Vergoeding bijkomende kosten karweiwerk",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "typeCode": "OtherExpenseReimbursement",
+      "typeCode": "AccommodationAllowance",
       "line": [
         {
           "amount": {
@@ -1904,42 +1895,29 @@
           "interval": {
             "value": 1,
             "unitCode": "Day"
-          }
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor bijkomende kosten die niet op een andere manier worden vergoed, bij overnachting in een pension in verband met reisverbindingen. Overnachtingskosten zelf volgens ondernemingsregels."
+            }
+          ]
         }
-      ]
+      ],
+      "description": "Geldt voor karweiwerk buiten de terreinen van de onderneming of het aangestelde karweiwerk. Geldt in Nederland, Duitsland, België of Luxemburg."
     },
     {
-      "name": "Regeling thuiswerken",
+      "name": "Arbeidsomstandighedentoeslag Trap 1",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
-      "typeCode": "HomeWorkingAllowance",
-      "description": "De werkgever stelt een redelijke regeling vast voor thuiswerken."
-    },
-    {
-      "name": "Regeling kosten woon/werkverkeer",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "typeCode": "CommutingAllowance",
-      "description": "De werkgever stelt een redelijke regeling vast voor kosten woon/werkverkeer."
-    },
-    {
-      "name": "Arbeidsomstandighedentoeslag (SAO)",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "typeCode": "HazardAllowance",
       "effectivePeriod": {
         "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
+        "validTo": "2024-12-31"
       },
+      "typeCode": "HazardAllowance",
       "line": [
         {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
           "amount": {
             "value": 40.44,
             "unitCode": "Euro",
@@ -1950,65 +1928,23 @@
           "interval": {
             "value": 1,
             "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 1 (20-39 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 1 (20-39 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 2",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2024-12-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
         {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
-          "amount": {
-            "value": 41.75,
-            "unitCode": "Euro",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 1 (20-39 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
-          "amount": {
-            "value": 43.0,
-            "unitCode": "Euro",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 1 (20-39 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
           "amount": {
             "value": 80.91,
             "unitCode": "Euro",
@@ -2019,65 +1955,23 @@
           "interval": {
             "value": 1,
             "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 2 (40-59 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 2 (40-59 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 3",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2024-12-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
         {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
-          "amount": {
-            "value": 83.54,
-            "unitCode": "Euro",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 2 (40-59 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
-          "amount": {
-            "value": 86.05,
-            "unitCode": "Euro",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 2 (40-59 punten) van arbeidsomstandigheden."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
           "amount": {
             "value": 161.81,
             "unitCode": "Euro",
@@ -2088,19 +1982,77 @@
           "interval": {
             "value": 1,
             "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 3 (60 punten of meer) van arbeidsomstandigheden."
-            }
-          ]
-        },
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 3 (60+ punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 1",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-05-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
         {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
+          "amount": {
+            "value": 41.75,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 1 (20-39 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 2",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-05-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 83.54,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 2 (40-59 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 3",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-05-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
+        {
           "amount": {
             "value": 167.07,
             "unitCode": "Euro",
@@ -2111,19 +2063,77 @@
           "interval": {
             "value": 1,
             "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 3 (60 punten of meer) van arbeidsomstandigheden."
-            }
-          ]
-        },
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 3 (60+ punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 1",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-06-01",
+        "validTo": "2025-12-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
         {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
+          "amount": {
+            "value": 43.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 1 (20-39 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 2",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-06-01",
+        "validTo": "2025-12-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 86.05,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 2 (40-59 punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
+    },
+    {
+      "name": "Arbeidsomstandighedentoeslag Trap 3",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-06-01",
+        "validTo": "2025-12-31"
+      },
+      "typeCode": "HazardAllowance",
+      "line": [
+        {
           "amount": {
             "value": 172.08,
             "unitCode": "Euro",
@@ -2134,19 +2144,15 @@
           "interval": {
             "value": 1,
             "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Trap 3 (60 punten of meer) van arbeidsomstandigheden."
-            }
-          ]
+          }
         }
-      ]
+      ],
+      "description": "Voor werken onder arbeidsomstandigheden waaraan trap 3 (60+ punten) is toegekend volgens SAO. Proportioneel voor deeltijd."
     }
   ],
   "holidayAllowance": [
     {
+      "name": "Vakantietoeslag",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -2166,12 +2172,12 @@
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Month"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Opbouw over de maandverdienste over de maand juni van de opbouwperiode. Als het dienstverband vóór juni eindigt, is dit 8% van de laatste maandverdienste."
+              "description": "Opbouw over de maandverdienste van juni van de opbouwperiode (1 juli t/m 30 juni). Bij einde dienstverband vóór juni, 8% van de laatste maandverdienste."
             }
           ]
         },
@@ -2180,8 +2186,8 @@
             "value": 8.0,
             "unitCode": "Percentage",
             "baseAmount": {
-              "unitCode": "YearlyRate",
-              "baseType": "Ploegentoeslagen"
+              "unitCode": "Fixed",
+              "baseType": "ShiftAllowance"
             }
           },
           "interval": {
@@ -2191,35 +2197,11 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Opbouw over de sinds 1 juli van het voorgaande jaar ontvangen ploegentoeslagen, indien de werknemer in regelmatige ploegendienst werkt of heeft gewerkt."
+              "description": "Extra 8% van ontvangen ploegentoeslagen (3.7.3 a en b) sinds 1 juli van het voorgaande jaar, indien de werknemer in regelmatige ploegendienst werkt of heeft gewerkt."
             }
           ]
         },
         {
-          "amount": {
-            "value": 8.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "YearlyRate",
-              "baseType": "Arbeidsomstandighedentoeslagen"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Opbouw over de sinds 1 juli van het voorgaande kalenderjaar verdiende arbeidsomstandighedentoeslagen (SAO)."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
           "amount": {
             "value": 237.18,
             "unitCode": "Euro",
@@ -2234,15 +2216,11 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Minimumvakantietoeslag per maand dienstverband bij voltijd."
+              "description": "Minimumvakantietoeslag per maand bij voltijd, per 1 juni 2024."
             }
           ]
         },
         {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
           "amount": {
             "value": 244.88,
             "unitCode": "Euro",
@@ -2257,15 +2235,11 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Minimumvakantietoeslag per maand dienstverband bij voltijd."
+              "description": "Minimumvakantietoeslag per maand bij voltijd, per 1 januari 2025."
             }
           ]
         },
         {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
           "amount": {
             "value": 252.23,
             "unitCode": "Euro",
@@ -2280,18 +2254,18 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Minimumvakantietoeslag per maand dienstverband bij voltijd."
+              "description": "Minimumvakantietoeslag per maand bij voltijd, per 1 juni 2025."
             }
           ]
         }
       ],
       "payDate": {
-        "occurrenceType": "Recurring",
-        "recurringInterval": "R/P1Y",
-        "event": "EndOfBuildUpPeriod",
-        "offset": "P1D"
+        "occurrenceType": "Relative",
+        "event": "EndOfAccrualPeriod",
+        "offset": "P0D",
+        "description": "Uiterlijk op 1 juli daaropvolgend (na de opbouwperiode van 1 juli t/m 30 juni)."
       },
-      "description": "Opbouwperiode van 1 juli tot en met 30 juni. Betaling uiterlijk op 1 juli daaropvolgend. Maximaal 2 jaar vakantietoeslag verschuldigd vanaf arbeidsongeschiktheid, verminderd met sociale verzekeringsuitkering."
+      "description": "Vakantietoeslag is verschuldigd voor maximaal 2 jaar bij arbeidsongeschiktheid, verminderd met sociale verzekeringsuitkering. Geen vakantietoeslag over perioden zonder recht op loon."
     }
   ],
   "sickPay": [
@@ -2305,12 +2279,12 @@
         "validTo": "2025-12-31"
       },
       "waitingDays": {
-        "value": 2,
+        "value": 0,
         "unitCode": "Day",
         "conditions": [
           {
             "conditionType": "Text",
-            "description": "Geen aanvulling verschuldigd als de werknemer de AOW-leeftijd heeft bereikt of rechtens de vrijheid is ontnomen. Werkgever kan afwijken van loondoorbetaling over de eerste dag bij een regeling ter voorkoming van misbruik, na overeenstemming met de ondernemingsraad."
+            "description": "De werkgever hoeft geen loon en geen aanvulling te betalen over de eerste dag waarop de werknemer arbeidsongeschikt is, als daarvoor binnen de onderneming een regeling is getroffen ter voorkoming van misbruik. In dat geval geldt 1 wachtdag."
           }
         ]
       },
@@ -2325,13 +2299,13 @@
             }
           },
           "interval": {
-            "value": 52,
+            "value": 1,
             "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Gedurende de eerste 52 weken van arbeidsongeschiktheid, indien geen recht op Ziektewetuitkering."
+              "description": "Gedurende de eerste 52 weken van arbeidsongeschiktheid, als de werknemer geen recht heeft op een Ziektewetuitkering. Dit is een aanvulling op het wettelijk verplichte loon."
             }
           ]
         },
@@ -2341,17 +2315,17 @@
             "unitCode": "Percentage",
             "baseAmount": {
               "unitCode": "DailyRate",
-              "baseType": "Ziektewetdagloon"
+              "baseType": "MaximumZiektewetdagloon"
             }
           },
           "interval": {
-            "value": 52,
+            "value": 1,
             "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Gedurende de daaropvolgende 52 weken van arbeidsongeschiktheid, indien geen recht op Ziektewetuitkering, met een maximum van 70% van het maximum Ziektewetdagloon."
+              "description": "Gedurende de daaropvolgende 52 weken van arbeidsongeschiktheid, als de werknemer geen recht heeft op een Ziektewetuitkering. Dit is het wettelijk verplichte loon met een maximum van 70% van het maximum Ziektewetdagloon."
             }
           ]
         },
@@ -2365,23 +2339,63 @@
             }
           },
           "interval": {
-            "value": 52,
+            "value": 1,
             "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Gedurende de daaropvolgende 52 weken van arbeidsongeschiktheid, indien de werknemer optimaal meewerkt aan herstel/re-integratie of volledig arbeidsongeschikt is zonder duurzaam benutbare arbeidsmogelijkheden."
+              "description": "Gedurende de daaropvolgende 52 weken van arbeidsongeschiktheid, als de werknemer optimaal meewerkt aan herstel en re-integratie, of volledig arbeidsongeschikt is en geen duurzaam benutbare arbeidsmogelijkheden meer heeft. Dit is een aanvulling op het wettelijk verplichte loon."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 100.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "DailyRate",
+              "baseType": "Ziektewetdagloon"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Aanvulling bij gedeeltelijke arbeidsgeschiktheid en werkhervatting (passend werk bij eigen of andere werkgever) gedurende het eerste jaar, samen met salaris/uitkeringen, tot 100% van het volledige Ziektewetdagloon."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 90.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "DailyRate",
+              "baseType": "Ziektewetdagloon"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Aanvulling bij gedeeltelijke arbeidsgeschiktheid en werkhervatting (passend werk bij eigen of andere werkgever) gedurende het tweede jaar, samen met salaris/uitkeringen, tot 90% van het volledige Ziektewetdagloon."
             }
           ]
         }
       ],
-      "description": "De werkgever maakt geen gebruik van de wettelijke mogelijkheid om met de werknemer af te spreken dat deze bij een ziekmelding een vakantiedag inlevert. Het Ziektewetdagloon wordt aangepast aan de algemene salariswijzigingen in de Metalektro. Bij gedeeltelijke arbeidsgeschiktheid en werkhervatting, betaalt de werkgever een aanvulling tot 100% van het Ziektewetdagloon in het eerste jaar en 90% in het tweede jaar, voor maximaal 2 jaar."
+      "description": "De werkgever maakt geen gebruik van de wettelijke mogelijkheid om een vakantiedag in te leveren bij ziekmelding. Het Ziektewetdagloon wordt aangepast aan algemene salariswijzigingen. WGA-hiaatverzekering en WIA-bodemverzekering worden aangeboden."
     }
   ],
   "leave": [
     {
-      "name": "Vakantiedagen",
+      "name": "Vakantie, roostervrij, verzuim en verlof",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -2391,13 +2405,12 @@
       },
       "paidLeave": [
         {
-          "name": "Basis vakantiedagen",
+          "name": "Standaard vakantiedagen",
           "amount": {
-            "value": 27.0,
+            "value": 27,
             "unitCode": "Day",
-            "proportional": {
-              "partTimePercentage": true,
-              "employmentDuration": true
+            "baseAmount": {
+              "unitCode": "Fixed"
             }
           },
           "interval": {
@@ -2407,15 +2420,38 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Voor een werknemer die een heel kalenderjaar in voltijd werkt. Indien de Overgangsregeling extra vakantie voor senioren (4.1.5) van toepassing is, geldt 25 dagen (200 uren)."
+              "description": "Voor een werknemer die een heel kalenderjaar in voltijd werkt (216 uren)."
+            }
+          ]
+        },
+        {
+          "name": "Vakantiedagen Overgangsregeling senioren",
+          "amount": {
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor werknemers die in aanmerking komen voor de Overgangsregeling extra vakantie voor senioren uit 4.1.5 (200 uren)."
             }
           ]
         },
         {
           "name": "Extra vakantiedag langdurig dienstverband",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
@@ -2424,83 +2460,98 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer is 25 jaar of langer ononderbroken in dienst bij zijn huidige werkgever. Valt niet op een zaterdag."
+              "description": "Voor werknemers die 25 jaar of langer ononderbroken in dienst zijn bij hun huidige werkgever (8 uren). Geldt niet voor werknemers die voldoen aan de voorwaarden van de Overgangsregeling extra vakantie voor senioren en op 1 januari 2009 50 jaar of ouder waren."
             }
           ]
         },
         {
-          "name": "Extra vakantie zesdaagse werkweek (t/m 13 weken)",
+          "name": "Extra vakantiedagen zesdaagse werkweek",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
-            "value": 1,
-            "unitCode": "Year"
+            "value": 52,
+            "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer werkt t/m 13 weken per 52 weken regelmatig 6 dagen per week volgens dienstrooster."
+              "description": "Bij t/m 13 zesdaagse werkweken per 52 weken volgens dienstrooster (8 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantie zesdaagse werkweek (14 t/m 26 weken)",
+          "name": "Extra vakantiedagen zesdaagse werkweek",
           "amount": {
-            "value": 2.0,
-            "unitCode": "Day"
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
-            "value": 1,
-            "unitCode": "Year"
+            "value": 52,
+            "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer werkt 14 t/m 26 weken per 52 weken regelmatig 6 dagen per week volgens dienstrooster."
+              "description": "Bij 14 t/m 26 zesdaagse werkweken per 52 weken volgens dienstrooster (16 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantie zesdaagse werkweek (27 t/m 39 weken)",
+          "name": "Extra vakantiedagen zesdaagse werkweek",
           "amount": {
-            "value": 3.0,
-            "unitCode": "Day"
+            "value": 3,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
-            "value": 1,
-            "unitCode": "Year"
+            "value": 52,
+            "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer werkt 27 t/m 39 weken per 52 weken regelmatig 6 dagen per week volgens dienstrooster."
+              "description": "Bij 27 t/m 39 zesdaagse werkweken per 52 weken volgens dienstrooster (24 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantie zesdaagse werkweek (40 of meer weken)",
+          "name": "Extra vakantiedagen zesdaagse werkweek",
           "amount": {
-            "value": 4.0,
-            "unitCode": "Day"
+            "value": 4,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
-            "value": 1,
-            "unitCode": "Year"
+            "value": 52,
+            "unitCode": "Week"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer werkt 40 of meer weken per 52 weken regelmatig 6 dagen per week volgens dienstrooster."
+              "description": "Bij 40 of meer zesdaagse werkweken per 52 weken volgens dienstrooster (32 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantiedagen senioren (40-44 jaar op 1/1/2009)",
+          "name": "Extra vakantiedagen senioren 40-44 jaar (peildatum 1/1/2009)",
           "amount": {
-            "value": 3.0,
-            "unitCode": "Day"
+            "value": 3,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
@@ -2509,15 +2560,18 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer was op 1 januari 2009 in dienst en 40 t/m 44 jaar oud. Valt niet op een zaterdag."
+              "description": "Voor werknemers die op 1 januari 2009 40 t/m 44 jaar oud waren en toen al in dienst waren (24 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantiedagen senioren (45-49 jaar op 1/1/2009)",
+          "name": "Extra vakantiedagen senioren 45-49 jaar (peildatum 1/1/2009)",
           "amount": {
-            "value": 4.0,
-            "unitCode": "Day"
+            "value": 4,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
@@ -2526,15 +2580,18 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer was op 1 januari 2009 in dienst en 45 t/m 49 jaar oud. Valt niet op een zaterdag."
+              "description": "Voor werknemers die op 1 januari 2009 45 t/m 49 jaar oud waren en toen al in dienst waren (32 uren)."
             }
           ]
         },
         {
-          "name": "Extra vakantiedagen senioren (50+ jaar op 1/1/2009)",
+          "name": "Extra vakantiedagen senioren 50+ jaar (peildatum 1/1/2009)",
           "amount": {
-            "value": 22.0,
-            "unitCode": "Day"
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
@@ -2543,387 +2600,148 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer was op 1 januari 2009 in dienst en 50 jaar of ouder. Valt niet op een zaterdag."
+              "description": "Voor werknemers die op 1 januari 2009 50 jaar of ouder waren en toen al in dienst waren (200 uren). Werknemers van 65 jaar of ouder hebben recht op 22 dagen (176 uren)."
             }
           ]
         }
       ],
       "adv": [
         {
-          "name": "Vrije roosteruren (ADV)",
+          "name": "Vrije roosteruren",
           "amount": {
-            "value": 104.0,
+            "value": 104,
             "unitCode": "Hour",
-            "proportional": {
-              "partTimePercentage": true,
-              "employmentDuration": true
+            "baseAmount": {
+              "unitCode": "Fixed"
             }
           },
           "interval": {
             "value": 1,
             "unitCode": "Year"
           },
-          "description": "Dit zijn 13 vrije roosterdagen. Werkgever kan in overleg met de ondernemingsraad minder of geen vrije roosteruren vaststellen, met salarisverhoging als compensatie."
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "104 vrije roosteruren per kalenderjaar (13 vrije roosterdagen). Werkgever kan minder of geen vrije roosteruren vaststellen na overleg met OR, met salarisverhoging van 0,383% per 8 minder toegekende uren."
+            }
+          ]
         }
       ],
       "holidays": [
         {
           "name": "Nieuwjaarsdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
           "name": "Tweede Paasdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
           "name": "Hemelvaartsdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
           "name": "Tweede Pinksterdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
           "name": "Eerste Kerstdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
           "name": "Tweede Kerstdag",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
+            "unitCode": "Occurrence"
           }
         },
         {
-          "name": "Nationale Feestdag (27 april)",
+          "name": "Nationale feestdag (27 april)",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
-          }
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Koningsdag"
+            }
+          ]
         }
       ],
       "specialLeave": [
         {
-          "name": "Kort verzuim - Ondertrouw",
+          "name": "Ondertrouw",
           "amount": {
-            "value": 1.0,
+            "value": 1,
             "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "description": "Een redelijke tijd, maximaal 1 dag."
-        },
-        {
-          "name": "Kort verzuim - Huwelijk/Partnerschapsregistratie",
-          "amount": {
-            "value": 2.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Huwelijk (stief)kind",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Huwelijk (stief)broer, (stief)zus of kleinkind",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          },
-          "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
-        },
-        {
-          "name": "Kort verzuim - 25- of 40-jarig huwelijksjubileum",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Bevalling levenspartner",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "description": "Naast het wettelijk recht op geboorteverlof."
-        },
-        {
-          "name": "Kort verzuim - Adoptie kind",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "description": "In aanvulling op de wettelijke verlofrechten van de werknemer."
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis levenspartner",
-          "amount": {
-            "value": 4.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis inwonend kind",
-          "amount": {
-            "value": 4.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis niet-inwonend kind",
-          "amount": {
-            "value": 2.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis (stief)ouders",
-          "amount": {
-            "value": 2.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis levenspartner (stief)kind",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis kleinkind",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis ouder levenspartner",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis grootouder (werknemer of levenspartner)",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis (stief)broer of (stief)zus",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis levenspartner (stief)broer of (stief)zus",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Overlijden/Begrafenis (stief)zus of (stief)broer levenspartner",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Vakexamen",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "description": "Een redelijke tijd, maximaal 1 dag, indien in het belang van het bedrijf."
-        },
-        {
-          "name": "Kort verzuim - Wettelijk voorschrift/Overheid opgelegde verplichting",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Persoonlijk uit te voeren, zonder financiële vergoeding."
+            "baseAmount": {
+              "unitCode": "Fixed"
             }
-          ],
-          "description": "Een redelijke tijd, maximaal 1 dag."
-        },
-        {
-          "name": "Kort verzuim - Keuring militaire dienst",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          }
-        },
-        {
-          "name": "Kort verzuim - Priesterwijding kind, (stief)broer of (stief)zus",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          },
-          "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
-        },
-        {
-          "name": "Kort verzuim - Aflegging kloostergelofte kind, (stief)broer of (stief)zus",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day",
-            "maxValue": 1.0
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Year"
-          },
-          "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
-        },
-        {
-          "name": "Vakbondsverlof - Deelname bondscongres/raad/vergadering",
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
           },
           "interval": {
             "value": 1,
@@ -2932,65 +2750,328 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Als officieel afgevaardigde deelnemen aan een bondscongres, bondsraad, algemene vergadering of vergelijkbare organen."
+              "description": "Een redelijke tijd, maximaal 1 dag."
             }
           ]
         },
         {
-          "name": "Vakbondsverlof - Deelname cao-onderhandelingen ROM",
+          "name": "Huwelijk/partnerschapsregistratie",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Als officieel afgevaardigde deelnemen aan cao-onderhandelingen in de ROM."
-            }
-          ]
-        },
-        {
-          "name": "Vakbondsverlof - Deelname vakbondscursussen",
-          "amount": {
-            "value": 2.0,
-            "unitCode": "Day"
-          },
-          "interval": {
             "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Huwelijk (stief)kind",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Huwelijk (stief)broer, (stief)zus of kleinkind",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
             "unitCode": "Year"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Deelname aan cursussen georganiseerd door de vakbonden. Maximaal 2 dagen per 2 jaar per 9 vakbondsleden per onderneming, indien bedrijfsbelang zich niet verzet."
+              "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
             }
           ]
         },
         {
-          "name": "Opleidingsdagen",
+          "name": "25- of 40-jarig huwelijksjubileum",
           "amount": {
-            "value": 2.0,
+            "value": 1,
             "unitCode": "Day",
-            "proportional": {
-              "partTimePercentage": true,
-              "employmentDuration": true
+            "baseAmount": {
+              "unitCode": "Fixed"
             }
           },
           "interval": {
             "value": 1,
-            "unitCode": "Year"
-          },
-          "description": "Opbouw van 2 opleidingsdagen (16 uren) per kalenderjaar. Dagen kunnen gespaard worden tot een maximum van 5 dagen (40 uren), daarboven vervallen ze tenzij anders afgesproken."
+            "unitCode": "Occurrence"
+          }
         },
         {
-          "name": "CAO-scholingsdag",
+          "name": "Bevalling levenspartner",
           "amount": {
-            "value": 1.0,
-            "unitCode": "Day"
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Naast wettelijk recht op geboorteverlof."
+            }
+          ]
+        },
+        {
+          "name": "Adoptie van een kind",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "In aanvulling op de wettelijke verlofrechten van de werknemer."
+            }
+          ]
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis levenspartner",
+          "amount": {
+            "value": 4,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis inwonend kind",
+          "amount": {
+            "value": 4,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis niet-inwonend kind",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis (stief)ouders",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis levenspartner van (stief)kind",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis kleinkind",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis ouder van levenspartner",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis grootouder van werknemer of levenspartner",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis (stief)broer of (stief)zus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis levenspartner van (stief)broer of (stief)zus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Overlijden of bijwonen begrafenis (stief)zus of (stief)broer van levenspartner",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Vakexamen",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Het afleggen van een vakexamen voor een erkend diploma, als dit in het belang is van zijn bedrijf. Een redelijke tijd, maximaal 1 dag."
+            }
+          ]
+        },
+        {
+          "name": "Wettelijk voorgeschreven verplichting",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Een bij wettelijk voorschrift of door de overheid opgelegde verplichting die hij persoonlijk moet uitvoeren, voor zover daar geen financiële vergoeding tegenover staat. Een redelijke tijd, maximaal 1 dag."
+            }
+          ]
+        },
+        {
+          "name": "Keuring militaire dienst",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        },
+        {
+          "name": "Priesterwijding kind, (stief)broer of (stief)zus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
           },
           "interval": {
             "value": 1,
@@ -2999,15 +3080,74 @@
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "De werknemer die lid is van een vakbond kan in 2024 en 2025 deelnemen aan een cao-scholingsdag."
+              "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
             }
-          ],
-          "effectivePeriod": {
-            "validFrom": "2024-01-01",
-            "validTo": "2025-12-31"
-          }
+          ]
+        },
+        {
+          "name": "Aflegging kloostergelofte kind, (stief)broer of (stief)zus",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "In totaal maximaal 1 dag per kalenderjaar voor deze omstandigheden."
+            }
+          ]
         }
-      ]
+      ],
+      "wazo": [
+        {
+          "name": "Geboorteverlof (aanvullend)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "1 dag bij bevalling levenspartner, naast wettelijk recht op geboorteverlof."
+            }
+          ]
+        },
+        {
+          "name": "Adoptieverlof (aanvullend)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "1 dag bij adoptie van een kind, in aanvulling op de wettelijke verlofrechten van de werknemer."
+            }
+          ]
+        }
+      ],
+      "description": "Werknemer behoudt salaris tijdens vakantie. Recht op vakantie kan alleen worden vervangen door geld voor bovenwettelijke vakantiedagen. Feestdagen, dagen/uren niet gewerkt wegens zwangerschap/bevalling, jeugdige werknemer voor onderwijs, of verplichting landsverdediging/openbare orde gelden niet als vakantie. Bij arbeidsongeschiktheid tijdens vastgestelde vakantie, dagen gelden niet als vakantie mits tijdig gemeld."
     }
   ],
   "pension": [
@@ -3019,12 +3159,52 @@
         "validFrom": "2024-06-01",
         "validTo": "2025-12-31"
       },
-      "description": "De werknemer neemt verplicht deel in de pensioenregeling van de Stichting PME pensioenfonds (PME), tenzij PME de werkgever van deze verplichting heeft vrijgesteld. Werkgevers met vrijstelling moeten een gelijkwaardige regeling treffen voor voorwaardelijke extra pensioenaanspraken (VPL PME overgangsregeling). De werknemersbijdrage aan deze premie bedraagt maximaal 50% van het verschil tussen deze premie en de voor PME in 2020 voor het laatst vastgestelde premie voor het voorwaardelijk extra pensioen."
+      "line": [
+        {
+          "amount": {
+            "value": 60.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werkgever neemt €60 pensioenpremie over in juni, juli, augustus 2024 (bij voltijddienstverband). Indien werknemerspremie lager is, wordt het verschil als eenmalige bruto uitkering betaald."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 50.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Werkgever neemt €50 pensioenpremie over in september, oktober, november, december 2024 (bij voltijddienstverband). Indien werknemerspremie lager is, wordt het verschil als eenmalige bruto uitkering betaald."
+            }
+          ]
+        }
+      ],
+      "description": "Verplichte deelname in de pensioenregeling van de Stichting PME pensioenfonds (PME), tenzij vrijgesteld. Vrijgestelde werkgevers moeten een eigen regeling treffen die dezelfde voorwaardelijke extra pensioenaanspraken toekent als PME's VPL-regeling (voor deelnemers geboren 1950-1972), met behoud van aanspraken bij functiewijziging. Werknemersbijdrage aan deze premie maximaal 50% van het verschil met PME's VPL-premie 2020."
     }
   ],
   "sustainableEmployability": [
     {
-      "name": "Duurzame inzetbaarheidsdag",
+      "name": "Inzetbaarheidsdag",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -3032,15 +3212,14 @@
         "validFrom": "2024-06-01",
         "validTo": "2025-12-31"
       },
-      "typeCode": "General",
+      "typeCode": "Development",
       "line": [
         {
           "amount": {
-            "value": 1.0,
+            "value": 1,
             "unitCode": "Day",
-            "proportional": {
-              "partTimePercentage": true,
-              "employmentDuration": true
+            "baseAmount": {
+              "unitCode": "Fixed"
             }
           },
           "interval": {
@@ -3049,255 +3228,10 @@
           }
         }
       ],
-      "description": "De werknemer heeft elk kalenderjaar recht op 1 inzetbaarheidsdag (8 uren) met doorbetaling van salaris. Deze dag wordt gebruikt voor scholing, ontwikkeling en gezondheid. De werknemer bepaalt in overleg met de werkgever wanneer de dag wordt opgenomen. Kan niet worden ingezet als vakantiedag of roostervrije tijd."
-    }
-  ],
-  "supplementaryArrangement": [
-    {
-      "name": "Generatiepact",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "description": "De regeling Generatiepact maakt het mogelijk dat een (oudere) werknemer korter gaat werken, tegen een bepaald percentage van het oorspronkelijke salaris en met behoud van de volledige pensioenopbouw. De vrijgevallen uren worden ingevuld door instromers met een (vaste) arbeidsovereenkomst.",
-      "typeCode": "Generatiepact",
-      "effectivePeriod": {
-        "validFrom": "2019-07-05",
-        "validTo": "2028-12-31"
-      },
-      "line": [
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
-          "amount": {
-            "value": 90.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 80-90-100: 80% oorspronkelijke arbeidsduur, 90% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers in regelmatige ploegendienst van 60 jaar of ouder met een jaarsalaris van maximaal € 78.537 bruto (voltijd). Of voor werknemers niet in regelmatige ploegendienst van 62 jaar of ouder met een jaarsalaris van maximaal € 78.537 bruto (voltijd). Werkgever dient het verzoek in te willigen."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
-          "amount": {
-            "value": 90.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 80-90-100: 80% oorspronkelijke arbeidsduur, 90% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers in regelmatige ploegendienst van 60 jaar of ouder met een jaarsalaris van maximaal € 81.089 bruto (voltijd). Of voor werknemers niet in regelmatige ploegendienst van 62 jaar of ouder met een jaarsalaris van maximaal € 81.089 bruto (voltijd). Werkgever dient het verzoek in te willigen."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
-          "amount": {
-            "value": 90.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 80-90-100: 80% oorspronkelijke arbeidsduur, 90% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers in regelmatige ploegendienst van 60 jaar of ouder met een jaarsalaris van maximaal € 83.522 bruto (voltijd). Of voor werknemers niet in regelmatige ploegendienst van 62 jaar of ouder met een jaarsalaris van maximaal € 83.522 bruto (voltijd). Werkgever dient het verzoek in te willigen."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
-          "amount": {
-            "value": 85.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 70-85-100: 70% oorspronkelijke arbeidsduur, 85% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers van 62 jaar of ouder met een jaarsalaris van maximaal € 78.537 bruto (voltijd). Werkgever kan het verzoek inwilligen of afwijzen (dubbele vrijwilligheid)."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
-          "amount": {
-            "value": 85.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 70-85-100: 70% oorspronkelijke arbeidsduur, 85% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers van 62 jaar of ouder met een jaarsalaris van maximaal € 81.089 bruto (voltijd). Werkgever kan het verzoek inwilligen of afwijzen (dubbele vrijwilligheid)."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
-          "amount": {
-            "value": 85.0,
-            "unitCode": "Percentage",
-            "baseAmount": {
-              "unitCode": "MonthlyRate",
-              "baseType": "OriginalSalary"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Month"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Variant 70-85-100: 70% oorspronkelijke arbeidsduur, 85% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Voor werknemers van 62 jaar of ouder met een jaarsalaris van maximaal € 83.522 bruto (voltijd). Werkgever kan het verzoek inwilligen of afwijzen (dubbele vrijwilligheid)."
-            }
-          ]
-        }
-      ]
+      "description": "Werknemer heeft elk kalenderjaar recht op 1 inzetbaarheidsdag (8 uren) met doorbetaling van salaris, te gebruiken voor scholing, ontwikkeling en gezondheid. Kan niet worden ingezet als vakantiedag of roostervrije tijd."
     },
     {
-      "name": "Regeling Vervroegd Uittreden (RVU)",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "description": "De Regeling Vervroegd Uittreden (RVU) maakt het voor werknemers mogelijk om onder voorwaarden maximaal 3 jaar vóór de AOW-leeftijd te stoppen met werken. De werknemer die voor de RVU in aanmerking komt, ontvangt tot de AOW-leeftijd een financiële vergoeding. De RVU is vastgelegd in de Cao Metalektro Regeling Vervoegd Uittreden 2021/2025.",
-      "typeCode": "RVU",
-      "effectivePeriod": {
-        "validFrom": "2021-01-01",
-        "validTo": "2025-12-31"
-      },
-      "line": [
-        {
-          "effectivePeriod": {
-            "validFrom": "2024-06-01",
-            "validTo": "2024-12-31"
-          },
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Occurrence",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Recht op vervroegd uittreden voor werknemers die in de periode 1 januari 2022 t/m 31 december 2025 op eigen verzoek uit dienst treden, op de uittredingsdatum een leeftijd hebben bereikt die maximaal 36 maanden en minimaal 6 maanden voor de AOW-gerechtigde leeftijd ligt, en een bruto maandsalaris verdienen van maximaal € 4.488 (voltijd) exclusief toeslagen, OF direct voorafgaand aan de uittredingsdatum tenminste vijf aaneengesloten jaren regelmatig in ploegendienst, consignatiedienst, of met SAO-toeslag/vergelijkbare toeslagen hebben gewerkt."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-01-01",
-            "validTo": "2025-05-31"
-          },
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Occurrence",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Recht op vervroegd uittreden voor werknemers die in de periode 1 januari 2022 t/m 31 december 2025 op eigen verzoek uit dienst treden, op de uittredingsdatum een leeftijd hebben bereikt die maximaal 36 maanden en minimaal 6 maanden voor de AOW-gerechtigde leeftijd ligt, en een bruto maandsalaris verdienen van maximaal € 4.634 (voltijd) exclusief toeslagen, OF direct voorafgaand aan de uittredingsdatum tenminste vijf aaneengesloten jaren regelmatig in ploegendienst, consignatiedienst, of met SAO-toeslag/vergelijkbare toeslagen hebben gewerkt."
-            }
-          ]
-        },
-        {
-          "effectivePeriod": {
-            "validFrom": "2025-06-01",
-            "validTo": "2025-12-31"
-          },
-          "amount": {
-            "value": 1.0,
-            "unitCode": "Occurrence",
-            "baseAmount": {
-              "unitCode": "Fixed"
-            }
-          },
-          "interval": {
-            "value": 1,
-            "unitCode": "Occurrence"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Recht op vervroegd uittreden voor werknemers die in de periode 1 januari 2022 t/m 31 december 2025 op eigen verzoek uit dienst treden, op de uittredingsdatum een leeftijd hebben bereikt die maximaal 36 maanden en minimaal 6 maanden voor de AOW-gerechtigde leeftijd ligt, en een bruto maandsalaris verdienen van maximaal € 4.773 (voltijd) exclusief toeslagen, OF direct voorafgaand aan de uittredingsdatum tenminste vijf aaneengesloten jaren regelmatig in ploegendienst, consignatiedienst, of met SAO-toeslag/vergelijkbare toeslagen hebben gewerkt."
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "otherArrangement": [
-    {
-      "name": "Tijdspaarregeling",
+      "name": "Opleidingsdagen",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -3305,22 +3239,12 @@
         "validFrom": "2024-06-01",
         "validTo": "2025-12-31"
       },
-      "description": "De werkgever kan in overleg met de vakbonden en/of de ondernemingsraad een tijdspaarregeling instellen. Bronnen die de werknemer kan gebruiken om tijd te sparen zijn: vrije roosteruren, bovenwettelijke vakantiedagen en overuren. Deelname is vrijwillig. Aanspraken op gespaarde uren verjaren niet. Werkgever stelt zekerheid (fonds/herverzekering)."
-    },
-    {
-      "name": "Individueel tijdsparen",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
+      "typeCode": "Education",
       "line": [
         {
           "amount": {
-            "value": 12.0,
-            "unitCode": "HalfDay",
+            "value": 2,
+            "unitCode": "Day",
             "baseAmount": {
               "unitCode": "Fixed"
             }
@@ -3328,18 +3252,13 @@
           "interval": {
             "value": 1,
             "unitCode": "Year"
-          },
-          "conditions": [
-            {
-              "conditionType": "Text",
-              "description": "Recht om na overleg met de werkgever maximaal 12 dagdelen vrije roostertijd om te zetten in geld en in te zetten voor de (vroeg)pensioenvoorziening. Dit recht kan beperkt worden onder bepaalde voorwaarden."
-            }
-          ]
+          }
         }
-      ]
+      ],
+      "description": "Werknemer bouwt 2 opleidingsdagen (16 uren) per kalenderjaar op. Dagen kunnen gespaard worden tot een maximum van 5 dagen (40 uren). Keuze en planning van opleiding in overleg met werkgever."
     },
     {
-      "name": "Dagen kopen, sparen en verkopen",
+      "name": "EVC-test vergoeding",
       "origin": {
         "type": "CollectiveLabourAgreement"
       },
@@ -3347,61 +3266,7 @@
         "validFrom": "2024-06-01",
         "validTo": "2025-12-31"
       },
-      "description": "De werknemer heeft het recht per jaar maximaal 10 verlofdagen te kopen (opname na overleg). Werknemer mag bovenwettelijke vakantiedagen sparen tot een maximum van dertien maal zijn normale arbeidsduur per week (verjaren niet). Op verzoek van de werknemer kunnen werkgever en werknemer afspreken dat de werknemer maximaal 6 bovenwettelijke vakantiedagen per jaar verkoopt voor een ander doel dan (vroeg)pensioenvoorziening of tijdspaarregeling."
-    },
-    {
-      "name": "Verlofsparen via fondsvorming",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
-      "description": "Cao-partijen willen verlofsparen via fondsvorming op sectorniveau mogelijk maken. Werknemers kunnen het saldo van beschikbare vrije uren van het voorgaande kalenderjaar in geld omzetten en bij het fonds inleggen. Sparen tot maximaal 100 weken. Wettelijke vakantiedagen zijn uitgesloten van sparen. Regeling wordt nader uitgewerkt."
-    },
-    {
-      "name": "Levensloopregeling en verlof",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
-      "description": "Als de werknemer zijn levenslooptegoed wil gebruiken voor verlof in een situatie die niet in de wet is geregeld (bijv. zorg voor hulpbehoevende ouders, studie, sabbatical), kan dit in voltijd of deeltijd. Aanvraagtermijnen gelden (3 maanden voor verlof < 3 maanden, 6 maanden voor verlof >= 3 maanden). Werkgever beslist binnen één maand. Werkgever willigt verzoek in voor maximaal 2 jaar direct voorafgaand aan AOW-leeftijd."
-    },
-    {
-      "name": "Studiekostenregeling",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
-      "description": "De werkgever stelt een studiekostenregeling vast."
-    },
-    {
-      "name": "Stagevergoedingsregeling",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
-      "description": "De werkgever stelt een redelijke stagevergoedingsregeling vast."
-    },
-    {
-      "name": "Vergoeding Erkenning Verworven Competenties (EVC)",
-      "origin": {
-        "type": "CollectiveLabourAgreement"
-      },
-      "effectivePeriod": {
-        "validFrom": "2024-06-01",
-        "validTo": "2025-12-31"
-      },
+      "typeCode": "Education",
       "line": [
         {
           "amount": {
@@ -3414,23 +3279,197 @@
           "interval": {
             "value": 5,
             "unitCode": "Year"
+          }
+        }
+      ],
+      "description": "Werknemer heeft één keer per 5 kalenderjaren recht op een vergoeding van de gemaakte kosten van een EVC-test, maximaal € 850 bruto."
+    }
+  ],
+  "supplementaryArrangement": [
+    {
+      "name": "Generatiepact",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2028-12-31"
+      },
+      "line": [
+        {
+          "amount": {
+            "value": 90.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "Maandverdienste"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
           },
           "conditions": [
             {
               "conditionType": "Text",
-              "description": "Werknemer heeft vanaf 1 januari 2013 één keer per 5 kalenderjaren recht op een vergoeding van de gemaakte kosten van een EVC-test, met een maximum van € 850 bruto."
+              "description": "Variant 80-90-100: 80% oorspronkelijke arbeidsduur, 90% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Verplicht in te willigen voor werknemers in regelmatige ploegendienst van 60 jaar of ouder met jaarsalaris t/m €78.537 (per 1 juni 2024), €81.089 (per 1 jan 2025), €83.522 (per 1 juni 2025). Ook voor werknemers niet in ploegendienst van 62 jaar of ouder met zelfde salarisgrens."
+            }
+          ]
+        },
+        {
+          "amount": {
+            "value": 85.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "Maandverdienste"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Variant 70-85-100: 70% oorspronkelijke arbeidsduur, 85% oorspronkelijke maandverdienste, 100% oorspronkelijke pensioenopbouw. Werkgever kan verzoek inwilligen of afwijzen (dubbele vrijwilligheid) voor werknemers van 62 jaar of ouder met jaarsalaris t/m €78.537 (per 1 juni 2024), €81.089 (per 1 jan 2025), €83.522 (per 1 juni 2025)."
             }
           ]
         }
-      ]
+      ],
+      "description": "Regeling maakt het mogelijk dat een (oudere) werknemer korter gaat werken, tegen een bepaald percentage van het oorspronkelijke salaris en met behoud van de volledige pensioenopbouw. Jaarsalarisgrenzen worden geïndexeerd. Deelname vereist minimaal 3 diensten gemiddeld per week. Eventuele aanspraken op extra vakantie voor senioren (4.1.5 c) worden met de helft verminderd. Geen deelname bij ontvangst (deeltijd)pensioenuitkering.",
+      "typeCode": "Generatiepact"
+    },
+    {
+      "name": "Regeling Vervroegd Uittreden (RVU)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2022-01-01",
+        "validTo": "2025-12-31"
+      },
+      "line": [
+        {
+          "amount": {
+            "value": 0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Financiële vergoeding tot AOW-leeftijd. Specifiek bedrag niet gespecificeerd in dit CAO-document, maar in de Cao Metalektro Regeling Vervoegd Uittreden 2021/2025. Recht op vervroegd uittreden voor werknemers die tussen 1 jan 2022 en 31 dec 2025 uit dienst treden, leeftijd maximaal 36 en minimaal 6 maanden voor AOW-leeftijd, en bruto maandsalaris van maximaal €4.488 (per 1 juni 2024), €4.634 (per 1 jan 2025), €4.773 (per 1 juni 2025) exclusief toeslagen bij voltijdsdienstverband, OF ten minste vijf aaneengesloten jaren regelmatig in ploegendienst, consignatiedienst of met SAO-toeslag/vergelijkbare toeslagen hebben gewerkt."
+            }
+          ]
+        }
+      ],
+      "description": "Maakt het voor werknemers mogelijk om onder voorwaarden maximaal 3 jaar vóór de AOW-leeftijd te stoppen met werken. De werknemer die voor de RVU in aanmerking komt, ontvangt tot de AOW-leeftijd een financiële vergoeding. Maandsalarisgrenzen worden geïndexeerd.",
+      "typeCode": "RVU"
+    }
+  ],
+  "otherArrangement": [
+    {
+      "name": "Tijdspaarregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Werkgever kan in overleg met vakbonden en/of ondernemingsraad een tijdspaarregeling instellen. Bronnen: vrije roosteruren, bovenwettelijke vakantiedagen en overuren. Deelname is vrijwillig. Werkgever stelt zekerheid (fonds/herverzekering). Aanspraken op gespaarde uren verjaren niet."
+    },
+    {
+      "name": "Individueel tijdsparen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Werknemer heeft het recht om na overleg met de werkgever maximaal 12 dagdelen vrije roostertijd om te zetten in geld en in te zetten voor de (vroeg)pensioenvoorziening. Dit recht kan beperkt worden onder bepaalde voorwaarden."
+    },
+    {
+      "name": "Dagen kopen, sparen en verkopen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Werknemer heeft het recht per jaar maximaal 10 verlofdagen te kopen. Werknemer mag bovenwettelijke vakantiedagen sparen tot een maximum van dertien maal zijn normale arbeidsduur per week (verjaren niet). Werknemer kan maximaal 6 bovenwettelijke vakantiedagen per jaar verkopen voor een ander doel dan (vroeg)pensioenvoorziening of tijdspaarregeling."
+    },
+    {
+      "name": "Verlofsparen via fondsvorming",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Cao-partijen willen verlofsparen via fondsvorming op sectorniveau mogelijk maken. Werknemers kunnen saldo van beschikbare vrije uren van het voorgaande kalenderjaar in geld omzetten en bij het fonds inleggen. Maximaal 100 weken sparen. Wettelijke vakantiedagen zijn uitgesloten."
+    },
+    {
+      "name": "Levensloopregeling en verlof",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Als de werknemer zijn levenslooptegoed wil gebruiken voor verlof in een situatie die niet in de wet is geregeld (bijv. zorg voor ouders, studie, sabbatical), kan dit in voltijd of deeltijd. Aanvraagtermijnen gelden. Werkgever willigt verzoek in voor verlof maximaal 2 jaar direct voorafgaand aan AOW-leeftijd."
+    },
+    {
+      "name": "CAO-scholingsdag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "De werknemer die lid is van een vakbond kan in 2024 en 2025 deelnemen aan een cao-scholingsdag. Onderwerpen: arbeidsverhoudingen en cao. Organisatie in overleg met werkgever."
+    },
+    {
+      "name": "Winstdelingsregelingen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "Werkgever verandert een bestaande, gereglementeerde winstdelingsregeling alleen na overleg met vakbonden en instemming van de ondernemingsraad. Invoering van een winstdelingsregeling met elementen van prestatiebeloning gebeurt na overleg met vakbonden."
+    },
+    {
+      "name": "Vakbondscontributie Werkkostenregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-06-01",
+        "validTo": "2025-12-31"
+      },
+      "description": "De werknemer die lid is van een vakbond, heeft in 2024 en 2025 het recht zijn vakbondscontributie te laten onderbrengen in de fiscale vrijstelling van de Werkkostenregeling (WKR) in de onderneming."
     }
   ],
   "_extraction_metadata": {
     "extractor": "gemini-primary",
     "model": "gemini-2.5-flash",
-    "cao_name": "CAO Metalektro 2024-2025",
-    "extracted_at": "2026-02-19T08:07:32.780962",
+    "cao_name": "Metalektro",
+    "extracted_at": "2026-03-05T09:30:15.246932",
     "input_chars": 285685,
-    "elapsed_seconds": 197.40492
+    "elapsed_seconds": 288.054213
   }
 }

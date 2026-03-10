@@ -1,7 +1,6 @@
 """Timeline visualization module for generating interactive HTML/SVG timelines."""
 
 import json
-from datetime import date, datetime
 from pathlib import Path
 
 import structlog

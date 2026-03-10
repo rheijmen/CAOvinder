@@ -167,7 +167,7 @@ class CrossReferenceValidator:
                                 ValidationIssue(
                                     rule="WML_FLOOR_CHECK",
                                     severity=ValidationSeverity.CRITICAL,
-                                    description=f"Salary step below statutory minimum wage",
+                                    description="Salary step below statutory minimum wage",
                                     setu_field=f"remuneration[{idx}].salaryScale[{scale_idx}].salaryStep (minimumWage=true)",
                                     statutory_field="minimumWage[latest].hourlyRates (age 21+)",
                                     setu_value=f"€{step_value:.2f}/hour",
@@ -280,7 +280,7 @@ class CrossReferenceValidator:
                                 setu_field=f"holidayAllowance[{idx}]",
                                 setu_value=f"{value}%",
                                 statutory_value="8% (wettelijk minimum)",
-                                recommendation=f"Increase holiday allowance to at least 8%",
+                                recommendation="Increase holiday allowance to at least 8%",
                             )
                         )
 

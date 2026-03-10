@@ -1,0 +1,44 @@
+{
+  "test_date": "2026-03-05T14:33:49.581862",
+  "total_caos": 2,
+  "summary": {
+    "total_initial_errors": 154,
+    "total_final_errors": 98,
+    "total_fixed_errors": 56,
+    "average_compliance": 0.7134502923976609,
+    "average_auto_repair_rate": 0.5,
+    "total_duration_seconds": 0.012057,
+    "perfect_count": 1,
+    "success_count": 1,
+    "close_count": 0,
+    "needs_work_count": 1
+  },
+  "results": [
+    {
+      "cao": "Achmea",
+      "baseline_errors": 171,
+      "initial_errors": 56,
+      "final_errors": 0,
+      "fixed_errors": 56,
+      "compliance_score": 1.0,
+      "auto_repair_rate": 1.0,
+      "duration_seconds": 0.006455,
+      "status": "\u2705 PERFECT",
+      "remuneration_count": 11,
+      "output_file": "data/setu/1004-achmea-cao-01-12-2023-tm-31-08-2025-vbest27062024.4layer.setu.json"
+    },
+    {
+      "cao": "IKEA",
+      "baseline_errors": 0,
+      "initial_errors": 98,
+      "final_errors": 98,
+      "fixed_errors": 0,
+      "compliance_score": 0.42690058479532167,
+      "auto_repair_rate": 0.0,
+      "duration_seconds": 0.005602,
+      "status": "\u274c NEEDS WORK",
+      "remuneration_count": 1,
+      "output_file": "data/setu/1049-ikea-cao-1-10-2023-tm-31-12-2024-v07022024.4layer.setu.json"
+    }
+  ]
+}

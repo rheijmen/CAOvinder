@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from cao_engine import __version__
 from cao_engine.config import Settings
-from cao_engine.storage.json_store import JSONStore
 from cao_engine.storage.moment_store import MomentStore
 
 app = FastAPI(
@@ -92,6 +91,7 @@ async def get_moment(moment_id: str):
 from cao_engine.api.routes.cao_routes import router as cao_router
 from cao_engine.api.routes.processing_routes import router as processing_router
 from cao_engine.api.v2.public_routes import router as v2_public_router
+from cao_engine.api.v2.search import router as v2_search_router
 
 # Internal API routes (no authentication required for admin frontend)
 app.include_router(cao_router)
@@ -99,3 +99,4 @@ app.include_router(processing_router)
 
 # Public B2B API routes (require API key authentication)
 app.include_router(v2_public_router)
+app.include_router(v2_search_router, prefix="/api/v2")

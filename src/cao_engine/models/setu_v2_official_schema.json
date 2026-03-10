@@ -1,0 +1,461 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentId",
+    "effectivePeriod",
+    "customer",
+    "remuneration"
+  ],
+  "properties": {
+    "documentId": {
+      "type": "object",
+      "required": [
+        "value",
+        "schemeAgencyId"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "schemeAgencyId": {
+          "type": "string"
+        }
+      }
+    },
+    "versionId": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "issued": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "effectivePeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "validFrom": {
+          "type": "string",
+          "format": "date"
+        },
+        "validTo": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "customer": {
+      "type": "object",
+      "required": [
+        "legalId",
+        "personContacts"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "legalId": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "value",
+              "schemeAgencyId"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "schemeAgencyId": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "personContacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "name"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "object",
+                "required": [
+                  "formattedName"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "formattedName": {
+                    "type": "string"
+                  }
+                }
+              },
+              "roleCode": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "baseDefinition": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/BaseDefinition"
+      }
+    },
+    "labourAgreements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "collectiveLabourAgreement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "effectivePeriod": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "validFrom": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "validTo": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          }
+        },
+        "customLabourAgreement": {
+          "type": "boolean"
+        }
+      }
+    },
+    "positionProfile": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "positionId",
+          "positionName"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "positionId": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          },
+          "positionName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effectivePeriod": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "validFrom": {
+                "type": "string",
+                "format": "date"
+              },
+              "validTo": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    },
+    "remuneration": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "origin": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            }
+          },
+          "workDuration": {
+            "type": "object",
+            "required": [
+              "amount",
+              "interval",
+              "valuePerWeek"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "interval": {
+                "type": "object",
+                "required": [
+                  "value",
+                  "unitCode"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "unitCode": {
+                    "type": "string"
+                  }
+                }
+              },
+              "valuePerWeek": {
+                "type": "number"
+              }
+            }
+          },
+          "interval": {
+            "type": "object",
+            "required": [
+              "value",
+              "unitCode"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unitCode": {
+                "type": "string"
+              }
+            }
+          },
+          "salaryScale": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "currency"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "minAmount": {
+                  "type": "number"
+                },
+                "maxAmount": {
+                  "type": "number"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "positionProfileRef": {
+                  "type": "string"
+                },
+                "effectivePeriod": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "validFrom": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "validTo": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "salaryStep": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SalaryStep"
+            }
+          },
+          "generalIncrease": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/GeneralIncrease"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "effectivePeriod": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "validFrom": {
+                "type": "string",
+                "format": "date"
+              },
+              "validTo": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    },
+    "allowance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Allowance"
+      }
+    },
+    "holidayAllowance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/HolidayAllowance"
+      }
+    },
+    "sickPay": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SickPay"
+      }
+    },
+    "leave": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Leave"
+      }
+    },
+    "individualChoiceBudget": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/IndividualChoiceBudget"
+      }
+    },
+    "pension": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Pension"
+      }
+    },
+    "sustainableEmployability": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SustainableEmployability"
+      }
+    },
+    "supplementaryArrangement": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SupplementaryArrangement"
+      }
+    },
+    "otherArrangement": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OtherArrangement"
+      }
+    }
+  },
+  "$defs": {
+    "BaseDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "baseType": {
+          "type": "string"
+        },
+        "remunerationIndicator": {
+          "type": "boolean"
+        },
+        "holidayAllowanceIndicator": {
+          "type": "boolean"
+        },
+        "paidLeaveDayIndicator": {
+          "type": "boolean"
+        },
+        "allAllowancesIndicator": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SalaryStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        },
+        "effectivePeriod": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "validFrom": {
+              "type": "string",
+              "format": "date"
+            },
+            "validTo": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      }
+    }
+  }
+}

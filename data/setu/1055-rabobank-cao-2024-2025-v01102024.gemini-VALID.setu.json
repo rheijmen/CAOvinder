@@ -1,0 +1,3684 @@
+{
+  "documentId": {
+    "value": "Rabobank_CAO_2024-2025",
+    "schemeAgencyId": "Customer"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-07-01",
+    "validTo": "2025-06-30"
+  },
+  "customer": {
+    "name": "Rabobank U.A.",
+    "legalId": [
+      {
+        "value": "Rabobank U.A.",
+        "schemeAgencyId": "KvK"
+      },
+      {
+        "value": "Obvion N.V.",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "S.L.G. Decraene"
+        },
+        "roleCode": "Voorzitter Groepsdirectie",
+        "positionTitle": "Voorzitter Groepsdirectie"
+      },
+      {
+        "name": {
+          "formattedName": "M.R. Hooglander"
+        },
+        "roleCode": "HR Rabobank",
+        "positionTitle": "HR Rabobank"
+      },
+      {
+        "name": {
+          "formattedName": "R. Castelein"
+        },
+        "roleCode": "Voorzitter",
+        "positionTitle": "Voorzitter De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "I. de Vries"
+        },
+        "roleCode": "Belangenbehartiger",
+        "positionTitle": "Belangenbehartiger De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "F. Polhout"
+        },
+        "roleCode": "Bestuurder",
+        "positionTitle": "Bestuurder FNV Finance"
+      },
+      {
+        "name": {
+          "formattedName": "P.S. Fortuin"
+        },
+        "roleCode": "Voorzitter",
+        "positionTitle": "Voorzitter CNV"
+      },
+      {
+        "name": {
+          "formattedName": "A.M. Kramer"
+        },
+        "roleCode": "Bestuurder",
+        "positionTitle": "Bestuurder CNV"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "1",
+          "currency": "EUR",
+          "maxValue": 1829.28,
+          "minValue": 1281.27
+        },
+        {
+          "name": "2",
+          "currency": "EUR",
+          "maxValue": 2128.19,
+          "minValue": 1490.77
+        },
+        {
+          "name": "3",
+          "currency": "EUR",
+          "maxValue": 2379.87,
+          "minValue": 1667.07
+        },
+        {
+          "name": "4",
+          "currency": "EUR",
+          "maxValue": 2666.03,
+          "minValue": 1866.33
+        },
+        {
+          "name": "5",
+          "currency": "EUR",
+          "maxValue": 3174.44,
+          "minValue": 2222.73
+        },
+        {
+          "name": "6",
+          "currency": "EUR",
+          "maxValue": 3677.74,
+          "minValue": 2575.3
+        },
+        {
+          "name": "7",
+          "currency": "EUR",
+          "maxValue": 4303.66,
+          "minValue": 3013.45
+        },
+        {
+          "name": "8",
+          "currency": "EUR",
+          "maxValue": 5024.15,
+          "minValue": 3518.06
+        },
+        {
+          "name": "9",
+          "currency": "EUR",
+          "maxValue": 5811.03,
+          "minValue": 4068.63
+        },
+        {
+          "name": "10",
+          "currency": "EUR",
+          "maxValue": 6926.62,
+          "minValue": 4848.64
+        },
+        {
+          "name": "11",
+          "currency": "EUR",
+          "maxValue": 8334.84,
+          "minValue": 5834.4
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-03-31"
+      }
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Senior kader A",
+          "currency": "EUR",
+          "maxValue": 11192.99,
+          "minValue": 7835.09
+        },
+        {
+          "name": "Senior kader B",
+          "currency": "EUR",
+          "maxValue": 13255.4,
+          "minValue": 9278.77
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-03-31"
+      }
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "1",
+          "currency": "EUR",
+          "maxValue": 1929.89,
+          "minValue": 1351.74
+        },
+        {
+          "name": "2",
+          "currency": "EUR",
+          "maxValue": 2245.24,
+          "minValue": 1572.76
+        },
+        {
+          "name": "3",
+          "currency": "EUR",
+          "maxValue": 2510.76,
+          "minValue": 1758.76
+        },
+        {
+          "name": "4",
+          "currency": "EUR",
+          "maxValue": 2812.66,
+          "minValue": 1968.98
+        },
+        {
+          "name": "5",
+          "currency": "EUR",
+          "maxValue": 3349.03,
+          "minValue": 2344.98
+        },
+        {
+          "name": "6",
+          "currency": "EUR",
+          "maxValue": 3880.02,
+          "minValue": 2716.94
+        },
+        {
+          "name": "7",
+          "currency": "EUR",
+          "maxValue": 4540.36,
+          "minValue": 3179.19
+        },
+        {
+          "name": "8",
+          "currency": "EUR",
+          "maxValue": 5300.48,
+          "minValue": 3711.55
+        },
+        {
+          "name": "9",
+          "currency": "EUR",
+          "maxValue": 6130.64,
+          "minValue": 4292.4
+        },
+        {
+          "name": "10",
+          "currency": "EUR",
+          "maxValue": 7307.58,
+          "minValue": 5115.32
+        },
+        {
+          "name": "11",
+          "currency": "EUR",
+          "maxValue": 8793.26,
+          "minValue": 6155.29
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2024-12-31"
+      },
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2024-04-01"
+          },
+          "amount": {
+            "value": 5.5,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Collectieve salarisaanpassing"
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Senior kader A",
+          "currency": "EUR",
+          "maxValue": 11808.6,
+          "minValue": 8266.02
+        },
+        {
+          "name": "Senior kader B",
+          "currency": "EUR",
+          "maxValue": 13984.45,
+          "minValue": 9789.1
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2024-12-31"
+      },
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2024-04-01"
+          },
+          "amount": {
+            "value": 5.5,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Collectieve salarisaanpassing"
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "1",
+          "currency": "EUR",
+          "maxValue": 1929.89,
+          "minValue": 1351.74
+        },
+        {
+          "name": "2",
+          "currency": "EUR",
+          "maxValue": 2245.24,
+          "minValue": 1572.76
+        },
+        {
+          "name": "3",
+          "currency": "EUR",
+          "maxValue": 2510.76,
+          "minValue": 1758.76
+        },
+        {
+          "name": "4",
+          "currency": "EUR",
+          "maxValue": 2812.66,
+          "minValue": 1968.98
+        },
+        {
+          "name": "5",
+          "currency": "EUR",
+          "maxValue": 3349.03,
+          "minValue": 2344.98
+        },
+        {
+          "name": "6",
+          "currency": "EUR",
+          "maxValue": 3880.02,
+          "minValue": 2716.94
+        },
+        {
+          "name": "7",
+          "currency": "EUR",
+          "maxValue": 4540.36,
+          "minValue": 3179.19
+        },
+        {
+          "name": "8",
+          "currency": "EUR",
+          "maxValue": 5300.48,
+          "minValue": 3711.55
+        },
+        {
+          "name": "9",
+          "currency": "EUR",
+          "maxValue": 6186.37,
+          "minValue": 4331.42
+        },
+        {
+          "name": "10",
+          "currency": "EUR",
+          "maxValue": 7374.01,
+          "minValue": 5161.82
+        },
+        {
+          "name": "11",
+          "currency": "EUR",
+          "maxValue": 8873.2,
+          "minValue": 6211.25
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-03-31"
+      }
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Senior kader A",
+          "currency": "EUR",
+          "maxValue": 12130.65,
+          "minValue": 8491.46
+        },
+        {
+          "name": "Senior kader B",
+          "currency": "EUR",
+          "maxValue": 14874.37,
+          "minValue": 10412.04
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-03-31"
+      }
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "1",
+          "currency": "EUR",
+          "maxValue": 2011.91,
+          "minValue": 1409.19
+        },
+        {
+          "name": "2",
+          "currency": "EUR",
+          "maxValue": 2340.66,
+          "minValue": 1639.6
+        },
+        {
+          "name": "3",
+          "currency": "EUR",
+          "maxValue": 2617.47,
+          "minValue": 1833.51
+        },
+        {
+          "name": "4",
+          "currency": "EUR",
+          "maxValue": 2932.2,
+          "minValue": 2052.66
+        },
+        {
+          "name": "5",
+          "currency": "EUR",
+          "maxValue": 3491.36,
+          "minValue": 2444.64
+        },
+        {
+          "name": "6",
+          "currency": "EUR",
+          "maxValue": 4044.92,
+          "minValue": 2832.41
+        },
+        {
+          "name": "7",
+          "currency": "EUR",
+          "maxValue": 4733.33,
+          "minValue": 3314.31
+        },
+        {
+          "name": "8",
+          "currency": "EUR",
+          "maxValue": 5525.75,
+          "minValue": 3869.29
+        },
+        {
+          "name": "9",
+          "currency": "EUR",
+          "maxValue": 6449.29,
+          "minValue": 4515.51
+        },
+        {
+          "name": "10",
+          "currency": "EUR",
+          "maxValue": 7687.41,
+          "minValue": 5381.2
+        },
+        {
+          "name": "11",
+          "currency": "EUR",
+          "maxValue": 9250.31,
+          "minValue": 6475.23
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2025-04-01",
+        "validTo": "2025-06-30"
+      },
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-04-01"
+          },
+          "amount": {
+            "value": 4.25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Collectieve salarisaanpassing"
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Senior kader A",
+          "currency": "EUR",
+          "maxValue": 12646.2,
+          "minValue": 8852.35
+        },
+        {
+          "name": "Senior kader B",
+          "currency": "EUR",
+          "maxValue": 15506.53,
+          "minValue": 10854.55
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2025-04-01",
+        "validTo": "2025-06-30"
+      },
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-04-01"
+          },
+          "amount": {
+            "value": 4.25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "description": "Collectieve salarisaanpassing"
+        }
+      ]
+    }
+  ],
+  "issued": "2024-07-01T00:00:00Z",
+  "baseDefinition": [
+    {
+      "baseType": "GrondslagZiekte",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "ThirteenthMonth"
+        },
+        {
+          "typeCode": "PersonalAllowance"
+        },
+        {
+          "typeCode": "PersonalBudget"
+        },
+        {
+          "typeCode": "ShiftAllowance"
+        },
+        {
+          "typeCode": "EmployeeBenefitBudget"
+        }
+      ],
+      "description": "Grondslag voor loondoorbetaling gedurende ziekte is het bruto arbeidsinkomen plus het Employee Benefit Budget. Bruto arbeidsinkomen is het jaarinkomen plus persoonlijke toeslagen, persoonlijk budget en ploegentoeslagen. Jaarinkomen is bruto jaarsalaris inclusief vakantietoeslag en 13e maand."
+    },
+    {
+      "baseType": "PensioengevendJaarinkomen",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "PersonalAllowance"
+        },
+        {
+          "typeCode": "ShiftAllowance"
+        },
+        {
+          "typeCode": "ThirteenthMonth"
+        }
+      ],
+      "description": "Pensioengevend jaarinkomen is het jaarsalaris op basis van voltijdsdienstverband (basisarbeidsduur) inclusief persoonlijke toeslag en/of ploegtoeslag, de vakantietoeslag en de uitkering 13e maand."
+    },
+    {
+      "baseType": "BrutoArbeidsinkomen",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "ThirteenthMonth"
+        },
+        {
+          "typeCode": "PersonalAllowance"
+        },
+        {
+          "typeCode": "PersonalBudget"
+        },
+        {
+          "typeCode": "ShiftAllowance"
+        }
+      ],
+      "description": "Bruto arbeidsinkomen is het jaarinkomen plus persoonlijke toeslagen, persoonlijk budget en ploegentoeslagen. Jaarinkomen is bruto jaarsalaris inclusief vakantietoeslag en 13e maand."
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Rabobank cao 2024-2025",
+      "id": {
+        "value": "Rabobank_CAO_2024-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      }
+    },
+    "customLabourAgreement": true
+  },
+  "allowance": [
+    {
+      "name": "Persoonlijke toeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "PersonalAllowance",
+      "description": "Op grond van de regels voor inschaling kunnen medewerkers een Persoonlijke Toeslag (PT) ontvangen. Deze PT is een (tijdelijke) compensatie. De PT wordt opgeteld bij het salaris voor alle berekeningsgrondslagen, tenzij uitdrukkelijk anders vermeld. Er zijn 2 soorten persoonlijke toeslag: PT1 oud (ontstaan vóór 1 januari 2011) wordt afgebouwd door collectieve en individuele salarisaanpassingen en salarisgroei in hogere schaal. PT1 nieuw (ontstaan vanaf 1 januari 2011) wordt in 4 jaar afgebouwd (100%, 75%, 50%, 25%) en verminderd met individuele salarisaanpassingen of salarisgroei in hogere schaal, niet met collectieve salarisaanpassingen. PT2 wordt alleen toegekend aan medewerkers die vóór 1 mei 2008 55 jaar of ouder waren en wordt afgebouwd door individuele salarisaanpassingen en salarisgroei in hogere schaal, niet met collectieve salarisaanpassingen. Voor PT1 en PT2 ontstaan vóór 1 januari 2008 gelden de afspraken van toen."
+    },
+    {
+      "name": "Persoonlijk Budget",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "PersonalBudget",
+      "line": [
+        {
+          "lineId": {
+            "value": "PB_01"
+          },
+          "amount": {
+            "value": 24,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensioengevendJaarinkomen",
+              "minValue": 137800
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers met een pensioengevend jaarinkomen hoger dan het wettelijk vastgestelde maximum (€ 137.800 bij een fulltime dienstverband, niveau 2024). Bij een parttime dienstverband wordt het Persoonlijk Budget naar rato aangepast. Het Persoonlijk Budget is uitdrukkelijk geen pensioen en telt niet mee bij de bepaling van andere uitkeringen, vergoedingen of toeslagen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toeslag waarneming hogere functie",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "HigherFunctionAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "WF_01"
+          },
+          "amount": {
+            "value": 5,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Medewerker neemt tenminste 22 werkdagen aaneengesloten een functie waar die in een hogere functiegroep is ingedeeld. Geldt niet als het waarnemerschap onderdeel is van de functieomschrijving. Uitbetaling na afloop van de periode van waarneming of halfjaarlijks. De toeslag telt niet mee bij de bepaling van andere uitkeringen, vergoedingen of toeslagen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Salarisuitloop",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "SalaryExtension",
+      "line": [
+        {
+          "lineId": {
+            "value": "SU_01"
+          },
+          "amount": {
+            "value": 10,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "SalaryScaleMaximum"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Aanvullende beloning bovenop het reguliere cao schaalmaximum, uitgedrukt in een percentage van het cao schaalmaximum (10% of een veelvoud daarvan). Gekoppeld aan de functie en geldt voor alle medewerkers die de betreffende functie uitoefenen. Nadere invulling wordt vastgesteld in overleg tussen Rabobank en de OR."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tegemoetkoming reiskosten woon-werkverkeer",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "TravelAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "RWV_01"
+          },
+          "amount": {
+            "value": 6,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 1 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_02"
+          },
+          "amount": {
+            "value": 10,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 2 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_03"
+          },
+          "amount": {
+            "value": 15,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 3 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_04"
+          },
+          "amount": {
+            "value": 20,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 4 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_05"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 5 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_06"
+          },
+          "amount": {
+            "value": 31,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 6 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_07"
+          },
+          "amount": {
+            "value": 35,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 7 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_08"
+          },
+          "amount": {
+            "value": 41,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 8 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_09"
+          },
+          "amount": {
+            "value": 45,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 9 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_10"
+          },
+          "amount": {
+            "value": 51,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 10 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_11"
+          },
+          "amount": {
+            "value": 56,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 11 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_12"
+          },
+          "amount": {
+            "value": 61,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 12 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_13"
+          },
+          "amount": {
+            "value": 66,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 13 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_14"
+          },
+          "amount": {
+            "value": 70,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 14 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_15"
+          },
+          "amount": {
+            "value": 76,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 15 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_16"
+          },
+          "amount": {
+            "value": 81,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 16 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_17"
+          },
+          "amount": {
+            "value": 86,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 17 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_18"
+          },
+          "amount": {
+            "value": 91,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 18 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_19"
+          },
+          "amount": {
+            "value": 96,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 19 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_20"
+          },
+          "amount": {
+            "value": 101,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 20 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_21"
+          },
+          "amount": {
+            "value": 107,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 21 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_22"
+          },
+          "amount": {
+            "value": 111,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 22 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_23"
+          },
+          "amount": {
+            "value": 117,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 23 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_24"
+          },
+          "amount": {
+            "value": 121,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 24 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_25"
+          },
+          "amount": {
+            "value": 127,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 25 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_26"
+          },
+          "amount": {
+            "value": 132,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 26 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_27"
+          },
+          "amount": {
+            "value": 136,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 27 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_28"
+          },
+          "amount": {
+            "value": 142,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 28 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_29"
+          },
+          "amount": {
+            "value": 146,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 29 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_30"
+          },
+          "amount": {
+            "value": 152,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 30 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_31"
+          },
+          "amount": {
+            "value": 157,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 31 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_32"
+          },
+          "amount": {
+            "value": 162,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 32 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_33"
+          },
+          "amount": {
+            "value": 167,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 33 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_34"
+          },
+          "amount": {
+            "value": 172,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 34 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_35"
+          },
+          "amount": {
+            "value": 177,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 35 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_36"
+          },
+          "amount": {
+            "value": 183,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 36 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_37"
+          },
+          "amount": {
+            "value": 187,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 37 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_38"
+          },
+          "amount": {
+            "value": 193,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 38 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_39"
+          },
+          "amount": {
+            "value": 197,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 39 km woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_40"
+          },
+          "amount": {
+            "value": 202,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor 40 km en verder woon-werkverkeer (enkele reis). Tegemoetkoming wordt maandelijks uitbetaald. Medewerkers die minder dan 5 dagen per week reizen, ontvangen naar rato. Max. reisafstand 40 km. Zie tabel voor verdere afstanden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_OV"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "PublicTransportCosts"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Volledige vergoeding van de kosten van openbaar vervoer 2e klas, in plaats van de kilometertabel."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "RWV_INNATURA"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "TravelAllowance"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Als de werkgever het vervoer geheel of gedeeltelijk in natura verzorgt (bijv. lease auto), ontvangt de medewerker geen of een gedeeltelijke tegemoetkoming."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Maandelijkse thuiswerkvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "HomeWorkingAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "THW_01"
+          },
+          "amount": {
+            "value": 40,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Netto thuiswerkvergoeding, uitgaande van gemiddeld 5 thuiswerkdagen per week. Vergoeding wordt naar rato toegekend van het gemiddeld aantal werkdagen dat per week thuis wordt gewerkt. Te gebruiken voor kosten in verband met thuiswerken (koffie, thee, kantoorfaciliteiten, elektriciteit, etc.)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Internetvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "InternetAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "INT_01"
+          },
+          "amount": {
+            "value": 40,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximaal € 40 netto bij een arbeidsduur van 36 uur of meer. Bij een kortere arbeidsduur is de internetvergoeding naar rato."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toeslag onregelmatige werktijden (ORT)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "IrregularHoursAllowance",
+      "period": [
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "07:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "22:00",
+            "end": "00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "08:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "08:00",
+            "end": "17:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "17:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "Sunday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "PublicHoliday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "20:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "NewYearsEve"
+            }
+          ]
+        }
+      ],
+      "line": [
+        {
+          "lineId": {
+            "value": "ORT_WEEK_NIGHT"
+          },
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag 00.00 – 07.00 uur en 22.00 – 00.00 uur. Zaterdag 00.00 – 08.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ORT_SAT_DAY"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag 08.00 – 17.00 uur. Kan in tijd gecompenseerd worden."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ORT_SAT_EVENING"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag 17.00 – 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ORT_SUN"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zondag 00.00 – 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ORT_HOLIDAY"
+          },
+          "amount": {
+            "value": 200,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Feestdagen 00.00 – 24.00 uur. Oudejaarsavond 20.00 – 24.00 uur."
+            }
+          ]
+        }
+      ],
+      "description": "Toeslagpercentage wordt berekend over het uurloon en in geld uitgekeerd. Telt voor geen enkele berekeningsgrondslag mee als salaris (bijvoorbeeld vakantietoeslag, 13e maand, pensioen, e.d.)."
+    },
+    {
+      "name": "Meerwerkvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "OvertimeAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "MW_01"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers tot en met functiegroep 8. Meerwerk is incidenteel extra werkzaamheden op opdracht van de manager, waardoor de afgesproken gemiddelde arbeidsduur over 2 aaneengesloten kwartalen wordt overschreden. Pas vergoed als langer dan een half uur. Maximaal 45 uur meerwerk per kwartaal. Niet verplicht op zon- en feestdagen. Kan in tijd gecompenseerd worden. Indien gewerkte uren vallen op werktijden met toeslag, is de toeslag van toepassing zoals vermeld in 'Werktijden met toeslag'."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "MW_MAALTIJD"
+          },
+          "amount": {
+            "value": 20,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Als de werkdag onverwachts dusdanig wordt verlengd dat de medewerker 's avonds niet thuis kan eten, zorgt de werkgever voor een maaltijd of kan de rekening tot max. €20 gedeclareerd worden. Maaltijdpauze van een half uur telt mee als werktijd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vergoeding beschikbaarheidsdiensten",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "OnCallAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "BD_BESCHIKBAAR_WEEK"
+          },
+          "amount": {
+            "value": 1.8,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor beschikbaarheid tijdens beschikbaarheidsdiensten op maandag 00.00 uur tot zaterdag 17.00 uur. Ongeacht of er oproepen volgen voor werk. Kan in tijd gecompenseerd worden (1/10 van wekelijkse arbeidsduur voor volledige dienst)."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "BD_BESCHIKBAAR_WEEKEND"
+          },
+          "amount": {
+            "value": 3.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor beschikbaarheid tijdens beschikbaarheidsdiensten op zaterdag 17.00 uur tot zondag 24.00 uur en op feestdagen. Ongeacht of er oproepen volgen voor werk. Kan in tijd gecompenseerd worden (1/10 van wekelijkse arbeidsduur voor volledige dienst)."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "BD_GEWERKT"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor daadwerkelijk gewerkte uren tijdens de beschikbaarheidsdienst voor medewerkers tot en met functiegroep 8. Als deze uren vallen op werktijden met toeslag, is eveneens de toeslag van toepassing zoals vermeld in 'Werktijden met toeslag'. Medewerkers kunnen kiezen of de extra vergoeding in tijd of in geld wordt uitgekeerd. Nachtelijke uren worden uiterlijk de volgende dag vóór 24.00 uur in tijd gecompenseerd."
+            }
+          ]
+        }
+      ],
+      "description": "Beschikbaarheidsdiensten zijn aaneengesloten periodes – buiten de individuele werktijden – waarin de medewerker beschikbaar moet zijn voor het werk. Vooraf is niet bekend of – en zo ja: wanneer – wordt gewerkt. Vastgelegd in een rooster."
+    },
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ShiftAllowance",
+      "period": [
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "07:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "07:00",
+            "end": "21:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "21:00",
+            "end": "00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "08:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "08:00",
+            "end": "17:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "17:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "Sunday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "PublicHoliday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "20:00",
+            "end": "24:00"
+          },
+          "weekday": [
+            {
+              "value": "NewYearsEve"
+            }
+          ]
+        }
+      ],
+      "line": [
+        {
+          "lineId": {
+            "value": "PT_WEEK_NIGHT"
+          },
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag 00.00 – 07.00 uur en 21.00 – 00.00 uur. Zaterdag 00.00 – 08.00 uur. Aansluitende uren tussen 07.00 en 09.00 uur op weekdagen ook 50% toeslag."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PT_WEEK_DAY"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag 07.00 – 21.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PT_SAT_DAY"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag 08.00 – 17.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PT_SAT_EVENING"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag 17.00 – 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PT_SUN"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zondag 00.00 – 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PT_HOLIDAY"
+          },
+          "amount": {
+            "value": 200,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Feestdagen 00.00 – 24.00 uur. Oudejaarsavond 20.00 – 24.00 uur."
+            }
+          ]
+        }
+      ],
+      "description": "Ploegendienst houdt in dat er volgens een vast rooster in ploegen gedurende tenminste 5 aaneengesloten dagen ook buiten de gebruikelijke werktijden wordt gewerkt. Ploegentoeslag wordt op grond van een volledige roostercyclus vastgesteld als een gemiddeld percentage van het maandsalaris. Telt mee bij betaald verlof, vakantietoeslag, 13e maand, uitkering bij ziekte en arbeidsongeschiktheid, en pensioen."
+    },
+    {
+      "name": "Gewenningsuitkering ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "TransitionAllowance",
+      "description": "Medewerkers in ploegendienst van wie de ploegentoeslag meer dan 5% van het salaris uitmaakt, hebben recht op een gewenningstoeslag als de ploegentoeslag vervalt of met meer dan 5% vermindert door bedrijfsorganisatorische redenen, medische afkeuring, of door de werkgever erkende sociale redenen. De duur van de uitkering is afhankelijk van het aantal jaren dat de medewerker een ploegentoeslag heeft gehad (zie tabel in CAO). De hoogte wordt in 4 perioden afgebouwd: 80%, 60%, 40%, 20%. Specifieke bepalingen voor 60-jarigen (behoud tot pensioen), 55-jarigen (min. 75% van 60-jarigen), en 45-jarigen (lagere percentages bij andere redenen dan bovengenoemd). De gewenningsuitkering wordt aangepast met collectieve salarisaanpassingen. Salarisverhogingen (uitgezonderd collectieve) kunnen in mindering worden gebracht. Vervalt bij beëindiging arbeidsovereenkomst."
+    },
+    {
+      "name": "Afbouwregeling nachtdiensten 60+",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "NightShiftPhaseOut",
+      "description": "Vanaf een nader te bepalen datum binnen de looptijd van de cao 2024-2025 kunnen medewerkers van 60 jaar en ouder in ploegendienst, die tenminste 10 jaar aaneengesloten in ploegendienst hebben gewerkt, de keuze maken om geen nachtdiensten meer te werken. Het verschil in ploegentoeslag als gevolg van de roosterwijziging wordt ontvangen in de vorm van een Persoonlijke Toeslag (PT1 nieuw) die conform onderstaand schema wordt afgebouwd. De PT1 nieuw bedraagt 100% in het eerste jaar, 75% in het tweede jaar, 50% in het derde jaar en 25% in het vierde en laatste jaar. De toepassing van de PT1 nieuw is zoals opgenomen in paragraaf 2.8."
+    },
+    {
+      "name": "Vergoeding avondmaaltijd bij meerwerk",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "MealAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "MAALTIJD_MEERWERK"
+          },
+          "amount": {
+            "value": 20,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Als de werkdag van de medewerker, op verzoek van de manager, onverwachts dusdanig wordt verlengd dat de medewerker daardoor 's avonds niet thuis kan eten, dan zorgt de werkgever voor een maaltijd of kan de rekening van deze maaltijd gedeclareerd worden tot een bedrag van maximaal € 20. De maaltijdpauze van een half uur telt mee als werktijd."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "name": "Vakantietoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "HA_01"
+          },
+          "amount": {
+            "value": 8,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "De vakantietoeslag bedraagt 8% van de uitbetaalde maandsalarissen, inclusief de eventuele persoonlijke toeslag en ploegentoeslag. Opbouw van 1 juni tot en met 31 mei."
+            }
+          ]
+        }
+      ],
+      "payDate": {
+        "occurrenceType": "Recurring",
+        "recurringInterval": "R/P1M",
+        "description": "In 12 gelijke termijnen per maand uitgekeerd. Medewerkers hebben één keer per jaar de mogelijkheid om te kiezen voor uitbetaling in mei."
+      },
+      "description": "De vakantietoeslag en de 13e maand wordt in de regel in 12 gelijke termijnen per maand uitgekeerd. Medewerkers hebben één keer per jaar de mogelijkheid om te kiezen voor uitbetaling van de vakantietoeslag in mei en de 13e maand in december. De vakantietoeslag wordt opgebouwd van 1 juni tot en met 31 mei."
+    }
+  ],
+  "sickPay": [
+    {
+      "name": "Loondoorbetaling bij ziekte",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "waitingDays": {
+        "value": 0,
+        "unitCode": "Day",
+        "conditions": [
+          {
+            "conditionType": "Text",
+            "description": "Geen wachtdagen expliciet genoemd, 100% loondoorbetaling vanaf dag 1 impliceert 0 wachtdagen."
+          }
+        ]
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "SP_YEAR1"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrondslagZiekte"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Tijdens het eerste ziektejaar (eerste 52 weken ziekte). Grondslag voor loondoorbetaling gedurende ziekte is het bruto arbeidsinkomen plus het Employee Benefit Budget."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "SP_YEAR2_NOWORK"
+          },
+          "amount": {
+            "value": 80,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrondslagZiekte"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Tijdens het tweede (en eventueel verlengde) ziektejaar, bij geen werkhervatting. Grondslag voor loondoorbetaling gedurende ziekte is het bruto arbeidsinkomen plus het Employee Benefit Budget."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "SP_YEAR2_WORK_LT50"
+          },
+          "amount": {
+            "value": 85,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrondslagZiekte"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Tijdens het tweede (en eventueel verlengde) ziektejaar (na 52 weken ziekte) bij werkhervatting van minder dan 50% van de overeengekomen arbeidsduur. Grondslag voor loondoorbetaling gedurende ziekte is het bruto arbeidsinkomen plus het Employee Benefit Budget."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "SP_YEAR2_WORK_GE50"
+          },
+          "amount": {
+            "value": 95,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrondslagZiekte"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Tijdens het tweede (en eventueel verlengde) ziektejaar (na 52 weken ziekte) bij werkhervatting van 50% of meer van de overeengekomen arbeidsduur. Grondslag voor loondoorbetaling gedurende ziekte is het bruto arbeidsinkomen plus het Employee Benefit Budget."
+            }
+          ]
+        }
+      ],
+      "description": "Wettelijke loondoorbetalingverplichting van 104 weken (twee ziektejaren). De grondslag voor loondoorbetaling gedurende ziekte wordt jaarlijks aangepast met algemene salarisaanpassingen en, indien van toepassing, met individuele salarisverhogingen of -verlagingen. Individuele salarisaanpassing bij ziekte: na afloop kalenderjaar van ziekmelding, beoordeling tot ziekmelding bepaalt aanpassing. Eerste daaropvolgende kalenderjaar: 'succesvol jaar' (2.5%). Tweede daaropvolgende kalenderjaar: geen recht op individuele salarisaanpassing. Bij werkhervatting: jaarlijkse beoordeling over hervatte werkzaamheden. Vervroegde WIA aanvraag (IVA): 100% van grondslag tot einde 104 weken. Vergoedingen (reiskosten, thuiswerk, internet) stoppen na 1 maand bij volledige ziekte, hervatten bij (gedeeltelijke) werkhervatting. Arbeidstherapeutisch werk geldt niet als werkhervatting (max 6 weken), uitkering blijft 80%."
+    }
+  ],
+  "leave": [
+    {
+      "name": "Verlofregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Standaard verlofrecht",
+          "amount": {
+            "value": 172.8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Per kalenderjaar bij een gemiddelde arbeidsduur van 36 uur per week, inclusief de verlofuren voor de diversiteitsdag. Naar evenredigheid bij kortere/langere arbeidsduur of in-/uitdiensttreding. Maximaal 13 keer de arbeidsduur per week op 31 december. Verlofuren vervallen 5 jaar na de laatste dag van het kalenderjaar waarin ze zijn ontstaan (niet voor gekochte uren)."
+            }
+          ],
+          "leaveDayValue": {
+            "value": 1,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            },
+            "description": "Waarde van een (verlof)uur is het jaarinkomen (inclusief de eventuele persoonlijke toeslag en ploegentoeslag) plus EBB gedeeld door 52 keer de gemiddelde arbeidsduur per week."
+          },
+          "ikbReference": [
+            {
+              "relationType": "CanBeBoughtWith",
+              "id": {
+                "value": "EBB_01"
+              },
+              "description": "Kopen van verlofuren is mogelijk tot een maximum van 10% van de voor de medewerker geldende arbeidsduur op jaarbasis."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (tot 2029)",
+          "amount": {
+            "value": 180,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: tot en met 34 jaar. Geldig per 1 januari 2024."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (tot 2029)",
+          "amount": {
+            "value": 187.2,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: 35 tot en met 44 jaar. Geldig per 1 januari 2024."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (tot 2029)",
+          "amount": {
+            "value": 201.6,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: 45 tot en met 54 jaar. Geldig per 1 januari 2024."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (tot 2029)",
+          "amount": {
+            "value": 208.8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: 55 tot en met 64 jaar. Geldig per 1 januari 2024."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (vanaf 2029)",
+          "amount": {
+            "value": 172.8,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: tot en met 34 jaar en 35 tot en met 44 jaar. Geldig per 1 januari 2029."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (vanaf 2029)",
+          "amount": {
+            "value": 180,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: 45 tot en met 54 jaar. Geldig per 1 januari 2029."
+            }
+          ]
+        },
+        {
+          "name": "Overgangsregeling verlofrecht (vanaf 2029)",
+          "amount": {
+            "value": 187.2,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers die op 30 april 2009 al in dienst waren én sindsdien aansluitend in dienst zijn gebleven, bij een arbeidsduur van gemiddeld 36 uur. Leeftijd op 31 december 2010: 55 tot en met 64 jaar. Geldig per 1 januari 2029."
+            }
+          ]
+        },
+        {
+          "name": "Sabbatsverlof",
+          "amount": {
+            "value": 13,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 5,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Recht om één keer in de 5 jaar een aaneengesloten periode van verlof van ten hoogste 13 weken op te nemen. Kan gecombineerd worden met andere vormen van verlof, met toestemming van de manager."
+            }
+          ]
+        }
+      ],
+      "holidays": [
+        {
+          "name": "Nieuwjaarsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Eerste en tweede paasdag",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Koningsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Hemelvaartsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Eerste en tweede pinksterdag",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Eerste en tweede kerstdag",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof op nationaal erkende feestdagen."
+            }
+          ]
+        },
+        {
+          "name": "Diversiteitsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrij in te vullen feestdag, bijvoorbeeld Goede Vrijdag, Eid-al-Fitr of Divali. Uren zijn toegekend binnen het verlofrecht naar rato van de omvang van de arbeidsduur. Medewerkers kunnen niet verplicht worden om te werken op een dag die volgens hun geloofs- of levensovertuiging geldt als feestdag."
+            }
+          ]
+        },
+        {
+          "name": "Coöperatiedag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Medewerkers krijgen elk kalenderjaar een coöperatiedag om individueel of in teamverband een bijdrage te leveren aan een eigen gekozen maatschappelijk doel. Opname in overleg met de manager."
+            }
+          ]
+        }
+      ],
+      "specialLeave": [
+        {
+          "name": "Zwangerschaps- en bevallingsverlof",
+          "amount": {
+            "value": 16,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "leaveDayValue": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          }
+        },
+        {
+          "name": "Geboorteverlof",
+          "amount": {
+            "value": 5,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Aanvullend op het wettelijke geboorteverlof van 1 week, gedurende de eerste 26 weken na de geboorte. De wettelijke uitkering van 70% wordt aangevuld, zodat 100% van het salaris wordt doorbetaald."
+            }
+          ],
+          "leaveDayValue": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          }
+        },
+        {
+          "name": "Ouderschapsverlof",
+          "amount": {
+            "value": 26,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Recht op 26 weken ouderschapsverlof totdat het kind 12 jaar wordt. 9 weken betaald (70% van maximum dagloon, aangevuld tot 100% voor de eerste 4 weken indien kind geboren na 1 jan 2023), 17 weken onbetaald."
+            }
+          ],
+          "leaveDayValue": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "DailyRate",
+              "baseType": "GrossSalary"
+            },
+            "description": "Voor de eerste 4 weken van het betaald ouderschapsverlof (indien kind geboren na 1 jan 2023). Overige 5 weken betaald ouderschapsverlof 70% van maximum dagloon. 17 weken onbetaald."
+          }
+        },
+        {
+          "name": "Adoptieverlof",
+          "amount": {
+            "value": 6,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "leaveDayValue": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          }
+        },
+        {
+          "name": "Kortdurend zorgverlof",
+          "amount": {
+            "value": 2,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "WeeklyWorkingHours"
+            }
+          },
+          "interval": {
+            "value": 12,
+            "unitCode": "Month"
+          },
+          "leaveDayValue": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximaal 2 keer de wekelijkse arbeidsduur in een periode van 12 maanden. Wettelijk percentage van 70% wordt aangevuld, zodat 100% van het salaris wordt doorbetaald."
+            }
+          ]
+        },
+        {
+          "name": "Calamiteitenverlof",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Wettelijk recht op verlof om een dringend privé-probleem op te lossen. Salaris 100% doorbetaald."
+            }
+          ]
+        },
+        {
+          "name": "Rouwverlof",
+          "description": "De werkgever biedt de medewerkers ruimte voor rouwverwerking. Medewerker en manager kunnen afspraken maken over bijvoorbeeld tijdelijk aangepaste werktijden en/of minder belastende werkzaamheden en bespreken hoeveel verlof met behoud van salaris een medewerker nodig heeft."
+        },
+        {
+          "name": "Verlof pensioencursus",
+          "amount": {
+            "value": 5,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 2,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof voor deelname aan een cursus ter voorbereiding op het pensioen. Maximaal 5 dagen, op te nemen in een periode van 2 jaar voorafgaand aan de pensionering. Werkgever betaalt cursuskosten, ook voor partner."
+            }
+          ]
+        }
+      ],
+      "description": "Alle verlofuren zijn met behoud van salaris, tenzij anders vermeld."
+    }
+  ],
+  "individualChoiceBudget": [
+    {
+      "id": {
+        "value": "EBB_01",
+        "schemeAgencyId": "Rabobank"
+      },
+      "name": "Employee Benefit Budget (EBB)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2024"
+          },
+          "amount": {
+            "value": 9,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandelijks ter beschikking gesteld. Voor Salarisschaal 1-5. EBB wordt opgebouwd over het maandinkomen (exclusief persoonlijke toeslag en ploegentoeslag). Het EBB telt niet mee bij de bepaling van andere uitkeringen, vergoedingen (o.a. pensioen) of toeslagen. Geldig tot 31 december 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2024_6_8"
+          },
+          "amount": {
+            "value": 10,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandelijks ter beschikking gesteld. Voor Salarisschaal 6-8. EBB wordt opgebouwd over het maandinkomen (exclusief persoonlijke toeslag en ploegentoeslag). Het EBB telt niet mee bij de bepaling van andere uitkeringen, vergoedingen (o.a. pensioen) of toeslagen. Geldig tot 31 december 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2024_9_11"
+          },
+          "amount": {
+            "value": 11,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandelijks ter beschikking gesteld. Voor Salarisschaal 9-11. EBB wordt opgebouwd over het maandinkomen (exclusief persoonlijke toeslag en ploegentoeslag). Het EBB telt niet mee bij de bepaling van andere uitkeringen, vergoedingen (o.a. pensioen) of toeslagen. Geldig tot 31 december 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2024_SKA"
+          },
+          "amount": {
+            "value": 13,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandelijks ter beschikking gesteld. Voor Senior kader A. EBB wordt opgebouwd over het maandinkomen (exclusief persoonlijke toeslag en ploegentoeslag). Het EBB telt niet mee bij de bepaling van andere uitkeringen, vergoedingen (o.a. pensioen) of toeslagen. Geldig tot 31 december 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2024_SKB"
+          },
+          "amount": {
+            "value": 17,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandelijks ter beschikking gesteld. Voor Senior kader B. EBB wordt opgebouwd over het maandinkomen (exclusief persoonlijke toeslag en ploegentoeslag). Het EBB telt niet mee bij de bepaling van andere uitkeringen, vergoedingen (o.a. pensioen) of toeslagen. Geldig tot 31 december 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "EBB_PERCENTAGE_2025"
+          },
+          "amount": {
+            "value": 10,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vanaf 1 januari 2025 is het EBB percentage voor medewerkers in alle salarisschalen 10%. Voor medewerkers in de salarisschalen waar het EBB percentage voor 1 januari 2025 hoger was dan 10% wordt het salaris dusdanig verhoogd dat het jaarinkomen van de medewerker in combinatie met EBB gelijk blijft. De minima en maxima van de salarisschalen worden verhoogd met hetzelfde percentage als waarmee het salaris wordt verhoogd."
+            }
+          ]
+        }
+      ],
+      "option": [
+        {
+          "description": "Kopen van verlofuren (maximaal 10% van de voor de medewerker geldende arbeidsduur op jaarbasis)."
+        },
+        {
+          "description": "Fietsregeling."
+        },
+        {
+          "description": "Storting in Flexioen."
+        },
+        {
+          "description": "Vakbondscontributie."
+        },
+        {
+          "description": "Uitbetaling."
+        }
+      ],
+      "description": "De medewerker ontvangt een Employee Benefit Budget (EBB) waarmee de medewerker arbeidsvoorwaardelijke keuzes kan maken die passen bij zijn persoonlijke omstandigheden en wensen. Per 1 januari 2024 is naast het EBB ook de 13e maand te besteden in de Benefit Shop. Als de medewerker geen keuze maakt, wordt het niet bestede budget automatisch uitbetaald aan het einde van het kalenderjaar."
+    }
+  ],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "PENSION_PREMIE"
+          },
+          "amount": {
+            "value": 27,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "Pensioengrondslag"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Beschikbare spaarpremie voor opbouw pensioenkapitaal. Werkgeversbijdrage is 21,5% van de pensioengrondslag. Eigen bijdrage medewerker is standaard 5,5% van de pensioengrondslag, met mogelijkheid tot verlaging naar 3,5% (totale beschikbare spaarpremie wordt dan 25%). Het Rabobank Pensioenfonds voegt 1/101e deel van de ontvangen spaarpremie toe aan de reserve voor het minimaal vereist eigen vermogen."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PENSION_PARTNER_RISICO"
+          },
+          "amount": {
+            "value": 1.313,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensioengevendJaarinkomen"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Partnerpensioen op risicobasis dat ingaat bij overlijden van de deelnemer tijdens het deelnemerschap, ten behoeve van de partner van de deelnemer. Berekend over de dienstjaren vanaf aanvang deelnemerschap (of 1 januari 2023 indien liggende voor 2023) tot de pensioenrichtleeftijd van 68 jaar."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PENSION_TIJDELIJK_PARTNER_RISICO"
+          },
+          "amount": {
+            "value": null,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "AOWPremium"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Tijdelijk partnerpensioen op risicobasis dat ingaat bij overlijden van de deelnemer tijdens het deelnemerschap, ter hoogte van de AOW-premie die verschuldigd is over het partnerpensioen met inbegrip van het tijdelijk partnerpensioen zelf."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PENSION_WEZEN_RISICO"
+          },
+          "amount": {
+            "value": 0.263,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensioengevendJaarinkomen"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Wezenpensioen op risicobasis dat ingaat bij overlijden van de deelnemer tijdens het deelnemerschap, ten behoeve van de kinderen van de deelnemer. Berekend over de dienstjaren vanaf aanvang deelnemerschap (of 1 januari 2023 indien liggende voor 2023) tot de pensioenrichtleeftijd van 68 jaar."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "PENSION_PREMIEVRIJSTELLING"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "PensionContribution"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Premievrijstelling bij arbeidsongeschiktheid, ten behoeve van de deelnemer."
+            }
+          ]
+        }
+      ],
+      "franchise": {
+        "description": "De franchise wordt jaarlijks opnieuw vastgesteld conform de wettelijke minimaal toegestane franchise volgens artikel 18a, lid 7 van de Wet op de loonbelasting 1964; voor 2024 is deze gelijk aan € 17.545."
+      },
+      "description": "Medewerkers van Rabobank en Obvion nemen automatisch deel aan de collectieve pensioenregeling, uitgevoerd door het Rabobank Pensioenfonds. De pensioenrichtleeftijd is 68 jaar. De regeling voorziet in flexibilisering van het pensioen (vervroeging/uitstel, deeltijdpensionering, uitruil van pensioenaanspraken). Het pensioengevend jaarinkomen wordt gemaximeerd op € 137.800 (niveau 2024), jaarlijks aangepast. Jaarlijkse indexering van CDC-regeling en ingekochte pensioenrechten/aanspraken per 1 juli voorwaardelijk geïndexeerd. Compensatieregeling voor deelnemers die per 31 december 2022 in dienst waren en per 1 januari 2023 38 jaar of ouder waren, start in januari volgend op het jaar dat de 47-jarige leeftijd is bereikt. De compensatie betreft een cash compensatie, die als aanvullende pensioenpremie kan worden aangewend. Overgang naar Wet toekomst pensioenen (WTP) beoogd per 1 januari 2026, met keuze voor een flexibele premieregeling en 'invaren' van opgebouwde pensioenen bij voldoende dekkingsgraad (min. 105%). Risicodelingsreserve wordt gevormd. Nieuw nabestaandenpensioen: Partnerpensioen 35% van laatstverdiende pensioengevend jaarinkomen, Wezenpensioen 15% (volledige wees 30%) tot 25 jaar. Vrijwillig bijsparen via Flexioen mogelijk."
+    }
+  ],
+  "sustainableEmployability": [
+    {
+      "id": {
+        "value": "ONTWIKKELBUDGET_01",
+        "schemeAgencyId": "Rabobank"
+      },
+      "name": "Ontwikkelbudget",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      },
+      "typeCode": "DevelopmentBudget",
+      "line": [
+        {
+          "lineId": {
+            "value": "OB_01"
+          },
+          "amount": {
+            "value": 1400,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Jaarlijks toegekend aan medewerkers die op 1 januari van enig kalenderjaar in dienst zijn. Kan worden opgespaard en besteed binnen 3 kalenderjaren. Bij uitdiensttreding vervalt het niet gebruikte budget. Besteding aan werkgerelateerde opleidingen, trainingen, workshops, coaching en loopbaaninstrumenten. De helft van de opleidingsuren (max 50 uur/jaar) komt voor rekening van de werkgever, de andere helft voor de medewerker. Aanvullende bijdrage van werkgever mogelijk na overleg met manager en ontwikkelplan. Terugbetalingsregeling geldt voor aanvullende bedragen bij voortijdige beëindiging of niet behalen opleiding, of bij beëindiging dienstverband op eigen verzoek of dringende reden."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": {
+        "value": "80_90_100_REGELING_01",
+        "schemeAgencyId": "Rabobank"
+      },
+      "name": "80-90-100 regeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2025-01-01",
+        "validTo": "2025-06-30"
+      },
+      "typeCode": "Generatiepact",
+      "line": [
+        {
+          "lineId": {
+            "value": "80_90_100_01"
+          },
+          "amount": {
+            "value": 90,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Medewerker werkt 80% van de oorspronkelijke arbeidsduur, met behoud van 90% van het maandinkomen en 100% pensioenopbouw (op basis van oorspronkelijke arbeidsduur). Geldt voor medewerkers die op het moment van deelname 10 jaar of langer aaneengesloten in dienst zijn en een arbeidsduur hebben van minimaal 32 uur per week (geen uitbreiding naar 32 uur in de 12 maanden voorafgaand aan deelname). Vanaf 1 januari 2025 kan de medewerker 5 jaar voorafgaand aan de voor hem geldende AOW-gerechtigde leeftijd gebruik maken van de regeling. Verlofuren en internetvergoeding gebaseerd op feitelijke arbeidsduur (80%). Reiskosten en thuiswerkvergoeding gebaseerd op aantal reis- resp. thuiswerkdagen."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "supplementaryArrangement": [
+    {
+      "id": {
+        "value": "HORIZONTALE_DOORSTROOM_01",
+        "schemeAgencyId": "Rabobank"
+      },
+      "name": "Vergoeding bij horizontale doorstroom",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "Vanaf 1 januari 2023 ontvangt een medewerker bij horizontale doorstroom (benoeming na sollicitatie in een andere functie in dezelfde functiegroep) een eenmalige vergoeding van € 1.000 bruto. Deze vergoeding is niet van toepassing bij plaatsing op een passende functie als gevolg van een reorganisatie.",
+      "typeCode": "HorizontalMobilityAllowance",
+      "line": [
+        {
+          "lineId": {
+            "value": "HD_01"
+          },
+          "amount": {
+            "value": 1000,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Eenmalige vergoeding bij horizontale doorstroom (benoeming na sollicitatie in een andere functie in dezelfde functiegroep). Niet van toepassing bij plaatsing op een passende functie als gevolg van een reorganisatie."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

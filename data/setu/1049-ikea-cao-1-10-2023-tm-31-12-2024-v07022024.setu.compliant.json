@@ -1,0 +1,746 @@
+{
+  "documentId": {
+    "value": "CAO-IKEA-2023-2024",
+    "schemeAgencyId": "IKEA"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "issued": "2023-10-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-10-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "IKEA Nederland B.V. en Inter IKEA Systems B.V.",
+    "legalId": [
+      {
+        "value": "33191274 (IKEA Nederland B.V.)",
+        "schemeAgencyId": "KvK"
+      },
+      {
+        "value": "27146795 (Inter IKEA Systems B.V.)",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "Unit People & Culture Manager"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "IKEA CAO 2023-2024",
+      "id": {
+        "value": "IKEA_CAO_2023-2024"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-10-01",
+        "validTo": "2024-12-31"
+      }
+    }
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": 36,
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "IPE 43",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 2222.32,
+          "maxAmount": 2258.13
+        },
+        {
+          "name": "IPE 44",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 2388.62,
+          "maxAmount": 2456.8
+        },
+        {
+          "name": "IPE 45",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 2554.61,
+          "maxAmount": 2635.85
+        },
+        {
+          "name": "IPE 46/47",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 2751.89,
+          "maxAmount": 2849.09
+        },
+        {
+          "name": "IPE 48",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 3021.77,
+          "maxAmount": 3145.84
+        },
+        {
+          "name": "IPE 49/50",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 3360.07,
+          "maxAmount": 3518.01
+        },
+        {
+          "name": "IPE 51",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 3804.32,
+          "maxAmount": 3991.67
+        },
+        {
+          "name": "IPE 52",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 4126.06,
+          "maxAmount": 4338.6
+        },
+        {
+          "name": "IPE 53/54",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 4695.22,
+          "maxAmount": 4937.93
+        },
+        {
+          "name": "IPE 55/56",
+          "currency": "EUR",
+          "description": "Steps: 3 defined",
+          "minAmount": 5328.24,
+          "maxAmount": 5587.3
+        },
+        {
+          "name": "Participatie-medewerker",
+          "currency": "EUR",
+          "description": "Steps: 6 defined"
+        }
+      ]
+    }
+  ],
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "NL-RCMP_Apprentice"
+      },
+      "positionName": "Apprentice"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BGeneralist"
+      },
+      "positionName": "B2B Generalist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BSpecialist"
+      },
+      "positionName": "B2B Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessAnalyst"
+      },
+      "positionName": "Business Analyst"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessNavigation&OperationsManager"
+      },
+      "positionName": "Business Navigation & Operations Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_Communication&InformationSpecialist"
+      },
+      "positionName": "Communication & Information Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_CountryRemoteCMPManager"
+      },
+      "positionName": "Country Remote CMP Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignManager"
+      },
+      "positionName": "Experience Design Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignSpecialist"
+      },
+      "positionName": "Experience Design Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignTeamLeader"
+      },
+      "positionName": "Experience Design Team Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceQualitySpecialist"
+      },
+      "positionName": "Experience Quality Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesignSpecialist"
+      },
+      "positionName": "Interior Design Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesigner"
+      },
+      "positionName": "Interior Designer"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IntradaySpecialist"
+      },
+      "positionName": "Intraday Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IKEABusinessKeyAccountManager"
+      },
+      "positionName": "IKEA Business Key Account Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_KnowledgeSpecialist"
+      },
+      "positionName": "Knowledge Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ActivityLeader"
+      },
+      "positionName": "Activity Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_BusinessNavigator"
+      },
+      "positionName": "Business Navigator"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CarpenterCo-worker"
+      },
+      "positionName": "Carpenter Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CircularSalesSpecialist"
+      },
+      "positionName": "Circular Sales Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CommercialActivityLeader"
+      },
+      "positionName": "Commercial Activity Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Communication&InteriorDesignManager"
+      },
+      "positionName": "Communication & Interior Design Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Controller"
+      },
+      "positionName": "Controller"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsCo-worker"
+      },
+      "positionName": "Customer Relations Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsManager"
+      },
+      "positionName": "Customer Relations Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsTeamLeader"
+      },
+      "positionName": "Customer Relations Team Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputyBusinessNavigationManager"
+      },
+      "positionName": "Deputy Business Navigation Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputySalesManager"
+      },
+      "positionName": "Deputy Sales Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Frontliner"
+      },
+      "positionName": "Frontliner"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_FurnitureBuilder"
+      },
+      "positionName": "Furniture Builder"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowCo-workerI"
+      },
+      "positionName": "Goods Flow Co-worker I"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowManager"
+      },
+      "positionName": "Goods Flow Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowTeamLeader"
+      },
+      "positionName": "Goods Flow Team Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationCo-worker"
+      },
+      "positionName": "Graphic Communication Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationLeader"
+      },
+      "positionName": "Graphic Communication Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-worker"
+      },
+      "positionName": "IKEA Food Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-workerI"
+      },
+      "positionName": "IKEA Food Co-worker I"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodManager"
+      },
+      "positionName": "IKEA Food Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodTeamLeader"
+      },
+      "positionName": "IKEA Food Team Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessLeader"
+      },
+      "positionName": "IKEA for Business Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessSpecialist"
+      },
+      "positionName": "IKEA for Business Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignCo-worker"
+      },
+      "positionName": "Interior Design Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignManager"
+      },
+      "positionName": "Interior Design Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_KitchenProductionSpecialist"
+      },
+      "positionName": "Kitchen Production Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_LogisticsManager"
+      },
+      "positionName": "Logistics Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_People&CultureGeneralist"
+      },
+      "positionName": "People & Culture Generalist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryCo-Worker"
+      },
+      "positionName": "Product Quality & Recovery Co-Worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryManager"
+      },
+      "positionName": "Product Quality & Recovery Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&SafetySpecialist"
+      },
+      "positionName": "Product Quality & Safety Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductRecoveryOperationsSpecialist"
+      },
+      "positionName": "Product Recovery Operations Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Safety&SecuritySpecialist"
+      },
+      "positionName": "Safety & Security Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportManager"
+      },
+      "positionName": "Sales & Supply Support Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportSpecialist"
+      },
+      "positionName": "Sales & Supply Support Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-worker"
+      },
+      "positionName": "Sales Co-worker"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-workerII"
+      },
+      "positionName": "Sales Co-worker II"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesManager"
+      },
+      "positionName": "Sales Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesTeamLeader"
+      },
+      "positionName": "Sales Team Leader"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementAdministrator"
+      },
+      "positionName": "Unit Facility Management Administrator"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionName": "Unit Facility Management Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionName": "Unit Facility Management Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementProjectManager"
+      },
+      "positionName": "Unit Facility Management Project Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementSpecialist"
+      },
+      "positionName": "Unit Facility Management Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureAdministrator"
+      },
+      "positionName": "Unit People & Culture Administrator"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureManager"
+      },
+      "positionName": "Unit People & Culture Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeoplePlanningSpecialist"
+      },
+      "positionName": "Unit People Planning Specialist"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandisingManager"
+      },
+      "positionName": "Visual Merchandising Manager"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandising/ActivityCo-worker"
+      },
+      "positionName": "Visual Merchandising/Activity Co-worker"
+    }
+  ],
+  "holidayAllowance": {
+    "percentage": 0.08,
+    "paymentDate": "Mei"
+  },
+  "pension": {
+    "pensionFundName": "Stichting IKEA Pensioenfonds (STIP)",
+    "employerContribution": 0.75,
+    "employeeContribution": 0.25,
+    "pensionableSalary": {
+      "maxAnnualAmount": 137800.0,
+      "includes": [
+        "Vakantietoeslag",
+        "13e maand",
+        "Vakantiedagen",
+        "Flexuren"
+      ]
+    },
+    "franchise": 17545.0,
+    "accrualRate": 0.01875,
+    "indexation": "Voorwaardelijk"
+  },
+  "allowance": [
+    {
+      "typeCode": "IrregularHours",
+      "description": "Inconveniënte urentoeslag",
+      "calculationMethod": {
+        "type": "Percentage",
+        "value": {
+          "0-5 uur (ma-vr)": 1.0,
+          "5-7 uur (ma-vr)": 0.5,
+          "21-24 uur (ma-vr)": 0.5,
+          "0-5 uur (za)": 1.0,
+          "5-7 uur (za)": 0.5,
+          "21-24 uur (za)": 1.0,
+          "0-24 uur (zo)": 1.0,
+          "9-19 uur (zo)": 0.5,
+          "0-24 uur (feestdagen)": 1.0
+        }
+      },
+      "conditions": "Werken op inconveniënte uren zoals aangegeven in de tabel."
+    },
+    {
+      "typeCode": "Shift",
+      "description": "Ploegentoeslag",
+      "calculationMethod": {
+        "type": "Percentage",
+        "value": 0.33
+      },
+      "conditions": "Werken in 5-ploegendienst."
+    },
+    {
+      "typeCode": "Overtime",
+      "description": "Overwerktoeslag",
+      "calculationMethod": {
+        "type": "Percentage",
+        "value": 0.25
+      },
+      "conditions": "Werken boven 40 uur per week gemiddeld op jaarbasis."
+    },
+    {
+      "typeCode": "Travel",
+      "description": "Reiskostenvergoeding woon-werkverkeer",
+      "calculationMethod": {
+        "type": "Fixed",
+        "value": 0.23,
+        "maxAmount": 243.0
+      },
+      "conditions": "Reizen met eigen vervoer naar werk."
+    },
+    {
+      "typeCode": "Meal",
+      "description": "Maaltijdverstrekking",
+      "calculationMethod": {
+        "type": "Fixed",
+        "value": 2.75
+      },
+      "conditions": "Werken op koopavonden of feestdagen."
+    },
+    {
+      "typeCode": "Consignation",
+      "description": "Consignatietoeslag",
+      "calculationMethod": {
+        "type": "Fixed",
+        "value": {
+          "Facility Management": 27.61,
+          "IT (ma-za)": 2.17,
+          "IT (zo)": 2.72,
+          "7/23 (ma-za)": 2.17,
+          "7/23 (zo/feestdagen)": 2.72
+        }
+      },
+      "conditions": "Oproepbaar zijn tijdens consignatieperiodes."
+    },
+    {
+      "typeCode": "FunctionRepresentation",
+      "description": "Functiewaarnemingstoeslag",
+      "calculationMethod": {
+        "type": "Difference",
+        "value": "Verschil tussen minimum uurloon eigen functie en minimum uurloon waargenomen functie, max 10% van zone 2 maximum."
+      },
+      "conditions": "Tijdelijke waarneming van een hogere functie voor minimaal 1 maand en maximaal 2 jaar."
+    },
+    {
+      "typeCode": "Holiday",
+      "description": "Vakantietoeslag",
+      "calculationMethod": {
+        "type": "Percentage",
+        "value": 0.08
+      },
+      "conditions": "Opgebouwd over uitbetaalde uren in vakantietoeslagjaar (1 juni - 31 mei)."
+    },
+    {
+      "typeCode": "Jubilee",
+      "description": "Jubileumuitkering",
+      "calculationMethod": {
+        "type": "Fixed",
+        "value": {
+          "10 jaar": 0.25,
+          "20 jaar": 1.0,
+          "30 jaar": 1.5,
+          "40 jaar": 2.0,
+          "50 jaar": 2.0
+        }
+      },
+      "conditions": "Jubileumjaren zoals aangegeven."
+    },
+    {
+      "typeCode": "Marriage",
+      "description": "Uitkering bij huwelijk",
+      "calculationMethod": {
+        "type": "Fixed",
+        "value": 120.0
+      },
+      "conditions": "Bij huwelijk of geregistreerd partnerschap."
+    }
+  ],
+  "leave": {
+    "vacationDays": {
+      "legal": {
+        "percentage": 0.0769,
+        "days": 20
+      },
+      "aboveLegal": {
+        "percentage": 0.0269,
+        "days": 7
+      }
+    },
+    "publicHolidays": [
+      "Nieuwjaarsdag",
+      "Tweede Paasdag",
+      "Koningsdag",
+      "Bevrijdingsdag (1x per 5 jaar)",
+      "Hemelvaartsdag",
+      "Tweede Pinksterdag",
+      "Eerste Kerstdag",
+      "Tweede Kerstdag"
+    ],
+    "specialLeave": {
+      "marriage": 2,
+      "bereavement": {
+        "spouse/partner/child/parent": "Van overlijden tot uitvaartdag + 2 dagen",
+        "grandchild/grandparent/sibling": 2
+      },
+      "moving": 1,
+      "exam": "Benodigde tijd",
+      "medical": "In overleg"
+    },
+    "parentalLeave": {
+      "paid": {
+        "birthLeave": "Volgens Wet Arbeid en Zorg",
+        "adoptionLeave": 6,
+        "partnerLeave": "Volgens Wet Arbeid en Zorg"
+      },
+      "unpaid": {
+        "parentalLeave": "Volgens Wet Arbeid en Zorg"
+      }
+    },
+    "careLeave": {
+      "shortTerm": {
+        "days": 3,
+        "payment": 1.0
+      },
+      "longTerm": {
+        "days": "Volgens Wet Arbeid en Zorg",
+        "payment": 0.7
+      }
+    },
+    "sickLeave": {
+      "waitingDays": 3,
+      "payment": {
+        "firstYear": 1.0,
+        "secondYear": 0.9
+      }
+    },
+    "genderTransitionLeave": {
+      "weeks": 24,
+      "conditions": "Over periode van 10 jaar, met doorbetaling salaris."
+    }
+  }
+}

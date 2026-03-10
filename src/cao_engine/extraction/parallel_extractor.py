@@ -5,7 +5,6 @@ This module provides:
 2. Batch API support - 50% cost reduction for async processing
 """
 
-import asyncio
 import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime

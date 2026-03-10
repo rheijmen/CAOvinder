@@ -4,11 +4,10 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import structlog
-from pydantic import BaseModel
 
 from cao_engine.models.events import CAOEvent, CAOEventType
-from cao_engine.models.momenten import Moment, MomentenSet
-from cao_engine.models.timeline import CAOTimeline, TimelineEntry, TimelineEntryType
+from cao_engine.models.momenten import Moment
+from cao_engine.models.timeline import CAOTimeline
 from cao_engine.notifications.engine import NotificationEngine
 from cao_engine.storage.moment_store import MomentStore
 

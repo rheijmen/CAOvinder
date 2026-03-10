@@ -1,0 +1,221 @@
+{
+  "total_errors": 35,
+  "error_categories": {
+    "additionalProperties": 16,
+    "enum": 1,
+    "type": 4,
+    "required": 14
+  },
+  "sample_errors": [
+    {
+      "message": "Additional properties are not allowed ('_compliance', '_extraction_metadata', 'leaveArrangements' were unexpected)",
+      "path": "",
+      "schema_path": "additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'Achmea' is not one of ['Customer', 'Supplier']",
+      "path": "documentId/schemeAgencyId",
+      "schema_path": "properties/documentId/properties/schemeAgencyId/enum",
+      "validator": "enum"
+    },
+    {
+      "message": "'1.0' is not of type 'object'",
+      "path": "versionId",
+      "schema_path": "properties/versionId/type",
+      "validator": "type"
+    },
+    {
+      "message": "Additional properties are not allowed ('description' was unexpected)",
+      "path": "baseDefinition/0",
+      "schema_path": "properties/baseDefinition/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "Additional properties are not allowed ('description' was unexpected)",
+      "path": "baseDefinition/1",
+      "schema_path": "properties/baseDefinition/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "Additional properties are not allowed ('allowances' was unexpected)",
+      "path": "remuneration/0",
+      "schema_path": "properties/remuneration/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'amount' is a required property",
+      "path": "remuneration/0/workDuration",
+      "schema_path": "properties/remuneration/items/properties/workDuration/required",
+      "validator": "required"
+    },
+    {
+      "message": "'interval' is a required property",
+      "path": "remuneration/0/workDuration",
+      "schema_path": "properties/remuneration/items/properties/workDuration/required",
+      "validator": "required"
+    },
+    {
+      "message": "'valuePerWeek' is a required property",
+      "path": "remuneration/0/workDuration",
+      "schema_path": "properties/remuneration/items/properties/workDuration/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('unitCode', 'value' were unexpected)",
+      "path": "remuneration/0/workDuration",
+      "schema_path": "properties/remuneration/items/properties/workDuration/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'Month' is not of type 'object'",
+      "path": "remuneration/0/interval",
+      "schema_path": "properties/remuneration/items/properties/interval/type",
+      "validator": "type"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/0",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/0",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/1",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/1",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/2",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/2",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/3",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/3",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/4",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/4",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/5",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/5",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/6",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/6",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/7",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/7",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/8",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/8",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/9",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/9",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "'currency' is a required property",
+      "path": "remuneration/0/salaryScale/10",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/required",
+      "validator": "required"
+    },
+    {
+      "message": "Additional properties are not allowed ('steps', 'youthScales' were unexpected)",
+      "path": "remuneration/0/salaryScale/10",
+      "schema_path": "properties/remuneration/items/properties/salaryScale/items/additionalProperties",
+      "validator": "additionalProperties"
+    },
+    {
+      "message": "{'percentage': 8, 'description': 'Vakantietoeslag over het jaarsalaris'} is not of type 'array'",
+      "path": "holidayAllowance",
+      "schema_path": "properties/holidayAllowance/type",
+      "validator": "type"
+    },
+    {
+      "message": "{'employerContributionPercentage': 37.4, 'pensionFundName': 'Stichting Pensioenfonds Achmea (SPA)', 'employeeContributionPercentage': 3.25, 'description': 'Pensioenregeling met een CDC-structuur (Collective Defined Contribution)'} is not of type 'array'",
+      "path": "pension",
+      "schema_path": "properties/pension/type",
+      "validator": "type"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "documentId": {
+    "value": "unknown-cao",
+    "schemeAgencyId": "Customer"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-01-01"
+  },
+  "customer": {
+    "name": "Unknown",
+    "legalId": [
+      {
+        "value": "unknown",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "Unknown"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": []
+    }
+  ],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": []
+    }
+  ]
+}

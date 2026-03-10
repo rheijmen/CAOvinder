@@ -29,8 +29,14 @@ class Settings(BaseSettings):
 
     # Extraction settings
     extraction_model: str = "mistral-large-latest"  # Reviewer model
-    gemini_model: str = "gemini-2.5-flash"  # Primary extractor
+    gemini_model: str = "gemini-3-flash-preview"  # Primary extractor (Gemini 3 Flash Preview with thinking mode)
+    gemini_thinking_level: str = "MEDIUM"  # Thinking level: MINIMAL, LOW, MEDIUM, or HIGH
     judge_model: str = "mistral-small-2506"  # Judge model for comparing outputs
+
+    # Batch processing settings
+    use_batch_api: bool = False  # Enable for production (50% cost savings)
+    batch_check_interval: int = 300  # Check batch status every 5 minutes
+    batch_max_wait_hours: int = 48  # Timeout after 48 hours
 
     # Logging
     log_level: str = "INFO"

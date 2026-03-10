@@ -15,6 +15,7 @@ import {
   HelpCircle,
   ChevronDown,
   ChevronRight,
+  Search,
 } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -33,6 +34,13 @@ const navigation: NavItem[] = [
     title: "Dashboard",
     href: "/",
     icon: LayoutDashboard,
+  },
+  {
+    title: "Search CAO",
+    href: "/search",
+    icon: Search,
+    badge: "New",
+    badgeVariant: "default",
   },
   {
     title: "CAO Library",

@@ -15,7 +15,6 @@ from enum import Enum
 from pathlib import Path
 
 from rich.console import Console
-from rich.table import Table
 
 console = Console()
 
@@ -301,7 +300,7 @@ def triage_directory(
                 filename=filename,
                 category=FileCategory.OLDER_VERSION,
                 action=TriageAction.ARCHIVE,
-                reason=f"Oudere versie",
+                reason="Oudere versie",
                 newer_version=older_versions[filename],
             )
         else:

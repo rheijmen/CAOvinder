@@ -1,0 +1,633 @@
+{
+  "documentId": {
+    "value": "CAO-Rabobank-2024-2025",
+    "schemeAgencyId": "Rabobank"
+  },
+  "versionId": {
+    "value": "2024-2025_v1.0"
+  },
+  "issued": "2024-07-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2024-07-01",
+    "validTo": "2025-06-30"
+  },
+  "customer": {
+    "name": "Rabobank U.A. en Obvion N.V.",
+    "legalId": [
+      {
+        "value": "Rabobank U.A.",
+        "schemeAgencyId": "Legal Name"
+      },
+      {
+        "value": "Obvion N.V.",
+        "schemeAgencyId": "Legal Name"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "S.L.G. Decraene"
+        },
+        "roleCode": "Voorzitter Groepsdirectie"
+      },
+      {
+        "name": {
+          "formattedName": "M.R. Hooglander"
+        },
+        "roleCode": "HR Rabobank"
+      }
+    ]
+  },
+  "baseDefinition": [
+    {
+      "baseType": "Pensioengrondslag",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "Persoonlijke toeslag"
+        },
+        {
+          "typeCode": "Ploegentoeslag"
+        }
+      ],
+      "description": "Het jaarsalaris op basis van een voltijdsdienstverband (basisarbeidsduur) inclusief de voor de medewerker van toepassing zijnde persoonlijke toeslag en/of ploegtoeslag; De vakantietoeslag; De uitkering 13e maand. Voor medewerkers in schaal 1 t/m 11 die een arbeidsduur hebben van meer dan 36 uur (basisarbeidsduur) geldt dat de uren boven de 36 uur meegenomen worden voor de vaststelling van de relevante inkomensbestandsdelen. Gemaximeerd op € 137.800 (2024). Franchise: € 17.545 (2024)."
+    },
+    {
+      "baseType": "Grondslag voor loondoorbetaling gedurende ziekte",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "Persoonlijke toeslag"
+        },
+        {
+          "typeCode": "Persoonlijk Budget"
+        },
+        {
+          "typeCode": "Ploegentoeslag"
+        },
+        {
+          "typeCode": "Employee Benefit Budget"
+        }
+      ],
+      "description": "Bruto arbeidsinkomen plus het Employee Benefit Budget. Bruto arbeidsinkomen is het jaarinkomen plus persoonlijke toeslagen, Persoonlijk Budget, en toeslagen voor ploegendiensten."
+    },
+    {
+      "baseType": "Grondslag voor het arbeidsongeschiktheidspensioen (AOP)",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "Persoonlijke toeslag"
+        },
+        {
+          "typeCode": "Persoonlijk Budget"
+        },
+        {
+          "typeCode": "Ploegentoeslag"
+        }
+      ],
+      "description": "Bruto arbeidsinkomen (jaarinkomen plus persoonlijke toeslagen, Persoonlijk Budget, en toeslagen voor ploegendiensten)."
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Rabobank cao 2024-2025",
+      "id": {
+        "value": "Rabobank_CAO_2024-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      },
+      "basedOn": "Eigen cao"
+    },
+    "customLabourAgreement": false
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep 1-11"
+      },
+      "positionTitle": "Functiegroep 1 t/m 11",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Functies ingedeeld volgens de Hay-methode voor functiebeschrijving en -waardering."
+    },
+    {
+      "positionId": {
+        "value": "Senior kader A"
+      },
+      "positionTitle": "Senior kader A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Functies ingedeeld volgens de Hay-methode voor functiebeschrijving en -waardering."
+    },
+    {
+      "positionId": {
+        "value": "Senior kader B"
+      },
+      "positionTitle": "Senior kader B",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Functies ingedeeld volgens de Hay-methode voor functiebeschrijving en -waardering."
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        }
+      },
+      "interval": "Month",
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 1281.27
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 1351.74
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 1351.74
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 1409.19
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 2",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 1490.77
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 1572.76
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 1572.76
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 1639.6
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 3",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 1667.07
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 1758.76
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 1758.76
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 1833.51
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 4",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 1866.33
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 1968.98
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 1968.98
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 2052.66
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 5",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 2222.73
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 2344.98
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 2344.98
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 2444.64
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 6",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 2575.3
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 2716.94
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 2716.94
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 2832.41
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 7",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 3013.45
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 3179.19
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 3179.19
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 3314.31
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 8",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 3518.06
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 3711.55
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 3711.55
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 3869.29
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 9",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 4068.63
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 4292.4
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 4331.42
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 4515.51
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 10",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 4848.64
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 5115.32
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 5161.82
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 5381.2
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Schaal 11",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 5834.4
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 6155.29
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 6211.25
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 6475.23
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Senior kader A",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 7835.09
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 8266.02
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 8491.46
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 8852.35
+            }
+          ],
+          "youthScales": []
+        },
+        {
+          "name": "Senior kader B",
+          "steps": [
+            {
+              "aanvang": "2024-01-01",
+              "eind": "2024-03-31",
+              "amount": 9278.77
+            },
+            {
+              "aanvang": "2024-04-01",
+              "eind": "2024-12-31",
+              "amount": 9789.1
+            },
+            {
+              "aanvang": "2025-01-01",
+              "eind": "2025-03-31",
+              "amount": 10412.04
+            },
+            {
+              "aanvang": "2025-04-01",
+              "eind": "2025-06-30",
+              "amount": 10854.55
+            }
+          ],
+          "youthScales": []
+        }
+      ],
+      "allowances": [
+        {
+          "typeCode": "Overtime",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 25
+          },
+          "conditions": "Medewerkers tot en met functiegroep 8 krijgen voor meerwerk een toeslag van 25% van het uurloon."
+        },
+        {
+          "typeCode": "Shift",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 50
+          },
+          "conditions": "Toeslag voor ploegendienst, variërend van 25% tot 200% afhankelijk van tijdstippen en dagen."
+        },
+        {
+          "typeCode": "Irregular",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 50
+          },
+          "conditions": "Toeslag voor werken buiten de gebruikelijke werktijden."
+        },
+        {
+          "typeCode": "Travel",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": 6.0,
+            "unit": "Euro per maand"
+          },
+          "conditions": "Tegemoetkoming in reiskosten voor woon-werkverkeer, afhankelijk van de afstand."
+        },
+        {
+          "typeCode": "Meal",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": 20.0,
+            "unit": "Euro per maaltijd"
+          },
+          "conditions": "Vergoeding voor maaltijden bij onverwachte verlenging van de werkdag."
+        }
+      ],
+      "holidayAllowance": {
+        "percentage": 0.08,
+        "paymentDate": "Jaarlijks in mei of maandelijks naar keuze"
+      },
+      "leaveArrangements": {
+        "paidLeaveDays": 22.5,
+        "ADVdays": 0,
+        "publicHolidays": 9,
+        "specialLeaveCategories": [
+          {
+            "type": "Zorgverlof",
+            "days": 10,
+            "conditions": "Kortdurend zorgverlof is wettelijk recht op (deels) betaald verlof."
+          },
+          {
+            "type": "Calamiteitenverlof",
+            "days": "Afhankelijk van situatie",
+            "conditions": "Wettelijk recht op verlof om dringend privé-probleem op te lossen."
+          },
+          {
+            "type": "Zwangerschaps- en bevallingsverlof",
+            "days": 112,
+            "conditions": "16 weken verlof met 100% salaris."
+          },
+          {
+            "type": "Geboorteverlof",
+            "days": 6,
+            "conditions": "1 week wettelijk geboorteverlof en 5 weken aanvullend geboorteverlof met 100% salaris."
+          },
+          {
+            "type": "Ouderschapsverlof",
+            "days": 130,
+            "conditions": "26 weken onbetaald verlof tot het kind 12 jaar wordt."
+          },
+          {
+            "type": "Betaald ouderschapsverlof",
+            "days": 45,
+            "conditions": "9 weken betaald ouderschapsverlof in het eerste levensjaar van het kind."
+          },
+          {
+            "type": "Adoptieverlof",
+            "days": 42,
+            "conditions": "6 weken adoptieverlof met 100% salaris."
+          }
+        ]
+      },
+      "pension": {
+        "employerContributionPercentage": 0.215,
+        "pensionFundName": "Rabobank Pensioenfonds",
+        "specialArrangements": "Vlakke premie van 27% van de pensioengrondslag, waarvan 21.5% werkgeversbijdrage en 5.5% werknemersbijdrage (met optie om te verlagen naar 3.5%)."
+      }
+    }
+  ],
+  "extraction_metadata": {
+    "extractor": "gemini-reviewer",
+    "model": "gemini-2.5-pro",
+    "cao_name": "Rabobank",
+    "extracted_at": "2024-07-05T12:00:00Z",
+    "input_chars": 283439,
+    "elapsed_seconds": 300.0
+  },
+  "_extraction_metadata": {
+    "extractor": "mistral-reviewer",
+    "model": "mistral-large-latest",
+    "cao_name": "Rabobank",
+    "extracted_at": "2026-03-05T09:34:30.476903",
+    "input_chars": 283439,
+    "truncated": false,
+    "elapsed_seconds": 143.608861,
+    "reviewed_gemini_version": "2026-03-05T09:32:06.588670"
+  },
+  "_compliance": {
+    "status": "compliant",
+    "coverage": 53.333333333333336,
+    "validated_at": "2026-03-05T09:34:30.476908",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [],
+    "improvement_over_gemini": {
+      "coverage_delta": 46.66666666666667,
+      "errors_delta": -3
+    }
+  }
+}

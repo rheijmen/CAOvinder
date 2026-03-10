@@ -2,10 +2,9 @@
 
 import re
 from decimal import Decimal, InvalidOperation
-from typing import Any
+from typing import Annotated, Any
 
 from pydantic import BaseModel, BeforeValidator, Field
-from typing_extensions import Annotated
 
 
 def _parse_flexible_decimal(v: Any) -> Decimal | None:

@@ -9,7 +9,6 @@ Strategy:
 6. Return merged result with confidence metadata
 """
 
-import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Any
@@ -158,8 +157,8 @@ class DualLLMSETUExtractor:
     """Runs Mistral + Gemini in parallel, then merges with second opinion."""
 
     def __init__(self, mistral_api_key: str, gemini_api_key: str):
-        from .setu_extractor import MistralSETUExtractor
         from .gemini_setu_extractor import GeminiSETUExtractor
+        from .setu_extractor import MistralSETUExtractor
 
         self.mistral = MistralSETUExtractor(mistral_api_key)
         self.gemini = GeminiSETUExtractor(gemini_api_key)

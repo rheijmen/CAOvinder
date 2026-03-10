@@ -11,14 +11,14 @@ import json
 import re
 import time
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from dataclasses import dataclass
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
 import httpx
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
+from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn
 
 BASE_URL = "https://www.fnv.nl"
 SITEMAP_URL = f"{BASE_URL}/sitemaps/cao-sector.xml"
@@ -90,14 +90,14 @@ class Manifest:
             "filename": filename,
             "size_kb": size_kb,
             "sector": sector,
-            "downloaded_at": datetime.now(timezone.utc).isoformat(),
+            "downloaded_at": datetime.now(UTC).isoformat(),
         }
 
     def pdf_count(self) -> int:
         return len(self.data.get("pdfs", {}))
 
     def save(self) -> None:
-        self.data["last_scan"] = datetime.now(timezone.utc).isoformat()
+        self.data["last_scan"] = datetime.now(UTC).isoformat()
         self.path.write_text(
             json.dumps(self.data, indent=2, ensure_ascii=False), encoding="utf-8"
         )

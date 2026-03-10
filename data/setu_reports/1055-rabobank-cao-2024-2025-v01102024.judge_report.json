@@ -1,0 +1,80 @@
+{
+  "total_fields_compared": 127,
+  "agreements": 119,
+  "gemini_preferred": 0,
+  "mistral_preferred": 8,
+  "merged": 0,
+  "decisions": [
+    {
+      "field": "documentId.value",
+      "gemini_value": "Rabobank_CAO_2024-2025",
+      "mistral_value": "CAO-Rabobank-2024-2025",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Mistral's format follows standard CAO ID conventions (CAO-[company]-YYYY-YYYY) which is more consistent with SETU v2.0 specifications."
+    },
+    {
+      "field": "remuneration[0].salaryScale[0].name",
+      "gemini_value": "Schaal 1",
+      "mistral_value": "Schaal 1",
+      "decision": "mistral",
+      "confidence": 0.95,
+      "reasoning": "Mistral provided complete salary scale data including all steps and amounts, while Gemini's output was truncated."
+    },
+    {
+      "field": "remuneration[0].allowances[0].conditions",
+      "gemini_value": "Missing (truncated)",
+      "mistral_value": "Medewerkers tot en met functiegroep 8 krijgen voor meerwerk een toeslag van 25% van het uurloon.",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Gemini's output was truncated and didn't include allowance conditions. Mistral provided complete information."
+    },
+    {
+      "field": "remuneration[0].leaveArrangements.specialLeaveCategories",
+      "gemini_value": "Missing (truncated)",
+      "mistral_value": "Complete list of special leave categories with days and conditions",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Gemini's output was truncated and didn't include leave arrangements. Mistral provided complete information."
+    },
+    {
+      "field": "remuneration[0].pension",
+      "gemini_value": "Missing (truncated)",
+      "mistral_value": "Complete pension information",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Gemini's output was truncated and didn't include pension information. Mistral provided complete information."
+    },
+    {
+      "field": "remuneration[0].holidayAllowance",
+      "gemini_value": "Missing (truncated)",
+      "mistral_value": "Complete holiday allowance information",
+      "decision": "mistral",
+      "confidence": 1.0,
+      "reasoning": "Gemini's output was truncated and didn't include holiday allowance. Mistral provided complete information."
+    },
+    {
+      "field": "remuneration[0].workDuration",
+      "gemini_value": "36 hours/week",
+      "mistral_value": "36 hours/week",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Both models agreed, but Mistral's output was complete and compliant."
+    },
+    {
+      "field": "remuneration[0].interval",
+      "gemini_value": "Month",
+      "mistral_value": "Month",
+      "decision": "mistral",
+      "confidence": 0.9,
+      "reasoning": "Both models agreed, but Mistral's output was complete and compliant."
+    }
+  ],
+  "metadata": {
+    "model": "mistral-small-2506",
+    "elapsed_seconds": 30.347379,
+    "final_compliance": "compliant",
+    "final_coverage": 53.333333333333336,
+    "judged_at": "2026-03-05T09:35:00.890397"
+  }
+}

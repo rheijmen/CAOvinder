@@ -1,0 +1,308 @@
+{
+  "documentId": {
+    "value": "CAO-Achmea-2023-2025",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "issued": "2023-12-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-12-01",
+    "validTo": "2025-08-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "30258440",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "name": "Achmea Interne Diensten N.V.",
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "J.J. Blok"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "Achmea Interne Diensten"
+      },
+      {
+        "name": {
+          "formattedName": "J. van den Brink"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "FNV"
+      },
+      {
+        "name": {
+          "formattedName": "D.P Wiersinga"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "CNV"
+      },
+      {
+        "name": {
+          "formattedName": "P. Fortuin"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "H. Brinkers"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "R. Castelein"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      }
+    ]
+  },
+  "baseDefinition": [
+    {
+      "baseType": "Maandsalaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": []
+    },
+    {
+      "baseType": "Pensioengevend salaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "VariabelSalaris"
+        },
+        {
+          "typeCode": "Overwerktoeslag"
+        },
+        {
+          "typeCode": "Inconveniententoeslag"
+        },
+        {
+          "typeCode": "StandByVergoeding"
+        },
+        {
+          "typeCode": "Ploegendienstvergoeding"
+        }
+      ]
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Achmea CAO",
+      "id": {
+        "value": "2023-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      },
+      "basedOn": "CollectiveLabourAgreement"
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep B"
+      },
+      "positionTitle": "Functiegroep B",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep C"
+      },
+      "positionTitle": "Functiegroep C",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep D"
+      },
+      "positionTitle": "Functiegroep D",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep E"
+      },
+      "positionTitle": "Functiegroep E",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep F"
+      },
+      "positionTitle": "Functiegroep F",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep G"
+      },
+      "positionTitle": "Functiegroep G",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep H"
+      },
+      "positionTitle": "Functiegroep H",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep I"
+      },
+      "positionTitle": "Functiegroep I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep J"
+      },
+      "positionTitle": "Functiegroep J",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep K"
+      },
+      "positionTitle": "Functiegroep K",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal A",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal B",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal C",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal D",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal E",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal F",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal G",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal H",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal I",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal J",
+          "currency": "EUR"
+        },
+        {
+          "name": "Schaal K",
+          "currency": "EUR"
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "percentage": 8,
+      "description": "Vakantietoeslag over het jaarsalaris"
+    }
+  ],
+  "pension": [
+    {
+      "employerContributionPercentage": 37.4,
+      "pensionFundName": "Stichting Pensioenfonds Achmea (SPA)",
+      "employeeContributionPercentage": 3.25,
+      "description": "Pensioenregeling met een CDC-structuur (Collective Defined Contribution)"
+    }
+  ]
+}

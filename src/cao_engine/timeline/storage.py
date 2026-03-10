@@ -74,7 +74,7 @@ class TimelineStorage:
             return None
 
         try:
-            with open(json_path, "r", encoding="utf-8") as f:
+            with open(json_path, encoding="utf-8") as f:
                 data = json.load(f)
 
             # Reconstruct the timeline

@@ -1,0 +1,146 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    SETU v2.0 BATCH VALIDATION REPORT                         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📊 EXECUTIVE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Files Validated:    4
+✅ Valid Files:           2 (50.0%)
+❌ Invalid Files:         2 (50.0%)
+📋 Total Errors:          188
+
+
+📁 FILE-BY-FILE BREAKDOWN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+File: 1049-ikea-FINAL-VALID.setu.json
+Status: ✅ VALID
+
+--------------------------------------------------------------------------------
+
+File: 1004-achmea-FINAL-VALID-v2.setu.json
+Status: ✅ VALID
+
+--------------------------------------------------------------------------------
+
+File: 315-metalektro-cao-01-06-2024-tm-31-12-2025-v11122024.gemini-VALID.setu.json
+Status: ❌ 84 ERRORS
+Error Breakdown:
+  • Additional Properties:  35
+  • Missing Required:       46
+  • Type Errors:            0
+  • Enum Violations:        2
+  • Format Violations:      0
+  • Other Errors:           1
+
+--------------------------------------------------------------------------------
+
+File: 1055-rabobank-cao-2024-2025-v01102024.gemini-VALID.setu.json
+Status: ❌ 104 ERRORS
+Error Breakdown:
+  • Additional Properties:  16
+  • Missing Required:       2
+  • Type Errors:            38
+  • Enum Violations:        47
+  • Format Violations:      0
+  • Other Errors:           1
+
+--------------------------------------------------------------------------------
+
+
+🔍 ERROR PATTERN ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  ADDITIONAL PROPERTIES (51 instances)
+   Most common additional properties:
+   • /remuneration/2/generalSalaryIncrease/0/amount: 2x
+   • /holidayAllowance/0: 2x
+   • /sickPay/0: 2x
+   • /leave/0/specialLeave/6: 2x
+   • /pension/0: 2x
+   • /supplementaryArrangement/0: 2x
+   • /labourAgreements: 1x
+   • /labourAgreements/collectiveLabourAgreement/id: 1x
+   • /remuneration/0/generalSalaryIncrease/0/amount: 1x
+   • /remuneration/1/generalSalaryIncrease/0/amount: 1x
+
+❌ MISSING REQUIRED FIELDS (48 instances)
+   Most common missing fields:
+   • baseAmount at /leave/0/paidLeave/0/amount: 1x
+   • baseAmount at /leave/0/paidLeave/1/amount: 1x
+   • baseAmount at /leave/0/paidLeave/2/amount: 1x
+   • baseAmount at /leave/0/paidLeave/3/amount: 1x
+   • baseAmount at /leave/0/paidLeave/4/amount: 1x
+   • baseAmount at /leave/0/paidLeave/5/amount: 1x
+   • baseAmount at /leave/0/paidLeave/6/amount: 1x
+   • baseAmount at /leave/0/paidLeave/7/amount: 1x
+   • baseAmount at /leave/0/paidLeave/8/amount: 1x
+   • baseAmount at /leave/0/adv/0/amount: 1x
+
+🔢 TYPE ERRORS (38 instances)
+   Most common type mismatches:
+   • /allowance/7/period/0/weekday/0: 1x
+   • /allowance/7/period/0/weekday/1: 1x
+   • /allowance/7/period/0/weekday/2: 1x
+   • /allowance/7/period/0/weekday/3: 1x
+   • /allowance/7/period/0/weekday/4: 1x
+   • /allowance/7/period/1/weekday/0: 1x
+   • /allowance/7/period/1/weekday/1: 1x
+   • /allowance/7/period/1/weekday/2: 1x
+   • /allowance/7/period/1/weekday/3: 1x
+   • /allowance/7/period/1/weekday/4: 1x
+
+📝 ENUM VIOLATIONS (49 instances)
+   Invalid enum values:
+   • /supplementaryArrangement/0/typeCode: {'Generatiepact', 'HorizontalMobilityAllowance'}
+   • /otherArrangement/1/line/0/amount/unitCode: {'HalfDay'}
+   • /allowance/7/period/0/weekday/0: {"{'value': 'Monday'}"}
+   • /allowance/7/period/0/weekday/1: {"{'value': 'Tuesday'}"}
+   • /allowance/7/period/0/weekday/2: {"{'value': 'Wednesday'}"}
+   • /allowance/7/period/0/weekday/3: {"{'value': 'Thursday'}"}
+   • /allowance/7/period/0/weekday/4: {"{'value': 'Friday'}"}
+   • /allowance/7/period/1/weekday/0: {"{'value': 'Monday'}"}
+   • /allowance/7/period/1/weekday/1: {"{'value': 'Tuesday'}"}
+   • /allowance/7/period/1/weekday/2: {"{'value': 'Wednesday'}"}
+
+
+💡 RECOMMENDATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ADD MISSING baseAmount FIELDS (46 instances)
+   Problem: AmountType requires baseAmount field but it's missing
+   Solution: Add baseAmount structure to all leave/allowance amounts:
+   ```python
+   amount['baseAmount'] = {'unitCode': 'FullTimeEquivalent'}
+   ```
+
+2. FIX WEEKDAY FORMAT (37 instances)
+   Problem: Weekday values are numbers, should be day name strings
+   Solution: Convert numbers to day names:
+   ```python
+   weekday_map = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 
+                  4: 'Thursday', 5: 'Friday', 6: 'Saturday', 7: 'Sunday'}
+   ```
+
+3. REMOVE EXTRA FIELDS FROM baseDefinition (3 instances)
+   Problem: baseDefinition only allows 5 specific fields
+   Solution: Remove 'description', 'allowances', and other extra fields
+   Allowed: baseType, remunerationIndicator, holidayAllowanceIndicator,
+            paidLeaveDayIndicator, allAllowancesIndicator
+
+4. FIX ENUM VIOLATIONS (49 instances)
+   Problem: Invalid enum values
+   Common issues:
+   • /supplementaryArrangement/0/typeCode: 'Generatiepact' is invalid
+   • /otherArrangement/1/line/0/amount/unitCode: 'HalfDay' is invalid
+   • /allowance/7/period/0/weekday/0: '{'value': 'Monday'}' is invalid
+   • /allowance/7/period/0/weekday/1: '{'value': 'Tuesday'}' is invalid
+   • /allowance/7/period/0/weekday/2: '{'value': 'Wednesday'}' is invalid
+   Solution: Replace with valid enum values from schema
+
+
+════════════════════════════════════════════════════════════════════════════════
+END OF REPORT
+════════════════════════════════════════════════════════════════════════════════

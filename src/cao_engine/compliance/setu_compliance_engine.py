@@ -15,12 +15,11 @@ Key Principles:
 import hashlib
 import json
 from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
-import yaml
-import requests
-from pydantic import BaseModel, Field
 from enum import Enum
+from pathlib import Path
+
+import yaml
+from pydantic import BaseModel
 
 
 class SETUVersion(BaseModel):
@@ -28,9 +27,9 @@ class SETUVersion(BaseModel):
     version: str  # e.g., "2.0.0-draft.3"
     release_date: datetime
     schema_hash: str  # SHA256 of the schema for change detection
-    breaking_changes: List[str] = []
-    new_fields: List[str] = []
-    deprecated_fields: List[str] = []
+    breaking_changes: list[str] = []
+    new_fields: list[str] = []
+    deprecated_fields: list[str] = []
     source_url: str
 
 
@@ -67,32 +66,32 @@ class SETUComplianceEngine:
         self.version_history_file = self.compliance_dir / "setu_version_history.json"
         self.version_history = self._load_version_history()
 
-    def _load_current_schema(self) -> Dict:
+    def _load_current_schema(self) -> dict:
         """Load the current SETU OpenAPI schema."""
         schema_file = self.schema_dir / "setu_v2_openapi.yaml"
-        with open(schema_file, 'r') as f:
+        with open(schema_file) as f:
             return yaml.safe_load(f)
 
     def _extract_version(self) -> str:
         """Extract version from OpenAPI schema."""
         return self.current_schema.get('info', {}).get('version', 'unknown')
 
-    def _calculate_schema_hash(self, schema: Dict) -> str:
+    def _calculate_schema_hash(self, schema: dict) -> str:
         """Calculate SHA256 hash of schema for change detection."""
         # Focus on the InquiryPayEquity schema structure
         inquiry_schema = schema['components']['schemas']['InquiryPayEquity']
         schema_json = json.dumps(inquiry_schema, sort_keys=True)
         return hashlib.sha256(schema_json.encode()).hexdigest()
 
-    def _load_version_history(self) -> List[SETUVersion]:
+    def _load_version_history(self) -> list[SETUVersion]:
         """Load version history from disk."""
         if self.version_history_file.exists():
-            with open(self.version_history_file, 'r') as f:
+            with open(self.version_history_file) as f:
                 data = json.load(f)
                 return [SETUVersion(**v) for v in data]
         return []
 
-    def check_for_updates(self) -> Optional[SETUVersion]:
+    def check_for_updates(self) -> SETUVersion | None:
         """
         Check if SETU specification has been updated.
         In production, this would check the official SETU API.
@@ -123,7 +122,7 @@ class SETUComplianceEngine:
 
         return new_version
 
-    def _detect_breaking_changes(self) -> List[str]:
+    def _detect_breaking_changes(self) -> list[str]:
         """Detect breaking changes in schema."""
         changes = []
 
@@ -134,12 +133,12 @@ class SETUComplianceEngine:
         # For now, return empty list
         return changes
 
-    def _detect_new_fields(self) -> List[str]:
+    def _detect_new_fields(self) -> list[str]:
         """Detect new fields in schema."""
         # Would compare with previous version
         return []
 
-    def _detect_deprecated_fields(self) -> List[str]:
+    def _detect_deprecated_fields(self) -> list[str]:
         """Detect deprecated fields in schema."""
         # Would compare with previous version
         return []
@@ -161,29 +160,93 @@ CRITICAL REQUIREMENTS - These fields are MANDATORY:
 
 EXTRACTION RULES:
 
-1. DOCUMENT IDENTIFICATION
-   - documentId: Must be unique, use format "CAO-[number]-[year]"
-   - versionId: Use CAO version if specified, otherwise "1.0"
-   - issued: Current datetime in ISO 8601 format
+1. DOCUMENT IDENTIFICATION (STRICT SCHEMA!)
+   documentId must be an OBJECT:
+   {{
+     "value": "CAO-2024-001",
+     "schemeAgencyId": "Customer"
+   }}
+
+   CRITICAL: schemeAgencyId MUST be exactly "Customer" or "Supplier" (validated by official SETU validator)
+
+   versionId must be an OBJECT:
+   {{
+     "value": "1.0"
+   }}
 
 2. EFFECTIVE PERIOD (REQUIRED)
-   - validFrom: Start date of CAO validity (format: YYYY-MM-DD)
-   - validTo: End date of CAO validity (format: YYYY-MM-DD)
+   effectivePeriod:
+   {{
+     "validFrom": "2024-01-01",
+     "validTo": "2025-12-31"
+   }}
 
-3. CUSTOMER (REQUIRED)
-   - name: Exact name of the employer/sector
-   - legalId: KvK number if available
-   - personContacts: At least one authorized contact person
+3. CUSTOMER (REQUIRED - STRICT SCHEMA!)
+   customer:
+   {{
+     "name": "Company Name B.V.",
+     "legalId": [
+       {{
+         "value": "KvK 12345678",
+         "schemeAgencyId": "KvK"
+       }}
+     ],
 
-4. REMUNERATION (REQUIRED) - MOST CRITICAL SECTION
-   Must extract ALL of:
-   - origin.type: "CollectiveLabourAgreement" or "CustomLabourAgreement"
-   - workDuration: Standard work hours (e.g., 40 hours/week)
-   - interval: Payment period (Week/Month/Year)
-   - salaryScale: ALL salary scales with:
-     * name: Scale identifier (e.g., "Schaal II", "FWG-10")
-     * steps: ALL salary steps with amounts
-     * youthScales: If present, ages 16-20 with percentages
+   CRITICAL: legalId.schemeAgencyId MUST be exactly "KvK", "OIN", or "RSIN" (validated by official SETU validator)
+
+     "personContacts": [
+       {{
+         "name": {{
+           "formattedName": "J. Smith"
+         }},
+         "roleCode": "HR Director"
+       }}
+     ]
+
+   CRITICAL: Use "roleCode" not "role" in personContacts
+   }}
+
+4. REMUNERATION (REQUIRED - MOST CRITICAL!)
+   remuneration: [
+     {{
+       "origin": {{
+         "type": "CollectiveLabourAgreement"
+       }},
+       "workDuration": {{
+         "amount": {{
+           "value": 38,
+           "unitCode": "Hour"
+         }},
+         "interval": {{
+           "value": 1,
+           "unitCode": "Week"
+         }},
+         "valuePerWeek": 38
+       }},
+       "interval": {{
+         "value": 1,
+         "unitCode": "Month"
+       }},
+       "salaryScale": [
+         {{
+           "name": "Scale A",
+           "minValue": 2500.00,
+           "maxValue": 3500.00,
+           "currency": "EUR",
+           "salaryStep": [
+             {{
+               "name": "0",
+               "value": 2500.00
+             }},
+             {{
+               "name": "1",
+               "value": 2750.00
+             }}
+           ]
+         }}
+       ]
+     }}
+   ]
 
 5. ALLOWANCES (Extract ALL found):
    - Type codes: Overtime, Shift, Irregular, Travel, Meal, etc.
@@ -219,7 +282,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
 """
         return prompt
 
-    def validate_extraction(self, extraction: Dict) -> Tuple[ComplianceStatus, Dict]:
+    def validate_extraction(self, extraction: dict) -> tuple[ComplianceStatus, dict]:
         """
         Validate extraction against SETU schema and return compliance status.
         This is the GOLD STANDARD validation.
@@ -260,7 +323,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
 
         return report["status"], report
 
-    def _validate_remuneration(self, extraction: Dict) -> bool:
+    def _validate_remuneration(self, extraction: dict) -> bool:
         """Validate remuneration section has complete salary data."""
         if 'remuneration' not in extraction:
             return False
@@ -278,7 +341,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
 
         return True
 
-    def _calculate_coverage(self, extraction: Dict) -> float:
+    def _calculate_coverage(self, extraction: dict) -> float:
         """Calculate percentage of schema fields populated."""
         # Simplified coverage calculation
         total_fields = 15  # Key SETU fields
@@ -297,7 +360,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
         Update to new SETU schema version with migration support.
         """
         # Load new schema
-        with open(new_schema_path, 'r') as f:
+        with open(new_schema_path) as f:
             new_schema = yaml.safe_load(f)
 
         new_version = new_schema.get('info', {}).get('version', 'unknown')
@@ -352,7 +415,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
                 default=str
             )
 
-    def generate_notification(self, change_type: str, details: Dict) -> Dict:
+    def generate_notification(self, change_type: str, details: dict) -> dict:
         """
         Generate notification for SETU compliance changes.
         Integrates with notification engine.
@@ -377,7 +440,7 @@ Return ONLY valid JSON matching the SETU v2.0 InquiryPayEquity schema.
         }
         return actions.get(change_type, "Review changes")
 
-    def _identify_affected_components(self, change_type: str) -> List[str]:
+    def _identify_affected_components(self, change_type: str) -> list[str]:
         """Identify system components affected by change."""
         return [
             "extraction/gemini_setu_extractor.py",
@@ -426,7 +489,7 @@ if __name__ == "__main__":
             print("Usage: python setu_compliance_engine.py validate <setu.json>")
             sys.exit(1)
 
-        with open(sys.argv[2], 'r') as f:
+        with open(sys.argv[2]) as f:
             data = json.load(f)
 
         status, report = engine.validate_extraction(data)

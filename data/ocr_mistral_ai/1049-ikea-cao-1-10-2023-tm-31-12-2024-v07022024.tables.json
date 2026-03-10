@@ -1,0 +1,308 @@
+[
+  {
+    "page": 8,
+    "table_id": "tbl-0.html",
+    "format": "html",
+    "content": "<table><tr><td>Zone 1<br/>(range 0-10)</td><td>Zone 2<br/>(range 11-70)</td><td>Zone 3<br/>(range 71-100)</td></tr></table>"
+  },
+  {
+    "page": 8,
+    "table_id": "tbl-1.html",
+    "format": "html",
+    "content": "<table><tr><th>Positie in de schaal</th><th>Verhoging bij 'goed'</th><th>Voorbeeld verhogingspercentage bij 'goed' en X = 0.5</th></tr><tr><td>Zone 1</td><td>3.5 maal X</td><td>3.5 maal 0.5 = 1.75%</td></tr><tr><td>Zone 2</td><td>2 maal X</td><td>2 maal 0.5 = 1%</td></tr><tr><td>Zone 3</td><td>1 maal X</td><td>1 maal 0.5 = 0.5%</td></tr></table>"
+  },
+  {
+    "page": 9,
+    "table_id": "tbl-2.html",
+    "format": "html",
+    "content": "<table><tr><th>Medewerker</th><th>Soort flexuren</th><th>Afrekening</th></tr><tr><td>Uurloonparttimer</td><td>Plusuren</td><td>In de maand na de maand waarin je de uren gewerkt hebt.</td></tr><tr><td>Uurloonparttimer</td><td>Minuren</td><td>Komt het door IKEA dat je op jaarbasis minder uren werkt dan je contracturen? IKEA neemt in dat geval de kosten voor haar rekening en betaalt de niet gewerkte contracturen alsnog uit. Eindafrekening in september, uitbetaling in oktober</td></tr></table>"
+  },
+  {
+    "page": 11,
+    "table_id": "tbl-3.html",
+    "format": "html",
+    "content": "<table><tr><th>Salarisschaal IPE-level</th><th>Algemene cao-verhoging per 1 januari 2024</th></tr><tr><td>43</td><td>6.4%</td></tr><tr><td>44</td><td>6.4%</td></tr><tr><td>45</td><td>6.4%</td></tr><tr><td>46</td><td>5.9%</td></tr><tr><td>47</td><td>5.9%</td></tr><tr><td>48</td><td>5.9%</td></tr><tr><td>49</td><td>5.4%</td></tr><tr><td>50</td><td>5.4%</td></tr><tr><td>51</td><td>5.0%</td></tr><tr><td>52</td><td>5.0%</td></tr><tr><td>53</td><td>4.5%</td></tr><tr><td>54</td><td>4.5%</td></tr><tr><td>55</td><td>4.5%</td></tr><tr><td>56</td><td>4.5%</td></tr></table>"
+  },
+  {
+    "page": 11,
+    "table_id": "tbl-4.html",
+    "format": "html",
+    "content": "<table><tr><th>Zones</th><th>Standaard staffel Onderlinge verhouding zones</th><th>Individuele verhoging per Zone X = 0,7 in deze cao</th></tr><tr><td>Zone 1</td><td>3.5 x</td><td>2.45%</td></tr><tr><td>Zone 2</td><td>2 x</td><td>1.40%</td></tr><tr><td>Zone 3</td><td>1 x</td><td>0.7%*</td></tr></table>"
+  },
+  {
+    "page": 14,
+    "table_id": "tbl-5.html",
+    "format": "html",
+    "content": "<table><tr><th>Dienstjaren</th><th>Uitkering</th><th>Verlof</th></tr><tr><td>10 jaar</td><td>25% van het laatst geldende bruto <a>maandsalaris</a></td><td>1 verlofdag</td></tr><tr><td>20 jaar</td><td>100% van het laatst geldende bruto <a>maandsalaris</a></td><td>1 verlofdag</td></tr><tr><td>30 jaar</td><td>150% van het laatst geldende bruto <a>maandsalaris</a></td><td>1 verlofdag</td></tr><tr><td>40 jaar</td><td>200% van het laatst geldende bruto <a>maandsalaris</a></td><td>1 verlofdag</td></tr><tr><td>50 jaar</td><td>200% van het laatst geldende bruto <a>maandsalaris</a></td><td>1 verlofdag</td></tr></table>"
+  },
+  {
+    "page": 15,
+    "table_id": "tbl-6.html",
+    "format": "html",
+    "content": "<table><tr><th>Wie</th><th>Wanneer</th><th>Roostertijden</th></tr><tr><td>Medewerkers Customer Relations (met name receptiemedewerker) en medewerker IKEA FOOD</td><td>Maandag t/m zaterdag</td><td>Tussen 5 en 22 uur</td></tr><tr><td>Medewerkers Customer Relations (met name receptiemedewerker) en medewerker IKEA FOOD</td><td>Zondag</td><td>Tussen 5 en 19 uur</td></tr><tr><td>Medewerkers Goodsflow</td><td>Maandag t/m zondag</td><td>van 5 tot 1.30 uur</td></tr><tr><td>Medewerkers Goodsflow in 5-ploegendienst</td><td>Maandag t/m zondag</td><td>Een 3-4-3 of een 2-2-2 roosterpatroon</td></tr></table>"
+  },
+  {
+    "page": 15,
+    "table_id": "tbl-7.html",
+    "format": "html",
+    "content": "<table><tr><th>Fulltime arbeidsduur</th><th>Schema variant A</th><th>Schema variant B</th></tr><tr><td>36 uur</td><td>1 week van 5 dagen x 8 uur = 40 uur én<br/>1 week van 4 dagen x 8 uur = 32 uur</td><td>Een werkweek van 4 dagen x 9 uur = 36 uur*1*</td></tr><tr><td>38 uur</td><td>3 weken van 5 dagen x 8 uur = 40 uur én<br/>1 week van 4 dagen x 8 uur = 32 uur</td><td>1 week van 5 dagen x 8 uur = 40 uur én<br/>1 week van 4 dagen x 8 uur plus 1 dag van 4 uur = 36 uur</td></tr><tr><td>40 uur</td><td>1 week van 5 dagen x 8 uur = 40 uur</td><td></td></tr></table>"
+  },
+  {
+    "page": 15,
+    "table_id": "tbl-8.html",
+    "format": "html",
+    "content": "<table><tr><th>Parttime arbeidsduur</th><th>Aantal in te roosteren dagen:</th><th>Aantal in te roosteren dagen bij Goodsflow:</th></tr><tr><td>t/m 12 uur</td><td>t/m 3 dagen</td><td>t/m 3 dagen</td></tr><tr><td>13 t/m 17 uur</td><td>t/m 3 dagen</td><td>t/m 4 dagen</td></tr><tr><td>18 t/m 32 uur</td><td>t/m 4 dagen</td><td>t/m 5 dagen</td></tr><tr><td>33 uur of meer</td><td>t/m 5 dagen</td><td>t/m 5 dagen</td></tr></table>"
+  },
+  {
+    "page": 16,
+    "table_id": "tbl-9.html",
+    "format": "html",
+    "content": "<table><tr><th>Soort dienst in de nacht</th><th>Werkschema</th><th>Pauze / hersteltijd</th></tr><tr><td>Structureel werken in de nacht in 5-ploegendienst</td><td>• uur compensatietijd.<br/>• Voorwaarts roterend rooster (dag → avond → nacht), in wisselende diensten<br/>• Roosterpatroon is 3-4-3 of 2-2-2<br/>• Minimaal 2 tot maximaal 4 nachtdiensten achter elkaar.<br/>• Maximaal 14 nachten per 10 weken</td><td>• In ploegendienst na nachtdienst drie roostervrije dagen<br/>• Na reeks van drie nachten, maximaal vier nachten hersteltijd.</td></tr><tr><td>Incidenteel nachtwerk</td><td>• Maximaal 4 opeenvolgende nachtdiensten<br/>• Maximaal 16 nachten per 10 weken</td><td></td></tr></table>"
+  },
+  {
+    "page": 17,
+    "table_id": "tbl-10.html",
+    "format": "html",
+    "content": "<table><tr><th>Contracturen</th><th>Blokdagen per week</th><th>Blokdagdelen per week</th><th>Voorwaarden</th></tr><tr><td>t/m 12 uur per week</td><td>2 vaste vrije (blok)dagen in overleg met je manager</td><td>n.v.t.</td><td>\n• In de periode maandag t/m vrijdag<br/>\n• Een vaste vrije dag valt altijd samen met een eventueel vaste vrij-gestelde koopavond\n</td></tr><tr><td>13 t/m 24 uur</td><td>1 vaste vrije (blok)dag in overleg met je manager</td><td>2 extra vaste vrije (blok)dagdelen</td><td>\n• In de periode maandag t/m vrijdag<br/>\n• Een vaste vrije dag valt altijd samen met een eventueel vaste vrij-gestelde koopavond<br/>\n• De 2 extra blokdagdelen mogen niet op dezelfde dag van de week vallen\n</td></tr><tr><td>meer dan 12 uur per week</td><td>1 vaste vrije (blok)dag in overleg met je manager</td><td>n.v.t.</td><td>\n• In de periode maandag t/m vrijdag<br/>\n• Een vaste vrije dag valt altijd samen met een eventueel vaste vrij-gestelde koopavond\n</td></tr></table>"
+  },
+  {
+    "page": 18,
+    "table_id": "tbl-11.html",
+    "format": "html",
+    "content": "<table><tr><th>Afgesproken arbeidsduur per week</th><th>Maximaal aantal verplichte koopavonden</th></tr><tr><td>32 uur of meer</td><td>8 koopavonden per 4 weken</td></tr><tr><td>13 uur tot en met 31 uur</td><td>6 koopavonden per 4 weken</td></tr><tr><td>12 uur en minder</td><td>geen maximering</td></tr></table>"
+  },
+  {
+    "page": 18,
+    "table_id": "tbl-12.html",
+    "format": "html",
+    "content": "<table><tr><th>Duur van je dienst (werktijd + pauzetijd volgens rooster)</th><th>Pauze (netto tijd)</th></tr><tr><td>Tot en met 3 uur</td><td>Geen pauze</td></tr><tr><td>&gt; 3 uur tot en met 5 uur</td><td>15 minuten</td></tr><tr><td>&gt; 5 uur tot en met 6 uur</td><td>30 minuten</td></tr><tr><td>&gt; 6 uur tot en met 7 uur</td><td>45 minuten</td></tr><tr><td>&gt; 7 uur tot en met 9 uur</td><td>60 minuten</td></tr><tr><td>&gt; 9 uur</td><td>90 minuten, waarvan 30 minuten werktijd</td></tr></table>"
+  },
+  {
+    "page": 19,
+    "table_id": "tbl-13.html",
+    "format": "html",
+    "content": "<table><tr><th>Opbouw vakantieuren</th><th>Percentage per uur</th></tr><tr><td>Wettelijk verlof</td><td>7,69%</td></tr><tr><td>Bovenwettelijk verlof</td><td>2,69%</td></tr><tr><td>Totaal verlof</td><td>10,38%</td></tr></table>"
+  },
+  {
+    "page": 21,
+    "table_id": "tbl-14.html",
+    "format": "html",
+    "content": "<table><tr><th>Gebeurtenis</th><th>Volgens wet</th><th>Aanvullingen</th></tr><tr><td>Zwangerschapsverlof (hoofdstuk 3 WAZO)</td><td><a>Volgens wet.</a></td><td>\n• Het wettelijk zwangerschaps- of bevallingsverlof is betaald verlof.<br/>\n• Aansluitend op het bevallingsverlof mag je tien weken extra onbetaald verlof opnemen. Dit vraag je voorafgaand aan het zwangerschapsverlof aan.<br/>\n• Tijdens het extra verlof kan je -na goedkeuring van de manager en de People &amp; Culture manager- een interne opleiding thuis volgen.\n</td></tr><tr><td>Adoptieverlof en duurzame pleeg-zorg (hoofdstuk 3 WAZO)</td><td>IKEA wijkt positief af van <a>de wet.</a></td><td>\n• IKEA vult het salaris maximaal zes weken aan tot 100% van je <a>contracturen</a>.<br/>\n• Is je partner niet in staat om voor het kind te zorgen bij adoptie? Dan vult IKEA het verlof met 10 extra weken aan.<br/>\n• Je vraagt het verlof minimaal vier weken voor de gewenste ingangsdatum aan bij IKEA. Je geeft hierbij aan hoe je het verlof wilt opnemen.\n</td></tr><tr><td>Geboorteverlof/Aanvullend geboorteverlof (hoofdstuk 4 WAZO)</td><td><a>Volgens wet.</a></td><td>\n• Werk je parttime, dan is het recht op geboorteverlof naar rato van het aantal werkuren per week.<br/>\n• Je kunt aansluitend op het geboorteverlof vakantieuren opnemen.<br/>\n• In geval van aanvullend geboorteverlof ontvang je een betaling van 100% van het SV-dagloon tot maximaal 100% van het SV-maximumdagloon.<br/>\n• Het aanvullend geboorteverlof vraag je in hele weken aan. In overleg met je manager kun je het aanvullend verlof over een langere of kortere periode dan vijf weken spreiden.\n</td></tr></table>"
+  },
+  {
+    "page": 21,
+    "table_id": "tbl-15.html",
+    "format": "html",
+    "content": "<table><tr><th>Gebeurtenis</th><th>Volgens wet</th><th>Aanvullingen</th></tr><tr><td>Ouderschapsverlof (hoofdstuk 6 WAZO)</td><td><a>Volgens wet.</a></td><td>\n• Je blijft pensioen opbouwen tijdens het onbetaald verlof. Zowel het <a>werkgevers</a>- als het medewerkersdeel van de pensioenpremie komen voor rekening van IKEA.<br/>\n• Een eventuele bijdrage van IKEA voor deelname aan de collectieve ziektekostenverzekering, betaalt IKEA ook door tijdens het ouderschapsverlof.\n</td></tr><tr><td>Kortdurend zorgverlof (hoofdstuk 5 WAZO)</td><td>Het verlof duurt - in afwijking van <a>de wet</a> - per twaalf maanden en in één kalenderjaar maximaal driemaal de contractuele <a>arbeidsduur</a> per week. Voor <a>full-timers</a> die vijf dagen per week werken, komt dit neer op maximaal 15 dagen per jaar.</td><td>\n• Hoe je het verlof opneemt, overleg je samen met IKEA.<br/>\n• IKEA betaalt 100% van je <a>contracturen</a> door.<br/>\n• Alleen wanneer je werkt op ORT-tijden, betaalt IKEA de ORT-toeslag.\n</td></tr><tr><td>Langdurend zorgverlof (hoofdstuk 5 WAZO)</td><td><a>Volgens wet.</a></td><td>2. Bij voorkeur neem je het verlof op in deeltijd.</td></tr><tr><td>Calamiteitenverlof (hoofdstuk 4 WAZO)</td><td>In afwijking van <a>de wet</a> maximaal twee dagen per kalenderjaar.</td><td>Als er volgens de criteria van de WAZO meer dan twee dagen per jaar calamiteitenverlof noodzakelijk is, dan is dat onbetaald verlof.</td></tr></table>"
+  },
+  {
+    "page": 22,
+    "table_id": "tbl-16.html",
+    "format": "html",
+    "content": "<table><tr><th>Gebeurtenis</th><th>Duur</th></tr><tr><td>Als je in ondertrouw gaat</td><td>1 dag</td></tr><tr><td>Partnerregistratie of huwelijk</td><td>2 dagen</td></tr><tr><td>Huwelijk/partnerregistratie van je kind, stief- of pleegkind, kleinkind, (schoon)-ouders, broer, zus, zwager of schoonzus</td><td>1 dag</td></tr><tr><td>12½-, 25-, 40-, 50-, 55- en 60- jarig huwelijk/partnerregistratie van jou of van je kinderen, (schoon)ouders, broer, zus, zwager, schoonzus of grootouders</td><td>1 dag</td></tr><tr><td>Jouw verhuizing</td><td>1 dag éénmaal per jaar</td></tr><tr><td>Examen voor een opleiding waarover je vóóraf met IKEA hebt overlegd</td><td>benodigde tijd</td></tr><tr><td>Doktersbezoek of vergelijkbare bezoeken aan tandarts, fysiotherapeut e.d.</td><td>in principe in je eigen tijd</td></tr><tr><td>Medisch onderzoek bij derden. IKEA bedoelt hier niet een keuring voor sportbeoefening of voor een sollicitatie.</td><td>in overleg met de afdeling People &amp; Culture spreek je van tevoren de benodigde tijd af</td></tr><tr><td>Sollicitatiegesprek, als de arbeidsovereenkomst door IKEA is opgezegd</td><td>benodigde tijd, als je de oproep voor de sollicitatie laat zien</td></tr><tr><td>Overlijden van je echtgenoot/echtgenote, partner, kinderen of inwonende ouders.</td><td>vanaf de dag van overlijden tot en met de dag van de uitvaart</td></tr><tr><td>Overlijden van je echtgenoot/echtgenote, partner of kind</td><td>2 x de contractduur per week opnemen, in een periode van zes maanden na het overlijden</td></tr><tr><td>Overlijden van je kleinkinderen, (schoon)ouders, broer, zus, zwager, schoonzus of grootouders</td><td>2 dagen of van het moment van overlijden tot en met de dag van de uitvaart als je aantoonbaar verantwoordelijk bent voor het verzorgen van de uitvaart</td></tr></table>"
+  },
+  {
+    "page": 24,
+    "table_id": "tbl-17.html",
+    "format": "html",
+    "content": "<table><tr><th></th><th>0 - 5 uur</th><th>5 - 7 uur</th><th>7 - 9 uur</th><th>9 - 19 uur</th><th>19 - 21 uur</th><th>21 - 24 uur</th></tr><tr><th>maandag t/m vrijdag</th><td>100%</td><td>50%</td><td>0%</td><td>0%</td><td>0%</td><td>50%</td></tr><tr><th>zaterdag</th><td>100%</td><td>50%</td><td>0%</td><td>0%</td><td>0%</td><td>100%</td></tr><tr><th>zondag</th><td>100%</td><td>100%</td><td>100%</td><td>50%</td><td>100%</td><td>100%</td></tr><tr><th>Feestdagen</th><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr></table>"
+  },
+  {
+    "page": 26,
+    "table_id": "tbl-18.html",
+    "format": "html",
+    "content": "<table><tr><th>Wanneer</th><th>Bedrag per uur</th></tr><tr><td>Maandag t/m zaterdag</td><td>€ 2.17 bruto</td></tr><tr><td>Zondag</td><td>€ 2.72 bruto</td></tr></table>"
+  },
+  {
+    "page": 26,
+    "table_id": "tbl-19.html",
+    "format": "html",
+    "content": "<table><tr><th>Wanneer</th><th>Bedrag per uur</th></tr><tr><td>Maandag t/m zaterdag</td><td>€ 2.17 bruto</td></tr><tr><td>Zon- en feestdagen</td><td>€ 2.72 bruto</td></tr></table>"
+  },
+  {
+    "page": 27,
+    "table_id": "tbl-20.html",
+    "format": "html",
+    "content": "<table><tr><td></td><td>AMS</td><td>DUIVEN</td><td>EIND</td><td>DELFT</td><td>HEEG</td><td>UTR</td><td>GRON</td><td>BAREN</td><td>OOST</td><td>HENG</td><td>BREDA</td><td>HAARLEN</td><td>A'FOORT</td><td>ZWOLLE</td></tr><tr><td>AMS</td><td>100</td><td>99</td><td>99</td><td>99</td><td>114</td><td>29</td><td>64</td><td>171</td><td>99</td><td>48</td><td>87</td><td>101</td><td>64</td><td>2</td></tr><tr><td>DUIVEN</td><td>100</td><td></td><td>99</td><td>120</td><td>110</td><td>69</td><td>175</td><td>122</td><td>115</td><td>58</td><td>120</td><td>122</td><td>60</td><td>78</td></tr><tr><td>EIND</td><td>108</td><td>64</td><td></td><td>124</td><td>16</td><td>80</td><td>247</td><td>106</td><td>47</td><td>156</td><td>62</td><td>130</td><td>107</td><td>150</td></tr><tr><td>DELFT</td><td>64</td><td>120</td><td>124</td><td></td><td>213</td><td>42</td><td>237</td><td>35</td><td>47</td><td>188</td><td>65</td><td>58</td><td>95</td><td>160</td></tr><tr><td>HEER</td><td>201</td><td>171</td><td>99</td><td>213</td><td></td><td>175</td><td>332</td><td>194</td><td>156</td><td>243</td><td>150</td><td>222</td><td>200</td><td>220</td></tr><tr><td>UTR</td><td>35</td><td>69</td><td>67</td><td>62</td><td>132</td><td></td><td>194</td><td>64</td><td>63</td><td>139</td><td>71</td><td>55</td><td>36</td><td>101</td></tr><tr><td>GRON</td><td>175</td><td>170</td><td>247</td><td>237</td><td>332</td><td>112</td><td></td><td>255</td><td>287</td><td>193</td><td>201</td><td>195</td><td>167</td><td>107</td></tr><tr><td>HOY</td><td>12</td><td>65</td><td>106</td><td>27</td><td>108</td><td>101</td><td></td><td>12</td><td>143</td><td>8</td><td>7</td><td>10</td><td>8</td><td>8</td></tr><tr><td>BAREN</td><td>92</td><td>125</td><td>106</td><td>35</td><td>164</td><td>40</td><td>267</td><td></td><td>48</td><td>160</td><td>46</td><td>8</td><td>97</td><td>102</td></tr><tr><td>OOST</td><td>85</td><td>114</td><td>67</td><td>47</td><td>161</td><td>42</td><td>247</td><td>40</td><td></td><td>182</td><td>61</td><td>111</td><td>89</td><td>154</td></tr><tr><td>HENG</td><td>62</td><td>84</td><td>160</td><td>130</td><td>247</td><td>137</td><td>134</td><td>193</td><td>156</td><td></td><td>200</td><td>166</td><td>101</td><td>66</td></tr><tr><td>BREDA</td><td>101</td><td>127</td><td>124</td><td>62</td><td>64</td><td>151</td><td>75</td><td>260</td><td>46</td><td>71</td><td>85</td><td>101</td><td>61</td><td>48</td></tr><tr><td>A'FOORT</td><td>42</td><td>69</td><td>108</td><td>96</td><td>207</td><td>54</td><td>177</td><td>97</td><td>95</td><td>191</td><td>103</td><td>6</td><td></td><td>4</td></tr><tr><td>ZWOLLE</td><td>111</td><td>79</td><td>150</td><td>162</td><td>237</td><td>101</td><td>101</td><td>163</td><td>156</td><td>62</td><td>109</td><td>136</td><td>72</td><td></td></tr></table>"
+  },
+  {
+    "page": 28,
+    "table_id": "tbl-21.html",
+    "format": "html",
+    "content": "<table><tr><td>Binnenlandse reizen</td><td>Dagvergoeding € 24.98 netto per overnachting</td></tr><tr><td>Reizen naar het buitenland</td><td>Dagvergoeding € 59.75 netto per overnachting</td></tr></table>"
+  },
+  {
+    "page": 28,
+    "table_id": "tbl-22.html",
+    "format": "html",
+    "content": "<table><tr><td>Overnachting binnenland</td><td>Overnachtingsvergoeding € 24.98 netto per overnachting</td></tr><tr><td>Overnachting buitenland</td><td>Overnachtingsvergoeding € 30.42 netto per overnachting</td></tr></table>"
+  },
+  {
+    "page": 28,
+    "table_id": "tbl-23.html",
+    "format": "html",
+    "content": "<table><tr><td>Uren</td><td>Dagdeeltarief na overnachting</td></tr><tr><td>Minder dan 5 uur</td><td>0% van de dagvergoeding</td></tr><tr><td>5 tot 10 uur</td><td>50% van de dagvergoeding</td></tr><tr><td>Vanaf 10 uur</td><td>100% van de dagvergoeding</td></tr></table>"
+  },
+  {
+    "page": 29,
+    "table_id": "tbl-24.html",
+    "format": "html",
+    "content": "<table><tr><th>Wie</th><th>Vergoeding</th><th>Privégesprekskosten</th><th>Beëindiging vergoeding</th></tr><tr><td>Je moet van IKEA thuis telefonisch oproepbaar zijn.</td><td>(bruto) Vergoeding van de abonnements-kosten</td><td>De vergoeding van de abonnementskosten vermindert IKEA met een eigen bijdrage voor de privégesprekskosten. De eigen bijdrage is € 17.43 bruto per maand en dit wordt maandelijks in rekening gebracht. Als je aanwijsbaar méér privégesprekskosten hebt, kan IKEA de eigen bijdrage op een hoger bedrag vaststellen.</td><td>Bij afwezigheid door ziekte of verlof van langer dan één maand vervalt de vergoeding per de 1e van de volgende kalendermaand.<br/>Het gaat in dit geval niet om betaald vakantieverlof.</td></tr></table>"
+  },
+  {
+    "page": 29,
+    "table_id": "tbl-25.html",
+    "format": "html",
+    "content": "<table><tr><th>Wie</th><th>Vergoeding</th><th>Privégesprekskosten</th><th>Beëindiging vergoeding</th></tr><tr><td>Als IKEA vindt dat je je functie alleen thuis kunt doen als je veelvuldig thuis zakelijke gesprekken voert (bijvoorbeeld telewerkers).</td><td>(bruto) Vergoeding van de abonnements- en gesprekskosten</td><td>De vergoeding van de abonnements- en gesprekskosten vermindert IKEA met een eigen bijdrage voor de privégesprekskosten. De eigen bijdrage is € 17.43 bruto per maand en dit wordt maandelijks in rekening gebracht.<br/>Als je aanwijsbaar méér privégesprekskosten hebt, kan IKEA de eigen bijdrage op een hoger bedrag vaststellen.</td><td>De vergoeding eindigt met ingang van de eerste dag volgend op de maand waarin je volgens de (Market-) manager en/of People &amp; Culture manager niet meer voldoet aan de voorwaarden.<br/>Bij afwezigheid door ziekte of verlof van langer dan één maand vervalt de vergoeding per de 1e van de volgende kalendermaand.<br/>Het gaat in dit geval niet om betaald vakantieverlof.</td></tr></table>"
+  },
+  {
+    "page": 31,
+    "table_id": "tbl-26.html",
+    "format": "html",
+    "content": "<table><tr><th colspan=\"2\">Pensioenregeling<br/>Geldend vanaf 1 januari 2022</th></tr><tr><td>Middelloonregeling</td><td>Voorwaardelijk geïndexeerd middelloon.</td></tr><tr><td>Standaard pensioendatum (Pensioenrichtleeftijd)</td><td>68 jaar</td></tr><tr><td>Pensioengevend salaris</td><td>De som van de maandsalarissen (of vervangende uitkeringen) in een kalenderjaar vermeerderd met<br/>✓ de uitbetaalde vakantietoeslag<br/>✓ de uitbetaalde dertiende maand<br/>✓ de uitbetaalde vakantiedagen<br/>✓ de uitbetaalde flexuren inclusief flexuren-toeslag.<br/><br/>Tot het vaste maandsalaris behoren niet<br/>✓ gratificatievergoedingen<br/>✓ onkostenvergoedingen<br/>✓ tantièmes en<br/>✓ andere aan het dienstverband verbonden emolumenten.<br/><br/>Het pensioengevend salaris is (op fulltime basis) gemaximeerd op € 128.810.- (niveau 2023) en € 137.800.- (niveau 2024).<br/><br/>Dit bedrag past IKEA jaarlijks aan volgens de wijziging in de fiscale wetgeving.</td></tr><tr><td>Franchise</td><td>Het gedeelte van het loon waarover je geen pensioen opbouwt is € 16.322,00 (niveau 2023) en € 17.545.- (niveau 2024). Dit bedrag past IKEA jaarlijks aan volgens de ontwikkelingen van de Algemene Ouderdomswet.</td></tr><tr><td>Pensioengrondslag</td><td>Pensioengevend salaris minus franchise.</td></tr><tr><td>Beoogde jaarlijkse opbouw ouderdomspensioen</td><td>1.875% van de pensioengrondslag. Dit percentage is door STIP vastgesteld op basis van de tussen cao-partijen afgesproken uitgangspunten:<br/>✓ totale pensioenpremie 30,4% van de som van de pensioengrondslagen<br/>✓ de premiegrondslagen van STIP.</td></tr></table>"
+  },
+  {
+    "page": 31,
+    "table_id": "tbl-27.html",
+    "format": "html",
+    "content": "<table><tr><th colspan=\"2\">Pensioenregeling<br/>Geldend vanaf 1 januari 2022</th></tr><tr><td>Nabestaanden-pensioen</td><td>✓ 70% van het (te bereiken) ouderdomspensioen (gebaseerd op het opbouwpercentage ouderdomspensioen van 1.875%, wat tot 2021 van toepassing was)<br/>✓ Anw-hiaatpensioen, hoogte afhankelijk van het deeltijdpercentage.<br/>✓ het nabestaandenpensioen is vanaf 1 januari 2021 verzekerd op risicobasis; het tot 1 januari 2021 opgebouwde partnerpensioen wijzigt niet. Bij uitdiensttreding of pensionering vervalt het verzekerde partnerpensioen op risicobasis. Het Anw-hiaatpensioen blijft op risicobasis verzekerd. Bij uitdiensttreding vóór de pensioendatum vervalt deze verzekering. Als tot de pensioendatum de premies zijn voldaan, loopt de verzekering na de pensioendatum door. Dit bedrag is € 10.130.- (niveau 2023) en € 10.887.- (niveau 2024).</td></tr><tr><td>Wezenpensioen</td><td>Bij overlijden voor de pensioendatum: 14% van het ouderdomspensioen (gebaseerd op het opbouwpercentage ouderdomspensioen van 1.875%, wat tot 2021 van toepassing was). Het wezenpensioen is vanaf 1 januari 2021 verzekerd op risicobasis; het tot 1 januari 2021 opgebouwde wezenpensioen wijzigt niet. Bij uitdiensttreding of pensionering vervalt het verzekerde pensioen op risicobasis. Het wezenpensioen geldt voor maximaal 5 kinderen.</td></tr><tr><td>Arbeidsongeschiktheids-pensioen</td><td>Bij gehele of gedeeltelijke arbeidsongeschiktheid:<br/>✓ een WIA-excedent pensioen bij volledige arbeidsongeschiktheid is gelijk aan 70% van dat gedeelte van het pensioengevend salaris dat uitgaat boven de SV-loongrens (niveau 2023 € 66.956.- en niveau 2024 € 71.628.-), met een maximum pensioen van € 78.205.- (niveau 2023) en € 83.327.- (niveau 2024).<br/>✓ gehele of gedeeltelijke vrijstelling van premiebetaling</td></tr><tr><td>Indexatie pensioenopbouw</td><td>Voorwaardelijke indexatie voor actieven (tot maximaal het indexcijfer voor cao-lonen) en inactieven (tot maximaal het consumentenprijs-indexcijfer).</td></tr></table>"
+  },
+  {
+    "page": 35,
+    "table_id": "tbl-28.html",
+    "format": "html",
+    "content": "<table><tr><th>% arbeidsongeschikt</th><th>Hoogte aanvullende uitkering</th><th>Duur aanvullende uitkering</th><th>Overige voorwaarden</th></tr><tr><td>Minder dan 35%</td><td>50% van het verschil van het oorspronkelijke maandsalaris en de vastgestelde verdiencapaciteit</td><td>Vaststelling op dezelfde manier als de duur van de loongerelateerde WGA-uitkering op basis van de referte-eis</td><td>• Het nieuwe maandsalaris + de aanvullende uitkering samen mag niet meer zijn dan je oorspronkelijke maandsalaris<br/>• de aanvullende uitkering voor de uurloner berekent IKEA op basis van het uurloon</td></tr><tr><td>35% tot 80%</td><td>50% van het verschil tussen het oorspronkelijke maandsalaris en de resterende verdiencapaciteit, vermeerderd met de loongerelateerde uitkering</td><td>Vaststelling op dezelfde manier als de duur van de loongerelateerde WGA-uitkering op basis van de referte-eis</td><td>• Het nieuwe maandsalaris, de WGA-uitkering + de aanvullende uitkering samen niet meer zijn dan je oorspronkelijke maandsalaris<br/>• de aanvullende uitkering voor de uurloner berekent IKEA op basis van het uurloon</td></tr></table>"
+  },
+  {
+    "page": 38,
+    "table_id": "tbl-29.html",
+    "format": "html",
+    "content": "<table><tr><th>Uit dienst bij IKEA na afloop van de opleiding</th><th>Totaal terug te betalen</th></tr><tr><td>Binnen 6 maanden</td><td>100%</td></tr><tr><td>Binnen 6 tot 12 maanden</td><td>75%</td></tr><tr><td>Binnen 12 tot 18 maanden</td><td>50%</td></tr><tr><td>Binnen 18 tot 24 maanden</td><td>25%</td></tr><tr><td>24 maanden of later</td><td>0%</td></tr></table>"
+  },
+  {
+    "page": 38,
+    "table_id": "tbl-30.html",
+    "format": "html",
+    "content": "<table><tr><th>Reden</th><th>Terugvordering</th></tr><tr><td>Je beëindigt op eigen initiatief de opleiding</td><td>100%</td></tr><tr><td>Je studieresultaten zijn onvoldoende of je zal geen diploma halen</td><td>100%</td></tr><tr><td>Bij beëindiging van de arbeidsovereenkomst op jouw initiatief tijdens de opleiding</td><td>100%</td></tr><tr><td>Bij beëindiging van de arbeidsovereenkomst op jouw initiatief, na het behalen van je diploma en vóór het einde van de termijn zoals hierboven genoemd</td><td>Volgens Tabel terugbetaling opleiding binnen twee jaar</td></tr></table>"
+  },
+  {
+    "page": 42,
+    "table_id": "tbl-31.html",
+    "format": "html",
+    "content": "<table><tr><td rowspan=\"3\">Per 1-1-2024</td><td colspan=\"4\">Zone 1</td><td colspan=\"3\">Zone 2</td><td colspan=\"4\">Zone 3</td></tr><tr><td colspan=\"2\">Minimum</td><td colspan=\"2\">Maximum</td><td>Minimum</td><td colspan=\"2\">Maximum</td><td>Minimum</td><td colspan=\"3\">Maximum</td></tr><tr><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>uurloon</td><td>36 uur</td><td></td></tr><tr><td>IPE-Level</td><td>14.08</td><td>2195.97</td><td>14.31</td><td>2231.65</td><td>14.32</td><td>15.68</td><td>2195.72</td><td>15.69</td><td>16.36</td><td>2235.04</td><td></td></tr><tr><td>43</td><td>14.31</td><td>2232.48</td><td>14.65</td><td>2284.77</td><td>14.66</td><td>16.66</td><td>2284.80</td><td>16.67</td><td>17.66</td><td>2285.21</td><td></td></tr><tr><td>44</td><td>15.13</td><td>2360.29</td><td>15.56</td><td>2426.85</td><td>15.57</td><td>18.12</td><td>2426.21</td><td>18.13</td><td>19.40</td><td>2426.60</td><td></td></tr><tr><td>45</td><td>16.18</td><td>2524.32</td><td>16.69</td><td>2603.95</td><td>16.70</td><td>19.75</td><td>2603.72</td><td>19.76</td><td>21.29</td><td>2603.95</td><td></td></tr><tr><td>46 / 47</td><td>17.43</td><td>2719.26</td><td>18.04</td><td>2814.91</td><td>18.05</td><td>21.72</td><td>2814.81</td><td>21.73</td><td>23.56</td><td>2815.73</td><td></td></tr><tr><td>48</td><td>19.14</td><td>2985.94</td><td>19.92</td><td>3107.94</td><td>19.93</td><td>24.62</td><td>3108.05</td><td>24.63</td><td>26.96</td><td>3108.01</td><td></td></tr><tr><td>49 / 50</td><td>21.28</td><td>3320.23</td><td>22.28</td><td>3476.33</td><td>22.29</td><td>28.29</td><td>3476.33</td><td>28.30</td><td>31.29</td><td>3477.02</td><td></td></tr><tr><td>51</td><td>24.10</td><td>3759.21</td><td>25.28</td><td>3944.90</td><td>25.29</td><td>32.40</td><td>3944.90</td><td>32.41</td><td>35.96</td><td>3945.13</td><td></td></tr><tr><td>52</td><td>26.14</td><td>4077.13</td><td>27.48</td><td>4287.10</td><td>27.49</td><td>35.56</td><td>4288.01</td><td>35.57</td><td>39.60</td><td>4288.22</td><td></td></tr><tr><td>53 / 54</td><td>29.74</td><td>4639.55</td><td>31.27</td><td>4878.54</td><td>31.28</td><td>40.46</td><td>4878.54</td><td>40.47</td><td>45.06</td><td>4878.64</td><td></td></tr></table>"
+  },
+  {
+    "page": 42,
+    "table_id": "tbl-32.html",
+    "format": "html",
+    "content": "<table><tr><td rowspan=\"3\">Per 1-4-2024</td><td colspan=\"4\">Zone 1</td><td colspan=\"3\">Zone 2</td><td colspan=\"4\">Zone 3</td></tr><tr><td colspan=\"2\">Minimum</td><td colspan=\"2\">Maximum</td><td>Minimum</td><td colspan=\"2\">Maximum</td><td>Minimum</td><td colspan=\"3\">Maximum</td></tr><tr><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>uurloon</td><td>36 uur</td><td>uurloon</td><td>uurloon</td><td>36 uur</td><td></td></tr><tr><td>IPE-Level</td><td>14.25</td><td>2222.32</td><td>14.48</td><td>2258.43</td><td>14.49</td><td>15.87</td><td>2158.13</td><td>15.88</td><td>16.36</td><td>2247.24</td><td></td></tr><tr><td>43</td><td>14.48</td><td>2259.27</td><td>14.82</td><td>2312.19</td><td>14.83</td><td>16.86</td><td>2259.20</td><td>16.87</td><td>17.87</td><td>2259.46</td><td></td></tr><tr><td>44</td><td>15.31</td><td>2388.62</td><td>15.74</td><td>2455.97</td><td>15.75</td><td>18.33</td><td>2456.15</td><td>18.34</td><td>19.63</td><td>2456.60</td><td></td></tr><tr><td>45</td><td>16.38</td><td>2554.61</td><td>16.89</td><td>2635.19</td><td>16.90</td><td>19.99</td><td>2636.01</td><td>20.00</td><td>21.54</td><td>2637.55</td><td></td></tr><tr><td>46 / 47</td><td>17.64</td><td>2751.89</td><td>18.26</td><td>2848.69</td><td>18.27</td><td>21.98</td><td>2848.61</td><td>21.99</td><td>23.85</td><td>2849.09</td><td></td></tr><tr><td>48</td><td>19.37</td><td>3021.77</td><td>20.16</td><td>3145.24</td><td>20.17</td><td>24.91</td><td>3146.01</td><td>24.92</td><td>27.28</td><td>3146.44</td><td></td></tr><tr><td>49 / 50</td><td>19.37</td><td>3021.77</td><td>20.16</td><td>3145.24</td><td>20.17</td><td>24.91</td><td>3146.01</td><td>24.92</td><td>27.28</td><td>3146.44</td><td></td></tr><tr><td>51</td><td>21.54</td><td>3360.07</td><td>22.55</td><td>3518.04</td><td>22.56</td><td>28.63</td><td>3518.00</td><td>28.64</td><td>31.67</td><td>3518.11</td><td></td></tr><tr><td>52</td><td>24.39</td><td>3804.32</td><td>25.59</td><td>3991.64</td><td>25.60</td><td>32.79</td><td>3991.65</td><td>32.80</td><td>36.39</td><td>3991.77</td><td></td></tr><tr><td>53 / 54</td><td>26.45</td><td>4126.06</td><td>27.81</td><td>4338.55</td><td>27.82</td><td>35.98</td><td>4338.55</td><td>35.99</td><td>40.07</td><td>4339.00</td><td></td></tr><tr><td>55 / 56</td><td>30.10</td><td>4695.22</td><td>31.65</td><td>4937.08</td><td>31.66</td><td>40.95</td><td>4937.11</td><td>40.96</td><td>45.60</td><td>4938.03</td><td></td></tr></table>"
+  },
+  {
+    "page": 43,
+    "table_id": "tbl-33.html",
+    "format": "html",
+    "content": "<table><tr><th>IPE-Level</th><th>Uurloon</th></tr><tr><td>43</td><td>6.70</td></tr><tr><td>44</td><td>6.88</td></tr><tr><td>45</td><td>7.30</td></tr></table>"
+  },
+  {
+    "page": 43,
+    "table_id": "tbl-34.html",
+    "format": "html",
+    "content": "<table><tr><th>IPE-Level</th><th>Uurloon</th></tr><tr><td>43</td><td>6.78</td></tr><tr><td>44</td><td>6.97</td></tr><tr><td>45</td><td>7.39</td></tr></table>"
+  },
+  {
+    "page": 43,
+    "table_id": "tbl-35.html",
+    "format": "html",
+    "content": "<table><tr><th>Lengte dienstverband</th><th>Salarisschaal participatie-medewerker</th></tr><tr><td>Bij indiensttreding</td><td>100% WML</td></tr><tr><td>Vanaf een jaar dienstverband</td><td>104% WML</td></tr><tr><td>Vanaf twee jaar dienstverband</td><td>108% WML</td></tr><tr><td>Vanaf drie jaar dienstverband</td><td>112% WML</td></tr><tr><td>Vanaf vier jaar dienstverband</td><td>116% WML</td></tr><tr><td>Vanaf vijf jaar dienstverband</td><td>120% WML</td></tr></table>"
+  },
+  {
+    "page": 44,
+    "table_id": "tbl-36.html",
+    "format": "html",
+    "content": "<table><tr><th>Datum in dienst</th><th>Berekening compensatietoeslag</th><th>Referentieperiode</th></tr><tr><td>Vóór 1-2-2022</td><td>het gemiddelde van het totaalbedrag dat je hebt ontvangen aan inconveniënte urentoeslagen over de referentieperiode</td><td>1-2-2022 tot 1-1-2023</td></tr><tr><td>1-2-22 tot 15-12-22</td><td>het gemiddelde van het totaalbedrag dat je hebt ontvangen aan inconveniënte urentoeslagen over de referentieperiode</td><td>1-2-2022 tot 1-1-2023</td></tr><tr><td>15-12-2022 tot 14-2-2023</td><td>het gemiddelde van het totaalbedrag dat je hebt ontvangen aan inconveniënte urentoeslagen over de referentieperiode</td><td>1-1-2023 tot 1-3-2023</td></tr></table>"
+  },
+  {
+    "page": 45,
+    "table_id": "tbl-37.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-RCMP</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Apprentice</td><td>Various</td><td>0</td></tr><tr><td>B2B Generalist</td><td>Remote Sales</td><td>45</td></tr><tr><td>B2B Specialist</td><td>Remote Sales / Remote Resolutions</td><td>46</td></tr><tr><td>Business Analyst</td><td>Bus. Navigation</td><td>48</td></tr><tr><td>Business Navigation &amp; Operations Manager</td><td>Management Team</td><td>53</td></tr><tr><td>Communication &amp; Information Specialist</td><td>Experience design</td><td>50</td></tr><tr><td>Country Remote CMP Manager</td><td>Management Team</td><td>57</td></tr><tr><td>Experience Design Manager</td><td>Management Team</td><td>55</td></tr><tr><td>Experience Design Specialist</td><td>Experience design</td><td>49</td></tr><tr><td>Experience Design Team Leader</td><td>Experience design</td><td>49</td></tr><tr><td>Experience Quality Specialist</td><td>Experience design</td><td>48</td></tr><tr><td>Interior Design Specialist</td><td>Remote Sales</td><td>46</td></tr><tr><td>Interior Designer</td><td>Remote Sales</td><td>45</td></tr><tr><td>Intraday Specialist</td><td>Staff Planning</td><td>46</td></tr><tr><td>IKEA Business Key Account Manager</td><td>Remote Sales</td><td>52</td></tr><tr><td>Knowledge Specialist</td><td>Experience design</td><td>48</td></tr><tr><td>People &amp; Culture Generalist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>Planning, Scheduling &amp; Intraday Manager</td><td>Management Team</td><td>53</td></tr><tr><td>Remote Analytics Specialist</td><td>Experience design</td><td>48</td></tr><tr><td>Remote Area Manager</td><td>Remote Resolutions / Remote Sales</td><td>52</td></tr><tr><td>Remote Resolutions Manager</td><td>Management Team</td><td>55</td></tr><tr><td>Remote Sales Manager</td><td>Management Team</td><td>55</td></tr><tr><td>Remote Team Leader</td><td>Remote Resolutions / Remote Sales</td><td>49</td></tr><tr><td>Resolutions Generalist</td><td>Remote Resolutions</td><td>44</td></tr><tr><td>Resolutions Specialist</td><td>Remote Resolutions</td><td>45</td></tr><tr><td>Safety &amp; Security Specialist</td><td>Bus. Navigation</td><td>48</td></tr><tr><td>Sales Generalist</td><td>Remote Sales</td><td>44</td></tr></table>"
+  },
+  {
+    "page": 46,
+    "table_id": "tbl-38.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-RCMP</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Sales Specialist</td><td>Remote Sales</td><td>45</td></tr><tr><td>Scheduling &amp; Intraday Team Leader</td><td>Staff Planning</td><td>49</td></tr><tr><td>Scheduling Specialist</td><td>Staff planning</td><td>46</td></tr><tr><td>Senior Resolutions Generalist</td><td>Remote Resolutions</td><td>45</td></tr><tr><td>Senior Resolutions Specialist</td><td>Remote Resolutions</td><td>46</td></tr><tr><td>Senior Sales Generalist</td><td>Remote Sales</td><td>45</td></tr><tr><td>Senior Sales Specialist</td><td>Remote Sales</td><td>46</td></tr><tr><td>Super User</td><td>Experience design</td><td>50</td></tr><tr><td>Unit People &amp; Culture Administrator</td><td>People&amp; Culture</td><td>46</td></tr><tr><td>Unit People &amp; Culture Manager</td><td>Management Team</td><td>53</td></tr></table>"
+  },
+  {
+    "page": 46,
+    "table_id": "tbl-39.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Accounting &amp; Reporting Co-worker</td><td>Finance &amp; Admin</td><td>47</td></tr><tr><td>Accounting &amp; Reporting Manager</td><td>Finance &amp; Admin</td><td>54</td></tr><tr><td>Accounting &amp; Reporting Specialist</td><td>Finance &amp; Admin</td><td>50</td></tr><tr><td>Apprentice</td><td>Various</td><td>0</td></tr><tr><td>Business Analyst</td><td>BN &amp; Finance</td><td>50</td></tr><tr><td>Business Navigator</td><td>BN &amp; Finance</td><td>53</td></tr><tr><td>CFF People &amp; Culture Business Partner</td><td>People&amp; Culture</td><td>54</td></tr><tr><td>Cluster Facility Management Manager</td><td>Real Estate</td><td>56</td></tr><tr><td>Cluster Real Estate Development Leader</td><td>Real Estate</td><td>54</td></tr><tr><td>Commercial Activity &amp; Events Leader</td><td>HF &amp; RD</td><td>52</td></tr><tr><td>Commercial Activity Leader</td><td>Selling</td><td>55</td></tr><tr><td>Commercial PR Specialist</td><td>Communication</td><td>50</td></tr><tr><td>Commercial Supervisor</td><td>Selling</td><td>50</td></tr><tr><td>Communication Business Partner</td><td>Communication</td><td>51</td></tr><tr><td>Communication Operations Manager</td><td>Communication</td><td>55</td></tr><tr><td>Communication Specialist</td><td>Communication</td><td>50</td></tr></table>"
+  },
+  {
+    "page": 46,
+    "table_id": "tbl-40.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Construction Project Manager</td><td>Real Estate</td><td>53</td></tr><tr><td>Consumer &amp; Customer Insights Manager</td><td>C&amp;C Insight</td><td>56</td></tr><tr><td>Content Specialist</td><td>Marketing</td><td>50</td></tr><tr><td>Core Area Manager</td><td>Selling</td><td>55</td></tr><tr><td>Country E-commerce Integration Manager</td><td>E-commerce</td><td>56</td></tr><tr><td>Country Product Leader</td><td>Digital</td><td>53</td></tr><tr><td>Country Product Specialist</td><td>Digital</td><td>50</td></tr><tr><td>Country Service Operations Manager</td><td>Digital</td><td>55</td></tr><tr><td>Country Service Operations Team Leader</td><td>Digital</td><td>53</td></tr><tr><td>Country Sustainability Manager</td><td>Bus. Develop</td><td>56</td></tr><tr><td>Co-worker Communication Leader</td><td>Communication</td><td>53</td></tr><tr><td>Co-worker Relations Specialist</td><td>People&amp; Culture</td><td>51</td></tr><tr><td>Customer Care Leader</td><td>Customer</td><td>54</td></tr><tr><td>Customer Engagement &amp; Loyalty Analyst</td><td>Marketing</td><td>51</td></tr><tr><td>Customer Engagement &amp; Loyalty Manager</td><td>Marketing</td><td>55</td></tr><tr><td>Customer Journey Leader</td><td>Customer</td><td>54</td></tr><tr><td>Customer Operations Leader</td><td>Customer</td><td>54</td></tr><tr><td>Customer Order Manager</td><td>CFF</td><td>54</td></tr><tr><td>Data Management Leader</td><td>Digital</td><td>53</td></tr><tr><td>Development &amp; Transformation Project Manager</td><td>Bus. Develop</td><td>53</td></tr><tr><td>Development&amp;Transformation Programme Mgr</td><td>Bus. Develop</td><td>56</td></tr><tr><td>Digital Deployment Specialist</td><td>Digital</td><td>52</td></tr><tr><td>Digital Portfolio &amp; Deployment Leader</td><td>Digital</td><td>56</td></tr><tr><td>Digital Project Leader</td><td>Digital</td><td>53</td></tr><tr><td>District Facility Management Manager</td><td>Property &amp; Expa</td><td>53</td></tr><tr><td>Equality, Diversity &amp; Inclusion Leader</td><td>People&amp; Culture</td><td>52</td></tr><tr><td>Establishment Manager</td><td>Bus. Develop</td><td>56</td></tr></table>"
+  },
+  {
+    "page": 47,
+    "table_id": "tbl-41.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Facility Management Specialist</td><td>Property &amp; Expa</td><td>52</td></tr><tr><td>Financial Controller</td><td>Finance &amp; Admin</td><td>52</td></tr><tr><td>Flow and Capacity Planner</td><td>CFF</td><td>49</td></tr><tr><td>Flow and Capacity Planning Manager</td><td>CFF</td><td>54</td></tr><tr><td>Food Business Administration Specialist</td><td>IKEA Food</td><td>50</td></tr><tr><td>Food Commercial Leader</td><td>IKEA Food</td><td>52</td></tr><tr><td>Food Operations Leader</td><td>IKEA Food</td><td>52</td></tr><tr><td>Food Range &amp; Supply Leader</td><td>IKEA Food</td><td>54</td></tr><tr><td>Food Safety Leader</td><td>IKEA Food</td><td>52</td></tr><tr><td>Fulfilment Project Implementation Mgr</td><td>CFF</td><td>54</td></tr><tr><td>Fulfilment Unit Operations Leader</td><td>CFF</td><td>52</td></tr><tr><td>Graphics Design Leader</td><td>HF &amp; RD</td><td>52</td></tr><tr><td>Graphics Design Specialist</td><td>HF &amp; RD</td><td>50</td></tr><tr><td>Health &amp; Wellbeing Leader</td><td>People&amp; Culture</td><td>52</td></tr><tr><td>HFB Leader</td><td>Selling</td><td>54</td></tr><tr><td>Home Furnishing Direction Leader</td><td>HF &amp; RD</td><td>55</td></tr><tr><td>IKEA Business Leader</td><td>Selling</td><td>54</td></tr><tr><td>IKEA Business Specialist</td><td>Selling</td><td>50</td></tr><tr><td>Information Security Specialist</td><td>Digital</td><td>50</td></tr><tr><td>Information Security&amp;Data Privacy Leader</td><td>Digital</td><td>53</td></tr><tr><td>Insights Leader</td><td>C&amp;C Insight</td><td>53</td></tr><tr><td>Integrated Media Leader</td><td>Marketing</td><td>52</td></tr><tr><td>Integrated Media Manager</td><td>Marketing</td><td>55</td></tr><tr><td>Interior Design Leader</td><td>HF &amp; RD</td><td>52</td></tr><tr><td>Interior Design Manager</td><td>HF &amp; RD</td><td>54</td></tr><tr><td>Leadership &amp; Competence Leader</td><td>People&amp; Culture</td><td>52</td></tr><tr><td>Learning Delivery Specialist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>Legal Specialist</td><td>Legal</td><td>53</td></tr></table>"
+  },
+  {
+    "page": 47,
+    "table_id": "tbl-42.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Local People &amp; Culture Business Partner</td><td>People&amp; Culture</td><td>50</td></tr><tr><td>Logistics Commercial Support Manager</td><td>CFF</td><td>53</td></tr><tr><td>Loyalty Leader</td><td>Marketing</td><td>52</td></tr><tr><td>Management Assistant</td><td>Retail Mgmt</td><td>54</td></tr><tr><td>Market Area Co-worker Relations Specialist</td><td>People&amp; Culture</td><td>50</td></tr><tr><td>Market Area People &amp; Culture Manager</td><td>People&amp; Culture</td><td>56</td></tr><tr><td>Marketing Campaign Leader</td><td>Marketing</td><td>52</td></tr><tr><td>Marketing Communications Manager</td><td>Marketing</td><td>55</td></tr><tr><td>Marketing Communications Specialist</td><td>Marketing</td><td>50</td></tr><tr><td>Marketing Performance Leader</td><td>Marketing</td><td>53</td></tr><tr><td>Mobility Specialist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>Multichannel Network Developer</td><td>CFF</td><td>51</td></tr><tr><td>Multichannel Network Project Manager</td><td>CFF</td><td>52</td></tr><tr><td>Online Commercial Planning Specialist</td><td>Selling</td><td>50</td></tr><tr><td>Online Content Specialist</td><td>Marketing</td><td>50</td></tr><tr><td>Online Merchandising Specialist</td><td>HF &amp; RD</td><td>50</td></tr><tr><td>Online Performance Specialist</td><td>Customer</td><td>50</td></tr><tr><td>Online Range Specialist</td><td>Selling</td><td>50</td></tr><tr><td>Operational Risk Management Leader</td><td>Bus.Risk&amp;Compl</td><td>53</td></tr><tr><td>Order Management Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Outbound Allocation Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Payments &amp; Checkouts Leader</td><td>Customer</td><td>54</td></tr><tr><td>Payments &amp; Checkouts Specialist</td><td>Customer</td><td>50</td></tr><tr><td>Payroll/Timekeeping Specialist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>People &amp; Culture Administrator</td><td>People&amp; Culture</td><td>46</td></tr><tr><td>People &amp; Culture Services Manager</td><td>People&amp; Culture</td><td>54</td></tr><tr><td>People Analytics&amp;Information Specialist</td><td>People&amp; Culture</td><td>50</td></tr><tr><td>People Planning Manager</td><td>People&amp; Culture</td><td>54</td></tr></table>"
+  },
+  {
+    "page": 48,
+    "table_id": "tbl-43.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>People Planning Specialist</td><td>People&amp; Culture</td><td>51</td></tr><tr><td>Product Compliance Leader</td><td>Selling</td><td>52</td></tr><tr><td>Product Quality Analyst</td><td>Selling</td><td>50</td></tr><tr><td>Product Quality Manager</td><td>Selling</td><td>54</td></tr><tr><td>Product Recovery Leader</td><td>Selling</td><td>52</td></tr><tr><td>Project Administrator</td><td>Various</td><td>46</td></tr><tr><td>Public Affairs Leader</td><td>Communication</td><td>54</td></tr><tr><td>Public Relations Leader</td><td>Communication</td><td>53</td></tr><tr><td>Purchaser</td><td>Finance &amp; Admin</td><td>53</td></tr><tr><td>Recruitment &amp; Onboarding Specialist</td><td>People&amp; Culture</td><td>50</td></tr><tr><td>Recruitment &amp; Selection Specialist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>Recruitment, Selection&amp;Onboarding Leader</td><td>People&amp; Culture</td><td>52</td></tr><tr><td>Replenishment Manager</td><td>CFF</td><td>54</td></tr><tr><td>Replenishment Range Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Replenishment Supply Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Retail Solutions Manager</td><td>HF &amp; RD</td><td>55</td></tr><tr><td>Reverse Flow Specialist</td><td>CFF</td><td>49</td></tr><tr><td>Review &amp; Development Leader</td><td>Sales</td><td>52</td></tr><tr><td>Safety &amp; Security Leader</td><td>Bus.Risk&amp;Compl</td><td>53</td></tr><tr><td>Sales Performance Team Leader</td><td>Selling</td><td>54</td></tr><tr><td>Sales Support Specialist</td><td>Selling</td><td>50</td></tr><tr><td>SEO Specialist</td><td>Marketing</td><td>50</td></tr><tr><td>Service Fulfilment Fleet Developer</td><td>CFF</td><td>51</td></tr><tr><td>Service Fulfilment Operations Technician</td><td>CFF</td><td>44</td></tr><tr><td>Service Fulfilment Operations Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Service Fulfilment Operations Developer</td><td>CFF</td><td>51</td></tr><tr><td>Service Office People &amp; Culture Manager</td><td>People&amp; Culture</td><td>54</td></tr><tr><td>Services Experience Leader</td><td>Customer</td><td>54</td></tr></table>"
+  },
+  {
+    "page": 48,
+    "table_id": "tbl-44.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-SO</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Shop Design Leader</td><td>HF &amp; RD</td><td>52</td></tr><tr><td>Sourcing Analyst</td><td>CFF</td><td>51</td></tr><tr><td>Service Fulfilment Optimization Mgr</td><td>CFF</td><td>55</td></tr><tr><td>Solution Responsible</td><td>CFF</td><td>51</td></tr><tr><td>Sourcing Developer</td><td>CFF</td><td>52</td></tr><tr><td>Stock Quality Specialist</td><td>CFF</td><td>50</td></tr><tr><td>Succession Planning Specialist</td><td>People&amp; Culture</td><td>50</td></tr><tr><td>Sustainability Business Partner</td><td>Sustainability</td><td>52</td></tr><tr><td>Technical Support Specialist</td><td>Digital</td><td>48</td></tr><tr><td>Transformation Communication Specialist</td><td>Communication</td><td>50</td></tr><tr><td>Warehouse Management System Coordinator</td><td>CFF</td><td>53</td></tr></table>"
+  },
+  {
+    "page": 49,
+    "table_id": "tbl-45.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel NL-STORE</th><th>Werkveld</th><th>IPE-level</th></tr><tr><td>Activity Leader</td><td>Com&amp;In</td><td>48</td></tr><tr><td>Apprentice</td><td>Various</td><td>0</td></tr><tr><td>Business Navigator</td><td>Management Team</td><td>54</td></tr><tr><td>Carpenter Co-worker</td><td>Com&amp;In</td><td>44</td></tr><tr><td>Circular Sales Specialist</td><td>Finance &amp; Admin</td><td>47</td></tr><tr><td>Commercial Activity Leader</td><td>Sales</td><td>50</td></tr><tr><td>Communication &amp; Interior Design Manager</td><td>Management Team</td><td>54</td></tr><tr><td>Controller</td><td>Finance &amp; Admin</td><td>50</td></tr><tr><td>Customer Relations Co-worker</td><td>Customer Service</td><td>44</td></tr><tr><td>Customer Relations Manager</td><td>Management Team</td><td>54</td></tr><tr><td>Customer Relations Team Leader</td><td>Customer Service</td><td>50</td></tr><tr><td>Deputy Business Navigation Manager</td><td>Finance &amp; Admin</td><td>52</td></tr><tr><td>Deputy Sales Manager</td><td>Management Team</td><td>52</td></tr><tr><td>Frontliner</td><td>Customer Servic</td><td>45</td></tr><tr><td>Furniture Builder</td><td>Sales</td><td>43</td></tr><tr><td>Goods Flow Co-worker I</td><td>Logistics</td><td>43</td></tr><tr><td>Goods Flow Manager</td><td>Logistics</td><td>51</td></tr><tr><td>Goods Flow Team Leader</td><td>Logistics</td><td>49</td></tr><tr><td>Graphic Communication Co-worker</td><td>Com&amp;In</td><td>46</td></tr><tr><td>Graphic Communication Leader</td><td>Com&amp;In</td><td>49</td></tr><tr><td>IKEA Food Co-worker</td><td>IKEA Food Allround</td><td>44</td></tr><tr><td>IKEA Food Co-worker I</td><td>IKEA Food</td><td>43</td></tr><tr><td>IKEA Food Manager</td><td>IKEA Food / Management Team</td><td>54</td></tr><tr><td>IKEA Food Team Leader</td><td>IKEA Food</td><td>50</td></tr><tr><td>IKEA for Business Leader</td><td>Sales</td><td>50</td></tr></table>"
+  },
+  {
+    "page": 49,
+    "table_id": "tbl-46.html",
+    "format": "html",
+    "content": "<table><tr><td>IKEA for Business Specialist</td><td>Sales</td><td>47</td></tr><tr><td>Interior Design Co-worker</td><td>Com&amp;In</td><td>46</td></tr><tr><td>Interior Design Manager</td><td>Com&amp;In</td><td>50</td></tr><tr><td>Kitchen Production Specialist</td><td>IKEA Food</td><td>45</td></tr><tr><td>Logistics Manager</td><td>Management Team</td><td>54</td></tr><tr><td>People &amp; Culture Generalist</td><td>People&amp; Culture</td><td>49</td></tr><tr><td>Product Quality &amp; Recovery Co-Worker</td><td>Finance &amp; Admin</td><td>45</td></tr><tr><td>Product Quality &amp; Recovery Manager</td><td>Finance &amp; Admin</td><td>51</td></tr><tr><td>Product Quality &amp; Safety Specialist</td><td>Finance &amp; Admin</td><td>47</td></tr><tr><td>Product Recovery Operations Specialist</td><td>Finance &amp; Admin</td><td>47</td></tr><tr><td>Safety &amp; Security Specialist</td><td>Finance &amp; Admin</td><td>48</td></tr><tr><td>Sales &amp; Supply Support Manager</td><td>Logistics</td><td>50</td></tr><tr><td>Sales &amp; Supply Support Specialist</td><td>Logistics</td><td>47</td></tr><tr><td>Sales Co-worker</td><td>Sales</td><td>44</td></tr><tr><td>Sales Co-worker II</td><td>Sales (HFB7 / Kitchen only)</td><td>45</td></tr><tr><td>Sales Manager</td><td>Management Team</td><td>55</td></tr><tr><td>Sales Team Leader</td><td>Sales</td><td>50</td></tr><tr><td>Unit Facility Management Administrator</td><td>Real Estate (GAA only)</td><td>45</td></tr><tr><td>Unit Facility Management Manager</td><td>Real Estate (GAA only)</td><td>52</td></tr><tr><td>Unit Facility Management Manager</td><td>Real Estate</td><td>51</td></tr><tr><td>Unit Facility Management Project Manager</td><td>Real Estate (GAA only)</td><td>50</td></tr><tr><td>Unit Facility Management Specialist</td><td>Real Estate</td><td>47</td></tr><tr><td>Unit People &amp; Culture Administrator</td><td>People&amp; Culture</td><td>46</td></tr><tr><td>Unit People &amp; Culture Manager</td><td>Management Team</td><td>54</td></tr><tr><td>Unit People Planning Specialist</td><td>People&amp; Culture</td><td>47</td></tr><tr><td>Visual Merchandising Manager</td><td>Com&amp;In</td><td>50</td></tr><tr><td>Visual Merchandising/Activity Co-worker</td><td>Com&amp;In</td><td>46</td></tr></table>"
+  },
+  {
+    "page": 50,
+    "table_id": "tbl-47.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel</th><th>IPE</th></tr><tr><td colspan=\"2\">Customer Relations</td></tr><tr><td>Easy Buying Manager</td><td>51</td></tr><tr><td>Checkout Services Manager</td><td>51</td></tr><tr><td>Shopping Experience Manager</td><td>51</td></tr><tr><td>Customer Relations Team Leader</td><td>49</td></tr><tr><td>Checkout Services Team Leader</td><td>49</td></tr><tr><td>Customer Relations Co-Worker I</td><td>43</td></tr><tr><td>Customer Relations Co-Worker</td><td>45</td></tr><tr><td>Checkout Services Co-Worker</td><td>45</td></tr><tr><td>Frontliner</td><td>46</td></tr><tr><td colspan=\"2\">IKEA FOOD</td></tr><tr><td>Commercial Restaurant Manager</td><td>51</td></tr><tr><td>Commercial SFM &amp; Bistro Manager</td><td>51</td></tr><tr><td>Kitchen Production Manager</td><td>51</td></tr><tr><td>IKEA Food Team Leader</td><td>49</td></tr><tr><td>IKEA Food Sustainability specialist</td><td>48</td></tr><tr><td>IKEA Food Safety Specialist</td><td>48</td></tr><tr><td>IKEA Food Co-Worker</td><td>44</td></tr><tr><td>Kitchen Production Specialist</td><td>45</td></tr><tr><td>IKEA Food Baker</td><td>45</td></tr><tr><td>Business Analyst &amp; Sales Support Specialist</td><td>46</td></tr></table>"
+  },
+  {
+    "page": 50,
+    "table_id": "tbl-48.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel</th><th>IPE</th></tr><tr><td colspan=\"2\">In-Store Logistics</td></tr><tr><td>Goods Flow Manager</td><td>51</td></tr><tr><td>Sales and Supply Support Manager</td><td>52</td></tr><tr><td>Sales and Supply Support Specialist</td><td>48</td></tr><tr><td>Goods Flow Team Leader</td><td>49</td></tr><tr><td>Goods Flow Co-Worker</td><td>44</td></tr><tr><td>Goods Flow Specialist</td><td>48</td></tr><tr><td>Logistics Automated Solutions Manager</td><td>51</td></tr><tr><td>Logistics Automated Solutions Co-Worker</td><td>45</td></tr><tr><td colspan=\"2\">Sales</td></tr><tr><td>Shopkeeper</td><td>51</td></tr><tr><td>Commercial Activity Leader</td><td>51</td></tr><tr><td>Sales Team Leader</td><td>49</td></tr><tr><td>Sales Co-Worker</td><td>45</td></tr><tr><td>IKEA for Business Co-Worker</td><td>46</td></tr></table>"
+  },
+  {
+    "page": 51,
+    "table_id": "tbl-49.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel</th><th>IPE</th></tr><tr><td colspan=\"2\">Communication &amp; Interior Design</td></tr><tr><td>Interior Design Manager</td><td>51</td></tr><tr><td>Visual Merchandising Manager</td><td>51</td></tr><tr><td>Graphic Communication Leader</td><td>49</td></tr><tr><td>Project Leader Comin</td><td>49</td></tr><tr><td>Store Activity Leader</td><td>49</td></tr><tr><td>Carpenter Co-Worker</td><td>45</td></tr><tr><td>Store Equipment Specialist</td><td>48</td></tr><tr><td>Store Equipment Co-worker</td><td>45</td></tr><tr><td>Graphic Communication Co-Worker</td><td>46</td></tr><tr><td>Interior Design Co-Worker</td><td>46</td></tr><tr><td>Visual Merchandising &amp; Activity Co-Worker</td><td>46</td></tr><tr><td colspan=\"2\">Business Navigation &amp; Operations</td></tr><tr><td>Business Navigation Manager</td><td>52</td></tr><tr><td>Business Navigation Team Leader</td><td>49</td></tr><tr><td>Business Navigation Specialist</td><td>48</td></tr><tr><td>Business Navigation Co-Worker</td><td>46</td></tr><tr><td>Store purchaser</td><td>51</td></tr><tr><td>Facility manager</td><td>51</td></tr><tr><td>Maintenance Teamleader</td><td>49</td></tr><tr><td>Safety &amp; Security Manager</td><td>49</td></tr><tr><td>Sustainability specialist</td><td>48</td></tr><tr><td>Maintenance co-worker</td><td>45</td></tr><tr><td>Safety &amp; Security Co-Worker</td><td>45</td></tr></table>"
+  },
+  {
+    "page": 51,
+    "table_id": "tbl-50.html",
+    "format": "html",
+    "content": "<table><tr><th>Functietitel</th><th>IPE</th></tr><tr><td>Store Recovery Manager</td><td>51</td></tr><tr><td>Recovery Team Leader</td><td>49</td></tr><tr><td>Product Quality Specialist / Recovery Specialist</td><td>46</td></tr><tr><td>Recovery Co-Worker</td><td>45</td></tr><tr><td>Sales Support Co-Worker</td><td>44</td></tr><tr><td>Product Quality Safety Specialist</td><td>48</td></tr><tr><td colspan=\"2\">HR</td></tr><tr><td>HR Operations manager</td><td>52</td></tr><tr><td>HR Generalist</td><td>51</td></tr><tr><td>HR Staff planning specialist</td><td>48</td></tr><tr><td>HR Administrator</td><td>46</td></tr><tr><td>Prevention officer</td><td>48</td></tr><tr><td colspan=\"2\">Communication</td></tr><tr><td>Communication Leader</td><td>51</td></tr><tr><td>Event/host coordinator</td><td>48</td></tr><tr><td>Production coordinator</td><td>48</td></tr></table>"
+  }
+]

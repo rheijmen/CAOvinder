@@ -1,0 +1,1032 @@
+{
+  "documentId": {
+    "value": "CAO-IKEA-2023-2024",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "issued": "2023-10-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-10-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "IKEA Nederland B.V. en Inter IKEA Systems B.V.",
+    "legalId": [
+      {
+        "value": "33191274 (IKEA Nederland B.V.)",
+        "schemeAgencyId": "KvK"
+      },
+      {
+        "value": "27146795 (Inter IKEA Systems B.V.)",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "Unit People & Culture Manager"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "IKEA CAO 2023-2024",
+      "id": {
+        "value": "IKEA_CAO_2023-2024"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-10-01",
+        "validTo": "2024-12-31"
+      }
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "NL-RCMP_Apprentice"
+      },
+      "positionTitle": "Apprentice",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Various"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BGeneralist"
+      },
+      "positionTitle": "B2B Generalist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BSpecialist"
+      },
+      "positionTitle": "B2B Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales / Remote Resolutions"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessAnalyst"
+      },
+      "positionTitle": "Business Analyst",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Bus. Navigation"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessNavigation&OperationsManager"
+      },
+      "positionTitle": "Business Navigation & Operations Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_Communication&InformationSpecialist"
+      },
+      "positionTitle": "Communication & Information Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_CountryRemoteCMPManager"
+      },
+      "positionTitle": "Country Remote CMP Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignManager"
+      },
+      "positionTitle": "Experience Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignSpecialist"
+      },
+      "positionTitle": "Experience Design Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignTeamLeader"
+      },
+      "positionTitle": "Experience Design Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceQualitySpecialist"
+      },
+      "positionTitle": "Experience Quality Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesignSpecialist"
+      },
+      "positionTitle": "Interior Design Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesigner"
+      },
+      "positionTitle": "Interior Designer",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IntradaySpecialist"
+      },
+      "positionTitle": "Intraday Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Staff Planning"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IKEABusinessKeyAccountManager"
+      },
+      "positionTitle": "IKEA Business Key Account Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_KnowledgeSpecialist"
+      },
+      "positionTitle": "Knowledge Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ActivityLeader"
+      },
+      "positionTitle": "Activity Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_BusinessNavigator"
+      },
+      "positionTitle": "Business Navigator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CarpenterCo-worker"
+      },
+      "positionTitle": "Carpenter Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CircularSalesSpecialist"
+      },
+      "positionTitle": "Circular Sales Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CommercialActivityLeader"
+      },
+      "positionTitle": "Commercial Activity Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Communication&InteriorDesignManager"
+      },
+      "positionTitle": "Communication & Interior Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Controller"
+      },
+      "positionTitle": "Controller",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsCo-worker"
+      },
+      "positionTitle": "Customer Relations Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsManager"
+      },
+      "positionTitle": "Customer Relations Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsTeamLeader"
+      },
+      "positionTitle": "Customer Relations Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputyBusinessNavigationManager"
+      },
+      "positionTitle": "Deputy Business Navigation Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputySalesManager"
+      },
+      "positionTitle": "Deputy Sales Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Frontliner"
+      },
+      "positionTitle": "Frontliner",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_FurnitureBuilder"
+      },
+      "positionTitle": "Furniture Builder",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowCo-workerI"
+      },
+      "positionTitle": "Goods Flow Co-worker I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowManager"
+      },
+      "positionTitle": "Goods Flow Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowTeamLeader"
+      },
+      "positionTitle": "Goods Flow Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationCo-worker"
+      },
+      "positionTitle": "Graphic Communication Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationLeader"
+      },
+      "positionTitle": "Graphic Communication Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-worker"
+      },
+      "positionTitle": "IKEA Food Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food Allround"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-workerI"
+      },
+      "positionTitle": "IKEA Food Co-worker I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodManager"
+      },
+      "positionTitle": "IKEA Food Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food / Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodTeamLeader"
+      },
+      "positionTitle": "IKEA Food Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessLeader"
+      },
+      "positionTitle": "IKEA for Business Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessSpecialist"
+      },
+      "positionTitle": "IKEA for Business Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignCo-worker"
+      },
+      "positionTitle": "Interior Design Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignManager"
+      },
+      "positionTitle": "Interior Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_KitchenProductionSpecialist"
+      },
+      "positionTitle": "Kitchen Production Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_LogisticsManager"
+      },
+      "positionTitle": "Logistics Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_People&CultureGeneralist"
+      },
+      "positionTitle": "People & Culture Generalist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryCo-Worker"
+      },
+      "positionTitle": "Product Quality & Recovery Co-Worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryManager"
+      },
+      "positionTitle": "Product Quality & Recovery Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&SafetySpecialist"
+      },
+      "positionTitle": "Product Quality & Safety Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductRecoveryOperationsSpecialist"
+      },
+      "positionTitle": "Product Recovery Operations Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Safety&SecuritySpecialist"
+      },
+      "positionTitle": "Safety & Security Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportManager"
+      },
+      "positionTitle": "Sales & Supply Support Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportSpecialist"
+      },
+      "positionTitle": "Sales & Supply Support Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-worker"
+      },
+      "positionTitle": "Sales Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-workerII"
+      },
+      "positionTitle": "Sales Co-worker II",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales (HFB7 / Kitchen only)"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesManager"
+      },
+      "positionTitle": "Sales Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesTeamLeader"
+      },
+      "positionTitle": "Sales Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementAdministrator"
+      },
+      "positionTitle": "Unit Facility Management Administrator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionTitle": "Unit Facility Management Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionTitle": "Unit Facility Management Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementProjectManager"
+      },
+      "positionTitle": "Unit Facility Management Project Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementSpecialist"
+      },
+      "positionTitle": "Unit Facility Management Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureAdministrator"
+      },
+      "positionTitle": "Unit People & Culture Administrator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureManager"
+      },
+      "positionTitle": "Unit People & Culture Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeoplePlanningSpecialist"
+      },
+      "positionTitle": "Unit People Planning Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandisingManager"
+      },
+      "positionTitle": "Visual Merchandising Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandising/ActivityCo-worker"
+      },
+      "positionTitle": "Visual Merchandising/Activity Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In"
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "HUR"
+        }
+      },
+      "interval": "Month",
+      "salaryScale": [
+        {
+          "name": "IPE 43",
+          "steps": [
+            {
+              "aanvang": 14.25,
+              "eind": 14.48,
+              "amount": 2222.32,
+              "zone": 1
+            },
+            {
+              "aanvang": 14.49,
+              "eind": 15.87,
+              "amount": 2258.13,
+              "zone": 2
+            },
+            {
+              "aanvang": 15.88,
+              "eind": 16.36,
+              "amount": 2247.24,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47
+            },
+            {
+              "age": 17,
+              "percentage": 0.6
+            }
+          ]
+        },
+        {
+          "name": "IPE 44",
+          "steps": [
+            {
+              "aanvang": 15.31,
+              "eind": 15.74,
+              "amount": 2388.62,
+              "zone": 1
+            },
+            {
+              "aanvang": 15.75,
+              "eind": 18.33,
+              "amount": 2456.15,
+              "zone": 2
+            },
+            {
+              "aanvang": 18.34,
+              "eind": 19.63,
+              "amount": 2456.8,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47
+            },
+            {
+              "age": 17,
+              "percentage": 0.6
+            }
+          ]
+        },
+        {
+          "name": "IPE 45",
+          "steps": [
+            {
+              "aanvang": 16.38,
+              "eind": 16.89,
+              "amount": 2554.61,
+              "zone": 1
+            },
+            {
+              "aanvang": 16.9,
+              "eind": 19.99,
+              "amount": 2635.81,
+              "zone": 2
+            },
+            {
+              "aanvang": 20.0,
+              "eind": 21.54,
+              "amount": 2635.85,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47,
+              "amount": 7.39
+            },
+            {
+              "age": 17,
+              "percentage": 0.6,
+              "amount": 7.39
+            }
+          ]
+        },
+        {
+          "name": "IPE 46/47",
+          "steps": [
+            {
+              "aanvang": 17.64,
+              "eind": 18.26,
+              "amount": 2751.89,
+              "zone": 1
+            },
+            {
+              "aanvang": 18.27,
+              "eind": 21.98,
+              "amount": 2848.61,
+              "zone": 2
+            },
+            {
+              "aanvang": 21.99,
+              "eind": 23.85,
+              "amount": 2849.09,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 48",
+          "steps": [
+            {
+              "aanvang": 19.37,
+              "eind": 20.16,
+              "amount": 3021.77,
+              "zone": 1
+            },
+            {
+              "aanvang": 20.17,
+              "eind": 24.91,
+              "amount": 3145.81,
+              "zone": 2
+            },
+            {
+              "aanvang": 24.92,
+              "eind": 27.28,
+              "amount": 3145.84,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 49/50",
+          "steps": [
+            {
+              "aanvang": 21.54,
+              "eind": 22.55,
+              "amount": 3360.07,
+              "zone": 1
+            },
+            {
+              "aanvang": 22.56,
+              "eind": 28.63,
+              "amount": 3518.0,
+              "zone": 2
+            },
+            {
+              "aanvang": 28.64,
+              "eind": 31.67,
+              "amount": 3518.01,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 51",
+          "steps": [
+            {
+              "aanvang": 24.39,
+              "eind": 25.59,
+              "amount": 3804.32,
+              "zone": 1
+            },
+            {
+              "aanvang": 25.6,
+              "eind": 32.79,
+              "amount": 3991.65,
+              "zone": 2
+            },
+            {
+              "aanvang": 32.8,
+              "eind": 36.39,
+              "amount": 3991.67,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 52",
+          "steps": [
+            {
+              "aanvang": 26.45,
+              "eind": 27.81,
+              "amount": 4126.06,
+              "zone": 1
+            },
+            {
+              "aanvang": 27.82,
+              "eind": 35.98,
+              "amount": 4338.55,
+              "zone": 2
+            },
+            {
+              "aanvang": 35.99,
+              "eind": 40.07,
+              "amount": 4338.6,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 53/54",
+          "steps": [
+            {
+              "aanvang": 30.1,
+              "eind": 31.65,
+              "amount": 4695.22,
+              "zone": 1
+            },
+            {
+              "aanvang": 31.66,
+              "eind": 40.95,
+              "amount": 4937.21,
+              "zone": 2
+            },
+            {
+              "aanvang": 40.96,
+              "eind": 45.8,
+              "amount": 4937.93,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 55/56",
+          "steps": [
+            {
+              "aanvang": 33.96,
+              "eind": 35.7,
+              "amount": 5328.24,
+              "zone": 1
+            },
+            {
+              "aanvang": 35.71,
+              "eind": 46.2,
+              "amount": 5587.2,
+              "zone": 2
+            },
+            {
+              "aanvang": 46.21,
+              "eind": 51.46,
+              "amount": 5587.3,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "Participatie-medewerker",
+          "steps": [
+            {
+              "aanvang": 100,
+              "eind": 104,
+              "amount": "100% WML"
+            },
+            {
+              "aanvang": 104,
+              "eind": 108,
+              "amount": "104% WML"
+            },
+            {
+              "aanvang": 108,
+              "eind": 112,
+              "amount": "108% WML"
+            },
+            {
+              "aanvang": 112,
+              "eind": 116,
+              "amount": "112% WML"
+            },
+            {
+              "aanvang": 116,
+              "eind": 120,
+              "amount": "116% WML"
+            },
+            {
+              "aanvang": 120,
+              "eind": 120,
+              "amount": "120% WML"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

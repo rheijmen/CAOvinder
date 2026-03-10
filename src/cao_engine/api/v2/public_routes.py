@@ -1,16 +1,22 @@
 """Public API v2 routes for B2B customers."""
 
-from fastapi import APIRouter, HTTPException, Depends, Header, Query, Response
-from typing import Optional, List
-from datetime import datetime
 import json
-from pathlib import Path
+from datetime import datetime
 
-from cao_engine.config import Settings
+from fastapi import APIRouter, Depends, Header, HTTPException, Query, Response
+
 from cao_engine.api.models.api_key import APIKey
+from cao_engine.api.v2.models import (
+    CAODetailResponse,
+    CAOSearchResponse,
+    ErrorResponse,
+)
+from cao_engine.config import Settings
 
-
-router = APIRouter(prefix="/api/v2", tags=["Public API v2"])
+router = APIRouter(
+    prefix="/api/v2",
+    tags=["CAO Data", "Validation", "Usage"],
+)
 
 
 # Dependency injection
@@ -39,8 +45,8 @@ def add_rate_limit_headers(response: Response, api_key: APIKey) -> None:
 
 
 def _verify_api_key_internal(
-    x_api_key: Optional[str],
-    response: Optional[Response] = None,
+    x_api_key: str | None,
+    response: Response | None = None,
     increment_usage: bool = True
 ) -> APIKey:
     """Internal API key verification logic.
@@ -106,7 +112,7 @@ def _verify_api_key_internal(
 
 async def verify_api_key(
     response: Response,
-    x_api_key: Optional[str] = Header(None, alias="X-API-Key", description="API Key")
+    x_api_key: str | None = Header(None, alias="X-API-Key", description="API Key")
 ) -> APIKey:
     """Verify API key from header and increment usage counter."""
     return _verify_api_key_internal(x_api_key, response, increment_usage=True)
@@ -114,25 +120,59 @@ async def verify_api_key(
 
 async def verify_api_key_readonly(
     response: Response,
-    x_api_key: Optional[str] = Header(None, alias="X-API-Key", description="API Key")
+    x_api_key: str | None = Header(None, alias="X-API-Key", description="API Key")
 ) -> APIKey:
     """Verify API key from header without incrementing usage counter (for read-only endpoints)."""
     return _verify_api_key_internal(x_api_key, response, increment_usage=False)
 
 
-@router.get("/cao/search")
+@router.get(
+    "/cao/search",
+    response_model=CAOSearchResponse,
+    summary="Search for CAO by company or sector",
+    description="Find applicable Collective Labour Agreements (CAOs) by searching company names or industry sectors.",
+    responses={
+        200: {
+            "description": "Successful search response with matching CAOs",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "results": [
+                            {
+                                "id": "metalektro-cao",
+                                "name": "CAO Metalektro 2024-2025",
+                                "effective_from": "2024-06-01",
+                                "effective_to": "2025-12-31",
+                                "match_type": "sector"
+                            }
+                        ],
+                        "count": 1,
+                        "search": {"company": None, "sector": "metalektro"}
+                    }
+                }
+            }
+        },
+        401: {"model": ErrorResponse, "description": "Invalid API key or unauthorized access"},
+        429: {"model": ErrorResponse, "description": "Rate limit exceeded - too many requests this month"},
+    },
+    tags=["CAO Data"]
+)
 async def search_cao(
-    company: Optional[str] = Query(None, description="Company name"),
-    sector: Optional[str] = Query(None, description="Sector/industry"),
+    company: str | None = Query(None, description="Filter by company name (case-insensitive partial match)", examples=["Philips"]),
+    sector: str | None = Query(None, description="Filter by sector/industry (case-insensitive partial match)", examples=["metalektro"]),
     api_key: APIKey = Depends(verify_api_key)
 ):
-    """Search for applicable CAO by company or sector."""
+    """
+    Search for applicable CAO by company or sector.
+
+    Returns a list of CAO documents that match the search criteria. At least one of company or sector must be provided.
+    """
     settings = get_settings()
     setu_files = list(settings.setu_dir.glob("*.json"))
 
     results = []
     for setu_file in setu_files:
-        with open(setu_file, 'r') as f:
+        with open(setu_file) as f:
             data = json.load(f)
 
             # Simple search matching
@@ -163,16 +203,35 @@ async def search_cao(
     }
 
 
-@router.get("/cao/{cao_id}/current")
-async def get_current_cao(cao_id: str, api_key: APIKey = Depends(verify_api_key)):
-    """Get current version of a specific CAO."""
+@router.get(
+    "/cao/{cao_id}/current",
+    response_model=CAODetailResponse,
+    summary="Get current CAO details",
+    description="Retrieve the current version and metadata of a specific CAO document.",
+    responses={
+        200: {"description": "CAO details retrieved successfully"},
+        401: {"model": ErrorResponse, "description": "Invalid API key or unauthorized access"},
+        404: {"model": ErrorResponse, "description": "CAO not found with the specified ID"},
+        429: {"model": ErrorResponse, "description": "Rate limit exceeded - too many requests this month"},
+    },
+    tags=["CAO Data"]
+)
+async def get_current_cao(
+    cao_id: str,
+    api_key: APIKey = Depends(verify_api_key)
+):
+    """
+    Get current version of a specific CAO.
+
+    Returns detailed information about the CAO including effective dates, customer info, and extraction metadata.
+    """
     settings = get_settings()
     cao_file = settings.setu_dir / f"{cao_id}.json"
 
     if not cao_file.exists():
         raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
-    with open(cao_file, 'r') as f:
+    with open(cao_file) as f:
         data = json.load(f)
 
     return {
@@ -194,7 +253,7 @@ async def get_salary_scales(cao_id: str, api_key: APIKey = Depends(verify_api_ke
     if not cao_file.exists():
         raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
-    with open(cao_file, 'r') as f:
+    with open(cao_file) as f:
         data = json.load(f)
 
     remuneration = data.get("remuneration", {})
@@ -217,7 +276,7 @@ async def get_allowances(cao_id: str, api_key: APIKey = Depends(verify_api_key))
     if not cao_file.exists():
         raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
-    with open(cao_file, 'r') as f:
+    with open(cao_file) as f:
         data = json.load(f)
 
     allowances = data.get("allowances", [])
@@ -252,7 +311,7 @@ async def validate_payroll(
     if not cao_file.exists():
         raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
-    with open(cao_file, 'r') as f:
+    with open(cao_file) as f:
         cao_data = json.load(f)
 
     # Simple validation logic
@@ -281,8 +340,8 @@ async def validate_payroll(
 
 @router.get("/changes/feed")
 async def get_changes_feed(
-    since: Optional[datetime] = Query(None, description="Changes since date"),
-    cao_ids: Optional[List[str]] = Query(None, description="Filter by CAO IDs"),
+    since: datetime | None = Query(None, description="Changes since date"),
+    cao_ids: list[str] | None = Query(None, description="Filter by CAO IDs"),
     api_key: APIKey = Depends(verify_api_key)
 ):
     """Get feed of CAO changes."""

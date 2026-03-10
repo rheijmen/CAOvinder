@@ -1,0 +1,80 @@
+[
+  {
+    "page": 48,
+    "table_id": "tbl-0.html",
+    "format": "html",
+    "content": "<table><tr><th></th><th>Minimum</th><th>Maximum</th><th>Periodiek</th></tr><tr><td>A</td><td>1.919,37</td><td>2.047,42</td><td>64,03</td></tr><tr><td>B</td><td>1.951,69</td><td>2.321,24</td><td>61,59</td></tr><tr><td>C</td><td>1.996,65</td><td>2.633,74</td><td>70,79</td></tr><tr><td>D</td><td>2.145,05</td><td>2.987,41</td><td>84,24</td></tr><tr><td>E</td><td>2.432,16</td><td>3.389,31</td><td>95,72</td></tr><tr><td>F</td><td>2.787,15</td><td>3.843,77</td><td>105,66</td></tr><tr><td>G</td><td>3.131,95</td><td>4.361,01</td><td>122,91</td></tr><tr><td>H</td><td>3.554,74</td><td>4.946,69</td><td>139,20</td></tr><tr><td>I</td><td>4.032,66</td><td>5.612,86</td><td>158,02</td></tr><tr><td>J</td><td>4.573,37</td><td>6.367,79</td><td>179,44</td></tr><tr><td>K</td><td>5.186,93</td><td>7.224,19</td><td>203,73</td></tr></table>"
+  },
+  {
+    "page": 49,
+    "table_id": "tbl-1.html",
+    "format": "html",
+    "content": "<table><tr><th></th><th>Minimum</th><th>Maximum</th><th>Periodiek</th></tr><tr><td>A</td><td>2.219,37</td><td>2.347,42</td><td>64,03</td></tr><tr><td>B</td><td>2.251,69</td><td>2.621,24</td><td>61,59</td></tr><tr><td>C</td><td>2.296,65</td><td>2.933,74</td><td>70,79</td></tr><tr><td>D</td><td>2.445,05</td><td>3.287,41</td><td>84,24</td></tr><tr><td>E</td><td>2.732,16</td><td>3.689,31</td><td>95,72</td></tr><tr><td>F</td><td>3.087,15</td><td>4.143,77</td><td>105,66</td></tr><tr><td>G</td><td>3.431,95</td><td>4.666,28</td><td>123,43</td></tr><tr><td>H</td><td>3.854,74</td><td>5.292,96</td><td>143,82</td></tr><tr><td>I</td><td>4.332,66</td><td>5.949,63</td><td>161,70</td></tr><tr><td>J</td><td>4.873,37</td><td>6.749,86</td><td>187,65</td></tr><tr><td>K</td><td>5.498,15</td><td>7.657,64</td><td>215,95</td></tr></table>"
+  },
+  {
+    "page": 49,
+    "table_id": "tbl-2.html",
+    "format": "html",
+    "content": "<table><tr><th></th><th>Minimum</th><th>Maximum</th><th>Periodiek</th></tr><tr><td>A</td><td>2.357,28</td><td>2.441,32</td><td>42,02</td></tr><tr><td>B</td><td>2.357,28</td><td>2.726,09</td><td>61,47</td></tr><tr><td>C</td><td>2.388,52</td><td>3.051,09</td><td>73,62</td></tr><tr><td>D</td><td>2.542,85</td><td>3.418,91</td><td>87,61</td></tr><tr><td>E</td><td>2.841,45</td><td>3.836,88</td><td>99,54</td></tr><tr><td>F</td><td>3.210,64</td><td>4.309,52</td><td>109,89</td></tr><tr><td>G</td><td>3.569,23</td><td>4.852,93</td><td>128,37</td></tr><tr><td>H</td><td>4.008,93</td><td>5.504,68</td><td>149,58</td></tr><tr><td>I</td><td>4.505,97</td><td>6.355,79</td><td>184,98</td></tr><tr><td>J</td><td>5.068,30</td><td>7.410,17</td><td>234,19</td></tr><tr><td>K</td><td>5.718,08</td><td>8.637,72</td><td>291,96</td></tr></table>"
+  },
+  {
+    "page": 58,
+    "table_id": "tbl-3.html",
+    "format": "html",
+    "content": "<table><tr><th>Bij een mate van arbeidsongeschiktheid</th><th>Bedraagt het uitkeringspercentage</th></tr><tr><td>1 tot 35 %</td><td>1 tot 35% (gelijk aan de mate van arbeidsongeschiktheid)</td></tr><tr><td>35 tot 45%</td><td>40%</td></tr><tr><td>45 tot 55%</td><td>50%</td></tr><tr><td>55 tot 65%</td><td>60%</td></tr><tr><td>65 tot 80%</td><td>72,5%</td></tr><tr><td>80% of hoger</td><td>100%</td></tr></table>"
+  },
+  {
+    "page": 66,
+    "table_id": "tbl-4.html",
+    "format": "html",
+    "content": "<table><tr><th>KM*</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr><td>0 t/m 10</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td></tr><tr><td>11</td><td>15,46</td><td>30,92</td><td>46,38</td><td>61,84</td><td>77,30</td></tr><tr><td>12</td><td>16,86</td><td>33,73</td><td>50,59</td><td>67,46</td><td>84,32</td></tr><tr><td>13</td><td>18,27</td><td>36,54</td><td>54,81</td><td>73,08</td><td>91,35</td></tr><tr><td>14</td><td>19,68</td><td>39,35</td><td>59,03</td><td>78,70</td><td>98,38</td></tr><tr><td>15</td><td>21,08</td><td>42,16</td><td>63,24</td><td>84,32</td><td>105,41</td></tr><tr><td>16</td><td>22,49</td><td>44,97</td><td>67,46</td><td>89,95</td><td>112,43</td></tr><tr><td>17</td><td>23,89</td><td>47,78</td><td>71,68</td><td>95,57</td><td>119,46</td></tr><tr><td>18</td><td>25,30</td><td>50,59</td><td>75,89</td><td>101,19</td><td>126,49</td></tr><tr><td>19</td><td>26,70</td><td>53,41</td><td>80,11</td><td>106,81</td><td>133,51</td></tr><tr><td>20</td><td>28,11</td><td>56,22</td><td>84,32</td><td>112,43</td><td>140,54</td></tr><tr><td>21</td><td>29,51</td><td>59,03</td><td>88,54</td><td>118,05</td><td>147,57</td></tr></table>"
+  },
+  {
+    "page": 67,
+    "table_id": "tbl-5.html",
+    "format": "html",
+    "content": "<table><tr><td>KM*</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>22</td><td>30,92</td><td>61,84</td><td>92,76</td><td>123,68</td><td>154,59</td></tr><tr><td>23</td><td>32,32</td><td>64,65</td><td>96,97</td><td>129,30</td><td>161,62</td></tr><tr><td>24</td><td>33,73</td><td>67,46</td><td>101,19</td><td>134,92</td><td>168,65</td></tr><tr><td>25</td><td>35,14</td><td>70,27</td><td>105,41</td><td>140,54</td><td>175,68</td></tr><tr><td>26</td><td>36,54</td><td>73,08</td><td>109,62</td><td>146,16</td><td>182,70</td></tr><tr><td>27</td><td>37,95</td><td>75,89</td><td>113,84</td><td>151,78</td><td>189,73</td></tr><tr><td>28</td><td>39,35</td><td>78,70</td><td>118,05</td><td>157,40</td><td>196,76</td></tr><tr><td>29</td><td>40,76</td><td>81,51</td><td>122,27</td><td>163,03</td><td>203,78</td></tr><tr><td>30</td><td>42,16</td><td>84,32</td><td>126,49</td><td>168,65</td><td>210,81</td></tr><tr><td>31</td><td>43,57</td><td>87,13</td><td>130,70</td><td>174,27</td><td>217,84</td></tr><tr><td>32</td><td>44,97</td><td>89,95</td><td>134,92</td><td>179,89</td><td>224,86</td></tr><tr><td>33</td><td>46,38</td><td>92,76</td><td>139,13</td><td>185,51</td><td>231,89</td></tr><tr><td>34</td><td>47,78</td><td>95,57</td><td>143,35</td><td>191,13</td><td>238,92</td></tr><tr><td>35</td><td>49,19</td><td>98,38</td><td>147,57</td><td>196,76</td><td>245,95</td></tr><tr><td>36</td><td>50,59</td><td>101,19</td><td>151,78</td><td>202,38</td><td>252,97</td></tr><tr><td>37</td><td>52,00</td><td>104,00</td><td>156,00</td><td>208,00</td><td>260,00</td></tr></table>"
+  },
+  {
+    "page": 67,
+    "table_id": "tbl-6.html",
+    "format": "html",
+    "content": "<table><tr><td>KM*</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>38</td><td>53,41</td><td>106,81</td><td>160,22</td><td>213,62</td><td>267,03</td></tr><tr><td>39</td><td>54,81</td><td>109,62</td><td>164,43</td><td>219,24</td><td>274,05</td></tr><tr><td>40</td><td>56,22</td><td>112,43</td><td>168,65</td><td>224,86</td><td>281,08</td></tr><tr><td>41</td><td>57,62</td><td>115,24</td><td>172,86</td><td>230,49</td><td>288,11</td></tr><tr><td>42</td><td>59,03</td><td>118,05</td><td>177,08</td><td>236,11</td><td>295,13</td></tr><tr><td>43</td><td>60,43</td><td>120,86</td><td>181,30</td><td>241,73</td><td>302,16</td></tr><tr><td>44</td><td>61,84</td><td>123,68</td><td>185,51</td><td>247,35</td><td>309,19</td></tr><tr><td>45</td><td>63,24</td><td>126,49</td><td>189,73</td><td>252,97</td><td>316,22</td></tr><tr><td>46</td><td>64,65</td><td>129,30</td><td>193,95</td><td>258,59</td><td>323,24</td></tr><tr><td>47</td><td>66,05</td><td>132,11</td><td>198,16</td><td>264,22</td><td>330,27</td></tr><tr><td>48</td><td>67,46</td><td>134,92</td><td>202,38</td><td>269,84</td><td>337,30</td></tr><tr><td>49</td><td>68,86</td><td>137,73</td><td>206,59</td><td>275,46</td><td>344,32</td></tr><tr><td>50</td><td>70,27</td><td>140,54</td><td>210,81</td><td>281,08</td><td>351,35</td></tr></table>"
+  },
+  {
+    "page": 92,
+    "table_id": "tbl-7.html",
+    "format": "html",
+    "content": "<table><tr><th>Leeftijd op 1 januari</th><th>Bruto individueel pensioenbudget</th><th>Netto individueel pensioenbudget</th></tr><tr><td>15 tot en met 19</td><td>8,1%</td><td>4,1%</td></tr><tr><td>20 tot en met 24</td><td>9,1%</td><td>4,6%</td></tr><tr><td>25 tot en met 29</td><td>10,6%</td><td>5,4%</td></tr><tr><td>30 tot en met 34</td><td>12,1%</td><td>6,1%</td></tr><tr><td>35 tot en met 39</td><td>13,9%</td><td>7,0%</td></tr><tr><td>40 tot en met 44</td><td>16,0%</td><td>8,1%</td></tr><tr><td>45 tot en met 49</td><td>18,4%</td><td>9,3%</td></tr><tr><td>50 tot en met 54</td><td>21,3%</td><td>10,8%</td></tr><tr><td>55 tot en met 59</td><td>24,5%</td><td>12,4%</td></tr><tr><td>60 tot en met 64</td><td>28,1%</td><td>14,2%</td></tr><tr><td>65 tot en met 67</td><td>31,3%</td><td>15,8%</td></tr></table>"
+  },
+  {
+    "page": 102,
+    "table_id": "tbl-8.html",
+    "format": "html",
+    "content": "<table><tr><th>Dag</th><th>Tijd</th><th>Toeslag</th></tr><tr><td rowspan=\"5\">Maandag</td><td>van 00.00 tot 06.00 uur</td><td>65%</td></tr><tr><td>van 06.00 tot 08.00 uur</td><td>28%</td></tr><tr><td>van 08.00 tot 18.00 uur</td><td>geen</td></tr><tr><td>van 18.00 tot 20.00 uur</td><td>28%</td></tr><tr><td>van 20.00 tot 24.00 uur</td><td>42%</td></tr></table>"
+  },
+  {
+    "page": 102,
+    "table_id": "tbl-9.html",
+    "format": "html",
+    "content": "<table><tr><td rowspan=\"5\">dinsdag tot en met donderdag</td><td>van 00.00 tot 06.00 uur</td><td>42%</td></tr><tr><td>van 06.00 tot 08.00 uur</td><td>28%</td></tr><tr><td>van 08.00 tot 18.00 uur</td><td>geen</td></tr><tr><td>van 18.00 tot 20.00 uur</td><td>28%</td></tr><tr><td>van 20.00 tot 24.00 uur</td><td>42%</td></tr></table>"
+  },
+  {
+    "page": 102,
+    "table_id": "tbl-10.html",
+    "format": "html",
+    "content": "<table><tr><td rowspan=\"6\">vrijdag</td><td>van 00.00 tot 06.00 uur</td><td>42%</td></tr><tr><td>van 06.00 tot 08.00 uur</td><td>28%</td></tr><tr><td>van 08.00 tot 18.00 uur</td><td>geen</td></tr><tr><td>van 18.00 tot 20.00 uur</td><td>28%</td></tr><tr><td>van 20.00 tot 23.00 uur</td><td>42%</td></tr><tr><td>van 23.00 tot 24.00 uur</td><td>65%</td></tr></table>"
+  },
+  {
+    "page": 102,
+    "table_id": "tbl-11.html",
+    "format": "html",
+    "content": "<table><tr><td>zaterdag, zondag</td><td>hele dag</td><td>65%</td></tr></table>"
+  },
+  {
+    "page": 103,
+    "table_id": "tbl-12.html",
+    "format": "html",
+    "content": "<table><tr><th>Dag</th><th>Tijd</th><th>Toeslag</th></tr><tr><td>Feestdagen</td><td>hele dag</td><td>65%</td></tr><tr><td>- Nieuwjaarsdag</td><td></td><td></td></tr><tr><td>- eerste en tweede paasdag</td><td></td><td></td></tr><tr><td>- Koningsdag</td><td></td><td></td></tr><tr><td>- 5 mei (1 keer per 5 jaar, het lustrumjaar)</td><td></td><td></td></tr><tr><td>- Hemelvaartsdag</td><td></td><td></td></tr><tr><td>- eerste en tweede pinksterdag</td><td></td><td></td></tr><tr><td>- eerste en tweede kerstdag</td><td></td><td></td></tr><tr><td>- 5, 24 en 31 december: de middag/avonddienst</td><td></td><td></td></tr></table>"
+  }
+]

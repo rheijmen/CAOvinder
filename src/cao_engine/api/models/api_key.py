@@ -1,10 +1,10 @@
 """API Key models for customer authentication."""
 
-from datetime import datetime
-from typing import Optional
-from pydantic import BaseModel, Field
-import secrets
 import hashlib
+import secrets
+from datetime import datetime
+
+from pydantic import BaseModel, Field
 
 
 class APIKey(BaseModel):
@@ -16,7 +16,7 @@ class APIKey(BaseModel):
     key_hash: str = Field(description="Hashed API key")
     key_prefix: str = Field(description="Key prefix for identification")
     created_at: datetime = Field(default_factory=datetime.now)
-    last_used: Optional[datetime] = None
+    last_used: datetime | None = None
     is_active: bool = True
 
     # Usage limits
@@ -66,12 +66,12 @@ class Customer(BaseModel):
     monthly_limit: int = Field(default=10000)
 
     # Billing
-    stripe_customer_id: Optional[str] = None
-    stripe_subscription_id: Optional[str] = None
+    stripe_customer_id: str | None = None
+    stripe_subscription_id: str | None = None
 
     # Contact
-    contact_name: Optional[str] = None
-    phone: Optional[str] = None
+    contact_name: str | None = None
+    phone: str | None = None
 
     # Features
     webhook_enabled: bool = False

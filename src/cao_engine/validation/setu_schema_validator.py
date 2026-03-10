@@ -1,11 +1,11 @@
 """SETU v2.0 Schema Validator using official OpenAPI specification."""
 
 import json
-import yaml
-from pathlib import Path
-from typing import Dict, List, Any, Optional
 from decimal import Decimal
-import jsonschema
+from pathlib import Path
+from typing import Any
+
+import yaml
 from jsonschema import Draft202012Validator
 from pydantic import BaseModel
 
@@ -14,8 +14,8 @@ class SchemaValidationError(BaseModel):
     """Represents a schema validation error."""
     path: str
     message: str
-    schema_rule: Optional[str] = None
-    instance_value: Optional[Any] = None
+    schema_rule: str | None = None
+    instance_value: Any | None = None
     severity: str = "error"  # error, warning
 
 
@@ -24,8 +24,8 @@ class SchemaValidationReport(BaseModel):
     cao_name: str
     document_id: str
     is_valid: bool
-    errors: List[SchemaValidationError] = []
-    warnings: List[SchemaValidationError] = []
+    errors: list[SchemaValidationError] = []
+    warnings: list[SchemaValidationError] = []
     coverage_percentage: float = 0.0
 
     @property
@@ -40,13 +40,13 @@ class SchemaValidationReport(BaseModel):
 class SETUSchemaValidator:
     """Validates SETU JSON against official OpenAPI schema."""
 
-    def __init__(self, schema_path: Optional[Path] = None):
+    def __init__(self, schema_path: Path | None = None):
         """Initialize validator with SETU OpenAPI schema."""
         if schema_path is None:
             schema_path = Path(__file__).parent.parent / "models" / "setu_v2_openapi.yaml"
 
         # Load and parse OpenAPI schema
-        with open(schema_path, 'r') as f:
+        with open(schema_path) as f:
             self.openapi_spec = yaml.safe_load(f)
 
         # Extract the InquiryPayEquity schema
@@ -58,7 +58,7 @@ class SETUSchemaValidator:
         # Required fields from schema
         self.required_fields = self._extract_required_fields()
 
-    def _extract_setu_schema(self) -> Dict:
+    def _extract_setu_schema(self) -> dict:
         """Extract SETU InquiryPayEquity schema from OpenAPI spec."""
         # Get the main schema
         inquiry_schema = self.openapi_spec['components']['schemas']['InquiryPayEquity']
@@ -104,11 +104,11 @@ class SETUSchemaValidator:
 
         return current
 
-    def _extract_required_fields(self) -> List[str]:
+    def _extract_required_fields(self) -> list[str]:
         """Extract list of required fields from schema."""
         return self.setu_schema.get('required', [])
 
-    def validate(self, setu_data: Dict) -> SchemaValidationReport:
+    def validate(self, setu_data: dict) -> SchemaValidationReport:
         """Validate SETU data against official schema."""
 
         report = SchemaValidationReport(
@@ -159,7 +159,7 @@ class SETUSchemaValidator:
 
         return report
 
-    def _validate_business_rules(self, data: Dict, report: SchemaValidationReport):
+    def _validate_business_rules(self, data: dict, report: SchemaValidationReport):
         """Validate SETU-specific business rules."""
 
         # Rule 1: effectivePeriod.validFrom must be before validTo
@@ -203,7 +203,7 @@ class SETUSchemaValidator:
                                         ))
                                     prev_amount = curr_amount
 
-    def _calculate_coverage(self, data: Dict) -> float:
+    def _calculate_coverage(self, data: dict) -> float:
         """Calculate percentage of schema fields that are filled."""
 
         # Define key fields and their weights
@@ -242,7 +242,7 @@ class SETUSchemaValidator:
 
     def validate_file(self, json_path: Path) -> SchemaValidationReport:
         """Validate a SETU JSON file."""
-        with open(json_path, 'r') as f:
+        with open(json_path) as f:
             data = json.load(f)
 
         return self.validate(data)
@@ -251,8 +251,8 @@ class SETUSchemaValidator:
         """Generate human-readable validation report."""
 
         lines = [
-            f"SETU v2.0 Schema Validation Report",
-            f"=" * 50,
+            "SETU v2.0 Schema Validation Report",
+            "=" * 50,
             f"CAO: {report.cao_name}",
             f"Document ID: {report.document_id}",
             f"Valid: {'✅ YES' if report.is_valid else '❌ NO'}",

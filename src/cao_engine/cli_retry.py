@@ -4,15 +4,15 @@ Allows continuing from a failed step without re-running successful steps
 """
 import json
 from pathlib import Path
-from typing import Optional
-import typer
-from rich.console import Console
-from pydantic import BaseModel
 
-from cao_engine.config import Settings
-from cao_engine.extraction.mistral_reviewer import MistralReviewer
-from cao_engine.extraction.mistral_judge import MistralJudge
+import typer
+from pydantic import BaseModel
+from rich.console import Console
+
 from cao_engine.compliance.setu_compliance_engine import SETUComplianceEngine
+from cao_engine.config import Settings
+from cao_engine.extraction.mistral_judge import MistralJudge
+from cao_engine.extraction.mistral_reviewer import MistralReviewer
 
 console = Console()
 app = typer.Typer()
@@ -22,12 +22,12 @@ class PipelineState(BaseModel):
     cao_name: str
     ocr_file: str
     gemini_complete: bool = False
-    gemini_output_file: Optional[str] = None
+    gemini_output_file: str | None = None
     mistral_complete: bool = False
-    mistral_output_file: Optional[str] = None
+    mistral_output_file: str | None = None
     judge_complete: bool = False
-    judge_output_file: Optional[str] = None
-    final_setu_file: Optional[str] = None
+    judge_output_file: str | None = None
+    final_setu_file: str | None = None
 
     def save(self, path: Path):
         """Save state to JSON file"""
@@ -43,7 +43,7 @@ class PipelineState(BaseModel):
 def retry_from_step(
     ocr_file: str = typer.Argument(help="Path to OCR markdown file"),
     step: int = typer.Option(2, help="Step to retry from (1=Gemini, 2=Mistral, 3=Judge)"),
-    cao: Optional[str] = typer.Option(None, help="CAO name (if not in state file)"),
+    cao: str | None = typer.Option(None, help="CAO name (if not in state file)"),
 ):
     """Retry 3-LLM pipeline from a specific step"""
     settings = Settings()
@@ -60,7 +60,7 @@ def retry_from_step(
     state_file = settings.setu_raw_dir / "pipeline_state" / f"{ocr_path.stem}.state.json"
 
     if state_file.exists():
-        console.print(f"[green]Found pipeline state file[/green]")
+        console.print("[green]Found pipeline state file[/green]")
         state = PipelineState.load(state_file)
         cao_name = cao or state.cao_name
     else:
@@ -85,7 +85,7 @@ def retry_from_step(
             console.print(f"[red]Error: Gemini output not found: {gemini_file}[/red]")
             raise typer.Exit(1)
 
-        console.print(f"\n[bold]Step 1/3:[/bold] Loading existing Gemini output")
+        console.print("\n[bold]Step 1/3:[/bold] Loading existing Gemini output")
         with open(gemini_file) as f:
             gemini_output = json.load(f)
         console.print(f"  ✓ Loaded from: {gemini_file.name}")
@@ -94,7 +94,7 @@ def retry_from_step(
     # Step 2: Mistral Review (if needed)
     mistral_output = None
     if step <= 2:
-        console.print(f"\n[bold]Step 2/3:[/bold] Mistral Large (Reviewer) - RETRY")
+        console.print("\n[bold]Step 2/3:[/bold] Mistral Large (Reviewer) - RETRY")
         reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction)
 
         try:
@@ -124,7 +124,7 @@ def retry_from_step(
             console.print(f"[red]Error: Mistral output not found: {mistral_file}[/red]")
             raise typer.Exit(1)
 
-        console.print(f"\n[bold]Step 2/3:[/bold] Loading existing Mistral output")
+        console.print("\n[bold]Step 2/3:[/bold] Loading existing Mistral output")
         with open(mistral_file) as f:
             mistral_output = json.load(f)
         console.print(f"  ✓ Loaded from: {mistral_file.name}")
@@ -132,7 +132,7 @@ def retry_from_step(
 
     # Step 3: Judge (if we got this far)
     if mistral_output:
-        console.print(f"\n[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
+        console.print("\n[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
         judge = MistralJudge(settings.mistral_api_key)
 
         try:
@@ -154,7 +154,7 @@ def retry_from_step(
             console.print(f"  Fields in final: {len([k for k in final_setu.keys() if final_setu[k]])}")
 
             # Run compliance check on final output
-            console.print(f"\n[bold]Final Compliance Check:[/bold]")
+            console.print("\n[bold]Final Compliance Check:[/bold]")
             compliance = SETUComplianceEngine()
             validation = compliance.validate(final_setu)
 
@@ -167,7 +167,7 @@ def retry_from_step(
             state.judge_output_file = str(report_file)
             state.final_setu_file = str(setu_file)
 
-            console.print(f"\n[bold green]✓ Pipeline retry completed successfully![/bold green]")
+            console.print("\n[bold green]✓ Pipeline retry completed successfully![/bold green]")
         except Exception as e:
             console.print(f"[red]  ✗ Judge failed: {e}[/red]")
             raise typer.Exit(1)

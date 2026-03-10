@@ -1,0 +1,348 @@
+{
+  "documentId": {
+    "value": "achmea-2023-12-01-tm-2025-08-31",
+    "schemeAgencyId": "Customer"
+  },
+  "effectivePeriod": {
+    "validFrom": "2023-12-01",
+    "validTo": "2025-08-31"
+  },
+  "customer": {
+    "name": "Achmea",
+    "legalId": [
+      {
+        "value": "achmea",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "CAO Administrator"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group A",
+          "currency": "EUR",
+          "minValue": 1919.37,
+          "maxValue": 2047.42
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group B",
+          "currency": "EUR",
+          "minValue": 1951.69,
+          "maxValue": 2321.24
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group C",
+          "currency": "EUR",
+          "minValue": 1996.65,
+          "maxValue": 2633.74
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group D",
+          "currency": "EUR",
+          "minValue": 2145.05,
+          "maxValue": 2987.41
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group E",
+          "currency": "EUR",
+          "minValue": 2432.16,
+          "maxValue": 3389.31
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group F",
+          "currency": "EUR",
+          "minValue": 2787.15,
+          "maxValue": 3843.77
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group G",
+          "currency": "EUR",
+          "minValue": 3131.95,
+          "maxValue": 4361.01
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group H",
+          "currency": "EUR",
+          "minValue": 3554.74,
+          "maxValue": 4946.69
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group I",
+          "currency": "EUR",
+          "minValue": 4032.66,
+          "maxValue": 5612.86
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group J",
+          "currency": "EUR",
+          "minValue": 4573.37,
+          "maxValue": 6367.79
+        }
+      ]
+    },
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group K",
+          "currency": "EUR",
+          "minValue": 5186.93,
+          "maxValue": 7224.19
+        }
+      ]
+    }
+  ],
+  "versionId": {
+    "value": "v20232025"
+  },
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": []
+    }
+  ]
+}

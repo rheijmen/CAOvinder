@@ -477,7 +477,7 @@ def validate_cross_reference(
             raise typer.Exit(1)
         statutory_data = json.loads(statutory_path.read_text(encoding="utf-8"))
 
-    console.print(f"[bold cyan]Validating SETU ↔ Statutory cross-references[/bold cyan]")
+    console.print("[bold cyan]Validating SETU ↔ Statutory cross-references[/bold cyan]")
     console.print(f"[dim]SETU Document: {setu_id}[/dim]")
     console.print(f"[dim]Statutory Period: {statutory_data.get('effectivePeriod', {})}[/dim]\n")
 
@@ -496,7 +496,7 @@ def validate_cross_reference(
     infos = [i for i in report.issues if i.severity == ValidationSeverity.INFO]
 
     # Summary
-    console.print(f"\n[bold]Validation Summary:[/bold]")
+    console.print("\n[bold]Validation Summary:[/bold]")
     console.print(f"  [red]Critical:[/red] {len(criticals)}")
     console.print(f"  [red]Errors:[/red] {len(errors)}")
     console.print(f"  [yellow]Warnings:[/yellow] {len(warnings)}")
@@ -625,7 +625,9 @@ def triage_raw(
     """
     settings = _get_settings()
     from cao_engine.collection.triage import (
-        TriageAction, execute_triage, triage_directory,
+        TriageAction,
+        execute_triage,
+        triage_directory,
     )
 
     dest = raw_dir or settings.raw_dir
@@ -732,18 +734,23 @@ def extract_setu_pipeline(
     settings.ensure_dirs()
 
     from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
-    from cao_engine.extraction.mistral_reviewer import MistralReviewer
     from cao_engine.extraction.mistral_judge import MistralJudge
+    from cao_engine.extraction.mistral_reviewer import MistralReviewer
 
     # Read OCR markdown
     markdown_text = ocr_path.read_text(encoding="utf-8")
-    console.print(f"[bold cyan]3-LLM SETU Pipeline[/bold cyan]")
+    console.print("[bold cyan]3-LLM SETU Pipeline[/bold cyan]")
     console.print(f"Input: {ocr_path.name} ({len(markdown_text):,} chars)")
     console.print(f"CAO: {cao or 'Unknown'}\n")
 
     # Step 1: Gemini Primary Extraction
-    console.print("[bold]Step 1/3:[/bold] Gemini 2.5 Flash (Primary Extractor)")
-    gemini = GeminiPrimaryExtractor(settings.google_api_key, settings.gemini_model)
+    console.print(f"[bold]Step 1/3:[/bold] {settings.gemini_model} (Primary Extractor)")
+    console.print(f"[dim]  Thinking level: {settings.gemini_thinking_level}[/dim]")
+    gemini = GeminiPrimaryExtractor(
+        settings.google_api_key,
+        settings.gemini_model,
+        settings.gemini_thinking_level
+    )
     gemini_output = gemini.extract(markdown_text, cao)
 
     # Save Gemini's output
@@ -796,6 +803,113 @@ def extract_setu_pipeline(
 
 
 @app.command()
+def extract_setu_hybrid(
+    pdf_path: Path = typer.Argument(..., help="Path to CAO PDF file"),
+    markdown_path: Path | None = typer.Option(None, "--markdown", help="Path to OCR markdown (auto-detected if not provided)"),
+    cao: str | None = typer.Option(None, "--cao", help="CAO name for metadata"),
+) -> None:
+    """Extract SETU v2.0 using HYBRID pipeline: Mistral table annotation + Gemini 3.0 full extraction.
+
+    New V3 architecture:
+    1. Mistral Document AI - Schema-enforced table annotation (salary scales with Pydantic validation)
+    2. Gemini 3.0 Flash Preview - Complete SETU extraction (1M context, thinking mode)
+    3. Intelligent merge - Use Mistral tables (high confidence) + Gemini rest (flexibility)
+
+    Benefits over 3-LLM pipeline:
+    - 50% faster (2 API calls instead of 4)
+    - Guaranteed correct table structure (Pydantic schema enforcement)
+    - No review/judge complexity
+    - Better salary table accuracy
+
+    Outputs:
+    - data/setu/*.setu.json - Final merged SETU v2.0
+    - data/setu_reports/*.hybrid_report.json - Extraction report with confidence scores
+    """
+    settings = _get_settings()
+    settings.ensure_dirs()
+
+    from cao_engine.extraction.hybrid_pipeline_v3 import HybridPipelineV3
+
+    # Validate PDF exists
+    if not pdf_path.exists():
+        console.print(f"[red]PDF not found: {pdf_path}[/red]")
+        raise typer.Exit(1)
+
+    # Auto-detect markdown if not provided
+    if markdown_path is None:
+        # Try data/ocr_mistral_ai/*.docai.md first (new OCR)
+        docai_md = settings.data_dir / "ocr_mistral_ai" / f"{pdf_path.stem}.docai.md"
+        if docai_md.exists():
+            markdown_path = docai_md
+        else:
+            # Fall back to data/ocr/*.md (old OCR)
+            old_ocr_md = settings.data_dir / "ocr" / f"{pdf_path.stem}.md"
+            if old_ocr_md.exists():
+                markdown_path = old_ocr_md
+            else:
+                console.print(f"[red]No OCR markdown found for {pdf_path.name}[/red]")
+                console.print("[yellow]Run: python -m cao_engine process-single {pdf_path}[/yellow]")
+                raise typer.Exit(1)
+
+    if not markdown_path.exists():
+        console.print(f"[red]Markdown not found: {markdown_path}[/red]")
+        raise typer.Exit(1)
+
+    cao_name = cao or pdf_path.stem
+
+    console.print("[bold cyan]HYBRID Pipeline V3[/bold cyan]")
+    console.print(f"PDF: {pdf_path.name}")
+    console.print(f"Markdown: {markdown_path.name}")
+    console.print(f"CAO: {cao_name}\n")
+
+    # Initialize hybrid pipeline
+    pipeline = HybridPipelineV3(
+        mistral_api_key=settings.mistral_api_key,
+        gemini_api_key=settings.google_api_key,
+        gemini_model=settings.gemini_model,
+        gemini_thinking_level=settings.gemini_thinking_level
+    )
+
+    # Run extraction
+    result = pipeline.extract(pdf_path, markdown_path, cao_name)
+
+    # Save final SETU
+    setu_file = settings.setu_dir / f"{pdf_path.stem}.setu.json"
+    setu_file.write_text(json.dumps(result.setu_data, indent=2, ensure_ascii=False))
+
+    # Save hybrid report
+    report = {
+        "cao_name": cao_name,
+        "pdf_path": str(pdf_path),
+        "markdown_path": str(markdown_path),
+        "extracted_at": result.setu_data.get("_hybrid_pipeline_metadata", {}).get("extracted_at"),
+        "confidence_score": result.confidence_score,
+        "mistral_tables": {
+            "scales_count": len(result.table_extraction.salary_scales),
+            "confidence": result.table_extraction.confidence_score,
+            "extraction_notes": result.table_extraction.extraction_notes
+        },
+        "merge_notes": result.merge_notes
+    }
+    report_file = settings.setu_reports_dir / f"{pdf_path.stem}.hybrid_report.json"
+    report_file.write_text(json.dumps(report, indent=2, ensure_ascii=False))
+
+    console.print(Panel(
+        f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
+        f"[blue]✓ Hybrid Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
+        f"[bold]Extraction Statistics:[/bold]\n"
+        f"  Overall confidence: {result.confidence_score:.2f}\n"
+        f"  Mistral salary scales: {len(result.table_extraction.salary_scales)}\n"
+        f"  Mistral table confidence: {result.table_extraction.confidence_score:.2f}\n"
+        f"  Merge notes: {len(result.merge_notes)}",
+        title="✅ Hybrid Pipeline V3 Complete",
+    ))
+
+
+# --- Timeline Commands ---
+
+
+@app.command()
 def generate_timeline(
     cao_naam: str = typer.Argument(..., help="Name of the CAO to generate timeline for"),
     format: str = typer.Option("both", "--format", help="Output format: html, json, or both"),
@@ -806,8 +920,8 @@ def generate_timeline(
     """Generate a visual timeline for a specific CAO."""
     from cao_engine.storage.moment_store import MomentStore
     from cao_engine.timeline.generator import TimelineGenerator
-    from cao_engine.timeline.visualization import TimelineVisualizer
     from cao_engine.timeline.storage import TimelineStorage
+    from cao_engine.timeline.visualization import TimelineVisualizer
 
     settings = _get_settings()
 
@@ -882,7 +996,7 @@ def generate_timeline(
             console.print(f"  JSON: {json_path}")
         if html_path:
             console.print(f"  HTML: {html_path}")
-            console.print(f"\n[yellow]Open the HTML file in a browser to view the interactive timeline[/yellow]")
+            console.print("\n[yellow]Open the HTML file in a browser to view the interactive timeline[/yellow]")
 
     except Exception as e:
         console.print(f"[red]Error generating timeline: {e}[/red]")
@@ -899,8 +1013,8 @@ def generate_all_timelines(
     """Generate timelines for all CAOs with available moments."""
     from cao_engine.storage.moment_store import MomentStore
     from cao_engine.timeline.generator import TimelineGenerator
-    from cao_engine.timeline.visualization import TimelineVisualizer
     from cao_engine.timeline.storage import TimelineStorage
+    from cao_engine.timeline.visualization import TimelineVisualizer
 
     settings = _get_settings()
 
@@ -974,7 +1088,7 @@ def generate_all_timelines(
     ))
 
     if format in ["html", "both"]:
-        console.print(f"\n[yellow]Open data/timelines/index.html in a browser to view all timelines[/yellow]")
+        console.print("\n[yellow]Open data/timelines/index.html in a browser to view all timelines[/yellow]")
 
 
 @app.command()
@@ -1016,3 +1130,48 @@ def list_timelines(
 
 if __name__ == "__main__":
     app()
+
+
+@app.command()
+def extract_setu_mistral_hybrid(
+    pdf_path: Path = typer.Argument(..., help="Path to CAO PDF file"),
+    markdown_path: Path | None = typer.Option(None, "--markdown", help="Path to OCR markdown (auto-detected if not provided)"),
+    cao: str | None = typer.Option(None, "--cao", help="CAO name for metadata"),
+) -> None:
+    """Extract SETU v2.0 using MISTRAL-ONLY hybrid pipeline: Document AI tables + Large full extraction."""
+    settings = _get_settings()
+    settings.ensure_dirs()
+
+    from cao_engine.extraction.hybrid_pipeline_mistral import HybridPipelineMistral
+
+    if not pdf_path.exists():
+        console.print(f"[red]❌ PDF not found: {pdf_path}[/red]")
+        raise typer.Exit(1)
+
+    # Auto-detect markdown
+    if markdown_path is None:
+        docai_md = settings.data_dir / "ocr_mistral_ai" / f"{pdf_path.stem}.docai.md"
+        if docai_md.exists():
+            markdown_path = docai_md
+        else:
+            old_ocr_md = settings.data_dir / "ocr" / f"{pdf_path.stem}.md"
+            if old_ocr_md.exists():
+                markdown_path = old_ocr_md
+            else:
+                console.print("[red]❌ No OCR markdown found[/red]")
+                raise typer.Exit(1)
+
+    cao_name = cao or pdf_path.stem
+
+    console.print(Panel(f"[bold cyan]MISTRAL-ONLY Hybrid Pipeline[/bold cyan]\nPDF: {pdf_path.name}\nMarkdown: {markdown_path.name}\nCAO: {cao_name}", title="🚀 Pure-Mistral Hybrid"))
+
+    pipeline = HybridPipelineMistral(mistral_api_key=settings.mistral_api_key, mistral_model=settings.extraction_model)
+    result = pipeline.extract(pdf_path, markdown_path, cao_name)
+
+    setu_file = settings.setu_dir / f"{pdf_path.stem}.setu.json"
+    setu_file.write_text(json.dumps(result.setu_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    table_file = settings.setu_dir / f"{pdf_path.stem}.tables.json"
+    table_file.write_text(result.table_extraction.model_dump_json(indent=2), encoding="utf-8")
+
+    console.print(Panel(f"  Final SETU: {setu_file}\n  Salary scales: {len(result.table_extraction.salary_scales)}\n  Elapsed: {result.elapsed_seconds:.1f}s", title="✅ Complete"))
