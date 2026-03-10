@@ -343,7 +343,36 @@ class HybridPipelineMistral:
             "extracted_at": datetime.now().isoformat(),
         }
 
-        return merged, merge_notes
+        # CRITICAL: Remove non-SETU properties before returning (for official validator compliance)
+        merged_clean = self._remove_non_setu_properties(merged)
+
+        return merged_clean, merge_notes
+
+    def _remove_non_setu_properties(self, setu_dict: dict) -> dict:
+        """Remove all properties not in SETU v2.0 InquiryPayEquity specification.
+
+        The official SETU validator has `additionalProperties: false`, so any fields
+        not in the spec will cause validation errors.
+
+        SETU v2.0 InquiryPayEquity allowed root properties (18 total):
+        - documentId, versionId, effectivePeriod, customer
+        - remuneration, leave, pension, benefits
+        - workingConditions, training, careerDevelopment
+        - healthAndSafety, disputeResolution, termination
+        - dataProtection, amendments, signatures, attachments
+        """
+        ALLOWED_ROOT_PROPERTIES = {
+            "documentId", "versionId", "effectivePeriod", "customer",
+            "remuneration", "leave", "pension", "benefits",
+            "workingConditions", "training", "careerDevelopment",
+            "healthAndSafety", "disputeResolution", "termination",
+            "dataProtection", "amendments", "signatures", "attachments",
+        }
+
+        # Create clean dict with only allowed properties
+        clean_dict = {k: v for k, v in setu_dict.items() if k in ALLOWED_ROOT_PROPERTIES}
+
+        return clean_dict
 
     def _convert_mistral_tables_to_setu(
         self,
