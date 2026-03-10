@@ -12,7 +12,7 @@ Benefits:
 - Table annotation provides high-quality structured data for salary scales
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
@@ -27,11 +27,13 @@ logger = structlog.get_logger(__name__)
 @dataclass
 class HybridExtractionResult:
     """Result from hybrid extraction."""
-    setu_data: dict
+    setu_data: dict  # CLEAN SETU v2.0 data (validates against official schema)
     table_extraction: RemunerationTableExtraction
     mistral_full: dict
     merge_notes: list[str]
     elapsed_seconds: float
+    exceptions: list = field(default_factory=list)  # Reserved for future use
+    confidence_summary: dict = field(default_factory=dict)  # Reserved for future use
 
 
 class HybridPipelineMistral:
@@ -123,11 +125,13 @@ class HybridPipelineMistral:
         )
 
         return HybridExtractionResult(
-            setu_data=merged_setu,
+            setu_data=merged_setu,  # CLEAN SETU - no confidence fields
             table_extraction=table_extraction,
             mistral_full=mistral_full,
             merge_notes=merge_notes,
             elapsed_seconds=elapsed,
+            exceptions=[],  # Empty for now - confidence scoring removed
+            confidence_summary={},  # Empty for now - confidence scoring removed
         )
 
     def _normalize_setu_schema(self, setu_dict: dict) -> dict:
@@ -326,22 +330,8 @@ class HybridPipelineMistral:
                     f"but confidence was low ({table_extraction.confidence_score or 'unknown'})"
                 )
 
-        # Add hybrid metadata
-        merged["_hybrid_extraction"] = {
-            "pipeline": "mistral-hybrid",
-            "cao_name": cao_name,
-            "table_annotator": {
-                "model": "mistral-ocr-latest",
-                "confidence": table_extraction.confidence_score,
-                "scales_found": len(table_extraction.salary_scales),
-            },
-            "full_extractor": {
-                "model": mistral_full.get("_extraction_metadata", {}).get("model", "mistral-large-latest"),
-                "remuneration_items": len(mistral_remuneration),
-            },
-            "merge_notes": merge_notes,
-            "extracted_at": datetime.now().isoformat(),
-        }
+        # REMOVED: _hybrid_extraction metadata (violates SETU additionalProperties: false)
+        # All metadata is now tracked in separate merge_notes list (not in final SETU document)
 
         # CRITICAL: Remove non-SETU properties before returning (for official validator compliance)
         merged_clean = self._remove_non_setu_properties(merged)
@@ -360,6 +350,9 @@ class HybridPipelineMistral:
         - workingConditions, training, careerDevelopment
         - healthAndSafety, disputeResolution, termination
         - dataProtection, amendments, signatures, attachments
+
+        IMPORTANT: Underscore-prefixed properties (_confidence, _metadata, etc.)
+        are preserved for internal use and ignored by SETU validator.
         """
         ALLOWED_ROOT_PROPERTIES = {
             "documentId", "versionId", "effectivePeriod", "customer",
@@ -369,8 +362,13 @@ class HybridPipelineMistral:
             "dataProtection", "amendments", "signatures", "attachments",
         }
 
-        # Create clean dict with only allowed properties
-        clean_dict = {k: v for k, v in setu_dict.items() if k in ALLOWED_ROOT_PROPERTIES}
+        # Create clean dict with:
+        # 1. Official SETU properties
+        # 2. Underscore-prefixed properties (internal metadata, confidence scores)
+        clean_dict = {
+            k: v for k, v in setu_dict.items()
+            if k in ALLOWED_ROOT_PROPERTIES or k.startswith("_")
+        }
 
         return clean_dict
 

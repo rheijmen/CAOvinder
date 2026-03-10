@@ -1,11 +1,11 @@
 {
   "documentId": {
-    "value": "CAO-2023-2025"
+    "value": "CAO-Achmea-2023-2025",
+    "schemeAgencyId": "Customer"
   },
   "versionId": {
     "value": "1.0"
   },
-  "issued": "2024-06-15T00:00:00Z",
   "effectivePeriod": {
     "validFrom": "2023-12-01",
     "validTo": "2025-08-31"
@@ -14,7 +14,8 @@
     "name": "Achmea Interne Diensten N.V.",
     "legalId": [
       {
-        "value": "KVK 30209985"
+        "value": "KvK 30203705",
+        "schemeAgencyId": "KvK"
       }
     ],
     "personContacts": [
@@ -22,7 +23,7 @@
         "name": {
           "formattedName": "J.J. Blok"
         },
-        "role": "HR Director"
+        "roleCode": "HR Director"
       }
     ]
   },
@@ -32,554 +33,403 @@
         "type": "CollectiveLabourAgreement"
       },
       "workDuration": {
-        "amount": 38.0,
-        "interval": {
-          "code": "Week"
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
         },
-        "valuePerWeek": 38.0
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
       },
       "interval": {
-        "code": "Month"
+        "value": 1,
+        "unitCode": "Month"
       },
       "salaryScale": [
         {
-          "name": "Schaal A",
+          "name": "Group A",
           "minValue": 2500.0,
-          "maxValue": 3000.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 2500.0
-            },
-            {
-              "name": 1,
-              "value": 2600.0
-            },
-            {
-              "name": 2,
-              "value": 2700.0
-            },
-            {
-              "name": 3,
-              "value": 2800.0
-            },
-            {
-              "name": 4,
-              "value": 2900.0
-            },
-            {
-              "name": 5,
-              "value": 3000.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal B",
-          "minValue": 3000.0,
           "maxValue": 3500.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": 0,
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2750.0
+            },
+            {
+              "name": "2",
               "value": 3000.0
             },
             {
-              "name": 1,
-              "value": 3100.0
+              "name": "3",
+              "value": 3250.0
             },
             {
-              "name": 2,
-              "value": 3200.0
-            },
-            {
-              "name": 3,
-              "value": 3300.0
-            },
-            {
-              "name": 4,
-              "value": 3400.0
-            },
-            {
-              "name": 5,
+              "name": "4",
               "value": 3500.0
             }
           ]
         },
         {
-          "name": "Schaal C",
-          "minValue": 3500.0,
+          "name": "Group B",
+          "minValue": 3000.0,
           "maxValue": 4000.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": 0,
+              "name": "0",
+              "value": 3000.0
+            },
+            {
+              "name": "1",
+              "value": 3250.0
+            },
+            {
+              "name": "2",
               "value": 3500.0
             },
             {
-              "name": 1,
-              "value": 3600.0
+              "name": "3",
+              "value": 3750.0
             },
             {
-              "name": 2,
-              "value": 3700.0
-            },
-            {
-              "name": 3,
-              "value": 3800.0
-            },
-            {
-              "name": 4,
-              "value": 3900.0
-            },
-            {
-              "name": 5,
+              "name": "4",
               "value": 4000.0
             }
           ]
         },
         {
-          "name": "Schaal D",
-          "minValue": 4000.0,
+          "name": "Group C",
+          "minValue": 3500.0,
           "maxValue": 4500.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": 0,
+              "name": "0",
+              "value": 3500.0
+            },
+            {
+              "name": "1",
+              "value": 3750.0
+            },
+            {
+              "name": "2",
               "value": 4000.0
             },
             {
-              "name": 1,
-              "value": 4100.0
+              "name": "3",
+              "value": 4250.0
             },
             {
-              "name": 2,
-              "value": 4200.0
-            },
-            {
-              "name": 3,
-              "value": 4300.0
-            },
-            {
-              "name": 4,
-              "value": 4400.0
-            },
-            {
-              "name": 5,
+              "name": "4",
               "value": 4500.0
             }
           ]
         },
         {
-          "name": "Schaal E",
-          "minValue": 4500.0,
+          "name": "Schaal 1",
+          "minValue": 2000.0,
+          "maxValue": 3000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2000.0
+            },
+            {
+              "name": "1",
+              "value": 2250.0
+            },
+            {
+              "name": "2",
+              "value": 2500.0
+            },
+            {
+              "name": "3",
+              "value": 2750.0
+            },
+            {
+              "name": "4",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2500.0,
+          "maxValue": 3500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2750.0
+            },
+            {
+              "name": "2",
+              "value": 3000.0
+            },
+            {
+              "name": "3",
+              "value": 3250.0
+            },
+            {
+              "name": "4",
+              "value": 3500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 3",
+          "minValue": 3000.0,
+          "maxValue": 4000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3000.0
+            },
+            {
+              "name": "1",
+              "value": 3250.0
+            },
+            {
+              "name": "2",
+              "value": 3500.0
+            },
+            {
+              "name": "3",
+              "value": 3750.0
+            },
+            {
+              "name": "4",
+              "value": 4000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 4",
+          "minValue": 3500.0,
+          "maxValue": 4500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3500.0
+            },
+            {
+              "name": "1",
+              "value": 3750.0
+            },
+            {
+              "name": "2",
+              "value": 4000.0
+            },
+            {
+              "name": "3",
+              "value": 4250.0
+            },
+            {
+              "name": "4",
+              "value": 4500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 5",
+          "minValue": 4000.0,
           "maxValue": 5000.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": 0,
+              "name": "0",
+              "value": 4000.0
+            },
+            {
+              "name": "1",
+              "value": 4250.0
+            },
+            {
+              "name": "2",
               "value": 4500.0
             },
             {
-              "name": 1,
-              "value": 4600.0
+              "name": "3",
+              "value": 4750.0
             },
             {
-              "name": 2,
-              "value": 4700.0
-            },
-            {
-              "name": 3,
-              "value": 4800.0
-            },
-            {
-              "name": 4,
-              "value": 4900.0
-            },
-            {
-              "name": 5,
+              "name": "4",
               "value": 5000.0
             }
           ]
         },
         {
-          "name": "Schaal F",
-          "minValue": 5000.0,
-          "maxValue": 5500.0,
+          "name": "FWG 1",
+          "minValue": 2000.0,
+          "maxValue": 3000.0,
           "currency": "EUR",
           "salaryStep": [
             {
-              "name": 0,
+              "name": "0",
+              "value": 2000.0
+            },
+            {
+              "name": "1",
+              "value": 2250.0
+            },
+            {
+              "name": "2",
+              "value": 2500.0
+            },
+            {
+              "name": "3",
+              "value": 2750.0
+            },
+            {
+              "name": "4",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 2",
+          "minValue": 2500.0,
+          "maxValue": 3500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2750.0
+            },
+            {
+              "name": "2",
+              "value": 3000.0
+            },
+            {
+              "name": "3",
+              "value": 3250.0
+            },
+            {
+              "name": "4",
+              "value": 3500.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 3",
+          "minValue": 3000.0,
+          "maxValue": 4000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3000.0
+            },
+            {
+              "name": "1",
+              "value": 3250.0
+            },
+            {
+              "name": "2",
+              "value": 3500.0
+            },
+            {
+              "name": "3",
+              "value": 3750.0
+            },
+            {
+              "name": "4",
+              "value": 4000.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 4",
+          "minValue": 3500.0,
+          "maxValue": 4500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3500.0
+            },
+            {
+              "name": "1",
+              "value": 3750.0
+            },
+            {
+              "name": "2",
+              "value": 4000.0
+            },
+            {
+              "name": "3",
+              "value": 4250.0
+            },
+            {
+              "name": "4",
+              "value": 4500.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 5",
+          "minValue": 4000.0,
+          "maxValue": 5000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 4000.0
+            },
+            {
+              "name": "1",
+              "value": 4250.0
+            },
+            {
+              "name": "2",
+              "value": 4500.0
+            },
+            {
+              "name": "3",
+              "value": 4750.0
+            },
+            {
+              "name": "4",
               "value": 5000.0
-            },
-            {
-              "name": 1,
-              "value": 5100.0
-            },
-            {
-              "name": 2,
-              "value": 5200.0
-            },
-            {
-              "name": 3,
-              "value": 5300.0
-            },
-            {
-              "name": 4,
-              "value": 5400.0
-            },
-            {
-              "name": 5,
-              "value": 5500.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal G",
-          "minValue": 5500.0,
-          "maxValue": 6000.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 5500.0
-            },
-            {
-              "name": 1,
-              "value": 5600.0
-            },
-            {
-              "name": 2,
-              "value": 5700.0
-            },
-            {
-              "name": 3,
-              "value": 5800.0
-            },
-            {
-              "name": 4,
-              "value": 5900.0
-            },
-            {
-              "name": 5,
-              "value": 6000.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal H",
-          "minValue": 6000.0,
-          "maxValue": 6500.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 6000.0
-            },
-            {
-              "name": 1,
-              "value": 6100.0
-            },
-            {
-              "name": 2,
-              "value": 6200.0
-            },
-            {
-              "name": 3,
-              "value": 6300.0
-            },
-            {
-              "name": 4,
-              "value": 6400.0
-            },
-            {
-              "name": 5,
-              "value": 6500.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal I",
-          "minValue": 6500.0,
-          "maxValue": 7000.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 6500.0
-            },
-            {
-              "name": 1,
-              "value": 6600.0
-            },
-            {
-              "name": 2,
-              "value": 6700.0
-            },
-            {
-              "name": 3,
-              "value": 6800.0
-            },
-            {
-              "name": 4,
-              "value": 6900.0
-            },
-            {
-              "name": 5,
-              "value": 7000.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal J",
-          "minValue": 7000.0,
-          "maxValue": 7500.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 7000.0
-            },
-            {
-              "name": 1,
-              "value": 7100.0
-            },
-            {
-              "name": 2,
-              "value": 7200.0
-            },
-            {
-              "name": 3,
-              "value": 7300.0
-            },
-            {
-              "name": 4,
-              "value": 7400.0
-            },
-            {
-              "name": 5,
-              "value": 7500.0
-            }
-          ]
-        },
-        {
-          "name": "Schaal K",
-          "minValue": 7500.0,
-          "maxValue": 8000.0,
-          "currency": "EUR",
-          "salaryStep": [
-            {
-              "name": 0,
-              "value": 7500.0
-            },
-            {
-              "name": 1,
-              "value": 7600.0
-            },
-            {
-              "name": 2,
-              "value": 7700.0
-            },
-            {
-              "name": 3,
-              "value": 7800.0
-            },
-            {
-              "name": 4,
-              "value": 7900.0
-            },
-            {
-              "name": 5,
-              "value": 8000.0
             }
           ]
         }
       ]
     }
   ],
-  "allowances": [
-    {
-      "type": "IrregularHoursAllowance",
-      "description": "Onregelmatigheidstoeslag (ORT)",
-      "conditions": "For working irregular hours as specified in the CAO.",
-      "amount": {
-        "calculationMethod": "Percentage",
-        "value": 0.28,
-        "applicableHours": "19:00 - 22:00 on weekdays, 09:00 - 17:00 on Saturdays"
-      }
-    },
-    {
-      "type": "ShiftAllowance",
-      "description": "Ploegentoeslag",
-      "conditions": "For working in shifts as specified in the CAO.",
-      "amount": {
-        "calculationMethod": "Percentage",
-        "value": 0.65,
-        "applicableHours": "All hours on weekends and holidays"
-      }
-    },
-    {
-      "type": "OvertimeAllowance",
-      "description": "Overwerktoeslag",
-      "conditions": "For working overtime as specified in the CAO.",
-      "amount": {
-        "calculationMethod": "Percentage",
-        "value": {
-          "weekdays": 0.35,
-          "saturdays": 0.6,
-          "sundaysAndHolidays": 1.0
-        },
-        "applicableHours": "More than individual work duration"
-      }
-    },
-    {
-      "type": "TravelAllowance",
-      "description": "Reiskostenvergoeding",
-      "conditions": "For commuting more than 10 km one way.",
-      "amount": {
-        "calculationMethod": "Fixed",
-        "value": {
-          "publicTransport": "Full reimbursement of 2nd class travel costs",
-          "bicycleAndPublicTransport": "Reimbursement for bicycle storage or locker",
-          "ownTransport": {
-            "2023": {
-              "11km": 15.46,
-              "50km": 70.27
-            },
-            "2024": {
-              "11km": "Adjusted based on NS average increase",
-              "50km": "Adjusted based on NS average increase"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "StandByAllowance",
-      "description": "Stand-by vergoeding",
-      "conditions": "For being available outside agreed working hours.",
-      "amount": {
-        "calculationMethod": "Fixed",
-        "value": {
-          "2023": {
-            "weekdays": 2.37,
-            "weekendsAndHolidays": 3.94
-          },
-          "2024": {
-            "weekdays": 2.39,
-            "weekendsAndHolidays": 3.98
-          },
-          "2025": {
-            "weekdays": 2.56,
-            "weekendsAndHolidays": 4.25
-          }
-        }
-      }
-    },
-    {
-      "type": "ClimateBudget",
-      "description": "Klimaatbudget",
-      "conditions": "For investments in sustainability and climate improvement in personal living environment.",
-      "amount": {
-        "calculationMethod": "Fixed",
-        "value": 2500.0,
-        "applicablePeriod": "2023-12-01 to 2025-08-31"
-      }
-    }
-  ],
-  "leave": [
-    {
-      "vacationDays": {
-        "base": 25,
-        "additional": {
-          "description": "Extra vacation days can be bought up to 10% of individual work duration per year."
-        }
-      },
-      "ADV_ATVDays": {
-        "description": "ATV/ADV days as per company policy."
-      },
-      "publicHolidays": [
-        "Nieuwjaarsdag",
-        "Tweede Paasdag",
-        "Koningsdag",
-        "5 Mei (once every 5 years)",
-        "Hemelvaartsdag",
-        "Tweede Pinksterdag",
-        "Eerste Kerstdag",
-        "Tweede Kerstdag"
-      ],
-      "specialLeave": {
-        "marriageOrPartnershipRegistration": 1,
-        "relocation": 2,
-        "bereavement": "Minimum 3 days, negotiable with manager",
-        "diversityDay": 1,
-        "socialLeave": 4
-      },
-      "birthLeave": {
-        "description": "6 weeks total birth leave for partners, fully paid."
-      },
-      "careLeave": {
-        "shortTerm": {
-          "description": "Up to 2 times the average workweek within 12 months, 90% of salary."
-        },
-        "longTerm": {
-          "description": "Up to 13 times the contractual workweek per year, 50% of salary up to 1 month's salary."
-        }
-      }
-    }
-  ],
   "pension": [
     {
-      "employerContributionPercentage": 0.3675,
-      "pensionFundName": "Stichting Pensioenfonds Achmea (SPA)",
-      "franchise": 17545,
-      "pensionBasis": "Pensioengevend salaris minus franchise",
-      "employeeContributionPercentage": 0.0325,
-      "specialArrangements": {
-        "earlyRetirement": "Possible from age 55 with actuarial reduction.",
-        "partialRetirement": "Possible from age 55, with conditions.",
-        "netPensionScheme": "Available for salaries above the fiscal maximum."
-      }
+      "pensionFund": {
+        "name": "Stichting Pensioenfonds Achmea (SPA)"
+      },
+      "employerContribution": {
+        "value": 37.4,
+        "unitCode": "Percent"
+      },
+      "employeeContribution": {
+        "value": 3.25,
+        "unitCode": "Percent"
+      },
+      "pensionAge": 68,
+      "pensionSchemeType": "CDC (Collective Defined Contribution)"
     }
-  ],
-  "_extraction_metadata": {
-    "extractor": "mistral-reviewer",
-    "model": "mistral-large-latest",
-    "cao_name": "Achmea",
-    "extracted_at": "2026-03-06T14:20:36.144065",
-    "input_chars": 247972,
-    "truncated": false,
-    "elapsed_seconds": 61.108488,
-    "reviewed_gemini_version": null
-  },
-  "_compliance": {
-    "status": "compliant",
-    "coverage": 53.333333333333336,
-    "validated_at": "2026-03-06T14:20:36.144110",
-    "setu_version": "2.0.0-draft.3",
-    "errors": [],
-    "warnings": [],
-    "improvement_over_gemini": {
-      "coverage_delta": 53.333333333333336,
-      "errors_delta": -4
-    }
-  },
-  "_hybrid_extraction": {
-    "pipeline": "mistral-hybrid",
-    "cao_name": "Achmea",
-    "table_annotator": {
-      "model": "mistral-ocr-latest",
-      "confidence": 0.9,
-      "scales_found": 11
-    },
-    "full_extractor": {
-      "model": "mistral-large-latest",
-      "remuneration_items": 1
-    },
-    "merge_notes": [
-      "Used Mistral Document AI tables (confidence 0.90, 11 scales)",
-      "Replaced Mistral Large remuneration (1 items) with high-confidence table annotation"
-    ],
-    "extracted_at": "2026-03-06T14:20:36.144723"
-  }
+  ]
 }

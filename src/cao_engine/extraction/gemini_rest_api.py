@@ -45,6 +45,133 @@ CRITICAL ROUTING RULE:
 - Statutory = what the government MANDATES (WML, SV-premies, fiscal limits, AOW age)
 - Extract ONLY what the inlener offers. IGNORE statutory minimums.
 
+CRITICAL: DO NOT CREATE CUSTOM FIELDS! Use existing SETU v2.0 fields.
+
+=== CAO → SETU FIELD MAPPINGS (MUST FOLLOW EXACTLY) ===
+
+1. ALGEMENE LOONSVERHOGING (General Salary Increase)
+   Dutch aliases: "algemene loonsverhoging", "loonsverhoging", "cao-verhoging", "salarisverhogingsafspraak", "periodicale verhoging"
+   English aliases: "general salary increase", "wage increase", "salary raise", "periodic increase"
+
+   ❌ WRONG: "additionalRemunerations", "salaryAdjustments" (custom fields - NOT in SETU!)
+   ✅ CORRECT: remuneration[].generalSalaryIncrease[]
+
+   Structure:
+   {{
+     "remuneration": [{{
+       "generalSalaryIncrease": [
+         {{
+           "effectivePeriod": {{"validFrom": "2024-06-01"}},
+           "percentage": 2.75,
+           "minimumAmount": {{"value": 74.43, "currency": "EUR"}}
+         }}
+       ]
+     }}]
+   }}
+
+   Example: Metalektro CAO has 3 scheduled increases (June 2024, Jan 2025, June 2025)
+
+2. EENMALIGE UITKERING (One-Time Payment / Bonus)
+   Dutch aliases: "eenmalige uitkering", "bonus", "gratificatie", "afbouw eenmalige uitkering", "bijzondere uitkering", "incidentele betaling", "tijdelijke uitkering"
+   English aliases: "one-time payment", "bonus", "special payment", "temporary payment", "phase-out payment"
+
+   ❌ WRONG: "additionalRemunerations" (custom field - NOT in SETU!)
+   ✅ CORRECT: supplementaryArrangement[]
+
+   Structure:
+   {{
+     "supplementaryArrangement": [{{
+       "name": "Afbouw eenmalige uitkering",
+       "typeCode": "OneTimePayment",
+       "effectivePeriod": {{
+         "validFrom": "2024-06-01",
+         "validTo": "2024-08-31"
+       }},
+       "line": [{{
+         "amount": {{"value": 60, "unitCode": "Euro"}},
+         "interval": {{"value": 1, "unitCode": "Month"}}
+       }}]
+     }}]
+   }}
+
+   Example: Metalektro "afbouw eenmalige uitkering" €60/month for 3 months
+
+3. TOESLAGEN (Allowances)
+   Dutch aliases: "toeslag", "ploegentoeslag", "overwerktoeslag", "ORT", "onregelmatigheidstoeslag", "shifttoeslag", "inconveniëntentoeslag"
+   English aliases: "allowance", "shift allowance", "overtime allowance", "irregular hours allowance"
+
+   ✅ CORRECT: allowance[]
+
+   Structure:
+   {{
+     "allowance": [{{
+       "name": "Overwerktoeslag",
+       "typeCode": "Overtime",
+       "calculationMethod": "Percentage",
+       "percentage": 25.0,
+       "conditions": "Na 40 uur per week"
+     }}]
+   }}
+
+4. VAKANTIEGELD (Holiday Allowance)
+   Dutch aliases: "vakantiegeld", "vakantie-uitkering", "vakantiebijslag"
+   English aliases: "holiday allowance", "vacation pay"
+
+   ✅ CORRECT: holidayAllowance
+
+   Structure:
+   {{
+     "holidayAllowance": {{
+       "percentage": 8.0,
+       "payDate": "05"
+     }}
+   }}
+
+5. IKB (Individual Choice Budget)
+   Dutch aliases: "IKB", "individueel keuzebudget", "keuzeb udget", "flexbudget"
+   English aliases: "individual choice budget", "flexible benefits budget"
+
+   ✅ CORRECT: individualChoiceBudget
+
+   Structure:
+   {{
+     "individualChoiceBudget": {{
+       "amount": {{"value": 500, "currency": "EUR"}},
+       "interval": {{"value": 1, "unitCode": "Year"}}
+     }}
+   }}
+
+6. INDIVIDUAL STEP INCREASE (Trede verhoging)
+   Dutch aliases: "periodiek", "trede verhoging", "salarisschaal stap", "individuele verhoging"
+   English aliases: "individual salary increase", "step increase", "periodic step"
+
+   ✅ CORRECT: remuneration[].individualSalaryIncrease[]
+
+   Structure:
+   {{
+     "remuneration": [{{
+       "individualSalaryIncrease": [{{
+         "effectivePeriod": {{"validFrom": "2024-01-01"}},
+         "percentage": 2.5
+       }}]
+     }}]
+   }}
+
+7. OTHER ARRANGEMENTS (Catch-all for rare cases)
+   ✅ CORRECT: otherArrangement[]
+
+   Use ONLY if no other field fits. Most CAO concepts fit into fields 1-6 above.
+
+=== DECISION LOGIC ===
+
+When you see:
+- "Algemene loonsverhoging 2.75% per 1 juni 2024" → generalSalaryIncrease
+- "Eenmalige uitkering €60 per maand" → supplementaryArrangement
+- "Ploegentoeslag 25%" → allowance
+- "Vakantiegeld 8%" → holidayAllowance
+- "IKB €500 per jaar" → individualChoiceBudget
+- "Periodieken jaarlijks 2.5%" → individualSalaryIncrease
+
 FIELD MAPPING RULES (150+ aliases):
 {FIELD_MAPPING_RULES[:5000] if FIELD_MAPPING_RULES else "See skills/llm-field-mapping.md"}
 
@@ -59,7 +186,7 @@ EXTRACT COMPLETELY:
 - For unknown fields: null (NOT empty strings)
 - Pay special attention to HTML tables in markdown - they contain critical salary data
 
-Output MUST be valid SETU v2.0 InquiryPayEquity JSON.
+Output MUST be valid SETU v2.0 InquiryPayEquity JSON - NO CUSTOM FIELDS!
 This is for legal compliance in the Dutch staffing industry.
 """
 

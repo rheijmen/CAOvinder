@@ -113,6 +113,26 @@ Classifies PDFs by filename into: CAO, Sociaal Plan, Functiehandboek (KEEP) vs T
 ### Validation Commands
 - `python -m cao_engine validate-cross-reference <setu.json>` - Validate SETU ↔ Statutory (7 rules)
 
+### Exception Review Commands
+The system includes transparency features: confidence scoring and exception detection. All extractions include `_confidence` scores (0.0-1.0) per field and `_metadata` with overall statistics. Low-confidence fields are flagged as exceptions requiring human review.
+
+- `python -m cao_engine review-exceptions list <setu.json>` - List all exceptions in SETU file
+- `python -m cao_engine review-exceptions list <setu.json> --priority high` - Filter by priority (high/medium/low)
+- `python -m cao_engine review-exceptions stats <setu.json>` - Show confidence and exception statistics
+- `python -m cao_engine review-exceptions stats` - Show stats across all SETU files
+- `python -m cao_engine review-exceptions review <setu.json> --reviewer "Name" --email "email@example.com"` - Interactive review session
+
+**Exception Priorities:**
+- HIGH = Compliance-critical (must resolve before use)
+- MEDIUM = Cost/calculation impact (should resolve soon)
+- LOW = Minor variations (can resolve later)
+
+**Confidence Scoring:**
+- Every field gets `_{fieldname}_confidence` score
+- Overall confidence in `_metadata.confidence`
+- Risk patterns detected: "zie bijlage", "inclusief", "conform", "nader te bepalen"
+- Interpretations saved to `data/interpretations/` with full audit trail
+
 ### Moments Commands
 - `python -m cao_engine moments list --cao <name>` - List moments
 

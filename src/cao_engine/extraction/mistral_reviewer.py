@@ -38,6 +38,47 @@ CONTEXT:
 - Your job is to CHECK for completeness and correctness
 - Extract ANYTHING that Gemini missed or got wrong
 
+CRITICAL: CHECK FOR CUSTOM FIELDS! Gemini may create invalid fields - fix them!
+
+=== COMMON GEMINI MISTAKES TO FIX ===
+
+1. **CUSTOM FIELDS (additionalRemunerations, salaryAdjustments) ❌**
+   If Gemini created these, FIX by mapping to correct SETU fields:
+
+   ❌ "additionalRemunerations" → ✅ supplementaryArrangement[] (for bonuses, one-time payments)
+   ❌ "salaryAdjustments" → ✅ remuneration[].generalSalaryIncrease[] (for CAO-wide raises)
+
+   Example fix for "Afbouw eenmalige uitkering €60/month":
+   ```json
+   "supplementaryArrangement": [{
+     "name": "Afbouw eenmalige uitkering",
+     "typeCode": "OneTimePayment",
+     "effectivePeriod": {"validFrom": "2024-06-01", "validTo": "2024-08-31"},
+     "line": [{"amount": {"value": 60, "unitCode": "Euro"}, "interval": {"value": 1, "unitCode": "Month"}}]
+   }]
+   ```
+
+   Example fix for "Algemene loonsverhoging 2.75%":
+   ```json
+   "remuneration": [{
+     "generalSalaryIncrease": [{
+       "effectivePeriod": {"validFrom": "2024-06-01"},
+       "percentage": 2.75,
+       "minimumAmount": {"value": 74.43, "currency": "EUR"}
+     }]
+   }]
+   ```
+
+2. **CAO → SETU FIELD MAPPINGS (Review against these)**
+
+   Dutch term → SETU field:
+   - "Algemene loonsverhoging", "cao-verhoging" → remuneration[].generalSalaryIncrease[]
+   - "Eenmalige uitkering", "bonus", "gratificatie" → supplementaryArrangement[]
+   - "Toeslag", "ORT", "ploegentoeslag", "overwerktoeslag" → allowance[]
+   - "Vakantiegeld" → holidayAllowance
+   - "IKB", "individueel keuzebudget" → individualChoiceBudget
+   - "Periodiek", "trede verhoging" → remuneration[].individualSalaryIncrease[]
+
 REVIEW CHECKLIST:
 1. **Salary Scales (Loongebouw)**
    - Did Gemini extract ALL functiegroepen?
@@ -45,7 +86,7 @@ REVIEW CHECKLIST:
    - Did Gemini extract ALL treden (steps) with correct amounts?
    - Check HTML tables in markdown - often contain critical salary data
 
-2. **Allowances (Toeslagen)**
+2. **Allowances (Toeslagen)** - Check these are in allowance[], NOT custom fields:
    - ORT (onregelmatigheidstoeslag)
    - Ploegentoeslag
    - Overwerktoeslag
@@ -63,16 +104,20 @@ REVIEW CHECKLIST:
    - Pension fund name
    - Any special pension arrangements
 
-5. **Field Mapping**
+5. **Field Mapping** - CRITICAL REVIEW:
+   - Did Gemini use ONLY official SETU fields (NO custom fields)?
    - Did Gemini correctly route SETU vs Statutory?
    - Are WML references marked as minimumWage=true flags (NOT extracted amounts)?
    - Are fiscal limits IGNORED (those belong in Statutory)?
+   - Are bonuses/one-time payments in supplementaryArrangement (NOT "additionalRemunerations")?
+   - Are CAO raises in generalSalaryIncrease (NOT "salaryAdjustments")?
 
 OUTPUT FORMAT:
 Return ONLY valid JSON - no markdown, no explanation, no code blocks.
 Extract a COMPLETE SETU v2.0 JSON with your review.
 Include EVERYTHING Gemini found + anything Gemini missed.
-Focus on completeness.
+REMOVE any custom fields and map them to correct SETU fields.
+Focus on completeness AND correctness.
 
 You will be compared against Gemini by a judge model.
 """
@@ -189,31 +234,11 @@ class MistralReviewer:
         # Validate Mistral's extraction against SETU schema
         mistral_status, mistral_report = self._compliance_engine.validate_extraction(data)
 
-        # Add review metadata
-        data["_extraction_metadata"] = {
-            "extractor": "mistral-reviewer",
-            "model": self._model,
-            "cao_name": cao_name,
-            "extracted_at": datetime.now().isoformat(),
-            "input_chars": len(text),
-            "truncated": truncated,
-            "elapsed_seconds": elapsed,
-            "reviewed_gemini_version": gemini_output.get("_extraction_metadata", {}).get("extracted_at"),
-        }
-
-        # Add compliance metadata
-        data["_compliance"] = {
-            "status": mistral_status.value,
-            "coverage": mistral_report["coverage"],
-            "validated_at": datetime.now().isoformat(),
-            "setu_version": self._compliance_engine.current_version,
-            "errors": mistral_report.get("errors", []),
-            "warnings": mistral_report.get("warnings", []),
-            "improvement_over_gemini": {
-                "coverage_delta": mistral_report["coverage"] - gemini_report["coverage"],
-                "errors_delta": len(mistral_report.get("errors", [])) - len(gemini_report.get("errors", [])),
-            }
-        }
+        # REMOVED: _extraction_metadata (violates SETU additionalProperties: false)
+        # REMOVED: _compliance (violates SETU additionalProperties: false)
+        #
+        # All metadata is now logged only, NOT added to the SETU document.
+        # This ensures the output validates against official SETU schema.
 
         logger.info(
             "Mistral REVIEW complete with compliance validation",
@@ -222,8 +247,13 @@ class MistralReviewer:
             has_allowances="allowances" in data,
             compliance_status=mistral_status.value,
             coverage=mistral_report["coverage"],
-            improvement=data["_compliance"]["improvement_over_gemini"]["coverage_delta"],
+            improvement=mistral_report["coverage"] - gemini_report["coverage"],
             model=self._model,
+            extractor="mistral-reviewer",
+            cao_name=cao_name,
+            extracted_at=datetime.now().isoformat(),
+            input_chars=len(text),
+            truncated=truncated,
         )
 
         return data

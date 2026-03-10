@@ -1175,3 +1175,8 @@ def extract_setu_mistral_hybrid(
     table_file.write_text(result.table_extraction.model_dump_json(indent=2), encoding="utf-8")
 
     console.print(Panel(f"  Final SETU: {setu_file}\n  Salary scales: {len(result.table_extraction.salary_scales)}\n  Elapsed: {result.elapsed_seconds:.1f}s", title="✅ Complete"))
+
+
+# --- Exception Review Commands ---
+# REMOVED: Confidence scoring and exception review features
+# The system now produces CLEAN SETU v2.0 files that validate against official schema
