@@ -1,7 +1,11 @@
 # CAO Intelligence Engine
 
 ## Project Purpose
-AI-native platform processing 700+ Dutch CAO (Collective Labour Agreement) PDFs into structured SETU v2.0 data, with a Momenten (Moments) store as ground truth for a notification engine.
+AI-native platform processing 700+ Dutch CAO (Collective Labour Agreement) PDFs into structured SETU v2.0 data (Release Candidate 1, released March 11, 2026), with a Momenten (Moments) store as ground truth for a notification engine.
+
+**SETU Version**: v2.0.0-rc.1 (official release candidate from [SETU GitHub](https://github.com/setu-standards/xml-specifications/tree/main/setu-gelijkwaardige-beloning/v2.0))
+**Official Docs**: [standard.setu.nl/docs/gelijkwaardige-beloning](https://standard.setu.nl/docs/gelijkwaardige-beloning/)
+**Validator Platform**: [wijzerbelonen.nl](https://www.wijzerbelonen.nl/)
 
 ## Tech Stack
 - Python 3.11+, FastAPI, Pydantic v2, Typer CLI

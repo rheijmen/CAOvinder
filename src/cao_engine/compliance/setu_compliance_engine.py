@@ -24,7 +24,7 @@ from pydantic import BaseModel
 
 class SETUVersion(BaseModel):
     """Represents a SETU specification version."""
-    version: str  # e.g., "2.0.0-draft.3"
+    version: str  # e.g., "2.0.0-rc.1" (Release Candidate 1, released March 11, 2026)
     release_date: datetime
     schema_hash: str  # SHA256 of the schema for change detection
     breaking_changes: list[str] = []

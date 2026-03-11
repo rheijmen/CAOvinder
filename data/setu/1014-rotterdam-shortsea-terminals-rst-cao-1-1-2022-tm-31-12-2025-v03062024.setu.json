@@ -1,0 +1,489 @@
+{
+  "documentId": {
+    "value": "CAO-2022-2025-RST",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2022-01-01",
+    "validTo": "2025-12-31"
+  },
+  "customer": {
+    "name": "Rotterdam Shortsea Terminals B.V.",
+    "legalId": [
+      {
+        "value": "KvK 24114222",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "A.H. Storm"
+        },
+        "roleCode": "Chief Executive Officer"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 38.0,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 38.0
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Functiegroep A",
+          "minValue": 2500.0,
+          "maxValue": 3500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2600.0
+            },
+            {
+              "name": "2",
+              "value": 2700.0
+            },
+            {
+              "name": "3",
+              "value": 2800.0
+            },
+            {
+              "name": "4",
+              "value": 2900.0
+            },
+            {
+              "name": "5",
+              "value": 3000.0
+            },
+            {
+              "name": "6",
+              "value": 3100.0
+            },
+            {
+              "name": "7",
+              "value": 3200.0
+            },
+            {
+              "name": "8",
+              "value": 3300.0
+            },
+            {
+              "name": "9",
+              "value": 3400.0
+            },
+            {
+              "name": "10",
+              "value": 3500.0
+            }
+          ]
+        },
+        {
+          "name": "Functiegroep B",
+          "minValue": 2200.0,
+          "maxValue": 3200.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2200.0
+            },
+            {
+              "name": "1",
+              "value": 2300.0
+            },
+            {
+              "name": "2",
+              "value": 2400.0
+            },
+            {
+              "name": "3",
+              "value": 2500.0
+            },
+            {
+              "name": "4",
+              "value": 2600.0
+            },
+            {
+              "name": "5",
+              "value": 2700.0
+            },
+            {
+              "name": "6",
+              "value": 2800.0
+            },
+            {
+              "name": "7",
+              "value": 2900.0
+            },
+            {
+              "name": "8",
+              "value": 3000.0
+            },
+            {
+              "name": "9",
+              "value": 3100.0
+            },
+            {
+              "name": "10",
+              "value": 3200.0
+            }
+          ]
+        },
+        {
+          "name": "Functiegroep C",
+          "minValue": 2000.0,
+          "maxValue": 3000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2000.0
+            },
+            {
+              "name": "1",
+              "value": 2100.0
+            },
+            {
+              "name": "2",
+              "value": 2200.0
+            },
+            {
+              "name": "3",
+              "value": 2300.0
+            },
+            {
+              "name": "4",
+              "value": 2400.0
+            },
+            {
+              "name": "5",
+              "value": 2500.0
+            },
+            {
+              "name": "6",
+              "value": 2600.0
+            },
+            {
+              "name": "7",
+              "value": 2700.0
+            },
+            {
+              "name": "8",
+              "value": 2800.0
+            },
+            {
+              "name": "9",
+              "value": 2900.0
+            },
+            {
+              "name": "10",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 1",
+          "minValue": 1800.0,
+          "maxValue": 2800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 1800.0
+            },
+            {
+              "name": "1",
+              "value": 1900.0
+            },
+            {
+              "name": "2",
+              "value": 2000.0
+            },
+            {
+              "name": "3",
+              "value": 2100.0
+            },
+            {
+              "name": "4",
+              "value": 2200.0
+            },
+            {
+              "name": "5",
+              "value": 2300.0
+            },
+            {
+              "name": "6",
+              "value": 2400.0
+            },
+            {
+              "name": "7",
+              "value": 2500.0
+            },
+            {
+              "name": "8",
+              "value": 2600.0
+            },
+            {
+              "name": "9",
+              "value": 2700.0
+            },
+            {
+              "name": "10",
+              "value": 2800.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 2",
+          "minValue": 1600.0,
+          "maxValue": 2600.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 1600.0
+            },
+            {
+              "name": "1",
+              "value": 1700.0
+            },
+            {
+              "name": "2",
+              "value": 1800.0
+            },
+            {
+              "name": "3",
+              "value": 1900.0
+            },
+            {
+              "name": "4",
+              "value": 2000.0
+            },
+            {
+              "name": "5",
+              "value": 2100.0
+            },
+            {
+              "name": "6",
+              "value": 2200.0
+            },
+            {
+              "name": "7",
+              "value": 2300.0
+            },
+            {
+              "name": "8",
+              "value": 2400.0
+            },
+            {
+              "name": "9",
+              "value": 2500.0
+            },
+            {
+              "name": "10",
+              "value": 2600.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 3",
+          "minValue": 1400.0,
+          "maxValue": 2400.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 1400.0
+            },
+            {
+              "name": "1",
+              "value": 1500.0
+            },
+            {
+              "name": "2",
+              "value": 1600.0
+            },
+            {
+              "name": "3",
+              "value": 1700.0
+            },
+            {
+              "name": "4",
+              "value": 1800.0
+            },
+            {
+              "name": "5",
+              "value": 1900.0
+            },
+            {
+              "name": "6",
+              "value": 2000.0
+            },
+            {
+              "name": "7",
+              "value": 2100.0
+            },
+            {
+              "name": "8",
+              "value": 2200.0
+            },
+            {
+              "name": "9",
+              "value": 2300.0
+            },
+            {
+              "name": "10",
+              "value": 2400.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "pensionFundName": "Aegon Cappital",
+      "employerContribution": {
+        "percentage": 10.38,
+        "effectivePeriod": {
+          "validFrom": "2022-01-01",
+          "validTo": "2025-12-31"
+        }
+      },
+      "employeeContribution": {
+        "percentage": 6.0,
+        "effectivePeriod": {
+          "validFrom": "2022-01-01",
+          "validTo": "2025-12-31"
+        }
+      },
+      "pensionScheme": [
+        {
+          "name": "Pensioenregeling A",
+          "description": "Beschikbare premieregeling voor beambten in dienst getreden op of na 1 januari 2003 en operationele medewerkers",
+          "pensionAge": 68,
+          "pensionBasis": {
+            "maxSalary": 128810,
+            "franchise": 14322
+          },
+          "premiumScale": [
+            {
+              "ageGroup": "20-24",
+              "percentage": 8.3
+            },
+            {
+              "ageGroup": "25-29",
+              "percentage": 9.65
+            },
+            {
+              "ageGroup": "30-34",
+              "percentage": 11.21
+            },
+            {
+              "ageGroup": "35-39",
+              "percentage": 12.98
+            },
+            {
+              "ageGroup": "40-44",
+              "percentage": 15.15
+            },
+            {
+              "ageGroup": "45-49",
+              "percentage": 17.65
+            },
+            {
+              "ageGroup": "50-54",
+              "percentage": 20.55
+            },
+            {
+              "ageGroup": "55-59",
+              "percentage": 24.19
+            },
+            {
+              "ageGroup": "60-64",
+              "percentage": 28.75
+            },
+            {
+              "ageGroup": "65+",
+              "percentage": 33.32
+            }
+          ]
+        },
+        {
+          "name": "Pensioenregeling B",
+          "description": "Beschikbare premieregeling voor beambten in dienst getreden voor 1 januari 2003",
+          "pensionAge": 68,
+          "pensionBasis": {
+            "maxSalary": 128810,
+            "franchise": 14322
+          },
+          "premiumScale": [
+            {
+              "ageGroup": "20-24",
+              "percentage": 15.02
+            },
+            {
+              "ageGroup": "25-29",
+              "percentage": 14.68
+            },
+            {
+              "ageGroup": "30-34",
+              "percentage": 18.34
+            },
+            {
+              "ageGroup": "35-39",
+              "percentage": 20.32
+            },
+            {
+              "ageGroup": "40-44",
+              "percentage": 22.42
+            },
+            {
+              "ageGroup": "45-49",
+              "percentage": 24.85
+            },
+            {
+              "ageGroup": "50-54",
+              "percentage": 27.62
+            },
+            {
+              "ageGroup": "55-59",
+              "percentage": 30.82
+            },
+            {
+              "ageGroup": "60-64",
+              "percentage": 34.68
+            },
+            {
+              "ageGroup": "65+",
+              "percentage": 38.22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
