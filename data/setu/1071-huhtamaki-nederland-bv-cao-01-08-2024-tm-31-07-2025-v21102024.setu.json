@@ -1,0 +1,371 @@
+{
+  "documentId": {
+    "value": "CAO-Huhtamaki-2024-2025",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-08-01",
+    "validTo": "2025-07-31"
+  },
+  "customer": {
+    "name": "Huhtamaki Nederland B.V.",
+    "legalId": [
+      {
+        "value": "KvK 0000123456",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "HR Director"
+        },
+        "roleCode": "HR Director"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 38.0,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 38.0
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Groep 02",
+          "minValue": 1800.0,
+          "maxValue": 2200.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 1800.0
+            },
+            {
+              "name": "Step 1",
+              "value": 1900.0
+            },
+            {
+              "name": "Step 2",
+              "value": 2000.0
+            },
+            {
+              "name": "Step 3",
+              "value": 2100.0
+            },
+            {
+              "name": "Step 4",
+              "value": 2200.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 03",
+          "minValue": 2000.0,
+          "maxValue": 2400.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 2000.0
+            },
+            {
+              "name": "Step 1",
+              "value": 2100.0
+            },
+            {
+              "name": "Step 2",
+              "value": 2200.0
+            },
+            {
+              "name": "Step 3",
+              "value": 2300.0
+            },
+            {
+              "name": "Step 4",
+              "value": 2400.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 04",
+          "minValue": 2200.0,
+          "maxValue": 2600.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 2200.0
+            },
+            {
+              "name": "Step 1",
+              "value": 2300.0
+            },
+            {
+              "name": "Step 2",
+              "value": 2400.0
+            },
+            {
+              "name": "Step 3",
+              "value": 2500.0
+            },
+            {
+              "name": "Step 4",
+              "value": 2600.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 05",
+          "minValue": 2400.0,
+          "maxValue": 2800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 2400.0
+            },
+            {
+              "name": "Step 1",
+              "value": 2500.0
+            },
+            {
+              "name": "Step 2",
+              "value": 2600.0
+            },
+            {
+              "name": "Step 3",
+              "value": 2700.0
+            },
+            {
+              "name": "Step 4",
+              "value": 2800.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 06",
+          "minValue": 2600.0,
+          "maxValue": 3000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 2600.0
+            },
+            {
+              "name": "Step 1",
+              "value": 2700.0
+            },
+            {
+              "name": "Step 2",
+              "value": 2800.0
+            },
+            {
+              "name": "Step 3",
+              "value": 2900.0
+            },
+            {
+              "name": "Step 4",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 07",
+          "minValue": 2800.0,
+          "maxValue": 3200.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 2800.0
+            },
+            {
+              "name": "Step 1",
+              "value": 2900.0
+            },
+            {
+              "name": "Step 2",
+              "value": 3000.0
+            },
+            {
+              "name": "Step 3",
+              "value": 3100.0
+            },
+            {
+              "name": "Step 4",
+              "value": 3200.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 08",
+          "minValue": 3000.0,
+          "maxValue": 3400.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 3000.0
+            },
+            {
+              "name": "Step 1",
+              "value": 3100.0
+            },
+            {
+              "name": "Step 2",
+              "value": 3200.0
+            },
+            {
+              "name": "Step 3",
+              "value": 3300.0
+            },
+            {
+              "name": "Step 4",
+              "value": 3400.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 09",
+          "minValue": 3200.0,
+          "maxValue": 3600.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 3200.0
+            },
+            {
+              "name": "Step 1",
+              "value": 3300.0
+            },
+            {
+              "name": "Step 2",
+              "value": 3400.0
+            },
+            {
+              "name": "Step 3",
+              "value": 3500.0
+            },
+            {
+              "name": "Step 4",
+              "value": 3600.0
+            }
+          ]
+        },
+        {
+          "name": "Groep 10",
+          "minValue": 3400.0,
+          "maxValue": 3800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 0",
+              "value": 3400.0
+            },
+            {
+              "name": "Step 1",
+              "value": 3500.0
+            },
+            {
+              "name": "Step 2",
+              "value": 3600.0
+            },
+            {
+              "name": "Step 3",
+              "value": 3700.0
+            },
+            {
+              "name": "Step 4",
+              "value": 3800.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "name": "Stichting Pensioenfonds voor de Grafische Bedrijven (PGB), Sector Kartonnage- en Flexibele Verpakkingenbedrijf",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "PENSION_PREMIE"
+          },
+          "amount": {
+            "value": 27.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        },
+        {
+          "lineId": {
+            "value": "EMPLOYER_CONTRIB"
+          },
+          "amount": {
+            "value": 0.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        },
+        {
+          "lineId": {
+            "value": "EMPLOYEE_CONTRIB"
+          },
+          "amount": {
+            "value": 0.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2024-08-01",
+        "validTo": "2025-07-31"
+      }
+    }
+  ]
+}

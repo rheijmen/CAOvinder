@@ -99,10 +99,34 @@ REVIEW CHECKLIST:
    - Feestdagen (public holidays)
    - Special leave categories
 
-4. **Pension**
-   - Employer contribution percentage
-   - Pension fund name
-   - Any special pension arrangements
+4. **Pension (PensionArrangement)** - CRITICAL: CHECK STRUCTURE COMPLIANCE!
+   ✅ REQUIRED fields must be present:
+      - "name" (pension fund/arrangement name) - NOT "pensionFundName"!
+      - "origin" with {"type": "CollectiveLabourAgreement"}
+   ✅ Contributions must be in "line[]" array (NOT as separate employerContribution/employeeContribution objects!)
+   ✅ NO custom fields: pensionFundName, employerContribution, employeeContribution, pensionScheme, pensionAge
+
+   VALID SETU v2.0.0-rc.1 STRUCTURE (from Rabobank CAO):
+   ```json
+   {
+     "pension": [{
+       "name": "Rabobank Pensioenfonds - Collectieve pensioenregeling",
+       "origin": {"type": "CollectiveLabourAgreement"},
+       "line": [
+         {"lineId": {"value": "PENSION_PREMIE"}, "amount": {"value": 27, "unitCode": "Percentage"}},
+         {"lineId": {"value": "EMPLOYER_CONTRIB"}, "amount": {"value": 21.5, "unitCode": "Percentage"}},
+         {"lineId": {"value": "EMPLOYEE_CONTRIB"}, "amount": {"value": 5.5, "unitCode": "Percentage"}}
+       ],
+       "franchise": {"description": "Franchise € 17.545 (2024)"},
+       "effectivePeriod": {"validFrom": "2024-07-01", "validTo": "2025-06-30"}
+     }]
+   }
+   ```
+
+   COMMON GEMINI MISTAKES TO FIX:
+   ❌ {"pensionFundName": "..."} → ✅ {"name": "..."}
+   ❌ {"employerContribution": {"percentage": 60}} → ✅ {"line": [{"amount": {"value": 60, "unitCode": "Percentage"}}]}
+   ❌ Missing "origin" field → ✅ Add {"origin": {"type": "CollectiveLabourAgreement"}}
 
 5. **Field Mapping** - CRITICAL REVIEW:
    - Did Gemini use ONLY official SETU fields (NO custom fields)?

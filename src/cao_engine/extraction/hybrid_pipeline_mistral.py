@@ -115,6 +115,9 @@ class HybridPipelineMistral:
             cao_name,
         )
 
+        # Step 4: Normalize output (fix pension structure, remove invalid fields)
+        merged_setu = self._normalize_setu_schema(merged_setu)
+
         elapsed = (datetime.now() - start_time).total_seconds()
 
         logger.info(
@@ -125,7 +128,7 @@ class HybridPipelineMistral:
         )
 
         return HybridExtractionResult(
-            setu_data=merged_setu,  # CLEAN SETU - no confidence fields
+            setu_data=merged_setu,  # CLEAN SETU - no confidence fields, normalized
             table_extraction=table_extraction,
             mistral_full=mistral_full,
             merge_notes=merge_notes,
@@ -216,6 +219,112 @@ class HybridPipelineMistral:
             else:
                 normalized["pension"] = [normalized["pension"]]
 
+        # Fix pension structure (SETU v2.0.0-rc.1 compliance)
+        # Transform legacy fields (pensionFundName, employerContribution, employeeContribution)
+        # into correct SETU v2.0 structure (name, origin, line[])
+        if "pension" in normalized and isinstance(normalized["pension"], list):
+            for pension_item in normalized["pension"]:
+                if not isinstance(pension_item, dict):
+                    continue
+
+                # Fix: pensionFundName → name
+                if "pensionFundName" in pension_item:
+                    pension_item["name"] = pension_item.pop("pensionFundName")
+
+                # Ensure origin exists (required field in SETU v2.0.0-rc.1)
+                if "origin" not in pension_item:
+                    pension_item["origin"] = {"type": "CollectiveLabourAgreement"}
+
+                # Fix: employerContribution/employeeContribution → line[]
+                # This transforms the old structure to the new SETU v2.0 compliant structure
+                if "employerContribution" in pension_item or "employeeContribution" in pension_item:
+                    if "line" not in pension_item:
+                        pension_item["line"] = []
+
+                    # Transform employer contribution
+                    if "employerContribution" in pension_item:
+                        emp_contrib = pension_item.pop("employerContribution")
+                        if isinstance(emp_contrib, dict):
+                            # Extract percentage or amount
+                            if "percentage" in emp_contrib:
+                                pension_item["line"].append({
+                                    "lineId": {"value": "EMPLOYER_CONTRIBUTION"},
+                                    "amount": {
+                                        "value": emp_contrib["percentage"],
+                                        "unitCode": "Percentage",
+                                        "baseAmount": {"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}
+                                    },
+                                    "interval": {"value": 1, "unitCode": "Month"}
+                                })
+                            elif "amount" in emp_contrib:
+                                # Ensure amount has required baseAmount
+                                if isinstance(emp_contrib["amount"], dict) and "baseAmount" not in emp_contrib["amount"]:
+                                    emp_contrib["amount"]["baseAmount"] = {"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}
+                                pension_item["line"].append({
+                                    "lineId": {"value": "EMPLOYER_CONTRIBUTION"},
+                                    "amount": emp_contrib["amount"],
+                                    "interval": {"value": 1, "unitCode": "Month"}
+                                })
+
+                    # Transform employee contribution
+                    if "employeeContribution" in pension_item:
+                        ee_contrib = pension_item.pop("employeeContribution")
+                        if isinstance(ee_contrib, dict):
+                            # Extract percentage or amount
+                            if "percentage" in ee_contrib:
+                                pension_item["line"].append({
+                                    "lineId": {"value": "EMPLOYEE_CONTRIBUTION"},
+                                    "amount": {
+                                        "value": ee_contrib["percentage"],
+                                        "unitCode": "Percentage",
+                                        "baseAmount": {"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}
+                                    },
+                                    "interval": {"value": 1, "unitCode": "Month"}
+                                })
+                            elif "amount" in ee_contrib:
+                                # Ensure amount has required baseAmount
+                                if isinstance(ee_contrib["amount"], dict) and "baseAmount" not in ee_contrib["amount"]:
+                                    ee_contrib["amount"]["baseAmount"] = {"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}
+                                pension_item["line"].append({
+                                    "lineId": {"value": "EMPLOYEE_CONTRIBUTION"},
+                                    "amount": ee_contrib["amount"],
+                                    "interval": {"value": 1, "unitCode": "Month"}
+                                })
+
+                # Normalize existing line[] items (ensure interval and baseAmount are present)
+                if "line" in pension_item and isinstance(pension_item["line"], list):
+                    for line_item in pension_item["line"]:
+                        if not isinstance(line_item, dict):
+                            continue
+
+                        # Ensure interval exists (required by SETU v2.0.0-rc.1)
+                        if "interval" not in line_item:
+                            line_item["interval"] = {"value": 1, "unitCode": "Month"}
+
+                        # Ensure amount.baseAmount exists (required by SETU v2.0.0-rc.1)
+                        if "amount" in line_item and isinstance(line_item["amount"], dict):
+                            if "baseAmount" not in line_item["amount"]:
+                                line_item["amount"]["baseAmount"] = {
+                                    "unitCode": "MonthlyRate",
+                                    "baseType": "PensionableIncome"
+                                }
+
+                        # Remove invalid 'description' field from line[] items
+                        # (not allowed in SETU v2.0.0-rc.1 ArrangementLine schema)
+                        if "description" in line_item:
+                            line_item.pop("description")
+
+                # Clean up other legacy/invalid fields
+                invalid_fields = ["pensionScheme", "pensionSchemeType", "pensionAge", "pensionableSalary"]
+                for invalid_field in invalid_fields:
+                    if invalid_field in pension_item:
+                        # Move to description if not already present
+                        if "description" not in pension_item:
+                            pension_item["description"] = f"{invalid_field}: {pension_item[invalid_field]}"
+                        else:
+                            pension_item["description"] += f" | {invalid_field}: {pension_item[invalid_field]}"
+                        pension_item.pop(invalid_field)
+
         # Fix remuneration section
         if "remuneration" in normalized:
             for remun_item in normalized["remuneration"]:
@@ -247,6 +356,10 @@ class HybridPipelineMistral:
                 # Fix salary scales
                 if "salaryScale" in remun_item:
                     for scale in remun_item["salaryScale"]:
+                        # Remove invalid effectivePeriod field (not in SETU v2.0.0-rc.1 SalaryScale schema)
+                        if "effectivePeriod" in scale:
+                            scale.pop("effectivePeriod")
+
                         # Fix salaryStep names - convert integers to strings
                         if "salaryStep" in scale:
                             for step in scale["salaryStep"]:

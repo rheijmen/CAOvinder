@@ -19,9 +19,9 @@ import structlog
 
 logger = structlog.get_logger(__name__)
 
-# Load OFFICIAL SETU v2.0.0-draft.3 schema (134KB, 130 additionalProperties constraints)
-# CRITICAL: This is the official schema, NOT the broken 28KB version
-SETU_SCHEMA_PATH = Path(__file__).parent.parent / "compliance" / "schemas" / "setu_v2.0.0-draft.3.json"
+# Load OFFICIAL SETU v2.0.0-rc.1 schema (Release Candidate 1, released March 11, 2026)
+# CRITICAL: This is the official schema, NOT the draft.3 version
+SETU_SCHEMA_PATH = Path(__file__).parent.parent / "compliance" / "schemas" / "setu_v2.0.0-rc.1.json"
 _SETU_SCHEMA_RAW = json.loads(SETU_SCHEMA_PATH.read_text())
 
 # Strip JSON Schema Draft 2020-12 metadata fields that Gemini SDK doesn't support
@@ -162,7 +162,105 @@ CRITICAL: DO NOT CREATE CUSTOM FIELDS! Use existing SETU v2.0 fields.
 7. OTHER ARRANGEMENTS (Catch-all for rare cases)
    ✅ CORRECT: otherArrangement[]
 
-   Use ONLY if no other field fits. Most CAO concepts fit into fields 1-6 above.
+   Use ONLY if no other field fits. Most CAO concepts fit into fields 1-8 above.
+
+8. PENSION ARRANGEMENTS (PensionArrangement) 🔴 CRITICAL - COMMON MISTAKE!
+   Dutch aliases: "pensioenregeling", "pensioenfonds", "pensioen premie", "werkgeversbijdrage pensioen", "werknemersbijdrage"
+   English aliases: "pension scheme", "pension fund", "pension contribution", "employer contribution", "employee contribution"
+
+   ✅ CORRECT: pension[]
+
+   REQUIRED FIELDS (SETU v2.0.0-rc.1):
+   - name (string): Name or description of pension fund or arrangement
+   - origin (LabourAgreementReference): MUST be {{"type": "CollectiveLabourAgreement"}}
+
+   OPTIONAL BUT RECOMMENDED:
+   - line[] (array): Contribution details (employer/employee percentages, amounts)
+   - franchise (object): Franchise amount/description
+   - effectivePeriod (object): Period when pension applies
+   - description (string): Additional details about pension scheme
+
+   Structure (CORRECT v2.0 format):
+   {{
+     "pension": [{{
+       "name": "Pensioenfonds Zorg en Welzijn (PfZW)",
+       "origin": {{"type": "CollectiveLabourAgreement"}},
+       "effectivePeriod": {{
+         "validFrom": "2023-01-01",
+         "validTo": "2023-12-31"
+       }},
+       "line": [
+         {{
+           "lineId": {{"value": "EMPLOYER_CONTRIBUTION"}},
+           "amount": {{
+             "value": 21.5,
+             "unitCode": "Percentage",
+             "baseAmount": {{"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}}
+           }},
+           "interval": {{"value": 1, "unitCode": "Month"}},
+           "conditions": [{{"conditionType": "Text", "description": "Werkgeversbijdrage 21,5% van pensioengrondslag"}}]
+         }},
+         {{
+           "lineId": {{"value": "EMPLOYEE_CONTRIBUTION"}},
+           "amount": {{
+             "value": 5.5,
+             "unitCode": "Percentage",
+             "baseAmount": {{"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}}
+           }},
+           "interval": {{"value": 1, "unitCode": "Month"}},
+           "conditions": [{{"conditionType": "Text", "description": "Werknemersbijdrage 5,5% van pensioengrondslag (standaard)"}}]
+         }}
+       ],
+       "franchise": {{
+         "description": "Franchise € 17.545 (2024), jaarlijks aangepast conform wettelijk minimum"
+       }},
+       "description": "Pensioenregeling uitgevoerd door Pensioenfonds Zorg en Welzijn. Premieverdeling 60/40 werkgever/werknemer."
+     }}]
+   }}
+
+   ❌ WRONG - DO NOT CREATE THESE FIELDS (they are NOT in SETU v2.0 schema):
+   - pensionFundName (use "name" instead!)
+   - employerContribution (use line[] instead!)
+   - employeeContribution (use line[] instead!)
+   - pensionScheme (use "description" instead!)
+   - pensionAge (not part of PensionArrangement)
+   - pensionSchemeType (not part of PensionArrangement)
+
+   VALIDATION CHECKLIST:
+   ✅ Field "name" exists and contains pension fund/arrangement name
+   ✅ Field "origin" exists with {{"type": "CollectiveLabourAgreement"}}
+   ✅ Contributions are in line[] array (NOT as separate objects)
+   ✅ Each line[] item has REQUIRED "interval" field: {{"value": 1, "unitCode": "Month"}}
+   ✅ Each line[] item amount has REQUIRED "baseAmount" field: {{"unitCode": "MonthlyRate", "baseType": "PensionableIncome"}}
+   ✅ NO custom fields like pensionFundName, employerContribution, employeeContribution
+
+   REAL EXAMPLE (from Rabobank CAO - VALID ✅):
+   {{
+     "pension": [{{
+       "name": "Rabobank Pensioenfonds - Collectieve pensioenregeling",
+       "origin": {{"type": "CollectiveLabourAgreement"}},
+       "effectivePeriod": {{"validFrom": "2024-07-01", "validTo": "2025-06-30"}},
+       "line": [
+         {{
+           "lineId": {{"value": "PENSION_PREMIE"}},
+           "amount": {{"value": 27, "unitCode": "Percentage", "baseAmount": {{"unitCode": "MonthlyRate", "baseType": "Pensioengrondslag"}}}},
+           "interval": {{"value": 1, "unitCode": "Month"}}
+         }},
+         {{
+           "lineId": {{"value": "PENSION_PARTNER_RISICO"}},
+           "amount": {{"value": 1.313, "unitCode": "Percentage", "baseAmount": {{"unitCode": "YearlyRate", "baseType": "PensioengevendJaarinkomen"}}}},
+           "interval": {{"value": 1, "unitCode": "Year"}}
+         }},
+         {{
+           "lineId": {{"value": "PENSION_WEZEN_RISICO"}},
+           "amount": {{"value": 0.263, "unitCode": "Percentage", "baseAmount": {{"unitCode": "YearlyRate", "baseType": "PensioengevendJaarinkomen"}}}},
+           "interval": {{"value": 1, "unitCode": "Year"}}
+         }}
+       ],
+       "franchise": {{"description": "Franchise € 17.545 (2024), jaarlijks aangepast"}},
+       "description": "Pensioenrichtleeftijd 68 jaar. Flexibilisering mogelijk. Werkgeversbijdrage 21,5%, werknemersbijdrage 5,5%."
+     }}]
+   }}
 
 === DECISION LOGIC ===
 
@@ -173,6 +271,7 @@ When you see:
 - "Vakantiegeld 8%" → holidayAllowance
 - "IKB €500 per jaar" → individualChoiceBudget
 - "Periodieken jaarlijks 2.5%" → individualSalaryIncrease
+- "Pensioenfonds Zorg en Welzijn, werkgever 60%, werknemer 40%" → pension[] with name + origin + line[]
 
 FIELD MAPPING RULES (150+ aliases):
 {FIELD_MAPPING_RULES[:5000] if FIELD_MAPPING_RULES else "See skills/llm-field-mapping.md"}
