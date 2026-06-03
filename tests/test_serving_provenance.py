@@ -29,3 +29,10 @@ def test_corrupt_file_falls_back_to_neutral(tmp_path: Path):
     store = ProvenanceStore(tmp_path)
     prov = store.get("cao-x")
     assert prov.status == "unverified"
+
+
+def test_unsafe_cao_id_returns_neutral(tmp_path: Path):
+    store = ProvenanceStore(tmp_path)
+    prov = store.get("../../secret")
+    assert prov.status == "unverified"
+    assert prov.source == "ai_extracted"

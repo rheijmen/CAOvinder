@@ -14,6 +14,8 @@ from typing import Literal
 import structlog
 from pydantic import BaseModel, Field
 
+from cao_engine.serving._paths import is_safe_cao_id
+
 logger = structlog.get_logger(__name__)
 
 
@@ -35,6 +37,9 @@ class ProvenanceStore:
         self._dir = provenance_dir
 
     def get(self, cao_id: str) -> Provenance:
+        if not is_safe_cao_id(cao_id):
+            logger.warning("Unsafe cao_id rejected", cao_id=cao_id)
+            return NEUTRAL_PROVENANCE
         path = self._dir / f"{cao_id}.provenance.json"
         if not path.exists():
             return NEUTRAL_PROVENANCE
