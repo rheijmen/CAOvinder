@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
 
-from cao_engine.serving.provenance import Provenance, ProvenanceStore  # noqa: F401
+import pytest
+from pydantic import ValidationError
+
+from cao_engine.serving.provenance import ProvenanceStore
 
 
 def test_neutral_fallback_when_no_file(tmp_path: Path):
@@ -36,3 +39,10 @@ def test_unsafe_cao_id_returns_neutral(tmp_path: Path):
     prov = store.get("../../secret")
     assert prov.status == "unverified"
     assert prov.source == "ai_extracted"
+
+
+def test_provenance_is_immutable():
+    store = ProvenanceStore(Path("/nonexistent"))
+    prov = store.get("whatever")
+    with pytest.raises(ValidationError):
+        prov.status = "verified"

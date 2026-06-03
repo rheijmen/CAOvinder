@@ -21,3 +21,15 @@ def test_separators_are_unsafe():
 
 def test_nul_byte_is_unsafe():
     assert is_safe_cao_id("a\x00b") is False
+
+
+def test_whitespace_only_is_unsafe():
+    assert is_safe_cao_id("   ") is False
+
+
+def test_single_dot_is_unsafe():
+    assert is_safe_cao_id(".") is False
+
+
+def test_leading_dot_is_unsafe():
+    assert is_safe_cao_id(".hidden") is False

@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Literal
 
 import structlog
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from cao_engine.serving._paths import is_safe_cao_id
 
@@ -21,6 +21,8 @@ logger = structlog.get_logger(__name__)
 
 class Provenance(BaseModel):
     """Correctness-labeling for a CAO document or component."""
+
+    model_config = ConfigDict(frozen=True)
 
     status: Literal["verified", "unverified"] = "unverified"
     source: str = Field(default="ai_extracted", description="How the data was produced")
