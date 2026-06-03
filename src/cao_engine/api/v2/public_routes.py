@@ -12,6 +12,7 @@ from cao_engine.api.v2.models import (
     ErrorResponse,
 )
 from cao_engine.config import Settings
+from cao_engine.serving.cao_service import CAONotFoundError, CAOService
 
 router = APIRouter(
     prefix="/api/v2",
@@ -22,6 +23,10 @@ router = APIRouter(
 # Dependency injection
 def get_settings():
     return Settings()
+
+
+def get_cao_service() -> CAOService:
+    return CAOService.from_settings(Settings())
 
 # Simple in-memory store for demo (should be PostgreSQL in production)
 API_KEYS_STORE = {}
@@ -242,6 +247,25 @@ async def get_current_cao(
         "version": data.get("versionCode", "1.0"),
         "_metadata": data.get("_extraction_metadata", {})
     }
+
+
+@router.get(
+    "/cao/{cao_id}",
+    summary="Get the full CAO document",
+    description=(
+        "Returns the complete canonical SETU document for a CAO in one operation, plus provenance."
+    ),
+    tags=["CAO Data"],
+)
+async def get_full_cao(
+    cao_id: str,
+    api_key: APIKey = Depends(verify_api_key),
+    service: CAOService = Depends(get_cao_service),
+):
+    try:
+        return service.get_cao(cao_id)
+    except CAONotFoundError:
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
 
 @router.get("/cao/{cao_id}/salary-scales")
