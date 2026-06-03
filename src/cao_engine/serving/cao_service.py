@@ -8,10 +8,13 @@ so it is trivially testable; use CAOService.from_settings() in app wiring.
 from __future__ import annotations
 
 import json
+from datetime import date, timedelta
 from pathlib import Path
 
+from cao_engine.models.momenten import MomentenSet
 from cao_engine.serving._paths import is_safe_cao_id
 from cao_engine.serving.provenance import ProvenanceStore
+from cao_engine.storage.moment_store import _slugify
 
 SETU_SUFFIX = ".setu.json"
 
@@ -83,3 +86,26 @@ class CAOService:
                     "match_type": match_type,
                 })
         return results
+
+    def get_upcoming_changes(self, cao_id: str, horizon_days: int = 90) -> list[dict]:
+        """Forward-looking change calendar for a CAO, from the Momenten store (the vooruitblik)."""
+        doc = self._load_document(cao_id)  # raises CAONotFoundError for unknown cao_id
+        name = (doc.get("customer") or {}).get("name") or cao_id
+        path = self._momenten_dir / f"{_slugify(name)}_momenten.json"
+        if not path.exists():
+            return []
+        ms = MomentenSet.model_validate_json(path.read_text(encoding="utf-8"))
+        horizon = date.today() + timedelta(days=horizon_days)
+        out: list[dict] = []
+        for m in ms.upcoming():
+            if m.datum is None or m.datum > horizon:
+                continue
+            out.append({
+                "id": m.moment_id,
+                "cao_id": cao_id,
+                "type": m.type.value,
+                "description": m.beschrijving,
+                "effective_date": m.datum.isoformat(),
+                "source_article": m.bron_artikel,
+            })
+        return out

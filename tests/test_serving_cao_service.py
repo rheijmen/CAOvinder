@@ -1,4 +1,6 @@
 import json
+import re
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
@@ -65,3 +67,31 @@ def test_search_by_company_matches_customer_name(service: CAOService):
 
 def test_search_no_match_returns_empty(service: CAOService):
     assert service.search_caos(company="philips", sector=None) == []
+
+
+def _slugify(name: str) -> str:  # mirrors moment_store._slugify
+    slug = re.sub(r"[^a-z0-9]+", "_", name.lower().strip())
+    return slug.strip("_")[:60]
+
+
+def test_upcoming_changes_reads_real_moments(service: CAOService, tmp_path: Path):
+    soon = (date.today() + timedelta(days=30)).isoformat()
+    momenten_dir = tmp_path / "momenten"
+    slug = _slugify("Achmea")
+    (momenten_dir / f"{slug}_momenten.json").write_text(
+        '{"cao_naam": "Achmea", "momenten": [' +
+        '{"moment_id": "m1", "cao_naam": "Achmea", "categorie": "loon", "type": "loonsverhoging",' +
+        f' "datum": "{soon}", "beschrijving": "2.5% verhoging", "element": "loon",' +
+        ' "bron_tekst": "Artikel 5", "bron_artikel": "Artikel 5"}]}',
+        encoding="utf-8",
+    )
+    changes = service.get_upcoming_changes("1004-achmea-v2", horizon_days=90)
+    assert len(changes) == 1
+    assert changes[0]["cao_id"] == "1004-achmea-v2"
+    assert changes[0]["type"] == "loonsverhoging"
+    assert changes[0]["effective_date"] == soon
+    assert changes[0]["description"] == "2.5% verhoging"
+
+
+def test_upcoming_changes_empty_when_no_moments(service: CAOService):
+    assert service.get_upcoming_changes("1004-achmea-v2", horizon_days=90) == []
