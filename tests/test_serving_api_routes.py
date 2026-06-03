@@ -113,3 +113,17 @@ def test_changes_feed_returns_real_moments(tmp_path):
         assert body["changes"][0]["effective_date"] == soon
     finally:
         app.dependency_overrides.clear()
+
+
+def test_search_uses_customer_name_not_filename(client_with_data):
+    r = client_with_data.get("/api/v2/cao/search?company=bedrijf", headers={"X-API-Key": "test"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["count"] == 1
+    assert body["results"][0]["name"] == "Bedrijf X"  # was filename stem in the demo bug
+
+
+def test_current_reports_correct_version_key(client_with_data):
+    r = client_with_data.get("/api/v2/cao/cao-x/current", headers={"X-API-Key": "test"})
+    assert r.status_code == 200
+    assert r.json()["version"] == "1"  # from versionId, not the absent versionCode

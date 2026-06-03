@@ -165,47 +165,16 @@ async def verify_api_key_readonly(
 async def search_cao(
     company: str | None = Query(None, description="Filter by company name (case-insensitive partial match)", examples=["Philips"]),
     sector: str | None = Query(None, description="Filter by sector/industry (case-insensitive partial match)", examples=["metalektro"]),
-    api_key: APIKey = Depends(verify_api_key)
+    api_key: APIKey = Depends(verify_api_key),
+    service: CAOService = Depends(get_cao_service),
 ):
     """
     Search for applicable CAO by company or sector.
 
-    Returns a list of CAO documents that match the search criteria. At least one of company or sector must be provided.
+    Returns a list of CAO documents that match the search criteria.
     """
-    settings = get_settings()
-    setu_files = list(settings.setu_dir.glob("*.json"))
-
-    results = []
-    for setu_file in setu_files:
-        with open(setu_file) as f:
-            data = json.load(f)
-
-            # Simple search matching
-            if company and company.lower() in setu_file.stem.lower():
-                results.append({
-                    "id": setu_file.stem,
-                    "name": data.get("customer", {}).get("name", "Unknown"),
-                    "effective_from": data.get("effectivePeriod", {}).get("validFrom"),
-                    "effective_to": data.get("effectivePeriod", {}).get("validTo"),
-                    "match_type": "company"
-                })
-            elif sector and sector.lower() in setu_file.stem.lower():
-                results.append({
-                    "id": setu_file.stem,
-                    "name": data.get("customer", {}).get("name", "Unknown"),
-                    "effective_from": data.get("effectivePeriod", {}).get("validFrom"),
-                    "effective_to": data.get("effectivePeriod", {}).get("validTo"),
-                    "match_type": "sector"
-                })
-
-    return {
-        "results": results,
-        "count": len(results),
-        "search": {
-            "company": company,
-            "sector": sector
-        }
-    }
+    results = service.search_caos(company=company, sector=sector)
+    return {"results": results, "count": len(results), "search": {"company": company, "sector": sector}}
 
 
 @router.get(
@@ -223,29 +192,25 @@ async def search_cao(
 )
 async def get_current_cao(
     cao_id: str,
-    api_key: APIKey = Depends(verify_api_key)
+    api_key: APIKey = Depends(verify_api_key),
+    service: CAOService = Depends(get_cao_service),
 ):
     """
     Get current version of a specific CAO.
 
-    Returns detailed information about the CAO including effective dates, customer info, and extraction metadata.
+    Returns the CAO's identity, effective period, customer info, and version.
     """
-    settings = get_settings()
-    cao_file = settings.setu_dir / f"{cao_id}.json"
-
-    if not cao_file.exists():
-        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
-
-    with open(cao_file) as f:
-        data = json.load(f)
-
+    try:
+        doc = service.get_cao(cao_id)["document"]
+    except CAONotFoundError:
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found") from None
     return {
         "id": cao_id,
-        "documentId": data.get("documentId"),
-        "customer": data.get("customer"),
-        "effectivePeriod": data.get("effectivePeriod"),
-        "version": data.get("versionCode", "1.0"),
-        "_metadata": data.get("_extraction_metadata", {})
+        "documentId": doc.get("documentId"),
+        "customer": doc.get("customer"),
+        "effectivePeriod": doc.get("effectivePeriod"),
+        "version": str(doc.get("versionId", "1")),
+        "metadata": {},
     }
 
 
