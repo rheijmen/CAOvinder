@@ -1,6 +1,6 @@
-# CAO Intelligence Engine
+# CAO Centraal
 
-An AI-powered platform for processing Dutch Collective Labour Agreement (CAO) documents into structured SETU v2.0 data.
+An AI-powered platform for processing Dutch Collective Labour Agreement (CAO) documents into structured, machine-readable data — built to serve as a commercial data source for payroll, HR and staffing software.
 
 ## Project Status
 

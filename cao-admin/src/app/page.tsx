@@ -117,7 +117,7 @@ export default function DashboardPage() {
     try {
       // Create a comprehensive report
       const report = {
-        title: "CAO Intelligence Report",
+        title: "CAO Centraal Report",
         generated: new Date().toISOString(),
         summary: {
           totalCAOs,

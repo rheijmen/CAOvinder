@@ -9,7 +9,7 @@ from cao_engine.config import Settings
 from cao_engine.storage.moment_store import MomentStore
 
 app = FastAPI(
-    title="CAO Intelligence Engine",
+    title="CAO Centraal",
     description="API for querying structured Dutch CAO data and moments",
     version=__version__,
 )

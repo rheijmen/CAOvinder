@@ -1,4 +1,4 @@
-"""CLI application for the CAO Intelligence Engine."""
+"""CLI application for CAO Centraal."""
 
 import json
 from datetime import datetime
@@ -11,7 +11,7 @@ from rich.table import Table
 
 app = typer.Typer(
     name="cao-engine",
-    help="CAO Intelligence Engine - Process Dutch CAO documents into structured data",
+    help="CAO Centraal - Process Dutch CAO documents into structured data",
 )
 console = Console()
 
