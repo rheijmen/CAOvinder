@@ -97,7 +97,8 @@ def test_changes_feed_returns_real_moments(tmp_path):
     (momenten_dir / f"{slug}_momenten.json").write_text(
         '{"cao_naam": "Bedrijf X", "momenten": [{"moment_id": "m1", "cao_naam": "Bedrijf X",'
         ' "categorie": "loon", "type": "loonsverhoging", "datum": "' + soon + '",'
-        ' "beschrijving": "loon omhoog", "element": "loon", "bron_tekst": "art", "bron_artikel": "art"}]}',
+        ' "beschrijving": "loon omhoog", "element": "loon",'
+        ' "bron_tekst": "art", "bron_artikel": "art"}]}',
         encoding="utf-8",
     )
     svc = CAOService(setu_dir=setu_dir, momenten_dir=momenten_dir, provenance_dir=provenance_dir)
