@@ -15,6 +15,7 @@ from pydantic import BaseModel
 from cao_engine.compliance.setu_compliance_engine import SETUComplianceEngine
 from cao_engine.config import Settings
 from cao_engine.ocr.processor import OCRProcessor
+from cao_engine.serving._paths import is_safe_cao_id
 from cao_engine.storage.json_store import JSONStore
 
 logger = structlog.get_logger()
@@ -203,6 +204,8 @@ async def get_cao_document(
     store: JSONStore = Depends(get_json_store)
 ):
     """Get detailed information about a specific CAO document."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO document {cao_id} not found")
     logger.info("Fetching CAO document", cao_id=cao_id)
 
     # Try to load the document by its ID (which is the filename stem)
@@ -337,6 +340,8 @@ async def get_discrepancies(
     compliance: SETUComplianceEngine = Depends(get_compliance_engine)
 ):
     """Get all compliance discrepancies for a CAO document."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO document {cao_id} not found")
     logger.info("Fetching discrepancies", cao_id=cao_id)
 
     # Load CAO document
@@ -372,6 +377,8 @@ async def get_setu_compliance_report(
     store: JSONStore = Depends(get_json_store)
 ):
     """Get full SETU v2.0 compliance report for a CAO."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO document {cao_id} not found")
     logger.info("Generating SETU report", cao_id=cao_id)
 
     doc = store.load_document(cao_id)
@@ -397,6 +404,8 @@ async def get_judge_report(
     settings: Settings = Depends(get_settings)
 ):
     """Get the judge report from the 3-LLM pipeline."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail="Judge report not found")
     logger.info("Fetching judge report", cao_id=cao_id)
 
     # Load judge report from storage
