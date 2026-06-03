@@ -6,7 +6,9 @@ The frontend NEVER accesses the database directly - all data flows through these
 """
 
 import json
+import re
 from datetime import datetime, timedelta
+from pathlib import Path
 
 import structlog
 from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Query, UploadFile
@@ -257,23 +259,27 @@ async def upload_cao_document(
     """
     logger.info("Uploading CAO document", filename=file.filename, size=file.size)
 
-    # Validate file type
-    if not file.filename.endswith('.pdf'):
-        raise HTTPException(status_code=400, detail="Only PDF files are supported")
+    # Reject filenames that contain directory separators (path traversal attempt).
+    raw_name = file.filename or ""
+    safe_name = Path(raw_name).name
+    if safe_name != raw_name or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 ._-]*\.pdf", safe_name):
+        raise HTTPException(status_code=400, detail="Only safely-named PDF files are supported")
 
-    # Save uploaded file
-    upload_path = settings.raw_dir / file.filename
-    upload_path.parent.mkdir(exist_ok=True)
+    settings.raw_dir.mkdir(parents=True, exist_ok=True)
+    upload_path = (settings.raw_dir / safe_name).resolve()
+    # Defense in depth: the resolved path must stay inside raw_dir.
+    if not upload_path.is_relative_to(settings.raw_dir.resolve()):
+        raise HTTPException(status_code=400, detail="Invalid upload path")
 
     content = await file.read()
     with open(upload_path, 'wb') as f:
         f.write(content)
 
     # Create document record
-    cao_id = file.filename.replace('.pdf', '')
+    cao_id = safe_name[: -len(".pdf")]
     doc_record = {
         "id": cao_id,
-        "original_filename": file.filename,
+        "original_filename": safe_name,
         "file_size": len(content),
         "status": "uploaded",
         "uploaded_at": datetime.now().isoformat(),
