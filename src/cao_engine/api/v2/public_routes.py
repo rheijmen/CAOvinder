@@ -12,6 +12,7 @@ from cao_engine.api.v2.models import (
     ErrorResponse,
 )
 from cao_engine.config import Settings
+from cao_engine.serving._paths import is_safe_cao_id
 from cao_engine.serving.cao_service import CAONotFoundError, CAOService
 
 router = APIRouter(
@@ -255,6 +256,8 @@ async def get_cao_changes(
 @router.get("/cao/{cao_id}/salary-scales")
 async def get_salary_scales(cao_id: str, api_key: APIKey = Depends(verify_api_key)):
     """Get salary scales (loongebouw) from CAO."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
     settings = get_settings()
     cao_file = settings.setu_dir / f"{cao_id}.json"
 
@@ -278,6 +281,8 @@ async def get_salary_scales(cao_id: str, api_key: APIKey = Depends(verify_api_ke
 @router.get("/cao/{cao_id}/allowances")
 async def get_allowances(cao_id: str, api_key: APIKey = Depends(verify_api_key)):
     """Get allowances (toeslagen) from CAO."""
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
     settings = get_settings()
     cao_file = settings.setu_dir / f"{cao_id}.json"
 
@@ -312,6 +317,9 @@ async def validate_payroll(
 
     if not cao_id:
         raise HTTPException(status_code=400, detail="cao_id is required")
+
+    if not is_safe_cao_id(cao_id):
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
 
     settings = get_settings()
     cao_file = settings.setu_dir / f"{cao_id}.json"
