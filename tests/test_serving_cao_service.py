@@ -52,3 +52,16 @@ def test_get_cao_unknown_raises(service: CAOService):
 def test_get_cao_rejects_path_traversal(service: CAOService):
     with pytest.raises(CAONotFoundError):
         service.get_cao("../../etc/passwd")
+
+
+def test_search_by_company_matches_customer_name(service: CAOService):
+    results = service.search_caos(company="achmea", sector=None)
+    assert len(results) == 1
+    assert results[0]["id"] == "1004-achmea-v2"
+    assert results[0]["name"] == "Achmea"
+    assert results[0]["effective_from"] == "2024-01-01"
+    assert results[0]["match_type"] == "company"
+
+
+def test_search_no_match_returns_empty(service: CAOService):
+    assert service.search_caos(company="philips", sector=None) == []

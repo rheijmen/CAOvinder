@@ -58,3 +58,28 @@ class CAOService:
             "document": document,
             "provenance": provenance.model_dump(),
         }
+
+    def search_caos(self, company: str | None, sector: str | None) -> list[dict]:
+        """Search CAOs by company (matches customer.name) or sector (matches cao_id)."""
+        results: list[dict] = []
+        for cao_id in self.list_cao_ids():
+            try:
+                doc = self._load_document(cao_id)
+            except CAONotFoundError:
+                continue
+            name = (doc.get("customer") or {}).get("name") or cao_id
+            period = doc.get("effectivePeriod") or {}
+            match_type: str | None = None
+            if company and company.lower() in name.lower():
+                match_type = "company"
+            elif sector and sector.lower() in cao_id.lower():
+                match_type = "sector"
+            if match_type:
+                results.append({
+                    "id": cao_id,
+                    "name": name,
+                    "effective_from": period.get("validFrom"),
+                    "effective_to": period.get("validTo"),
+                    "match_type": match_type,
+                })
+        return results
