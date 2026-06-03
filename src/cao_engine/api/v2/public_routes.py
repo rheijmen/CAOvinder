@@ -265,7 +265,26 @@ async def get_full_cao(
     try:
         return service.get_cao(cao_id)
     except CAONotFoundError:
-        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found")
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found") from None
+
+
+@router.get(
+    "/cao/{cao_id}/changes",
+    summary="Upcoming changes for a CAO (vooruitblik)",
+    description="Forward-looking calendar of upcoming CAO changes, sourced from the Momenten store.",
+    tags=["CAO Data"],
+)
+async def get_cao_changes(
+    cao_id: str,
+    horizon_days: int = Query(90, ge=1, le=730, description="Look-ahead window in days"),
+    api_key: APIKey = Depends(verify_api_key),
+    service: CAOService = Depends(get_cao_service),
+):
+    try:
+        changes = service.get_upcoming_changes(cao_id, horizon_days=horizon_days)
+    except CAONotFoundError:
+        raise HTTPException(status_code=404, detail=f"CAO {cao_id} not found") from None
+    return {"changes": changes, "count": len(changes), "filters": {"horizon_days": horizon_days}}
 
 
 @router.get("/cao/{cao_id}/salary-scales")
@@ -361,42 +380,6 @@ async def validate_payroll(
         "coverage_score": 80 if len(issues) == 0 else 40  # Simplified
     }
 
-
-@router.get("/changes/feed")
-async def get_changes_feed(
-    since: datetime | None = Query(None, description="Changes since date"),
-    cao_ids: list[str] | None = Query(None, description="Filter by CAO IDs"),
-    api_key: APIKey = Depends(verify_api_key)
-):
-    """Get feed of CAO changes."""
-
-    # This would query a database of changes in production
-    changes = [
-        {
-            "id": "change_001",
-            "cao_id": "metalektro-cao",
-            "type": "wage_increase",
-            "description": "2.5% wage increase effective January 2025",
-            "effective_date": "2025-01-01",
-            "detected_at": "2024-12-15T10:30:00Z"
-        }
-    ]
-
-    if cao_ids:
-        changes = [c for c in changes if c["cao_id"] in cao_ids]
-
-    if since:
-        changes = [c for c in changes
-                  if datetime.fromisoformat(c["detected_at"].replace("Z", "+00:00")) > since]
-
-    return {
-        "changes": changes,
-        "count": len(changes),
-        "filters": {
-            "since": since.isoformat() if since else None,
-            "cao_ids": cao_ids
-        }
-    }
 
 
 @router.get("/usage")

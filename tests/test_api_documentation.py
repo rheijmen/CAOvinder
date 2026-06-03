@@ -56,7 +56,7 @@ class TestOpenAPISchemaGeneration:
             "/api/v2/cao/{cao_id}/salary-scales",
             "/api/v2/cao/{cao_id}/allowances",
             "/api/v2/validate/payroll",
-            "/api/v2/changes/feed",
+            "/api/v2/cao/{cao_id}/changes",
             "/api/v2/usage",
         ]
 

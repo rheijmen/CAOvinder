@@ -75,3 +75,41 @@ def test_get_unknown_cao_returns_404(client_with_data):
 def test_get_cao_without_api_key_returns_401(client_no_auth):
     r = client_no_auth.get("/api/v2/cao/cao-x")
     assert r.status_code == 401
+
+
+def test_changes_feed_returns_real_moments(tmp_path):
+    import re
+    from datetime import date, timedelta
+
+    setu_dir = tmp_path / "setu"
+    setu_dir.mkdir()
+    momenten_dir = tmp_path / "momenten"
+    momenten_dir.mkdir()
+    provenance_dir = tmp_path / "provenance"
+    provenance_dir.mkdir()
+    (setu_dir / "cao-x.setu.json").write_text(
+        json.dumps({"documentId": "d", "customer": {"name": "Bedrijf X"},
+                    "effectivePeriod": {}, "remuneration": {}}),
+        encoding="utf-8",
+    )
+    soon = (date.today() + timedelta(days=10)).isoformat()
+    slug = re.sub(r"[^a-z0-9]+", "_", "Bedrijf X".lower().strip()).strip("_")[:60]
+    (momenten_dir / f"{slug}_momenten.json").write_text(
+        '{"cao_naam": "Bedrijf X", "momenten": [{"moment_id": "m1", "cao_naam": "Bedrijf X",'
+        ' "categorie": "loon", "type": "loonsverhoging", "datum": "' + soon + '",'
+        ' "beschrijving": "loon omhoog", "element": "loon", "bron_tekst": "art", "bron_artikel": "art"}]}',
+        encoding="utf-8",
+    )
+    svc = CAOService(setu_dir=setu_dir, momenten_dir=momenten_dir, provenance_dir=provenance_dir)
+    app.dependency_overrides[public_routes.get_cao_service] = lambda: svc
+    app.dependency_overrides[public_routes.verify_api_key] = lambda: _STUB_KEY
+    try:
+        client = TestClient(app)
+        r = client.get("/api/v2/cao/cao-x/changes", headers={"X-API-Key": "test"})
+        assert r.status_code == 200
+        body = r.json()
+        assert body["count"] == 1
+        assert body["changes"][0]["type"] == "loonsverhoging"
+        assert body["changes"][0]["effective_date"] == soon
+    finally:
+        app.dependency_overrides.clear()
