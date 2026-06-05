@@ -1,0 +1,1321 @@
+{
+  "documentId": {
+    "value": "CAO-IKEA-2023-2024",
+    "schemeAgencyId": "IKEA"
+  },
+  "versionId": "1.0",
+  "issued": "2023-10-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-10-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "IKEA Nederland B.V. en Inter IKEA Systems B.V.",
+    "legalId": [
+      {
+        "value": "33191274 (IKEA Nederland B.V.)",
+        "schemeAgencyId": "KvK"
+      },
+      {
+        "value": "27146795 (Inter IKEA Systems B.V.)",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "Unit People & Culture Manager"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "IKEA CAO 2023-2024",
+      "id": {
+        "value": "IKEA_CAO_2023-2024"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-10-01",
+        "validTo": "2024-12-31"
+      }
+    }
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "value": 36,
+        "unitCode": "HUR"
+      },
+      "interval": "Month",
+      "salaryScale": [
+        {
+          "name": "IPE 43",
+          "steps": [
+            {
+              "aanvang": 14.25,
+              "eind": 14.48,
+              "amount": 2222.32,
+              "zone": 1
+            },
+            {
+              "aanvang": 14.49,
+              "eind": 15.87,
+              "amount": 2258.13,
+              "zone": 2
+            },
+            {
+              "aanvang": 15.88,
+              "eind": 16.36,
+              "amount": 2247.24,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47
+            },
+            {
+              "age": 17,
+              "percentage": 0.6
+            }
+          ]
+        },
+        {
+          "name": "IPE 44",
+          "steps": [
+            {
+              "aanvang": 15.31,
+              "eind": 15.74,
+              "amount": 2388.62,
+              "zone": 1
+            },
+            {
+              "aanvang": 15.75,
+              "eind": 18.33,
+              "amount": 2456.15,
+              "zone": 2
+            },
+            {
+              "aanvang": 18.34,
+              "eind": 19.63,
+              "amount": 2456.8,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47
+            },
+            {
+              "age": 17,
+              "percentage": 0.6
+            }
+          ]
+        },
+        {
+          "name": "IPE 45",
+          "steps": [
+            {
+              "aanvang": 16.38,
+              "eind": 16.89,
+              "amount": 2554.61,
+              "zone": 1
+            },
+            {
+              "aanvang": 16.9,
+              "eind": 19.99,
+              "amount": 2635.81,
+              "zone": 2
+            },
+            {
+              "aanvang": 20.0,
+              "eind": 21.54,
+              "amount": 2635.85,
+              "zone": 3
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.47,
+              "amount": 7.39
+            },
+            {
+              "age": 17,
+              "percentage": 0.6,
+              "amount": 7.39
+            }
+          ]
+        },
+        {
+          "name": "IPE 46/47",
+          "steps": [
+            {
+              "aanvang": 17.64,
+              "eind": 18.26,
+              "amount": 2751.89,
+              "zone": 1
+            },
+            {
+              "aanvang": 18.27,
+              "eind": 21.98,
+              "amount": 2848.61,
+              "zone": 2
+            },
+            {
+              "aanvang": 21.99,
+              "eind": 23.85,
+              "amount": 2849.09,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 48",
+          "steps": [
+            {
+              "aanvang": 19.37,
+              "eind": 20.16,
+              "amount": 3021.77,
+              "zone": 1
+            },
+            {
+              "aanvang": 20.17,
+              "eind": 24.91,
+              "amount": 3145.81,
+              "zone": 2
+            },
+            {
+              "aanvang": 24.92,
+              "eind": 27.28,
+              "amount": 3145.84,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 49/50",
+          "steps": [
+            {
+              "aanvang": 21.54,
+              "eind": 22.55,
+              "amount": 3360.07,
+              "zone": 1
+            },
+            {
+              "aanvang": 22.56,
+              "eind": 28.63,
+              "amount": 3518.0,
+              "zone": 2
+            },
+            {
+              "aanvang": 28.64,
+              "eind": 31.67,
+              "amount": 3518.01,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 51",
+          "steps": [
+            {
+              "aanvang": 24.39,
+              "eind": 25.59,
+              "amount": 3804.32,
+              "zone": 1
+            },
+            {
+              "aanvang": 25.6,
+              "eind": 32.79,
+              "amount": 3991.65,
+              "zone": 2
+            },
+            {
+              "aanvang": 32.8,
+              "eind": 36.39,
+              "amount": 3991.67,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 52",
+          "steps": [
+            {
+              "aanvang": 26.45,
+              "eind": 27.81,
+              "amount": 4126.06,
+              "zone": 1
+            },
+            {
+              "aanvang": 27.82,
+              "eind": 35.98,
+              "amount": 4338.55,
+              "zone": 2
+            },
+            {
+              "aanvang": 35.99,
+              "eind": 40.07,
+              "amount": 4338.6,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 53/54",
+          "steps": [
+            {
+              "aanvang": 30.1,
+              "eind": 31.65,
+              "amount": 4695.22,
+              "zone": 1
+            },
+            {
+              "aanvang": 31.66,
+              "eind": 40.95,
+              "amount": 4937.21,
+              "zone": 2
+            },
+            {
+              "aanvang": 40.96,
+              "eind": 45.8,
+              "amount": 4937.93,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "IPE 55/56",
+          "steps": [
+            {
+              "aanvang": 33.96,
+              "eind": 35.7,
+              "amount": 5328.24,
+              "zone": 1
+            },
+            {
+              "aanvang": 35.71,
+              "eind": 46.2,
+              "amount": 5587.2,
+              "zone": 2
+            },
+            {
+              "aanvang": 46.21,
+              "eind": 51.46,
+              "amount": 5587.3,
+              "zone": 3
+            }
+          ]
+        },
+        {
+          "name": "Participatie-medewerker",
+          "steps": [
+            {
+              "aanvang": 100,
+              "eind": 104,
+              "amount": "100% WML"
+            },
+            {
+              "aanvang": 104,
+              "eind": 108,
+              "amount": "104% WML"
+            },
+            {
+              "aanvang": 108,
+              "eind": 112,
+              "amount": "108% WML"
+            },
+            {
+              "aanvang": 112,
+              "eind": 116,
+              "amount": "112% WML"
+            },
+            {
+              "aanvang": 116,
+              "eind": 120,
+              "amount": "116% WML"
+            },
+            {
+              "aanvang": 120,
+              "eind": 120,
+              "amount": "120% WML"
+            }
+          ]
+        }
+      ],
+      "allowances": [
+        {
+          "typeCode": "IrregularHours",
+          "description": "Inconveni\u00ebnte urentoeslag",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": {
+              "0-5 uur (ma-vr)": 1.0,
+              "5-7 uur (ma-vr)": 0.5,
+              "21-24 uur (ma-vr)": 0.5,
+              "0-5 uur (za)": 1.0,
+              "5-7 uur (za)": 0.5,
+              "21-24 uur (za)": 1.0,
+              "0-24 uur (zo)": 1.0,
+              "9-19 uur (zo)": 0.5,
+              "0-24 uur (feestdagen)": 1.0
+            }
+          },
+          "conditions": "Werken op inconveni\u00ebnte uren zoals aangegeven in de tabel."
+        },
+        {
+          "typeCode": "Shift",
+          "description": "Ploegentoeslag",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 0.33
+          },
+          "conditions": "Werken in 5-ploegendienst."
+        },
+        {
+          "typeCode": "Overtime",
+          "description": "Overwerktoeslag",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 0.25
+          },
+          "conditions": "Werken boven 40 uur per week gemiddeld op jaarbasis."
+        },
+        {
+          "typeCode": "Travel",
+          "description": "Reiskostenvergoeding woon-werkverkeer",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": 0.23,
+            "maxAmount": 243.0
+          },
+          "conditions": "Reizen met eigen vervoer naar werk."
+        },
+        {
+          "typeCode": "Meal",
+          "description": "Maaltijdverstrekking",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": 2.75
+          },
+          "conditions": "Werken op koopavonden of feestdagen."
+        },
+        {
+          "typeCode": "Consignation",
+          "description": "Consignatietoeslag",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": {
+              "Facility Management": 27.61,
+              "IT (ma-za)": 2.17,
+              "IT (zo)": 2.72,
+              "7/23 (ma-za)": 2.17,
+              "7/23 (zo/feestdagen)": 2.72
+            }
+          },
+          "conditions": "Oproepbaar zijn tijdens consignatieperiodes."
+        },
+        {
+          "typeCode": "FunctionRepresentation",
+          "description": "Functiewaarnemingstoeslag",
+          "calculationMethod": {
+            "type": "Difference",
+            "value": "Verschil tussen minimum uurloon eigen functie en minimum uurloon waargenomen functie, max 10% van zone 2 maximum."
+          },
+          "conditions": "Tijdelijke waarneming van een hogere functie voor minimaal 1 maand en maximaal 2 jaar."
+        },
+        {
+          "typeCode": "Holiday",
+          "description": "Vakantietoeslag",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 0.08
+          },
+          "conditions": "Opgebouwd over uitbetaalde uren in vakantietoeslagjaar (1 juni - 31 mei)."
+        },
+        {
+          "typeCode": "Jubilee",
+          "description": "Jubileumuitkering",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": {
+              "10 jaar": 0.25,
+              "20 jaar": 1.0,
+              "30 jaar": 1.5,
+              "40 jaar": 2.0,
+              "50 jaar": 2.0
+            }
+          },
+          "conditions": "Jubileumjaren zoals aangegeven."
+        },
+        {
+          "typeCode": "Marriage",
+          "description": "Uitkering bij huwelijk",
+          "calculationMethod": {
+            "type": "Fixed",
+            "value": 120.0
+          },
+          "conditions": "Bij huwelijk of geregistreerd partnerschap."
+        }
+      ],
+      "holidayAllowance": {
+        "percentage": 0.08,
+        "paymentDate": "Mei"
+      },
+      "leaveArrangements": {
+        "vacationDays": {
+          "legal": {
+            "percentage": 0.0769,
+            "days": 20
+          },
+          "aboveLegal": {
+            "percentage": 0.0269,
+            "days": 7
+          }
+        },
+        "publicHolidays": [
+          "Nieuwjaarsdag",
+          "Tweede Paasdag",
+          "Koningsdag",
+          "Bevrijdingsdag (1x per 5 jaar)",
+          "Hemelvaartsdag",
+          "Tweede Pinksterdag",
+          "Eerste Kerstdag",
+          "Tweede Kerstdag"
+        ],
+        "specialLeave": {
+          "marriage": 2,
+          "bereavement": {
+            "spouse/partner/child/parent": "Van overlijden tot uitvaartdag + 2 dagen",
+            "grandchild/grandparent/sibling": 2
+          },
+          "moving": 1,
+          "exam": "Benodigde tijd",
+          "medical": "In overleg"
+        },
+        "parentalLeave": {
+          "paid": {
+            "birthLeave": "Volgens Wet Arbeid en Zorg",
+            "adoptionLeave": 6,
+            "partnerLeave": "Volgens Wet Arbeid en Zorg"
+          },
+          "unpaid": {
+            "parentalLeave": "Volgens Wet Arbeid en Zorg"
+          }
+        },
+        "careLeave": {
+          "shortTerm": {
+            "days": 3,
+            "payment": 1.0
+          },
+          "longTerm": {
+            "days": "Volgens Wet Arbeid en Zorg",
+            "payment": 0.7
+          }
+        },
+        "sickLeave": {
+          "waitingDays": 3,
+          "payment": {
+            "firstYear": 1.0,
+            "secondYear": 0.9
+          }
+        },
+        "genderTransitionLeave": {
+          "weeks": 24,
+          "conditions": "Over periode van 10 jaar, met doorbetaling salaris."
+        }
+      },
+      "pension": {
+        "pensionFundName": "Stichting IKEA Pensioenfonds (STIP)",
+        "employerContribution": 0.75,
+        "employeeContribution": 0.25,
+        "pensionableSalary": {
+          "maxAnnualAmount": 137800.0,
+          "includes": [
+            "Vakantietoeslag",
+            "13e maand",
+            "Vakantiedagen",
+            "Flexuren"
+          ]
+        },
+        "franchise": 17545.0,
+        "accrualRate": 0.01875,
+        "indexation": "Voorwaardelijk"
+      }
+    }
+  ],
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "NL-RCMP_Apprentice"
+      },
+      "positionTitle": "Apprentice",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Various",
+      "salaryScale": "N/A"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BGeneralist"
+      },
+      "positionTitle": "B2B Generalist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BSpecialist"
+      },
+      "positionTitle": "B2B Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales / Remote Resolutions",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessAnalyst"
+      },
+      "positionTitle": "Business Analyst",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Bus. Navigation",
+      "salaryScale": "IPE 48"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessNavigation&OperationsManager"
+      },
+      "positionTitle": "Business Navigation & Operations Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 53"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_Communication&InformationSpecialist"
+      },
+      "positionTitle": "Communication & Information Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_CountryRemoteCMPManager"
+      },
+      "positionTitle": "Country Remote CMP Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 57"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignManager"
+      },
+      "positionTitle": "Experience Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 55"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignSpecialist"
+      },
+      "positionTitle": "Experience Design Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design",
+      "salaryScale": "IPE 49"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignTeamLeader"
+      },
+      "positionTitle": "Experience Design Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design",
+      "salaryScale": "IPE 49"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceQualitySpecialist"
+      },
+      "positionTitle": "Experience Quality Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design",
+      "salaryScale": "IPE 48"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesignSpecialist"
+      },
+      "positionTitle": "Interior Design Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesigner"
+      },
+      "positionTitle": "Interior Designer",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IntradaySpecialist"
+      },
+      "positionTitle": "Intraday Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Staff Planning",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IKEABusinessKeyAccountManager"
+      },
+      "positionTitle": "IKEA Business Key Account Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Remote Sales",
+      "salaryScale": "IPE 52"
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_KnowledgeSpecialist"
+      },
+      "positionTitle": "Knowledge Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Experience design",
+      "salaryScale": "IPE 48"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ActivityLeader"
+      },
+      "positionTitle": "Activity Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 48"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_BusinessNavigator"
+      },
+      "positionTitle": "Business Navigator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CarpenterCo-worker"
+      },
+      "positionTitle": "Carpenter Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 44"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CircularSalesSpecialist"
+      },
+      "positionTitle": "Circular Sales Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CommercialActivityLeader"
+      },
+      "positionTitle": "Commercial Activity Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Communication&InteriorDesignManager"
+      },
+      "positionTitle": "Communication & Interior Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Controller"
+      },
+      "positionTitle": "Controller",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsCo-worker"
+      },
+      "positionTitle": "Customer Relations Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service",
+      "salaryScale": "IPE 44"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsManager"
+      },
+      "positionTitle": "Customer Relations Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsTeamLeader"
+      },
+      "positionTitle": "Customer Relations Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputyBusinessNavigationManager"
+      },
+      "positionTitle": "Deputy Business Navigation Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 52"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputySalesManager"
+      },
+      "positionTitle": "Deputy Sales Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 52"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Frontliner"
+      },
+      "positionTitle": "Frontliner",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Customer Service",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_FurnitureBuilder"
+      },
+      "positionTitle": "Furniture Builder",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 43"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowCo-workerI"
+      },
+      "positionTitle": "Goods Flow Co-worker I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics",
+      "salaryScale": "IPE 43"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowManager"
+      },
+      "positionTitle": "Goods Flow Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics",
+      "salaryScale": "IPE 51"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowTeamLeader"
+      },
+      "positionTitle": "Goods Flow Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics",
+      "salaryScale": "IPE 49"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationCo-worker"
+      },
+      "positionTitle": "Graphic Communication Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationLeader"
+      },
+      "positionTitle": "Graphic Communication Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 49"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-worker"
+      },
+      "positionTitle": "IKEA Food Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food Allround",
+      "salaryScale": "IPE 44"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-workerI"
+      },
+      "positionTitle": "IKEA Food Co-worker I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food",
+      "salaryScale": "IPE 43"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodManager"
+      },
+      "positionTitle": "IKEA Food Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food / Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodTeamLeader"
+      },
+      "positionTitle": "IKEA Food Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessLeader"
+      },
+      "positionTitle": "IKEA for Business Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessSpecialist"
+      },
+      "positionTitle": "IKEA for Business Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignCo-worker"
+      },
+      "positionTitle": "Interior Design Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignManager"
+      },
+      "positionTitle": "Interior Design Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_KitchenProductionSpecialist"
+      },
+      "positionTitle": "Kitchen Production Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "IKEA Food",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_LogisticsManager"
+      },
+      "positionTitle": "Logistics Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_People&CultureGeneralist"
+      },
+      "positionTitle": "People & Culture Generalist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture",
+      "salaryScale": "IPE 49"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryCo-Worker"
+      },
+      "positionTitle": "Product Quality & Recovery Co-Worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryManager"
+      },
+      "positionTitle": "Product Quality & Recovery Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 51"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&SafetySpecialist"
+      },
+      "positionTitle": "Product Quality & Safety Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductRecoveryOperationsSpecialist"
+      },
+      "positionTitle": "Product Recovery Operations Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Safety&SecuritySpecialist"
+      },
+      "positionTitle": "Safety & Security Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Finance & Admin",
+      "salaryScale": "IPE 48"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportManager"
+      },
+      "positionTitle": "Sales & Supply Support Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportSpecialist"
+      },
+      "positionTitle": "Sales & Supply Support Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Logistics",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-worker"
+      },
+      "positionTitle": "Sales Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 44"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-workerII"
+      },
+      "positionTitle": "Sales Co-worker II",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales (HFB7 / Kitchen only)",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesManager"
+      },
+      "positionTitle": "Sales Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 55"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesTeamLeader"
+      },
+      "positionTitle": "Sales Team Leader",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Sales",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementAdministrator"
+      },
+      "positionTitle": "Unit Facility Management Administrator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)",
+      "salaryScale": "IPE 45"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionTitle": "Unit Facility Management Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)",
+      "salaryScale": "IPE 52"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      },
+      "positionTitle": "Unit Facility Management Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate",
+      "salaryScale": "IPE 51"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementProjectManager"
+      },
+      "positionTitle": "Unit Facility Management Project Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate (GAA only)",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementSpecialist"
+      },
+      "positionTitle": "Unit Facility Management Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Real Estate",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureAdministrator"
+      },
+      "positionTitle": "Unit People & Culture Administrator",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture",
+      "salaryScale": "IPE 46"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureManager"
+      },
+      "positionTitle": "Unit People & Culture Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Management Team",
+      "salaryScale": "IPE 54"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeoplePlanningSpecialist"
+      },
+      "positionTitle": "Unit People Planning Specialist",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "People& Culture",
+      "salaryScale": "IPE 47"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandisingManager"
+      },
+      "positionTitle": "Visual Merchandising Manager",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 50"
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandising/ActivityCo-worker"
+      },
+      "positionTitle": "Visual Merchandising/Activity Co-worker",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Com&In",
+      "salaryScale": "IPE 46"
+    }
+  ],
+  "_extraction_metadata": {
+    "extractor": "mistral-judge",
+    "model": "mistral-small-2506",
+    "cao_name": "IKEA",
+    "extracted_at": "2026-03-03T21:45:36.104936",
+    "elapsed_seconds": 64.579964,
+    "gemini_version": "2026-03-03T21:41:43.424992",
+    "mistral_version": "2026-03-03T21:44:31.487358"
+  },
+  "_compliance": {
+    "status": "compliant",
+    "coverage": 53.333333333333336,
+    "validated_at": "2026-03-03T21:45:36.104940",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [],
+    "source_comparisons": {
+      "gemini": {
+        "status": "unknown",
+        "coverage": 0
+      },
+      "mistral": {
+        "status": "compliant",
+        "coverage": 53.333333333333336
+      }
+    }
+  }
+}

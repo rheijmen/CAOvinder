@@ -1,0 +1,131 @@
+{
+  "cao_name": "Cao 2025-2026",
+  "effective_period_start": "2025-01-01",
+  "effective_period_end": "2026-12-31",
+  "salary_scales": [
+    {
+      "name": "Schaal 1",
+      "min_value": 1800.0,
+      "max_value": 2550.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 2",
+      "min_value": 2000.0,
+      "max_value": 3000.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 3",
+      "min_value": 2200.0,
+      "max_value": 3300.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 4",
+      "min_value": 2400.0,
+      "max_value": 3600.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 5",
+      "min_value": 2600.0,
+      "max_value": 3900.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 6",
+      "min_value": 2800.0,
+      "max_value": 4200.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 7",
+      "min_value": 3000.0,
+      "max_value": 4500.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 8",
+      "min_value": 3200.0,
+      "max_value": 4800.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 9",
+      "min_value": 3400.0,
+      "max_value": 5100.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 10",
+      "min_value": 3600.0,
+      "max_value": 5400.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 11",
+      "min_value": 3800.0,
+      "max_value": 5700.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 12",
+      "min_value": 4000.0,
+      "max_value": 6000.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 13",
+      "min_value": 4200.0,
+      "max_value": 6300.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 14",
+      "min_value": 4400.0,
+      "max_value": 6600.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    },
+    {
+      "name": "Schaal 15",
+      "min_value": 4600.0,
+      "max_value": 6900.0,
+      "steps": [],
+      "effective_date": null,
+      "work_duration_hours": 36.0
+    }
+  ],
+  "currency": "EUR",
+  "interval": "Month",
+  "confidence_score": null,
+  "extraction_notes": []
+}

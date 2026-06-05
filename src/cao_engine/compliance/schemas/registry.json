@@ -1,0 +1,59 @@
+{
+  "schemas": [
+    {
+      "version": "2.0.0-draft.3",
+      "file": "setu_v2.0.0-draft.3.json",
+      "source": "https://setu.semantic-treehouse.nl/openapi.yaml",
+      "extracted_from": "data/setu_input/gelijkwaardige-beloning-api.yaml",
+      "released": "2026-02-06",
+      "status": "current",
+      "description": "SETU Inquiry Pay Equity v2.0 - Current production schema",
+      "breaking_changes": [],
+      "deprecated_fields": [],
+      "migration_path": null
+    }
+  ],
+  "default_version": "2.0.0-draft.3",
+  "validation_modes": {
+    "strict": {
+      "description": "Fail on any schema violation (additionalProperties, missing fields, format errors)",
+      "additional_properties": "error",
+      "missing_optional": "error",
+      "format_violations": "error",
+      "type_coercion": false
+    },
+    "lenient": {
+      "description": "Allow non-critical extras, auto-convert types where possible",
+      "additional_properties": "warning",
+      "missing_optional": "info",
+      "format_violations": "warning",
+      "type_coercion": true
+    },
+    "production": {
+      "description": "Strict schema validation + business rules + cross-reference validation",
+      "additional_properties": "error",
+      "missing_optional": "error",
+      "format_violations": "error",
+      "type_coercion": false,
+      "business_rules": true,
+      "cross_reference_validation": true,
+      "statutory_compliance": true
+    },
+    "draft": {
+      "description": "Relaxed validation for development - allow missing optionals",
+      "additional_properties": "info",
+      "missing_optional": "ignore",
+      "format_violations": "warning",
+      "type_coercion": true
+    }
+  },
+  "extensions": [
+    {
+      "name": "parify",
+      "version": "1.0",
+      "file": "parify_v1.0.json",
+      "description": "Dutch CAO-specific extensions (youth scales, WML details, ADV/ATV rules)",
+      "extends_setu_version": "2.0.0-draft.3"
+    }
+  ]
+}

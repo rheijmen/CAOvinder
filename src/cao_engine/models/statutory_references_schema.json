@@ -1,0 +1,234 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cao-statutory-references-v1.0.0",
+  "title": "CAO Intelligence Engine — Statutory Reference Layer",
+  "description": "Standalone schema for statutory parameters that affect compensation calculations in the Dutch staffing industry. This schema is SEPARATE from the SETU InquiryPayEquity standard. It links to SETU documents via beloningsregisterId but never modifies or extends the SETU schema itself.",
+  "type": "object",
+  "required": ["schemaVersion", "effectivePeriod"],
+  "properties": {
+
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Version of this statutory references schema."
+    },
+
+    "beloningsregisterId": {
+      "type": "string",
+      "description": "Optional link to a SETU InquiryPayEquity documentId.value. Establishes the relationship without modifying the SETU document."
+    },
+
+    "effectivePeriod": {
+      "type": "object",
+      "properties": {
+        "validFrom": { "type": "string", "format": "date" },
+        "validTo": { "type": "string", "format": "date" }
+      }
+    },
+
+    "minimumWage": {
+      "type": "array",
+      "description": "WML (Wettelijk Minimumloon) rates. New entry every Jan 1 and Jul 1.",
+      "items": { "$ref": "#/$defs/MinimumWageVersion" }
+    },
+
+    "socialInsurancePremiums": {
+      "type": "array",
+      "description": "SV-premies (WW, ZVW, WAO/WIA, Awf, Whk). Typically updated Jan 1.",
+      "items": { "$ref": "#/$defs/SocialInsurancePremiumVersion" }
+    },
+
+    "fiscalLimits": {
+      "type": "array",
+      "description": "Tax-free thresholds and fiscal parameters (reiskosten, thuiswerk, WKR, transitievergoeding).",
+      "items": { "$ref": "#/$defs/FiscalLimitVersion" }
+    },
+
+    "stateRetirementAge": {
+      "type": "array",
+      "description": "AOW-leeftijd per birth-year cohort. Published by SVB.",
+      "items": { "$ref": "#/$defs/StateRetirementAgeVersion" }
+    },
+
+    "pensionParameters": {
+      "type": "array",
+      "description": "Sector pension fund parameters (StiPP, franchise, max pensioengevend salaris).",
+      "items": { "$ref": "#/$defs/PensionParameterVersion" }
+    },
+
+    "regulatoryChanges": {
+      "type": "array",
+      "description": "Tracked legislative changes affecting the compensation framework.",
+      "items": { "$ref": "#/$defs/RegulatoryChange" }
+    }
+  },
+
+  "$defs": {
+
+    "StatutorySource": {
+      "type": "object",
+      "required": ["authority"],
+      "properties": {
+        "authority": { "type": "string", "description": "Issuing body (e.g. Rijksoverheid, Belastingdienst, UWV, SVB, StiPP)." },
+        "publicationDate": { "type": "string", "format": "date" },
+        "reference": { "type": "string", "description": "Official publication reference (Staatscourant number, URL, etc.)." }
+      }
+    },
+
+    "MinimumWageVersion": {
+      "type": "object",
+      "required": ["effectivePeriod", "hourlyRates", "source"],
+      "description": "A single WML version. Since Jan 2024, the hourly rate is the legal basis.",
+      "properties": {
+        "effectivePeriod": {
+          "type": "object",
+          "properties": {
+            "validFrom": { "type": "string", "format": "date" },
+            "validTo": { "type": "string", "format": "date" }
+          }
+        },
+        "hourlyRates": {
+          "type": "array",
+          "description": "One entry per age bracket.",
+          "items": {
+            "type": "object",
+            "required": ["ageFrom", "hourlyRate"],
+            "properties": {
+              "ageFrom": { "type": "integer", "description": "Minimum age for this bracket (21 = adult rate, 20, 19, ... 15)." },
+              "ageTo": { "type": "integer", "description": "Maximum age. Omit for the 21+ (adult) bracket." },
+              "hourlyRate": { "type": "number", "description": "Gross hourly minimum wage in EUR." },
+              "dailyRate": { "type": "number" },
+              "weeklyRate": { "type": "number" },
+              "monthlyRate": { "type": "number" }
+            }
+          }
+        },
+        "source": { "$ref": "#/$defs/StatutorySource" },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "SocialInsurancePremiumVersion": {
+      "type": "object",
+      "required": ["effectivePeriod", "premiums", "source"],
+      "properties": {
+        "effectivePeriod": {
+          "type": "object",
+          "properties": {
+            "validFrom": { "type": "string", "format": "date" },
+            "validTo": { "type": "string", "format": "date" }
+          }
+        },
+        "premiums": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "name", "rate"],
+            "properties": {
+              "code": { "type": "string", "description": "Canonical code: WW_LAAG, WW_HOOG, ZVW, WAO_WIA_BASIS, WAO_WIA_GEDIFF, AWF, UFO, WHK." },
+              "name": { "type": "string" },
+              "rate": { "type": "number", "description": "Premium rate as percentage." },
+              "maxContributionBase": { "type": "number", "description": "Maximum salary subject to this premium, in EUR/year." },
+              "employerShare": { "type": "number" },
+              "employeeShare": { "type": "number" },
+              "conditions": { "type": "string" }
+            }
+          }
+        },
+        "svLoonMaximum": { "type": "number", "description": "Maximum SV-loon (premieloon) for the period." },
+        "source": { "$ref": "#/$defs/StatutorySource" }
+      }
+    },
+
+    "FiscalLimitVersion": {
+      "type": "object",
+      "required": ["effectivePeriod", "limits", "source"],
+      "properties": {
+        "effectivePeriod": {
+          "type": "object",
+          "properties": {
+            "validFrom": { "type": "string", "format": "date" },
+            "validTo": { "type": "string", "format": "date" }
+          }
+        },
+        "limits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "name", "value", "unitCode"],
+            "properties": {
+              "code": { "type": "string", "description": "Canonical code: REISKOSTEN_KM, THUISWERK_DAG, WKR_VRIJE_RUIMTE, WKR_VRIJE_RUIMTE_LAAG, TRANSITIE_MAX, DERTIG_PROCENT_CAP." },
+              "name": { "type": "string" },
+              "value": { "type": "number" },
+              "unitCode": { "type": "string", "description": "EUR, Percentage, EUR/km, EUR/dag." },
+              "threshold": { "type": "number", "description": "Salary threshold where a different rate kicks in." },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "source": { "$ref": "#/$defs/StatutorySource" }
+      }
+    },
+
+    "StateRetirementAgeVersion": {
+      "type": "object",
+      "required": ["birthYearFrom", "retirementAge"],
+      "properties": {
+        "birthYearFrom": { "type": "integer" },
+        "birthYearTo": { "type": "integer" },
+        "retirementAge": {
+          "type": "object",
+          "required": ["years"],
+          "properties": {
+            "years": { "type": "integer" },
+            "months": { "type": "integer", "default": 0 }
+          }
+        },
+        "confirmedUntil": { "type": "string", "format": "date", "description": "Date until which this age is legally confirmed (vs. projected)." },
+        "source": { "$ref": "#/$defs/StatutorySource" }
+      }
+    },
+
+    "PensionParameterVersion": {
+      "type": "object",
+      "required": ["effectivePeriod", "fundName", "source"],
+      "properties": {
+        "effectivePeriod": {
+          "type": "object",
+          "properties": {
+            "validFrom": { "type": "string", "format": "date" },
+            "validTo": { "type": "string", "format": "date" }
+          }
+        },
+        "fundName": { "type": "string" },
+        "scheme": { "type": "string", "description": "Scheme tier (e.g. Basis, Plus)." },
+        "franchiseAmount": { "type": "number", "description": "Annual franchise amount in EUR." },
+        "maxPensionableSalary": { "type": "number" },
+        "employerContributionRate": { "type": "number" },
+        "employeeContributionRate": { "type": "number" },
+        "totalContributionRate": { "type": "number" },
+        "eligibilityConditions": { "type": "string" },
+        "source": { "$ref": "#/$defs/StatutorySource" }
+      }
+    },
+
+    "RegulatoryChange": {
+      "type": "object",
+      "required": ["code", "name", "effectiveDate", "status"],
+      "properties": {
+        "code": { "type": "string", "description": "Canonical code (e.g. WET_GELIJKWAARDIGE_BELONING, WAZO_2025, WTP_TRANSITIE)." },
+        "name": { "type": "string" },
+        "effectiveDate": { "type": "string", "format": "date" },
+        "status": { "type": "string", "enum": ["announced", "enacted", "effective", "amended", "repealed"] },
+        "impactAreas": {
+          "type": "array",
+          "description": "Which SETU root properties are affected (by name, e.g. remuneration, allowance, leave, pension).",
+          "items": { "type": "string" }
+        },
+        "description": { "type": "string" },
+        "previousRegulation": { "type": "string" },
+        "source": { "$ref": "#/$defs/StatutorySource" }
+      }
+    }
+  }
+}

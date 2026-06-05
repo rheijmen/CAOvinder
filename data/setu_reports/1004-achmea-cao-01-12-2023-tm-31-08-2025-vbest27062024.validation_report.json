@@ -1,0 +1,12 @@
+{
+  "cao_name": "Achmea",
+  "timestamp": "2026-03-05T14:11:23.073477",
+  "initial_errors": 10,
+  "final_errors": 9,
+  "errors_fixed": 1,
+  "automation_rate": 0.1,
+  "needs_human_review": false,
+  "human_review_queue": [],
+  "compliance_score": 0.9473684210526316,
+  "processing_time": 115.876624
+}

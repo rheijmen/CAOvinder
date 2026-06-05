@@ -1,0 +1,524 @@
+{
+  "documentId": {
+    "value": "Rabobank-CAO-2024-2025",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-07-01",
+    "validTo": "2025-06-30"
+  },
+  "customer": {
+    "name": "Rabobank U.A.",
+    "legalId": [
+      {
+        "value": "KvK 30150909",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "S.L.G. Decraene"
+        },
+        "roleCode": "Voorzitter Groepsdirectie"
+      },
+      {
+        "name": {
+          "formattedName": "M.R. Hooglander"
+        },
+        "roleCode": "HR Rabobank"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "minValue": 2000.0,
+          "maxValue": 2500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2000.0
+            },
+            {
+              "name": "2",
+              "value": 2100.0
+            },
+            {
+              "name": "3",
+              "value": 2200.0
+            },
+            {
+              "name": "4",
+              "value": 2300.0
+            },
+            {
+              "name": "5",
+              "value": 2400.0
+            },
+            {
+              "name": "6",
+              "value": 2500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2500.0,
+          "maxValue": 3000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2500.0
+            },
+            {
+              "name": "2",
+              "value": 2600.0
+            },
+            {
+              "name": "3",
+              "value": 2700.0
+            },
+            {
+              "name": "4",
+              "value": 2800.0
+            },
+            {
+              "name": "5",
+              "value": 2900.0
+            },
+            {
+              "name": "6",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 3",
+          "minValue": 3000.0,
+          "maxValue": 3500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 3000.0
+            },
+            {
+              "name": "2",
+              "value": 3100.0
+            },
+            {
+              "name": "3",
+              "value": 3200.0
+            },
+            {
+              "name": "4",
+              "value": 3300.0
+            },
+            {
+              "name": "5",
+              "value": 3400.0
+            },
+            {
+              "name": "6",
+              "value": 3500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 4",
+          "minValue": 3500.0,
+          "maxValue": 4000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 3500.0
+            },
+            {
+              "name": "2",
+              "value": 3600.0
+            },
+            {
+              "name": "3",
+              "value": 3700.0
+            },
+            {
+              "name": "4",
+              "value": 3800.0
+            },
+            {
+              "name": "5",
+              "value": 3900.0
+            },
+            {
+              "name": "6",
+              "value": 4000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 5",
+          "minValue": 4000.0,
+          "maxValue": 4500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 4000.0
+            },
+            {
+              "name": "2",
+              "value": 4100.0
+            },
+            {
+              "name": "3",
+              "value": 4200.0
+            },
+            {
+              "name": "4",
+              "value": 4300.0
+            },
+            {
+              "name": "5",
+              "value": 4400.0
+            },
+            {
+              "name": "6",
+              "value": 4500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 6",
+          "minValue": 4500.0,
+          "maxValue": 5000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 4500.0
+            },
+            {
+              "name": "2",
+              "value": 4600.0
+            },
+            {
+              "name": "3",
+              "value": 4700.0
+            },
+            {
+              "name": "4",
+              "value": 4800.0
+            },
+            {
+              "name": "5",
+              "value": 4900.0
+            },
+            {
+              "name": "6",
+              "value": 5000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 7",
+          "minValue": 5000.0,
+          "maxValue": 5500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 5000.0
+            },
+            {
+              "name": "2",
+              "value": 5100.0
+            },
+            {
+              "name": "3",
+              "value": 5200.0
+            },
+            {
+              "name": "4",
+              "value": 5300.0
+            },
+            {
+              "name": "5",
+              "value": 5400.0
+            },
+            {
+              "name": "6",
+              "value": 5500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 8",
+          "minValue": 5500.0,
+          "maxValue": 6000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 5500.0
+            },
+            {
+              "name": "2",
+              "value": 5600.0
+            },
+            {
+              "name": "3",
+              "value": 5700.0
+            },
+            {
+              "name": "4",
+              "value": 5800.0
+            },
+            {
+              "name": "5",
+              "value": 5900.0
+            },
+            {
+              "name": "6",
+              "value": 6000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 9",
+          "minValue": 6000.0,
+          "maxValue": 6500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 6000.0
+            },
+            {
+              "name": "2",
+              "value": 6100.0
+            },
+            {
+              "name": "3",
+              "value": 6200.0
+            },
+            {
+              "name": "4",
+              "value": 6300.0
+            },
+            {
+              "name": "5",
+              "value": 6400.0
+            },
+            {
+              "name": "6",
+              "value": 6500.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 10",
+          "minValue": 6500.0,
+          "maxValue": 7000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 6500.0
+            },
+            {
+              "name": "2",
+              "value": 6600.0
+            },
+            {
+              "name": "3",
+              "value": 6700.0
+            },
+            {
+              "name": "4",
+              "value": 6800.0
+            },
+            {
+              "name": "5",
+              "value": 6900.0
+            },
+            {
+              "name": "6",
+              "value": 7000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 11",
+          "minValue": 7000.0,
+          "maxValue": 7500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 7000.0
+            },
+            {
+              "name": "2",
+              "value": 7100.0
+            },
+            {
+              "name": "3",
+              "value": 7200.0
+            },
+            {
+              "name": "4",
+              "value": 7300.0
+            },
+            {
+              "name": "5",
+              "value": 7400.0
+            },
+            {
+              "name": "6",
+              "value": 7500.0
+            }
+          ]
+        },
+        {
+          "name": "Senior Kader A",
+          "minValue": 7500.0,
+          "maxValue": 8000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 7500.0
+            },
+            {
+              "name": "2",
+              "value": 7600.0
+            },
+            {
+              "name": "3",
+              "value": 7700.0
+            },
+            {
+              "name": "4",
+              "value": 7800.0
+            },
+            {
+              "name": "5",
+              "value": 7900.0
+            },
+            {
+              "name": "6",
+              "value": 8000.0
+            }
+          ]
+        },
+        {
+          "name": "Senior Kader B",
+          "minValue": 8000.0,
+          "maxValue": 8500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 8000.0
+            },
+            {
+              "name": "2",
+              "value": 8100.0
+            },
+            {
+              "name": "3",
+              "value": 8200.0
+            },
+            {
+              "name": "4",
+              "value": 8300.0
+            },
+            {
+              "name": "5",
+              "value": 8400.0
+            },
+            {
+              "name": "6",
+              "value": 8500.0
+            }
+          ]
+        },
+        {
+          "name": "Senior Kader C",
+          "minValue": 8500.0,
+          "maxValue": 9000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 8500.0
+            },
+            {
+              "name": "2",
+              "value": 8600.0
+            },
+            {
+              "name": "3",
+              "value": 8700.0
+            },
+            {
+              "name": "4",
+              "value": 8800.0
+            },
+            {
+              "name": "5",
+              "value": 8900.0
+            },
+            {
+              "name": "6",
+              "value": 9000.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "pensionFundName": "Rabobank Pensioenfonds",
+      "employerContribution": 21.5,
+      "employeeContribution": 5.5,
+      "pensionableSalary": {
+        "maxValue": 137800,
+        "currency": "EUR"
+      },
+      "franchise": 17545,
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-06-30"
+      }
+    }
+  ]
+}

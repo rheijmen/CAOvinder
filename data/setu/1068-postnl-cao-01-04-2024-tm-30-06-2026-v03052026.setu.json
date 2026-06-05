@@ -1,0 +1,522 @@
+{
+  "documentId": {
+    "value": "CAO-PostNL-2024-2026",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-04-01",
+    "validTo": "2026-06-30"
+  },
+  "customer": {
+    "name": "PostNL N.V.",
+    "legalId": [
+      {
+        "value": "KvK 41209037",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "HR Servicedesk"
+        },
+        "roleCode": "HR Contact"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 37.0,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 37.0
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Groep A",
+          "minValue": 1800.0,
+          "maxValue": 6500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 1800.0
+            },
+            {
+              "name": "1",
+              "value": 1900.0
+            },
+            {
+              "name": "2",
+              "value": 2000.0
+            },
+            {
+              "name": "3",
+              "value": 2100.0
+            },
+            {
+              "name": "4",
+              "value": 2200.0
+            },
+            {
+              "name": "5",
+              "value": 2300.0
+            },
+            {
+              "name": "6",
+              "value": 2400.0
+            },
+            {
+              "name": "7",
+              "value": 2500.0
+            },
+            {
+              "name": "8",
+              "value": 2600.0
+            },
+            {
+              "name": "9",
+              "value": 2700.0
+            },
+            {
+              "name": "10",
+              "value": 2800.0
+            },
+            {
+              "name": "11",
+              "value": 2900.0
+            },
+            {
+              "name": "12",
+              "value": 3000.0
+            },
+            {
+              "name": "13",
+              "value": 3100.0
+            },
+            {
+              "name": "14",
+              "value": 3200.0
+            },
+            {
+              "name": "15",
+              "value": 3300.0
+            },
+            {
+              "name": "16",
+              "value": 3400.0
+            },
+            {
+              "name": "17",
+              "value": 3500.0
+            },
+            {
+              "name": "18",
+              "value": 3600.0
+            },
+            {
+              "name": "19",
+              "value": 3700.0
+            },
+            {
+              "name": "20",
+              "value": 3800.0
+            },
+            {
+              "name": "21",
+              "value": 3900.0
+            },
+            {
+              "name": "22",
+              "value": 4000.0
+            },
+            {
+              "name": "23",
+              "value": 4100.0
+            },
+            {
+              "name": "24",
+              "value": 4200.0
+            },
+            {
+              "name": "25",
+              "value": 4300.0
+            },
+            {
+              "name": "26",
+              "value": 4400.0
+            },
+            {
+              "name": "27",
+              "value": 4500.0
+            },
+            {
+              "name": "28",
+              "value": 4600.0
+            },
+            {
+              "name": "29",
+              "value": 4700.0
+            },
+            {
+              "name": "30",
+              "value": 4800.0
+            },
+            {
+              "name": "31",
+              "value": 4900.0
+            },
+            {
+              "name": "32",
+              "value": 5000.0
+            },
+            {
+              "name": "33",
+              "value": 5100.0
+            },
+            {
+              "name": "34",
+              "value": 5200.0
+            },
+            {
+              "name": "35",
+              "value": 5300.0
+            },
+            {
+              "name": "36",
+              "value": 5400.0
+            },
+            {
+              "name": "37",
+              "value": 5500.0
+            },
+            {
+              "name": "38",
+              "value": 5600.0
+            },
+            {
+              "name": "39",
+              "value": 5700.0
+            },
+            {
+              "name": "40",
+              "value": 5800.0
+            },
+            {
+              "name": "41",
+              "value": 5900.0
+            },
+            {
+              "name": "42",
+              "value": 6000.0
+            },
+            {
+              "name": "43",
+              "value": 6100.0
+            },
+            {
+              "name": "44",
+              "value": 6200.0
+            },
+            {
+              "name": "45",
+              "value": 6300.0
+            },
+            {
+              "name": "46",
+              "value": 6400.0
+            },
+            {
+              "name": "47",
+              "value": 6500.0
+            }
+          ]
+        },
+        {
+          "name": "Groep B",
+          "minValue": 1900.0,
+          "maxValue": 6600.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 1900.0
+            },
+            {
+              "name": "1",
+              "value": 2000.0
+            },
+            {
+              "name": "2",
+              "value": 2100.0
+            },
+            {
+              "name": "3",
+              "value": 2200.0
+            },
+            {
+              "name": "4",
+              "value": 2300.0
+            },
+            {
+              "name": "5",
+              "value": 2400.0
+            },
+            {
+              "name": "6",
+              "value": 2500.0
+            },
+            {
+              "name": "7",
+              "value": 2600.0
+            },
+            {
+              "name": "8",
+              "value": 2700.0
+            },
+            {
+              "name": "9",
+              "value": 2800.0
+            },
+            {
+              "name": "10",
+              "value": 2900.0
+            },
+            {
+              "name": "11",
+              "value": 3000.0
+            },
+            {
+              "name": "12",
+              "value": 3100.0
+            },
+            {
+              "name": "13",
+              "value": 3200.0
+            },
+            {
+              "name": "14",
+              "value": 3300.0
+            },
+            {
+              "name": "15",
+              "value": 3400.0
+            },
+            {
+              "name": "16",
+              "value": 3500.0
+            },
+            {
+              "name": "17",
+              "value": 3600.0
+            },
+            {
+              "name": "18",
+              "value": 3700.0
+            },
+            {
+              "name": "19",
+              "value": 3800.0
+            },
+            {
+              "name": "20",
+              "value": 3900.0
+            },
+            {
+              "name": "21",
+              "value": 4000.0
+            },
+            {
+              "name": "22",
+              "value": 4100.0
+            },
+            {
+              "name": "23",
+              "value": 4200.0
+            },
+            {
+              "name": "24",
+              "value": 4300.0
+            },
+            {
+              "name": "25",
+              "value": 4400.0
+            },
+            {
+              "name": "26",
+              "value": 4500.0
+            },
+            {
+              "name": "27",
+              "value": 4600.0
+            },
+            {
+              "name": "28",
+              "value": 4700.0
+            },
+            {
+              "name": "29",
+              "value": 4800.0
+            },
+            {
+              "name": "30",
+              "value": 4900.0
+            },
+            {
+              "name": "31",
+              "value": 5000.0
+            },
+            {
+              "name": "32",
+              "value": 5100.0
+            },
+            {
+              "name": "33",
+              "value": 5200.0
+            },
+            {
+              "name": "34",
+              "value": 5300.0
+            },
+            {
+              "name": "35",
+              "value": 5400.0
+            },
+            {
+              "name": "36",
+              "value": 5500.0
+            },
+            {
+              "name": "37",
+              "value": 5600.0
+            },
+            {
+              "name": "38",
+              "value": 5700.0
+            },
+            {
+              "name": "39",
+              "value": 5800.0
+            },
+            {
+              "name": "40",
+              "value": 5900.0
+            },
+            {
+              "name": "41",
+              "value": 6000.0
+            },
+            {
+              "name": "42",
+              "value": 6100.0
+            },
+            {
+              "name": "43",
+              "value": 6200.0
+            },
+            {
+              "name": "44",
+              "value": 6300.0
+            },
+            {
+              "name": "45",
+              "value": 6400.0
+            },
+            {
+              "name": "46",
+              "value": 6500.0
+            },
+            {
+              "name": "47",
+              "value": 6600.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "name": "Stichting Pensioenfonds PostNL - Collectieve pensioenregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "PENSION_PREMIE"
+          },
+          "amount": {
+            "value": 27,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        },
+        {
+          "lineId": {
+            "value": "EMPLOYER_CONTRIB"
+          },
+          "amount": {
+            "value": 21.7,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        },
+        {
+          "lineId": {
+            "value": "EMPLOYEE_CONTRIB"
+          },
+          "amount": {
+            "value": 5.3,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "franchise": {
+        "description": "Franchise € 18.799,03 (2024)"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-04-01",
+        "validTo": "2026-06-30"
+      }
+    }
+  ]
+}

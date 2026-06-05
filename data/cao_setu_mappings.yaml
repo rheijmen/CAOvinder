@@ -1,0 +1,473 @@
+# CAO → SETU v2.0 Field Mapping Registry
+# ===========================================
+# Human-editable mapping guide for Dutch CAO terminology → SETU InquiryPayEquity fields
+#
+# HOW TO USE:
+# 1. Add new Dutch/English terms to aliases_nl/aliases_en
+# 2. Update decision_logic if needed
+# 3. Adjust SETU structure examples based on real CAO cases
+# 4. Add notes from validation feedback
+#
+# The system will automatically load these mappings and teach LLMs the correct structure.
+
+version: "1.0"
+last_updated: "2026-03-10"
+setu_version: "2.0.0"
+
+mappings:
+  # ========================================
+  # 1. ALGEMENE LOONSVERHOGING (CAO-wide salary increases)
+  # ========================================
+  general_salary_increase:
+    concept_id: general_salary_increase
+    setu_field: "remuneration[].generalSalaryIncrease[]"
+    setu_root_property: remuneration
+
+    description: |
+      CAO-wide salary increases that apply to ALL employees.
+      Typically percentage-based with optional minimum amounts.
+      Often scheduled at specific dates (e.g., June 1, Jan 1).
+
+    # Dutch terminology variations (case-insensitive)
+    aliases_nl:
+      - algemene loonsverhoging
+      - loonsverhoging
+      - cao-verhoging
+      - salarisverhogingsafspraak
+      - periodicale verhoging
+      - loonsverhogingsafspraak
+      - algemene salarisverhoging
+
+    # English terminology variations
+    aliases_en:
+      - general salary increase
+      - wage increase
+      - salary raise
+      - periodic increase
+      - cao raise
+      - collective wage increase
+
+    # When to use this mapping
+    decision_logic: |
+      Use generalSalaryIncrease when:
+      - Applies to ALL employees (not individual)
+      - Periodic/recurring (has effective dates)
+      - Part of CAO agreement
+      - Usually percentage-based (e.g., 2.75%)
+      - May have minimum amount (e.g., €74.43)
+
+      DO NOT use for:
+      - Individual salary steps (use individualSalaryIncrease)
+      - One-time bonuses (use supplementaryArrangement)
+
+    # Complete SETU structure example
+    setu_structure:
+      remuneration:
+        - generalSalaryIncrease:
+            - effectivePeriod:
+                validFrom: "2024-06-01"
+              percentage: 2.75
+              minimumAmount:
+                value: 74.43
+                currency: EUR
+            - effectivePeriod:
+                validFrom: "2025-01-01"
+              percentage: 2.5
+
+    # Real-world examples from CAOs
+    examples:
+      - cao: Metalektro 2024-2025
+        text: "Algemene loonsverhoging 2,75% per 1 juni 2024, minimaal €74,43"
+        setu_field: remuneration[].generalSalaryIncrease[]
+      - cao: Achmea 2023-2025
+        text: "Loonsverhoging 3% per 1 december 2023"
+        setu_field: remuneration[].generalSalaryIncrease[]
+
+    notes: |
+      Metalektro CAO has 3 scheduled increases: June 2024, Jan 2025, June 2025.
+      Often includes both percentage AND minimum amount for low-wage employees.
+
+  # ========================================
+  # 2. EENMALIGE UITKERING (One-time payments, bonuses)
+  # ========================================
+  supplementary_arrangement:
+    concept_id: supplementary_arrangement
+    setu_field: "supplementaryArrangement[]"
+    setu_root_property: supplementaryArrangement
+
+    description: |
+      One-time payments, bonuses, temporary arrangements.
+      NOT recurring salary components.
+      Often time-limited (validFrom → validTo).
+
+    aliases_nl:
+      - eenmalige uitkering
+      - bonus
+      - gratificatie
+      - afbouw eenmalige uitkering
+      - bijzondere uitkering
+      - incidentele betaling
+      - tijdelijke uitkering
+      - extra uitkering
+      - koopkrachtcompensatie
+
+    aliases_en:
+      - one-time payment
+      - bonus
+      - special payment
+      - temporary payment
+      - phase-out payment
+      - extraordinary payment
+      - purchasing power compensation
+
+    decision_logic: |
+      Use supplementaryArrangement when:
+      - One-time or temporary (NOT recurring)
+      - Has validFrom AND validTo dates
+      - Examples: bonuses, phase-out payments, compensation
+
+      DO NOT use for:
+      - Recurring allowances (use allowance[])
+      - CAO-wide salary increases (use generalSalaryIncrease)
+
+    setu_structure:
+      supplementaryArrangement:
+        - name: "Afbouw eenmalige uitkering"
+          typeCode: OneTimePayment
+          effectivePeriod:
+            validFrom: "2024-06-01"
+            validTo: "2024-08-31"
+          line:
+            - amount:
+                value: 60
+                unitCode: Euro
+              interval:
+                value: 1
+                unitCode: Month
+
+    examples:
+      - cao: Metalektro 2024-2025
+        text: "Afbouw eenmalige uitkering €60 per maand (juni-aug 2024)"
+        setu_field: supplementaryArrangement[]
+      - cao: IKEA 2023-2024
+        text: "Eenmalige uitkering €250 in december 2023"
+        setu_field: supplementaryArrangement[]
+
+    notes: |
+      CRITICAL: This was the Metalektro problem!
+      LLMs were creating "additionalRemunerations" (custom field).
+      Correct field is supplementaryArrangement[] (official SETU field).
+
+  # ========================================
+  # 3. TOESLAGEN (Allowances - recurring conditional payments)
+  # ========================================
+  allowance:
+    concept_id: allowance
+    setu_field: "allowance[]"
+    setu_root_property: allowance
+
+    description: |
+      Recurring conditional payments based on work circumstances.
+      Examples: shift work, overtime, irregular hours, travel.
+
+    aliases_nl:
+      - toeslag
+      - ploegentoeslag
+      - overwerktoeslag
+      - ORT
+      - onregelmatigheidstoeslag
+      - shifttoeslag
+      - inconveniëntentoeslag
+      - reiskostenvergoeding
+      - overwerkvergoeding
+      - ploegendienst
+
+    aliases_en:
+      - allowance
+      - shift allowance
+      - overtime allowance
+      - irregular hours allowance
+      - shift work allowance
+      - travel allowance
+      - inconvenience allowance
+
+    decision_logic: |
+      Use allowance[] when:
+      - Recurring payment (not one-time)
+      - Conditional (depends on circumstances like shift work, overtime)
+      - Usually percentage of base salary OR fixed amount
+      - Examples: ORT, shift allowances, overtime pay
+
+      DO NOT confuse with:
+      - Holiday allowance (use holidayAllowance - separate field!)
+      - One-time bonuses (use supplementaryArrangement)
+
+    setu_structure:
+      allowance:
+        - name: "Overwerktoeslag"
+          typeCode: Overtime
+          calculationMethod: Percentage
+          percentage: 25.0
+          conditions: "Na 40 uur per week"
+        - name: "Ploegentoeslag"
+          typeCode: Shift
+          calculationMethod: Percentage
+          percentage: 18.5
+          conditions: "Bij 3-ploegendienst"
+
+    examples:
+      - cao: Metalektro 2024-2025
+        text: "Overwerktoeslag 25% na 40 uur"
+        setu_field: allowance[]
+      - cao: Rabobank 2024-2025
+        text: "Onregelmatigheidstoeslag (ORT) 0,5% tot 22,5%"
+        setu_field: allowance[]
+
+    notes: |
+      DO NOT include vakantiegeld here - that's holidayAllowance (separate root field).
+      Each allowance should have typeCode (Overtime, Shift, Travel, Irregular, etc.).
+
+  # ========================================
+  # 4. VAKANTIEGELD (Holiday allowance)
+  # ========================================
+  holiday_allowance:
+    concept_id: holiday_allowance
+    setu_field: "holidayAllowance"
+    setu_root_property: holidayAllowance
+
+    description: |
+      Annual holiday allowance (vakantiegeld).
+      Typically 8% in Netherlands (legal minimum).
+      Usually paid in May/June.
+
+    aliases_nl:
+      - vakantiegeld
+      - vakantie-uitkering
+      - vakantiebijslag
+      - vakantietoeslag
+
+    aliases_en:
+      - holiday allowance
+      - vacation pay
+      - vacation allowance
+      - annual holiday pay
+
+    decision_logic: |
+      Use holidayAllowance when:
+      - Annual payment for vacation
+      - Percentage of gross salary (typically 8%)
+      - May have specific payment date/month
+
+      This is a SEPARATE root field, NOT inside allowance[]!
+
+    setu_structure:
+      holidayAllowance:
+        percentage: 8.0
+        payDate: "05"  # May
+
+    examples:
+      - cao: Achmea 2023-2025
+        text: "Vakantiegeld 8% van jaarsalaris, uitbetaling in mei"
+        setu_field: holidayAllowance
+      - cao: ING Bank 2025-2026
+        text: "Vakantie-uitkering 8%"
+        setu_field: holidayAllowance
+
+    notes: |
+      8% is legal minimum in Netherlands.
+      Some CAOs offer higher percentages (e.g., 8.33%).
+
+  # ========================================
+  # 5. IKB (Individual Choice Budget)
+  # ========================================
+  individual_choice_budget:
+    concept_id: individual_choice_budget
+    setu_field: "individualChoiceBudget"
+    setu_root_property: individualChoiceBudget
+
+    description: |
+      Flexible benefits budget that employees can use for various purposes.
+      Often used for extra leave, pension, training, or cash payout.
+
+    aliases_nl:
+      - IKB
+      - individueel keuzebudget
+      - keuzebudget
+      - flexbudget
+      - individueel budget
+      - persoonlijk budget
+
+    aliases_en:
+      - individual choice budget
+      - flexible benefits budget
+      - personal budget
+      - choice budget
+
+    decision_logic: |
+      Use individualChoiceBudget when:
+      - Flexible budget for employee choices
+      - Can be used for multiple purposes (leave, pension, cash)
+      - Usually annual amount or percentage
+
+    setu_structure:
+      individualChoiceBudget:
+        amount:
+          value: 500
+          currency: EUR
+        interval:
+          value: 1
+          unitCode: Year
+
+    examples:
+      - cao: Rabobank 2024-2025
+        text: "IKB €500 per jaar"
+        setu_field: individualChoiceBudget
+      - cao: IKEA 2023-2024
+        text: "Individueel keuzebudget 2% van salaris"
+        setu_field: individualChoiceBudget
+
+    notes: |
+      Often combined with sustainable employability (duurzame inzetbaarheid).
+
+  # ========================================
+  # 6. PERIODIEK / TREDE VERHOGING (Individual step increase)
+  # ========================================
+  individual_salary_increase:
+    concept_id: individual_salary_increase
+    setu_field: "remuneration[].individualSalaryIncrease[]"
+    setu_root_property: remuneration
+
+    description: |
+      Individual salary increases within a scale (trede verhoging).
+      Based on tenure/experience, NOT CAO-wide.
+      Employee moves up within their salary scale.
+
+    aliases_nl:
+      - periodiek
+      - trede verhoging
+      - salarisschaal stap
+      - individuele verhoging
+      - periodicale verhoging
+      - schaaltrede
+      - tredestijging
+
+    aliases_en:
+      - individual salary increase
+      - step increase
+      - periodic step
+      - scale step increase
+      - tenure increase
+
+    decision_logic: |
+      Use individualSalaryIncrease when:
+      - Individual employee progression (not CAO-wide)
+      - Based on tenure/years of service
+      - Moves within salary scale (trede 0 → trede 1 → trede 2)
+
+      DO NOT confuse with:
+      - CAO-wide raises (use generalSalaryIncrease)
+
+    setu_structure:
+      remuneration:
+        - individualSalaryIncrease:
+            - effectivePeriod:
+                validFrom: "2024-01-01"
+              percentage: 2.5
+              conditions: "Jaarlijks bij goed functioneren"
+
+    examples:
+      - cao: Achmea 2023-2025
+        text: "Periodieken 2,5% jaarlijks"
+        setu_field: remuneration[].individualSalaryIncrease[]
+
+    notes: |
+      Often conditional on performance review.
+      Separate from CAO-wide salary increases.
+
+  # ========================================
+  # 7. OTHER ARRANGEMENT (Catch-all for rare cases)
+  # ========================================
+  other_arrangement:
+    concept_id: other_arrangement
+    setu_field: "otherArrangement[]"
+    setu_root_property: otherArrangement
+
+    description: |
+      Catch-all for arrangements that don't fit other categories.
+      Use sparingly - most CAO concepts have specific SETU fields.
+
+    aliases_nl:
+      - overige regeling
+      - andere afspraak
+      - bijzondere regeling
+
+    aliases_en:
+      - other arrangement
+      - special arrangement
+      - miscellaneous arrangement
+
+    decision_logic: |
+      Use otherArrangement[] ONLY when:
+      - Concept doesn't fit ANY other SETU field
+      - After checking all 6 mappings above
+
+      Most CAO concepts should map to fields 1-6!
+
+    setu_structure:
+      otherArrangement:
+        - name: "Beschrijving van regeling"
+          description: "Details..."
+
+    examples: []
+
+    notes: |
+      Use this as last resort.
+      If you find yourself using this often, the mapping registry needs updating.
+
+# ========================================
+# LEARNING SYSTEM (Future Enhancement)
+# ========================================
+learning:
+  # Track unmapped terms found in validation feedback
+  unmapped_terms:
+    - term: "gratificatie 13e maand"
+      count: 3
+      suggested_mapping: supplementary_arrangement
+      status: pending_review
+
+    - term: "werkkostenregeling"
+      count: 2
+      suggested_mapping: null
+      status: needs_research
+      notes: "May belong in Statutory references, not SETU"
+
+  # Track mapping corrections from validation
+  corrections:
+    - original_term: "extra maanduitkering"
+      wrong_mapping: allowance
+      correct_mapping: supplementary_arrangement
+      cao_source: "IKEA 2023-2024"
+      corrected_date: "2026-03-10"
+      validated_by: human
+
+# ========================================
+# VALIDATION RULES
+# ========================================
+validation:
+  # Common mistakes to detect
+  forbidden_fields:
+    - additionalRemunerations  # Should be supplementaryArrangement
+    - salaryAdjustments        # Should be generalSalaryIncrease
+    - customAllowances         # Should be allowance[]
+    - extraPayments            # Should be supplementaryArrangement or allowance
+
+  # Required fields for each mapping
+  required_structure:
+    supplementaryArrangement:
+      - name
+      - typeCode
+      - effectivePeriod.validFrom
+
+    generalSalaryIncrease:
+      - effectivePeriod.validFrom
+      - percentage

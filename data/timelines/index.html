@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAO Timelines Overzicht</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 2px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-label {
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CAO Timelines Overzicht</h1>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">1</div>
+                <div class="stat-label">CAO's</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">25</div>
+                <div class="stat-label">Totale Gebeurtenissen</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Toekomstige Events</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>CAO Naam</th>
+                    <th>Gebeurtenissen</th>
+                    <th>Toekomstig</th>
+                    <th>Periode</th>
+                    <th>Gegenereerd</th>
+                    <th>Acties</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>CAO Metaal en Techniek</td>
+                <td>25</td>
+                <td>0</td>
+                <td>01-04-2024 tot 31-01-2026</td>
+                <td>18-02-2026 07:14</td>
+                <td>
+                    <a href="cao_metaal_en_techniek_timeline.html" class="btn btn-primary">Bekijk Timeline</a>
+                    <a href="cao_metaal_en_techniek_timeline.json" class="btn btn-secondary" download>Download JSON</a>
+                </td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

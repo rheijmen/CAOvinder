@@ -7,7 +7,7 @@ import structlog
 from mistralai import Mistral
 
 from cao_engine.config import Settings
-from cao_engine.ocr.models import OCRPage, OCRPageDimensions, OCRResult, OCRUsageInfo
+from cao_engine.ocr.models import OCRPage, OCRPageDimensions, OCRResult, OCRTable, OCRUsageInfo
 
 logger = structlog.get_logger(__name__)
 
@@ -51,6 +51,19 @@ class MistralOCRClient:
                     height=page.dimensions.height,
                     width=page.dimensions.width,
                 )
+
+            # Extract tables from the page
+            tables = []
+            if hasattr(page, 'tables') and page.tables:
+                for table in page.tables:
+                    tables.append(
+                        OCRTable(
+                            id=table.id,
+                            content=table.content,
+                            format=getattr(table, 'format_', 'markdown')
+                        )
+                    )
+
             pages.append(
                 OCRPage(
                     index=page.index,
@@ -58,6 +71,7 @@ class MistralOCRClient:
                     dimensions=dims,
                     header=getattr(page, "header", None),
                     footer=getattr(page, "footer", None),
+                    tables=tables,
                 )
             )
 
@@ -106,6 +120,19 @@ class MistralOCRClient:
                     height=page.dimensions.height,
                     width=page.dimensions.width,
                 )
+
+            # Extract tables from the page
+            tables = []
+            if hasattr(page, 'tables') and page.tables:
+                for table in page.tables:
+                    tables.append(
+                        OCRTable(
+                            id=table.id,
+                            content=table.content,
+                            format=getattr(table, 'format_', 'markdown')
+                        )
+                    )
+
             pages.append(
                 OCRPage(
                     index=page.index,
@@ -113,6 +140,7 @@ class MistralOCRClient:
                     dimensions=dims,
                     header=getattr(page, "header", None),
                     footer=getattr(page, "footer", None),
+                    tables=tables,
                 )
             )
 

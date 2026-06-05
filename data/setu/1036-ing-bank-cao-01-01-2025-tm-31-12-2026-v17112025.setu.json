@@ -1,0 +1,360 @@
+{
+  "documentId": {
+    "value": "ING-CAO-2025-2026",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2025-01-01",
+    "validTo": "2026-12-31"
+  },
+  "customer": {
+    "name": "ING Bank Personeel B.V.",
+    "legalId": [
+      {
+        "value": "KvK 33031431",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "HR Director ING"
+        },
+        "roleCode": "HR Director"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 36,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Scale 2",
+          "minValue": 2496.0,
+          "maxValue": 3114.31,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2496.0
+            },
+            {
+              "name": "Max",
+              "value": 3114.31
+            }
+          ]
+        },
+        {
+          "name": "Scale 3",
+          "minValue": 2496.0,
+          "maxValue": 3350.84,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2496.0
+            },
+            {
+              "name": "Max",
+              "value": 3350.84
+            }
+          ]
+        },
+        {
+          "name": "Scale 4",
+          "minValue": 2496.0,
+          "maxValue": 3648.13,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2496.0
+            },
+            {
+              "name": "Max",
+              "value": 3648.13
+            }
+          ]
+        },
+        {
+          "name": "Scale 5",
+          "minValue": 2496.0,
+          "maxValue": 3957.12,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2496.0
+            },
+            {
+              "name": "Max",
+              "value": 3957.12
+            }
+          ]
+        },
+        {
+          "name": "Scale 6",
+          "minValue": 2568.62,
+          "maxValue": 4340.21,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2568.62
+            },
+            {
+              "name": "Max",
+              "value": 4340.21
+            }
+          ]
+        },
+        {
+          "name": "Scale 7",
+          "minValue": 2854.4,
+          "maxValue": 4779.95,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 2854.4
+            },
+            {
+              "name": "Max",
+              "value": 4779.95
+            }
+          ]
+        },
+        {
+          "name": "Scale 8",
+          "minValue": 3339.44,
+          "maxValue": 5526.17,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 3339.44
+            },
+            {
+              "name": "Max",
+              "value": 5526.17
+            }
+          ]
+        },
+        {
+          "name": "Scale 9",
+          "minValue": 3872.12,
+          "maxValue": 6345.61,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 3872.12
+            },
+            {
+              "name": "Max",
+              "value": 6345.61
+            }
+          ]
+        },
+        {
+          "name": "Scale 10",
+          "minValue": 4596.95,
+          "maxValue": 7460.78,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 4596.95
+            },
+            {
+              "name": "Max",
+              "value": 7460.78
+            }
+          ]
+        },
+        {
+          "name": "Scale 11",
+          "minValue": 5485.7,
+          "maxValue": 8828.03,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 5485.7
+            },
+            {
+              "name": "Max",
+              "value": 8828.03
+            }
+          ]
+        },
+        {
+          "name": "Scale 12",
+          "minValue": 6500.6,
+          "maxValue": 10389.47,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 6500.6
+            },
+            {
+              "name": "Max",
+              "value": 10389.47
+            }
+          ]
+        },
+        {
+          "name": "Scale 13",
+          "minValue": 7499.31,
+          "maxValue": 11925.9,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 7499.31
+            },
+            {
+              "name": "Max",
+              "value": 11925.9
+            }
+          ]
+        },
+        {
+          "name": "Scale 14",
+          "minValue": 8827.33,
+          "maxValue": 13969.07,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 8827.33
+            },
+            {
+              "name": "Max",
+              "value": 13969.07
+            }
+          ]
+        },
+        {
+          "name": "Scale 15",
+          "minValue": 10390.96,
+          "maxValue": 16374.6,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Min",
+              "value": 10390.96
+            },
+            {
+              "name": "Max",
+              "value": 16374.6
+            }
+          ]
+        }
+      ],
+      "generalSalaryIncrease": [
+        {
+          "effectivePeriod": {
+            "validFrom": "2025-07-01"
+          },
+          "percentage": 5.25,
+          "minimumAmount": {
+            "value": 74.43,
+            "currency": "EUR"
+          }
+        },
+        {
+          "effectivePeriod": {
+            "validFrom": "2026-07-01"
+          },
+          "percentage": 3.5,
+          "minimumAmount": {
+            "value": 74.43,
+            "currency": "EUR"
+          }
+        }
+      ],
+      "individualSalaryIncrease": [
+        {
+          "effectivePeriod": {
+            "validFrom": "2026-04-01"
+          },
+          "description": "Pay for Growth based on performance scores",
+          "performanceScore": {
+            "range": "2-10",
+            "mapping": {
+              "10": {
+                "underMidpoint": 5.5,
+                "aboveMidpoint": 4.5
+              },
+              "9": {
+                "underMidpoint": 4.75,
+                "aboveMidpoint": 3.75
+              },
+              "8": {
+                "underMidpoint": 4.0,
+                "aboveMidpoint": 3.0
+              },
+              "7": {
+                "underMidpoint": 3.25,
+                "aboveMidpoint": 2.25
+              },
+              "6": {
+                "underMidpoint": 2.5,
+                "aboveMidpoint": 1.5
+              },
+              "5": {
+                "underMidpoint": 2.0,
+                "aboveMidpoint": 1.0
+              },
+              "4": {
+                "underMidpoint": 2.0,
+                "aboveMidpoint": 1.0
+              },
+              "3": {
+                "underMidpoint": 2.0,
+                "aboveMidpoint": 1.0
+              },
+              "2": {
+                "underMidpoint": 2.0,
+                "aboveMidpoint": 1.0
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "employerContribution": {
+        "description": "Volgens Basispensioenregeling bij ING CDC Pensioenfonds tot fiscaal maximum minus franchise"
+      },
+      "individualSavingAllowance": {
+        "description": "Toelage Individueel Sparen (TIS) voor inkomen boven fiscaal maximum",
+        "calculation": "Percentage van pensioengrondslag boven fiscaal maximum"
+      }
+    }
+  ]
+}

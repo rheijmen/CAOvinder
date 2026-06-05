@@ -2,16 +2,25 @@
 
 
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 
 from cao_engine import __version__
 from cao_engine.config import Settings
-from cao_engine.storage.json_store import JSONStore
 from cao_engine.storage.moment_store import MomentStore
 
 app = FastAPI(
-    title="CAO Intelligence Engine",
+    title="CAO Centraal",
     description="API for querying structured Dutch CAO data and moments",
     version=__version__,
+)
+
+# CORS middleware for frontend connection
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -24,16 +33,17 @@ async def health():
     return {"status": "ok", "version": __version__}
 
 
-@app.get("/api/v1/caos")
-async def list_caos():
-    """List all processed CAO documents."""
-    settings = _get_settings()
-    store = JSONStore(settings)
-    docs = store.list_documents()
-    return {
-        "caos": [p.stem for p in docs],
-        "count": len(docs),
-    }
+# OLD ENDPOINT - Commented out to use the modern API from cao_routes.py
+# @app.get("/api/v1/caos")
+# async def list_caos():
+#     """List all processed CAO documents."""
+#     settings = _get_settings()
+#     store = JSONStore(settings)
+#     docs = store.list_documents()
+#     return {
+#         "caos": [p.stem for p in docs],
+#         "count": len(docs),
+#     }
 
 
 @app.get("/api/v1/momenten")
@@ -75,3 +85,22 @@ async def get_moment(moment_id: str):
                 return m.model_dump(mode="json")
 
     return {"error": "Moment not found"}
+
+
+# Import and include the modern API routes
+from cao_engine.api.discovery import router as discovery_router
+from cao_engine.api.routes.cao_routes import router as cao_router
+from cao_engine.api.routes.processing_routes import router as processing_router
+from cao_engine.api.v2.public_routes import router as v2_public_router
+from cao_engine.api.v2.search import router as v2_search_router
+
+# AI/LLM discovery endpoints (no auth, served at root)
+app.include_router(discovery_router)
+
+# Internal API routes (no authentication required for admin frontend)
+app.include_router(cao_router)
+app.include_router(processing_router)
+
+# Public B2B API routes (require API key authentication)
+app.include_router(v2_public_router)
+app.include_router(v2_search_router, prefix="/api/v2")

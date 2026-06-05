@@ -1,0 +1,1896 @@
+{
+  "documentId": {
+    "value": "CAO_GROOTHANDEL_BLOEMEN_PLANTEN_2024-2026",
+    "schemeAgencyId": "CAO_PUBLISHER"
+  },
+  "versionId": "1.0",
+  "issued": "2024-09-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2024-10-01",
+    "validTo": "2026-09-30"
+  },
+  "customer": {
+    "name": "Vereniging van Groothandelaren in Bloemkwekerijproducten (VGB)",
+    "legalId": [
+      {
+        "value": "41155794",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "VGB CAO Contact"
+        },
+        "roleCode": "CAO Party Representative"
+      }
+    ]
+  },
+  "baseDefinition": [
+    {
+      "baseType": "BaseWage",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
+      "paidLeaveDayIndicator": true,
+      "allAllowancesIndicator": false,
+      "description": "Maandsalaris / periodesalaris: het salaris zoals opgenomen in artikel 26."
+    },
+    {
+      "baseType": "GrossSalary",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
+      "paidLeaveDayIndicator": true,
+      "allAllowancesIndicator": false,
+      "description": "Maandinkomen / periode-inkomen: het maandsalaris / periodesalaris vermeerderd met eventuele vaste (persoonlijke) maandelijkse toeslagen op basis van deze cao, niet zijnde (netto) onkostenvergoedingen."
+    },
+    {
+      "baseType": "YearlyGrossSalary",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": true,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "HolidayAllowance"
+        },
+        {
+          "typeCode": "YearEndBonus"
+        }
+      ],
+      "description": "Jaarinkomen: 12 x het maandinkomen resp. 13 x het periode-inkomen vermeerderd met de vakantietoeslag, de eindejaarsuitkering en andere met de werkgever schriftelijk overeengekomen vaste uitkeringen en/of toeslagen."
+    }
+  ],
+  "labourAgreements": {
+    "industryIdentifier": [
+      {
+        "value": "Groothandel in Bloemkwekerijproducten"
+      }
+    ],
+    "collectiveLabourAgreement": {
+      "name": "Collectieve Arbeidsovereenkomst voor de Groothandel in Bloemen en Planten",
+      "id": {
+        "value": "CAO_GROOTHANDEL_BLOEMEN_PLANTEN_2024-2026"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-10-01",
+        "validTo": "2026-09-30"
+      }
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "FG_I_II"
+      },
+      "positionTitle": "Functiegroep I / II (samengevoegd per 1 oktober 2024)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 1-69. Voorbeeldfuncties: Medewerker boeketten (Bloembinder), (NOK) Medewerker productie/logistiek A, Medewerker beheer karren/fust, Medewerker facilitaire support (kantine/ housekeeping)."
+    },
+    {
+      "positionId": {
+        "value": "FG_II"
+      },
+      "positionTitle": "Functiegroep II",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 0-50. Voorbeeldfuncties: NOK medewerker verkoop Cash & Carry C, Assistent teamleider B, Medewerker design (monsterboeketten), NOK Algemeen administratief medewerker C, Monteur B, Werkplekbeheerder/-Helpdeskmedewerker."
+    },
+    {
+      "positionId": {
+        "value": "FG_III"
+      },
+      "positionTitle": "Functiegroep III",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 50-70. Voorbeeldfuncties: Inkoopassistent, Medewerker (verkoop) Cash & Carry B, Medewerker verkoopondersteuning, Medewerker productie/logistiek D, Medewerker kwaliteit B (108), Assistent teamleider A, Chauffeur C (Buitenland), Algemeen administratief medewerker B, Monteur A (technisch medewerker)."
+    },
+    {
+      "positionId": {
+        "value": "FG_IV"
+      },
+      "positionTitle": "Functiegroep IV",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 70-90. Voorbeeldfuncties: NOK medewerker verkoop Cash & Carry A, Chauffeur B (binnenland), Medewerker productie/logistiek C, Medewerker kwaliteit A, NOK Algemeen administratief medewerker A."
+    },
+    {
+      "positionId": {
+        "value": "FG_V"
+      },
+      "positionTitle": "Functiegroep V",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 90-110. Geen specifieke voorbeeldfuncties vermeld in Bijlage I."
+    },
+    {
+      "positionId": {
+        "value": "FG_VI"
+      },
+      "positionTitle": "Functiegroep VI",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDescription": "Bandbreedte Orba: 110-130. Geen specifieke voorbeeldfuncties vermeld in Bijlage I."
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "value": 40,
+        "unitCode": "HourPerWeek"
+      },
+      "interval": "Month",
+      "salaryScale": [
+        {
+          "name": "FG_I_II",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2389.44,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2548.17,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1553.14,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1792.08,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2031.02,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2270.97,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2389.44,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            }
+          ]
+        },
+        {
+          "name": "FG_II",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2389.44,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2548.17,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2461.12,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2624.61,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2534.96,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2703.35,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2560.31,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2730.38,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1433.66,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1672.61,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 1911.55,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2150.5,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2389.44,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1599.73,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1845.84,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2091.95,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2338.07,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2461.12,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1647.72,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1901.22,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2154.71,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2408.21,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2534.96,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1664.2,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1920.23,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2176.26,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2432.29,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2560.31,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ]
+        },
+        {
+          "name": "FG_III",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2431.26,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2671.71,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2504.2,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2751.86,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2579.32,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2834.42,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2605.12,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2862.76,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1458.76,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1701.88,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 1945.01,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2188.13,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2431.26,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1627.73,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1878.15,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2128.57,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2378.99,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2504.2,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1676.56,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1934.49,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2192.42,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2450.36,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2579.32,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1693.32,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1953.84,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2214.35,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2474.86,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2605.12,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ]
+        },
+        {
+          "name": "FG_IV",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2481.91,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2820.36,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2556.37,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2904.97,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2633.06,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 2992.12,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2659.39,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3022.04,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1489.15,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1737.34,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 1985.53,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2233.72,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2481.91,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1661.64,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1917.28,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2172.91,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2428.55,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2556.37,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1711.49,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1974.8,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2238.1,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2501.41,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2633.06,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1728.6,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1994.54,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2260.48,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2526.42,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2659.39,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ]
+        },
+        {
+          "name": "FG_V",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2558.82,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3046.22,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2635.59,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3137.6,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2714.65,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3231.73,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2741.8,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3264.05,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1535.29,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1791.17,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2047.06,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2302.94,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2558.82,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1713.13,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1976.69,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2240.25,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2503.81,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2635.59,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1764.52,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 2035.99,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2307.46,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2578.92,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2714.65,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1782.17,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 2056.35,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2330.53,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2604.71,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2741.8,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ]
+        },
+        {
+          "name": "FG_VI",
+          "steps": [
+            {
+              "step": 1,
+              "amount": {
+                "value": 2689.72,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3320.64,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2770.41,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3420.26,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2853.52,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3522.87,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "step": 1,
+              "amount": {
+                "value": 2882.06,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "step": 2,
+              "amount": {
+                "value": 3558.1,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ],
+          "youthScales": [
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1613.83,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 1882.8,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2151.78,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2420.75,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2689.72,
+                "currency": "EUR"
+              },
+              "validFrom": "2024-10-01",
+              "validTo": "2024-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1800.77,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 2077.81,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2354.85,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2631.89,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2770.41,
+                "currency": "EUR"
+              },
+              "validFrom": "2025-01-01",
+              "validTo": "2025-12-31"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1854.79,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 2140.14,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2425.5,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2710.85,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2853.52,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-01-01",
+              "validTo": "2026-06-30"
+            },
+            {
+              "age": 16,
+              "percentage": 0.65,
+              "amount": {
+                "value": 1873.34,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 17,
+              "percentage": 0.75,
+              "amount": {
+                "value": 2161.54,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 18,
+              "percentage": 0.85,
+              "amount": {
+                "value": 2449.75,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 19,
+              "percentage": 0.95,
+              "amount": {
+                "value": 2737.96,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            },
+            {
+              "age": 20,
+              "percentage": 1.0,
+              "amount": {
+                "value": 2882.06,
+                "currency": "EUR"
+              },
+              "validFrom": "2026-07-01",
+              "validTo": "2026-09-30"
+            }
+          ]
+        }
+      ],
+      "allowances": [
+        {
+          "typeCode": "IrregularWork",
+          "description": "Onregelmatigheidstoeslag voor werken buiten dagspiegel (23:00 - 06:00 uur)",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 0.26,
+            "base": "HourlyWage"
+          },
+          "conditions": "Werknemer werkt tenminste 3 uur tussen 23:00 en 06:00 uur."
+        },
+        {
+          "typeCode": "ShiftWork",
+          "description": "Ploegentoeslag",
+          "calculationMethod": {
+            "type": "Percentage",
+            "value": 0.26,
+            "base": "HourlyWage"
+          },
+          "conditions": "Werken in variabele werktijdenregeling of standaard werktijdenregeling buiten normale werktijden."
+        },
+        {
+          "typeCode": "Overtime",
+          "description": "Overwerktoeslag",
+          "calculationMethod": [
+            {
+              "type": "Percentage",
+              "value": 0.26,
+              "base": "HourlyWage",
+              "conditions": "Overwerk op maandag t/m zaterdag."
+            },
+            {
+              "type": "Percentage",
+              "value": 0.5,
+              "base": "HourlyWage",
+              "conditions": "Overwerk op een zesde werkdag."
+            },
+            {
+              "type": "Percentage",
+              "value": 1.0,
+              "base": "HourlyWage",
+              "conditions": "Overwerk op zon- of feestdag."
+            }
+          ]
+        },
+        {
+          "typeCode": "Travel",
+          "description": "Reiskostenvergoeding",
+          "calculationMethod": {
+            "type": "FixedAmountPerKm",
+            "value": 0.05,
+            "maxDistance": 30,
+            "validFrom": "2022-01-01",
+            "validTo": "2022-12-31"
+          }
+        },
+        {
+          "typeCode": "Travel",
+          "description": "Reiskostenvergoeding",
+          "calculationMethod": {
+            "type": "FixedAmountPerKm",
+            "value": 0.11,
+            "maxDistance": 30,
+            "validFrom": "2023-09-01",
+            "validTo": "2024-07-31"
+          }
+        },
+        {
+          "typeCode": "Travel",
+          "description": "Reiskostenvergoeding",
+          "calculationMethod": {
+            "type": "FixedAmountPerKm",
+            "value": 0.17,
+            "maxDistance": 30,
+            "validFrom": "2024-08-01",
+            "validTo": "2025-07-31"
+          }
+        },
+        {
+          "typeCode": "Travel",
+          "description": "Reiskostenvergoeding",
+          "calculationMethod": {
+            "type": "FixedAmountPerKm",
+            "value": 0.23,
+            "maxDistance": 30,
+            "validFrom": "2025-08-01"
+          }
+        }
+      ],
+      "holidayAllowance": {
+        "percentage": 0.08,
+        "description": "Vakantietoeslag bedraagt 8% van het bruto maandinkomen/periode-inkomen over de periode juni tot en met mei.",
+        "paymentDate": "May"
+      },
+      "yearEndBonus": {
+        "percentage": 0.01,
+        "description": "Eindejaarsuitkering bedraagt 1% van het totaal van de in het kalenderjaar verdiende maandinkomens of periode-inkomens.",
+        "paymentDate": "December"
+      }
+    }
+  ],
+  "leaveArrangements": {
+    "paidLeaveDays": {
+      "annualLeave": {
+        "value": 24,
+        "unitCode": "DayPerYear",
+        "description": "Voltijds werknemer heeft recht op 192 vakantie-uren per kalenderjaar (24 dagen bij 8 uur per dag). Vanaf 1 januari 2020 bedraagt het aantal vakantie-uren 200 per kalenderjaar (25 dagen bij 8 uur per dag)."
+      },
+      "publicHolidays": {
+        "value": 8,
+        "unitCode": "DayPerYear",
+        "description": "Nieuwjaarsdag, 2e paasdag, Hemelvaartsdag, 2e pinksterdag, beide kerstdagen, Koningsdag, en in lustrumjaren 5 mei (Nationale Bevrijdingsdag)."
+      },
+      "specialLeave": [
+        {
+          "typeCode": "Marriage",
+          "value": 2,
+          "unitCode": "DayPerEvent",
+          "description": "Bij huwelijk van de werknemer, sluiten van een samenlevingscontract of registratie van het partnerschap."
+        },
+        {
+          "typeCode": "MarriageFamily",
+          "value": 1,
+          "unitCode": "DayPerEvent",
+          "description": "Bij huwelijk van een eigen, stief-, pleeg- of kleinkind, (schoon)ouder, broer of zuster."
+        },
+        {
+          "typeCode": "Anniversary",
+          "value": 1,
+          "unitCode": "DayPerEvent",
+          "description": "Bij 25- en 40-jarig huwelijks-/samenlevingsjubileum van de werknemer."
+        },
+        {
+          "typeCode": "AnniversaryFamily",
+          "value": 1,
+          "unitCode": "DayPerEvent",
+          "description": "Bij 25-, 40-, 50- en 60-jarig huwelijksfeest van (schoon)ouders en bij 50- en 60-jarig huwelijksfeest van grootouders."
+        },
+        {
+          "typeCode": "BereavementPartnerChild",
+          "value": 10,
+          "unitCode": "DayPerEvent",
+          "description": "Bij overlijden van de levenspartner of een (stief-, pleeg-)kind (vanaf 2025: 2x de arbeidsduur per week).",
+          "validFrom": "2024-10-01",
+          "validTo": "2024-12-31"
+        },
+        {
+          "typeCode": "BereavementPartnerChild",
+          "value": 2,
+          "unitCode": "TimesWeeklyHours",
+          "description": "Bij overlijden van de levenspartner of een (stief-, pleeg-)kind (vanaf 2025).",
+          "validFrom": "2025-01-01"
+        },
+        {
+          "typeCode": "BereavementParent",
+          "value": 6,
+          "unitCode": "DayPerEvent",
+          "description": "Bij overlijden van eigen ouders of die van de levenspartner (tot 2025: 3 dagen).",
+          "validFrom": "2024-10-01",
+          "validTo": "2024-12-31"
+        },
+        {
+          "typeCode": "BereavementParent",
+          "value": 1,
+          "unitCode": "TimesWeeklyHours",
+          "description": "Bij overlijden van eigen ouders of die van de levenspartner (vanaf 2025).",
+          "validFrom": "2025-01-01"
+        },
+        {
+          "typeCode": "BereavementGrandparentSibling",
+          "value": 1,
+          "unitCode": "DayPerEvent",
+          "description": "Bij overlijden van grootvader, grootmoeder, kleinkind, broer, zuster, zwager of schoonzuster."
+        },
+        {
+          "typeCode": "Moving",
+          "value": 1,
+          "unitCode": "DayPerEvent",
+          "description": "Bij verhuizing op verzoek van de werkgever."
+        },
+        {
+          "typeCode": "Birth",
+          "value": 1,
+          "unitCode": "TimesWeeklyHours",
+          "description": "Bij bevalling van de levenspartner."
+        },
+        {
+          "typeCode": "Adoption",
+          "value": 2,
+          "unitCode": "DayPerEvent",
+          "description": "Bij adoptie van een kind."
+        }
+      ],
+      "ageRelatedLeave": [
+        {
+          "age": 50,
+          "additionalLeaveDays": 1,
+          "unitCode": "DayPerYear",
+          "description": "Extra vakantiedagen vanaf het kalenderjaar waarin de werknemer 50 jaar wordt."
+        },
+        {
+          "age": 55,
+          "additionalLeaveDays": 3,
+          "unitCode": "DayPerYear",
+          "description": "Totaal 3 extra vakantiedagen vanaf het kalenderjaar waarin de werknemer 55 jaar wordt."
+        },
+        {
+          "age": 60,
+          "additionalLeaveDays": 5,
+          "unitCode": "DayPerYear",
+          "description": "Totaal 5 extra vakantiedagen vanaf het kalenderjaar waarin de werknemer 60 jaar wordt."
+        },
+        {
+          "age": 63,
+          "additionalLeaveDays": 7,
+          "unitCode": "DayPerYear",
+          "description": "Totaal 7 extra vakantiedagen vanaf het kalenderjaar waarin de werknemer 63 jaar wordt."
+        }
+      ]
+    },
+    "unpaidLeave": {
+      "parentalLeave": {
+        "value": 26,
+        "unitCode": "TimesWeeklyHours",
+        "description": "Ouderschapsverlof bedraagt 26 maal de wekelijkse arbeidsduur per kind tot 8 jaar."
+      }
+    }
+  },
+  "pension": {
+    "pensionFundName": "Bedrijfstakpensioenfonds Grafische Bedrijven",
+    "pensionFundUrl": "http://www.pensioenfondspgb.nl/nl-nl/",
+    "contribution": {
+      "employerPercentage": 0.0415,
+      "employeePercentage": 0.0415,
+      "description": "Pensioenregeling gebaseerd op beschikbare premie. Totale premie bedraagt 8.3% van het pensioengevend salaris, waarbij werknemersbijdrage 50% is."
+    },
+    "specialArrangements": {
+      "wajong": {
+        "employerPercentage": 0.083,
+        "employeePercentage": 0.0,
+        "description": "Vanaf 1 januari 2025 betaalt de werkgever de gehele pensioenpremie voor werknemers met een WAJONG-uitkering.",
+        "validFrom": "2025-01-01"
+      }
+    }
+  },
+  "_extraction_metadata": {
+    "extractor": "mistral-judge",
+    "model": "mistral-small-2506",
+    "cao_name": "Groothandel Bloemen en Planten",
+    "extracted_at": "2026-03-03T20:50:48.117269",
+    "elapsed_seconds": 124.653579,
+    "gemini_version": "2026-03-03T20:45:14.102721",
+    "mistral_version": "2026-03-03T20:48:43.425301"
+  },
+  "_compliance": {
+    "status": "compliant",
+    "coverage": 60.0,
+    "validated_at": "2026-03-03T20:50:48.117276",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [],
+    "source_comparisons": {
+      "gemini": {
+        "status": "unknown",
+        "coverage": 0
+      },
+      "mistral": {
+        "status": "compliant",
+        "coverage": 60.0
+      }
+    }
+  }
+}

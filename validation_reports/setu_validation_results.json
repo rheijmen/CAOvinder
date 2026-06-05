@@ -1,0 +1,168 @@
+{
+  "summary": {
+    "total_files": 4,
+    "valid_files": 2,
+    "invalid_files": 2,
+    "total_errors": 188
+  },
+  "results": [
+    {
+      "file": "data/setu/1049-ikea-FINAL-VALID.setu.json",
+      "valid": true,
+      "total_errors": 0,
+      "errors_by_type": {
+        "additional_properties": 0,
+        "missing_required": 0,
+        "type_errors": 0,
+        "enum_errors": 0,
+        "format_errors": 0,
+        "other_errors": 0
+      },
+      "sample_errors": []
+    },
+    {
+      "file": "data/setu/1004-achmea-FINAL-VALID-v2.setu.json",
+      "valid": true,
+      "total_errors": 0,
+      "errors_by_type": {
+        "additional_properties": 0,
+        "missing_required": 0,
+        "type_errors": 0,
+        "enum_errors": 0,
+        "format_errors": 0,
+        "other_errors": 0
+      },
+      "sample_errors": []
+    },
+    {
+      "file": "data/setu/315-metalektro-cao-01-06-2024-tm-31-12-2025-v11122024.gemini-VALID.setu.json",
+      "valid": false,
+      "total_errors": 84,
+      "errors_by_type": {
+        "additional_properties": 35,
+        "missing_required": 46,
+        "type_errors": 0,
+        "enum_errors": 2,
+        "format_errors": 0,
+        "other_errors": 1
+      },
+      "sample_errors": [
+        {
+          "path": "/labourAgreements",
+          "message": "Additional properties are not allowed ('industryIdentifier' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/labourAgreements/collectiveLabourAgreement/id",
+          "message": "Additional properties are not allowed ('schemeAgencyId' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/0/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/1/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/1/generalSalaryIncrease/1/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/2/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/allowance/11/line/0",
+          "message": "Additional properties are not allowed ('effectivePeriod' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/allowance/11/line/1",
+          "message": "Additional properties are not allowed ('effectivePeriod' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/allowance/11/line/2",
+          "message": "Additional properties are not allowed ('effectivePeriod' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/allowance/11/line/3",
+          "message": "Additional properties are not allowed ('effectivePeriod' was unexpected)",
+          "type": "additionalProperties"
+        }
+      ]
+    },
+    {
+      "file": "data/setu/1055-rabobank-cao-2024-2025-v01102024.gemini-VALID.setu.json",
+      "valid": false,
+      "total_errors": 104,
+      "errors_by_type": {
+        "additional_properties": 16,
+        "missing_required": 2,
+        "type_errors": 38,
+        "enum_errors": 47,
+        "format_errors": 0,
+        "other_errors": 1
+      },
+      "sample_errors": [
+        {
+          "path": "/baseDefinition/0",
+          "message": "Additional properties are not allowed ('description' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/baseDefinition/1",
+          "message": "Additional properties are not allowed ('description' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/baseDefinition/2",
+          "message": "Additional properties are not allowed ('description' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/2/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/3/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/6/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/remuneration/7/generalSalaryIncrease/0/amount",
+          "message": "Additional properties are not allowed ('baseAmount' was unexpected)",
+          "type": "additionalProperties"
+        },
+        {
+          "path": "/allowance/7/period/0/weekday/0",
+          "message": "{'value': 'Monday'} is not one of ['Holiday', 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday', 'Wednesday']",
+          "type": "enum"
+        },
+        {
+          "path": "/allowance/7/period/0/weekday/0",
+          "message": "{'value': 'Monday'} is not of type 'string'",
+          "type": "type"
+        },
+        {
+          "path": "/allowance/7/period/0/weekday/1",
+          "message": "{'value': 'Tuesday'} is not one of ['Holiday', 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday', 'Wednesday']",
+          "type": "enum"
+        }
+      ]
+    }
+  ]
+}

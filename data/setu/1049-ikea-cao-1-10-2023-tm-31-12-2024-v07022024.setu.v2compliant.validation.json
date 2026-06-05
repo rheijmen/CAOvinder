@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-03-04T14:39:29.665514",
+  "schema_version": "2.0",
+  "errors": [
+    "holidayAllowance: Expected array, got dict",
+    "leave: Expected array, got dict",
+    "pension: Expected array, got dict"
+  ],
+  "warnings": [],
+  "info": [],
+  "coverage": 66.66666666666666
+}

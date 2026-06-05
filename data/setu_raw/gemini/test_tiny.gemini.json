@@ -1,0 +1,202 @@
+{
+  "title": "SETU Inquiry Pay Equity v2.0",
+  "description": "JSON Schema aligned with the official SETU Inquiry Pay Equity v2.0 specification (InquiryPayEquity message). Used in the Dutch staffing industry for gelijkwaardige beloning compliance.",
+  "documentId": {
+    "value": "CAO-TestTiny-2024-01",
+    "schemeAgencyId": "Employer"
+  },
+  "effectivePeriod": {
+    "validFrom": "2024-01-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "12345678",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "CAO Administrator"
+        },
+        "roleCode": "Authorized by",
+        "positionTitle": "HR Manager"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "CAO Test Tiny",
+      "id": {
+        "value": "CAO-TestTiny"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "basedOn": "CAO"
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      }
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "minValue": 2500,
+          "maxValue": 2500,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Schaal 1",
+              "value": 2500
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              },
+              "description": "Applicable for Functiegroep A"
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2800,
+          "maxValue": 2800,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Schaal 2",
+              "value": 2800
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              },
+              "description": "Applicable for Functiegroep A"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ShiftAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 20,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "OvertimeAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [],
+  "leave": [
+    {
+      "name": "Vakantiedagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Standaard Vakantiedagen",
+          "amount": {
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ]
+    }
+  ],
+  "_extraction_metadata": {
+    "extractor": "gemini-primary",
+    "model": "gemini-2.5-flash",
+    "cao_name": "Test Tiny",
+    "extracted_at": "2026-03-03T20:55:57.472261",
+    "input_chars": 269,
+    "elapsed_seconds": 20.588094
+  }
+}

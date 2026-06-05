@@ -1,0 +1,460 @@
+{
+  "documentId": {
+    "value": "CAO-IKEA-2023-2024",
+    "schemeAgencyId": "IKEA"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "issued": "2023-10-01T00:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2023-10-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "IKEA Nederland B.V. en Inter IKEA Systems B.V.",
+    "legalId": [
+      {
+        "value": "33191274 (IKEA Nederland B.V.)",
+        "schemeAgencyId": "KvK"
+      },
+      {
+        "value": "27146795 (Inter IKEA Systems B.V.)",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "Unit People & Culture Manager"
+        },
+        "roleCode": "Authorized Contact"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "IKEA CAO 2023-2024",
+      "id": {
+        "value": "IKEA_CAO_2023-2024"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-10-01",
+        "validTo": "2024-12-31"
+      }
+    }
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": 36,
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 36
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "IPE 43",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 14.25, \"eind\": 14.48, \"amount\": 2222.32, \"zone\": 1}, {\"aanvang\": 14.49, \"eind\": 15.87, \"amount\": 2258.13, \"zone\": 2}, {\"aanvang\": 15.88, \"eind\": 16.36, \"amount\": 2247.24, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 44",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 15.31, \"eind\": 15.74, \"amount\": 2388.62, \"zone\": 1}, {\"aanvang\": 15.75, \"eind\": 18.33, \"amount\": 2456.15, \"zone\": 2}, {\"aanvang\": 18.34, \"eind\": 19.63, \"amount\": 2456.8, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 45",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 16.38, \"eind\": 16.89, \"amount\": 2554.61, \"zone\": 1}, {\"aanvang\": 16.9, \"eind\": 19.99, \"amount\": 2635.81, \"zone\": 2}, {\"aanvang\": 20.0, \"eind\": 21.54, \"amount\": 2635.85, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 46/47",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 17.64, \"eind\": 18.26, \"amount\": 2751.89, \"zone\": 1}, {\"aanvang\": 18.27, \"eind\": 21.98, \"amount\": 2848.61, \"zone\": 2}, {\"aanvang\": 21.99, \"eind\": 23.85, \"amount\": 2849.09, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 48",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 19.37, \"eind\": 20.16, \"amount\": 3021.77, \"zone\": 1}, {\"aanvang\": 20.17, \"eind\": 24.91, \"amount\": 3145.81, \"zone\": 2}, {\"aanvang\": 24.92, \"eind\": 27.28, \"amount\": 3145.84, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 49/50",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 21.54, \"eind\": 22.55, \"amount\": 3360.07, \"zone\": 1}, {\"aanvang\": 22.56, \"eind\": 28.63, \"amount\": 3518.0, \"zone\": 2}, {\"aanvang\": 28.64, \"eind\": 31.67, \"amount\": 3518.01, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 51",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 24.39, \"eind\": 25.59, \"amount\": 3804.32, \"zone\": 1}, {\"aanvang\": 25.6, \"eind\": 32.79, \"amount\": 3991.65, \"zone\": 2}, {\"aanvang\": 32.8, \"eind\": 36.39, \"amount\": 3991.67, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 52",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 26.45, \"eind\": 27.81, \"amount\": 4126.06, \"zone\": 1}, {\"aanvang\": 27.82, \"eind\": 35.98, \"amount\": 4338.55, \"zone\": 2}, {\"aanvang\": 35.99, \"eind\": 40.07, \"amount\": 4338.6, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 53/54",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 30.1, \"eind\": 31.65, \"amount\": 4695.22, \"zone\": 1}, {\"aanvang\": 31.66, \"eind\": 40.95, \"amount\": 4937.21, \"zone\": 2}, {\"aanvang\": 40.96, \"eind\": 45.8, \"amount\": 4937.93, \"zone\": 3}]..."
+        },
+        {
+          "name": "IPE 55/56",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 33.96, \"eind\": 35.7, \"amount\": 5328.24, \"zone\": 1}, {\"aanvang\": 35.71, \"eind\": 46.2, \"amount\": 5587.2, \"zone\": 2}, {\"aanvang\": 46.21, \"eind\": 51.46, \"amount\": 5587.3, \"zone\": 3}]..."
+        },
+        {
+          "name": "Participatie-medewerker",
+          "currency": "EUR",
+          "description": "Steps: [{\"aanvang\": 100, \"eind\": 104, \"amount\": \"100% WML\"}, {\"aanvang\": 104, \"eind\": 108, \"amount\": \"104% WML\"}, {\"aanvang\": 108, \"eind\": 112, \"amount\": \"108% WML\"}, {\"aanvang\": 112, \"eind\": 116, \"amount\": ..."
+        }
+      ]
+    }
+  ],
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "NL-RCMP_Apprentice"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BGeneralist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_B2BSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessAnalyst"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_BusinessNavigation&OperationsManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_Communication&InformationSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_CountryRemoteCMPManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceDesignTeamLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_ExperienceQualitySpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesignSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_InteriorDesigner"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IntradaySpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_IKEABusinessKeyAccountManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-RCMP_KnowledgeSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ActivityLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_BusinessNavigator"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CarpenterCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CircularSalesSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CommercialActivityLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Communication&InteriorDesignManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Controller"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_CustomerRelationsTeamLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputyBusinessNavigationManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_DeputySalesManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Frontliner"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_FurnitureBuilder"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowCo-workerI"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GoodsFlowTeamLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_GraphicCommunicationLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodCo-workerI"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAFoodTeamLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_IKEAforBusinessSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_InteriorDesignManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_KitchenProductionSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_LogisticsManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_People&CultureGeneralist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryCo-Worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&RecoveryManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductQuality&SafetySpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_ProductRecoveryOperationsSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Safety&SecuritySpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_Sales&SupplySupportSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-worker"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesCo-workerII"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_SalesTeamLeader"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementAdministrator"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementProjectManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitFacilityManagementSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureAdministrator"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeople&CultureManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_UnitPeoplePlanningSpecialist"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandisingManager"
+      }
+    },
+    {
+      "positionId": {
+        "value": "NL-STORE_VisualMerchandising/ActivityCo-worker"
+      }
+    }
+  ]
+}

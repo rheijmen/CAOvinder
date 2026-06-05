@@ -1,0 +1,358 @@
+{
+  "documentId": {
+    "value": "CAO-TestTiny-2024",
+    "schemeAgencyId": "Employer"
+  },
+  "versionId": "1.0",
+  "issued": "2026-03-03T21:00:00Z",
+  "effectivePeriod": {
+    "validFrom": "2024-01-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "Test Tiny Sector",
+    "legalId": [
+      {
+        "value": "12345678",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "CAO Administrator"
+        },
+        "roleCode": "Authorized by",
+        "positionTitle": "HR Manager"
+      }
+    ]
+  },
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "CAO Test Tiny",
+      "id": {
+        "value": "CAO-TestTiny"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "basedOn": "CAO"
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      }
+    }
+  ],
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal 1",
+          "minValue": 2500.0,
+          "maxValue": 2500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 1",
+              "value": 2500.0,
+              "aanvang": 2500.0,
+              "eind": 2500.0
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              },
+              "description": "Applicable for Functiegroep A"
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2800.0,
+          "maxValue": 2800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Step 1",
+              "value": 2800.0,
+              "aanvang": 2800.0,
+              "eind": 2800.0
+            }
+          ],
+          "positionProfileReference": [
+            {
+              "positionId": {
+                "value": "Functiegroep A"
+              },
+              "description": "Applicable for Functiegroep A"
+            }
+          ]
+        }
+      ],
+      "holidayAllowance": {
+        "amount": {
+          "value": 0.08,
+          "unitCode": "Percentage",
+          "baseAmount": {
+            "unitCode": "AnnualSalary",
+            "baseType": "GrossSalary"
+          }
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Year"
+        }
+      }
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Ploegentoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ShiftAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 20,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "OvertimeAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Onregelmatigheidstoeslag (ORT)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "IrregularWorkAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 15,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "condition": "For work outside regular hours"
+        }
+      ]
+    },
+    {
+      "name": "Reiskostenvergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "TravelAllowance",
+      "line": [
+        {
+          "amount": {
+            "value": 0.19,
+            "unitCode": "EuroPerKilometer"
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          }
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "name": "Vakantietoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "amount": {
+        "value": 0.08,
+        "unitCode": "Percentage",
+        "baseAmount": {
+          "unitCode": "AnnualSalary",
+          "baseType": "GrossSalary"
+        }
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Year"
+      }
+    }
+  ],
+  "leave": [
+    {
+      "name": "Vakantiedagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Standaard Vakantiedagen",
+          "amount": {
+            "value": 25,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Feestdagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Nationale feestdagen",
+          "amount": {
+            "value": 8,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ADV/ATV dagen",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "ADV/ATV dagen",
+          "amount": {
+            "value": 12,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ]
+    }
+  ],
+  "pension": {
+    "name": "Pensioenfonds Test Tiny",
+    "employerContribution": {
+      "value": 0.12,
+      "unitCode": "Percentage"
+    },
+    "employeeContribution": {
+      "value": 0.05,
+      "unitCode": "Percentage"
+    },
+    "franchise": 15000,
+    "origin": {
+      "type": "CollectiveLabourAgreement"
+    }
+  },
+  "_extraction_metadata": {
+    "extractor": "mistral-reviewer",
+    "model": "mistral-large-latest",
+    "cao_name": "Test Tiny",
+    "extracted_at": "2026-03-03T20:56:25.655681",
+    "input_chars": 269,
+    "truncated": false,
+    "elapsed_seconds": 27.919055,
+    "reviewed_gemini_version": "2026-03-03T20:55:57.472261"
+  },
+  "_compliance": {
+    "status": "partial",
+    "coverage": 80.0,
+    "validated_at": "2026-03-03T20:56:25.655685",
+    "setu_version": "2.0.0-draft.3",
+    "errors": [],
+    "warnings": [
+      "Remuneration data incomplete"
+    ],
+    "improvement_over_gemini": {
+      "coverage_delta": 26.666666666666664,
+      "errors_delta": 0
+    }
+  }
+}

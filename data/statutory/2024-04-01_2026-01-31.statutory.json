@@ -1,0 +1,259 @@
+{
+  "minimumWage": [
+    {
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-06-30"
+      },
+      "hourlyRates": [
+        {
+          "ageFrom": 15,
+          "hourlyRate": 5.22
+        },
+        {
+          "ageFrom": 16,
+          "hourlyRate": 6.15
+        },
+        {
+          "ageFrom": 17,
+          "hourlyRate": 7.21
+        },
+        {
+          "ageFrom": 18,
+          "hourlyRate": 8.34,
+          "dailyRate": 66.72,
+          "weeklyRate": 333.6,
+          "monthlyRate": 1446.4
+        },
+        {
+          "ageFrom": 19,
+          "hourlyRate": 9.76,
+          "dailyRate": 78.08,
+          "weeklyRate": 390.4,
+          "monthlyRate": 1692.8
+        },
+        {
+          "ageFrom": 20,
+          "hourlyRate": 11.25,
+          "dailyRate": 90.0,
+          "weeklyRate": 450.0,
+          "monthlyRate": 1951.5
+        },
+        {
+          "ageFrom": 21,
+          "hourlyRate": 13.27,
+          "dailyRate": 106.16,
+          "weeklyRate": 530.8,
+          "monthlyRate": 2301.9
+        }
+      ],
+      "source": {
+        "authority": "Rijksoverheid",
+        "publicationDate": "2023-12-14",
+        "reference": "Staatscourant 2023, nr. 37936"
+      },
+      "notes": "Wettelijk minimumuurloon per 1 januari 2024. Voor de salarisgroep A 16 t/m 20 jaar en A 0 functiejaren gelden de minimumloon-bedragen volgens de WML."
+    },
+    {
+      "effectivePeriod": {
+        "validFrom": "2024-07-01",
+        "validTo": "2025-02-28"
+      },
+      "hourlyRates": [
+        {
+          "ageFrom": 15,
+          "hourlyRate": 5.31
+        },
+        {
+          "ageFrom": 16,
+          "hourlyRate": 6.26
+        },
+        {
+          "ageFrom": 17,
+          "hourlyRate": 7.34
+        },
+        {
+          "ageFrom": 18,
+          "hourlyRate": 8.49,
+          "dailyRate": 67.92,
+          "weeklyRate": 339.6,
+          "monthlyRate": 1472.4
+        },
+        {
+          "ageFrom": 19,
+          "hourlyRate": 9.94,
+          "dailyRate": 79.52,
+          "weeklyRate": 397.6,
+          "monthlyRate": 1724.2
+        },
+        {
+          "ageFrom": 20,
+          "hourlyRate": 11.46,
+          "dailyRate": 91.68,
+          "weeklyRate": 458.4,
+          "monthlyRate": 1988.1
+        },
+        {
+          "ageFrom": 21,
+          "hourlyRate": 13.68,
+          "dailyRate": 109.44,
+          "weeklyRate": 547.2,
+          "monthlyRate": 2372.9
+        }
+      ],
+      "source": {
+        "authority": "Rijksoverheid",
+        "publicationDate": "2024-06-25",
+        "reference": "Staatscourant 2024, nr. [to be updated]"
+      },
+      "notes": "Wettelijk minimumuurloon per 1 juli 2024. Voor de salarisgroep A 16 t/m 20 jaar en A 0 functiejaren gelden de minimumloon-bedragen volgens de WML."
+    }
+  ],
+  "stateRetirementAge": [
+    {
+      "birthYearFrom": 1957,
+      "birthYearTo": 1958,
+      "retirementAge": {
+        "years": 66,
+        "months": 4
+      },
+      "source": {
+        "authority": "Sociale Verzekeringsbank (SVB)",
+        "publicationDate": "2023-01-01",
+        "reference": "https://www.svb.nl/int/nl/aow/leeftijd/index.jsp"
+      }
+    },
+    {
+      "birthYearFrom": 1959,
+      "birthYearTo": 1960,
+      "retirementAge": {
+        "years": 66,
+        "months": 7
+      },
+      "source": {
+        "authority": "Sociale Verzekeringsbank (SVB)",
+        "publicationDate": "2023-01-01",
+        "reference": "https://www.svb.nl/int/nl/aow/leeftijd/index.jsp"
+      }
+    },
+    {
+      "birthYearFrom": 1961,
+      "birthYearTo": 1962,
+      "retirementAge": {
+        "years": 67
+      },
+      "source": {
+        "authority": "Sociale Verzekeringsbank (SVB)",
+        "publicationDate": "2023-01-01",
+        "reference": "https://www.svb.nl/int/nl/aow/leeftijd/index.jsp"
+      }
+    }
+  ],
+  "fiscalLimits": [
+    {
+      "effectivePeriod": {
+        "validFrom": "2024-01-01"
+      },
+      "limits": [
+        {
+          "code": "REISKOSTEN_KM",
+          "name": "Onbelaste reiskostenvergoeding per kilometer",
+          "value": 0.23,
+          "unitCode": "EUR/km",
+          "source": {
+            "authority": "Belastingdienst",
+            "publicationDate": "2023-12-20",
+            "reference": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/vergoedingen_uitsluitingen_en_verstrekkingen/reiskostenvergoeding"
+          }
+        },
+        {
+          "code": "THUISWERK_DAG",
+          "name": "Onbelaste thuiswerkvergoeding per dag",
+          "value": 2.35,
+          "unitCode": "EUR/dag",
+          "source": {
+            "authority": "Belastingdienst",
+            "publicationDate": "2023-12-20",
+            "reference": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/vergoedingen_uitsluitingen_en_verstrekkingen/thuiswerkvergoeding"
+          }
+        },
+        {
+          "code": "WKR_VRIJE_RUIMTE",
+          "name": "Werkkostenregeling vrije ruimte percentage",
+          "value": 1.92,
+          "unitCode": "Percentage",
+          "threshold": 400000,
+          "notes": "1.92% van de fiscale loonsom tot € 400.000, 1.18% over het meerdere.",
+          "source": {
+            "authority": "Belastingdienst",
+            "publicationDate": "2023-12-20",
+            "reference": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/personeel_en_loon/werkkostenregeling/wat_is_de_werkkostenregeling"
+          }
+        },
+        {
+          "code": "DERTIG_PROCENT_CAP",
+          "name": "Maximum loon voor 30%-regeling",
+          "value": 233000,
+          "unitCode": "EUR/year",
+          "source": {
+            "authority": "Belastingdienst",
+            "publicationDate": "2023-12-20",
+            "reference": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/internationaal/werken_in_nederland_en_of_belgie/30_procent_regeling/voorwaarden_30_procent_regeling"
+          }
+        }
+      ]
+    }
+  ],
+  "pensionParameters": [
+    {
+      "effectivePeriod": {
+        "validFrom": "2024-01-01",
+        "validTo": "2024-12-31"
+      },
+      "fundName": "Stichting Pensioenfonds Metaal en Techniek (PMT)",
+      "franchiseAmount": 16000,
+      "source": {
+        "authority": "Stichting Pensioenfonds Metaal en Techniek (PMT)",
+        "publicationDate": "2023-12-15",
+        "reference": "https://www.pmt.nl/werkgevers/premie-en-franchise/"
+      }
+    }
+  ],
+  "regulatoryChanges": [
+    {
+      "code": "WET_GELIJKWAARDIGE_BELONING",
+      "name": "Wet Gelijkwaardige Beloning",
+      "effectiveDate": "2026-01-01",
+      "status": "announced",
+      "impactAreas": [
+        "remuneration"
+      ],
+      "description": "Verplicht werkgevers om transparantie te bieden over beloningsverschillen tussen mannen en vrouwen voor gelijkwaardig werk.",
+      "source": {
+        "authority": "Rijksoverheid",
+        "publicationDate": "2023-11-15",
+        "reference": "Kamerstukken II 2022/23, 36 218"
+      }
+    },
+    {
+      "code": "WTP_TRANSITIE",
+      "name": "Wet toekomst pensioenen",
+      "effectiveDate": "2023-07-01",
+      "status": "effective",
+      "impactAreas": [
+        "pension"
+      ],
+      "description": "Nieuwe pensioenwet die de overgang regelt naar een nieuw pensioencontract met meer persoonlijke pensioenpotten en een flexibeler pensioenopbouw.",
+      "source": {
+        "authority": "Rijksoverheid",
+        "publicationDate": "2022-12-22",
+        "reference": "Staatsblad 2022, 568"
+      }
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "effectivePeriod": {
+    "validFrom": "2024-04-01",
+    "validTo": "2026-01-31"
+  }
+}

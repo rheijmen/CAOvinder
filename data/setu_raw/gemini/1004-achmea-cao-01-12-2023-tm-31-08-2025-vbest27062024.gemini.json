@@ -1,0 +1,4651 @@
+{
+  "documentId": {
+    "value": "Achmea CAO 2023-2025",
+    "schemeAgencyId": "Achmea"
+  },
+  "effectivePeriod": {
+    "validFrom": "2023-12-01",
+    "validTo": "2025-08-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "Achmea Interne Diensten N.V.",
+        "schemeAgencyId": "Achmea"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "J.J. Blok"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      },
+      {
+        "name": {
+          "formattedName": "J. van den Brink"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      },
+      {
+        "name": {
+          "formattedName": "D.P Wiersinga"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      },
+      {
+        "name": {
+          "formattedName": "P. Fortuin"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      },
+      {
+        "name": {
+          "formattedName": "H. Brinkers"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      },
+      {
+        "name": {
+          "formattedName": "R. Castelein"
+        },
+        "roleCode": "Ondertekenaar CAO"
+      }
+    ]
+  },
+  "baseDefinition": [
+    {
+      "baseType": "BaseWage",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": false,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "description": "Bruto maandsalaris in de salarisschaal inclusief vaste persoonlijke toeslag, exclusief overwerktoeslag, inconveniëntentoeslag, ploegendienstvergoeding, cao toeslag 2014 en stand-by vergoeding."
+    },
+    {
+      "baseType": "PensionableSalary",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "Eindejaarsuitkering"
+        },
+        {
+          "typeCode": "VariabelSalaris"
+        },
+        {
+          "typeCode": "Overwerktoeslag"
+        },
+        {
+          "typeCode": "Inconveniëntentoeslag"
+        },
+        {
+          "typeCode": "StandByVergoeding"
+        },
+        {
+          "typeCode": "Ploegendienstvergoeding"
+        },
+        {
+          "typeCode": "Arbeidsmarkttoeslag"
+        }
+      ],
+      "description": "12x bruto maandsalaris + vakantietoeslag + eindejaarsuitkering + variabel salaris + variabele inkomensbestanddelen zoals overwerktoeslag, inconveniëntentoeslag, stand-by vergoeding en ploegendienstvergoeding."
+    },
+    {
+      "baseType": "PKBBase",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": true,
+      "allAllowancesIndicator": false,
+      "allowances": [
+        {
+          "typeCode": "Eindejaarsuitkering"
+        }
+      ],
+      "description": "Opgebouwd uit vakantietoeslag, eindejaarsuitkering en waarde van het bovenwettelijk verlof (3,85% van maandsalaris)."
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Achmea CAO",
+      "id": {
+        "value": "Achmea CAO 2023-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      }
+    }
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "hourlyWageConversion": {
+        "hourlyWageFactor": 1768,
+        "description": "Jaarsalaris gedeeld door 52 keer de gemiddelde werkweek (bij 34 uur/week is dit 1768 uur/jaar)."
+      },
+      "salaryScale": [
+        {
+          "name": "A",
+          "minValue": 1919.37,
+          "maxValue": 2047.42,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 1919.37
+            },
+            {
+              "name": "Stap 2",
+              "value": 1983.4
+            },
+            {
+              "name": "Stap 3",
+              "value": 2047.42
+            }
+          ]
+        },
+        {
+          "name": "B",
+          "minValue": 1951.69,
+          "maxValue": 2321.24,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 1951.69
+            },
+            {
+              "name": "Stap 2",
+              "value": 2013.28
+            },
+            {
+              "name": "Stap 3",
+              "value": 2074.87
+            },
+            {
+              "name": "Stap 4",
+              "value": 2136.46
+            },
+            {
+              "name": "Stap 5",
+              "value": 2198.05
+            },
+            {
+              "name": "Stap 6",
+              "value": 2259.64
+            },
+            {
+              "name": "Stap 7",
+              "value": 2321.23
+            }
+          ]
+        },
+        {
+          "name": "C",
+          "minValue": 1996.65,
+          "maxValue": 2633.74,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 1996.65
+            },
+            {
+              "name": "Stap 2",
+              "value": 2067.44
+            },
+            {
+              "name": "Stap 3",
+              "value": 2138.23
+            },
+            {
+              "name": "Stap 4",
+              "value": 2209.02
+            },
+            {
+              "name": "Stap 5",
+              "value": 2279.81
+            },
+            {
+              "name": "Stap 6",
+              "value": 2350.6
+            },
+            {
+              "name": "Stap 7",
+              "value": 2421.39
+            },
+            {
+              "name": "Stap 8",
+              "value": 2492.18
+            },
+            {
+              "name": "Stap 9",
+              "value": 2562.97
+            },
+            {
+              "name": "Stap 10",
+              "value": 2633.74
+            }
+          ]
+        },
+        {
+          "name": "D",
+          "minValue": 2145.05,
+          "maxValue": 2987.41,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2145.05
+            },
+            {
+              "name": "Stap 2",
+              "value": 2229.29
+            },
+            {
+              "name": "Stap 3",
+              "value": 2313.53
+            },
+            {
+              "name": "Stap 4",
+              "value": 2397.77
+            },
+            {
+              "name": "Stap 5",
+              "value": 2482.01
+            },
+            {
+              "name": "Stap 6",
+              "value": 2566.25
+            },
+            {
+              "name": "Stap 7",
+              "value": 2650.49
+            },
+            {
+              "name": "Stap 8",
+              "value": 2734.73
+            },
+            {
+              "name": "Stap 9",
+              "value": 2818.97
+            },
+            {
+              "name": "Stap 10",
+              "value": 2903.21
+            },
+            {
+              "name": "Stap 11",
+              "value": 2987.41
+            }
+          ]
+        },
+        {
+          "name": "E",
+          "minValue": 2432.16,
+          "maxValue": 3389.31,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2432.16
+            },
+            {
+              "name": "Stap 2",
+              "value": 2527.88
+            },
+            {
+              "name": "Stap 3",
+              "value": 2623.6
+            },
+            {
+              "name": "Stap 4",
+              "value": 2719.32
+            },
+            {
+              "name": "Stap 5",
+              "value": 2815.04
+            },
+            {
+              "name": "Stap 6",
+              "value": 2910.76
+            },
+            {
+              "name": "Stap 7",
+              "value": 3006.48
+            },
+            {
+              "name": "Stap 8",
+              "value": 3102.2
+            },
+            {
+              "name": "Stap 9",
+              "value": 3197.92
+            },
+            {
+              "name": "Stap 10",
+              "value": 3293.64
+            },
+            {
+              "name": "Stap 11",
+              "value": 3389.31
+            }
+          ]
+        },
+        {
+          "name": "F",
+          "minValue": 2787.15,
+          "maxValue": 3843.77,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2787.15
+            },
+            {
+              "name": "Stap 2",
+              "value": 2892.81
+            },
+            {
+              "name": "Stap 3",
+              "value": 2998.47
+            },
+            {
+              "name": "Stap 4",
+              "value": 3104.13
+            },
+            {
+              "name": "Stap 5",
+              "value": 3209.79
+            },
+            {
+              "name": "Stap 6",
+              "value": 3315.45
+            },
+            {
+              "name": "Stap 7",
+              "value": 3421.11
+            },
+            {
+              "name": "Stap 8",
+              "value": 3526.77
+            },
+            {
+              "name": "Stap 9",
+              "value": 3632.43
+            },
+            {
+              "name": "Stap 10",
+              "value": 3738.09
+            },
+            {
+              "name": "Stap 11",
+              "value": 3843.75
+            }
+          ]
+        },
+        {
+          "name": "G",
+          "minValue": 3131.95,
+          "maxValue": 4361.01,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3131.95
+            },
+            {
+              "name": "Stap 2",
+              "value": 3254.86
+            },
+            {
+              "name": "Stap 3",
+              "value": 3377.77
+            },
+            {
+              "name": "Stap 4",
+              "value": 3500.68
+            },
+            {
+              "name": "Stap 5",
+              "value": 3623.59
+            },
+            {
+              "name": "Stap 6",
+              "value": 3746.5
+            },
+            {
+              "name": "Stap 7",
+              "value": 3869.41
+            },
+            {
+              "name": "Stap 8",
+              "value": 3992.32
+            },
+            {
+              "name": "Stap 9",
+              "value": 4115.23
+            },
+            {
+              "name": "Stap 10",
+              "value": 4238.14
+            },
+            {
+              "name": "Stap 11",
+              "value": 4361.01
+            }
+          ]
+        },
+        {
+          "name": "H",
+          "minValue": 3554.74,
+          "maxValue": 4946.69,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3554.74
+            },
+            {
+              "name": "Stap 2",
+              "value": 3693.94
+            },
+            {
+              "name": "Stap 3",
+              "value": 3833.14
+            },
+            {
+              "name": "Stap 4",
+              "value": 3972.34
+            },
+            {
+              "name": "Stap 5",
+              "value": 4111.54
+            },
+            {
+              "name": "Stap 6",
+              "value": 4250.74
+            },
+            {
+              "name": "Stap 7",
+              "value": 4389.94
+            },
+            {
+              "name": "Stap 8",
+              "value": 4529.14
+            },
+            {
+              "name": "Stap 9",
+              "value": 4668.34
+            },
+            {
+              "name": "Stap 10",
+              "value": 4807.54
+            },
+            {
+              "name": "Stap 11",
+              "value": 4946.69
+            }
+          ]
+        },
+        {
+          "name": "I",
+          "minValue": 4032.66,
+          "maxValue": 5612.86,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4032.66
+            },
+            {
+              "name": "Stap 2",
+              "value": 4190.68
+            },
+            {
+              "name": "Stap 3",
+              "value": 4348.7
+            },
+            {
+              "name": "Stap 4",
+              "value": 4506.72
+            },
+            {
+              "name": "Stap 5",
+              "value": 4664.74
+            },
+            {
+              "name": "Stap 6",
+              "value": 4822.76
+            },
+            {
+              "name": "Stap 7",
+              "value": 4980.78
+            },
+            {
+              "name": "Stap 8",
+              "value": 5138.8
+            },
+            {
+              "name": "Stap 9",
+              "value": 5296.82
+            },
+            {
+              "name": "Stap 10",
+              "value": 5454.84
+            },
+            {
+              "name": "Stap 11",
+              "value": 5612.86
+            }
+          ]
+        },
+        {
+          "name": "J",
+          "minValue": 4573.37,
+          "maxValue": 6367.79,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4573.37
+            },
+            {
+              "name": "Stap 2",
+              "value": 4752.81
+            },
+            {
+              "name": "Stap 3",
+              "value": 4932.25
+            },
+            {
+              "name": "Stap 4",
+              "value": 5111.69
+            },
+            {
+              "name": "Stap 5",
+              "value": 5291.13
+            },
+            {
+              "name": "Stap 6",
+              "value": 5470.57
+            },
+            {
+              "name": "Stap 7",
+              "value": 5650.01
+            },
+            {
+              "name": "Stap 8",
+              "value": 5829.45
+            },
+            {
+              "name": "Stap 9",
+              "value": 6008.89
+            },
+            {
+              "name": "Stap 10",
+              "value": 6188.33
+            },
+            {
+              "name": "Stap 11",
+              "value": 6367.77
+            }
+          ]
+        },
+        {
+          "name": "K",
+          "minValue": 5186.93,
+          "maxValue": 7224.19,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 5186.93
+            },
+            {
+              "name": "Stap 2",
+              "value": 5390.66
+            },
+            {
+              "name": "Stap 3",
+              "value": 5594.39
+            },
+            {
+              "name": "Stap 4",
+              "value": 5798.12
+            },
+            {
+              "name": "Stap 5",
+              "value": 6001.85
+            },
+            {
+              "name": "Stap 6",
+              "value": 6205.58
+            },
+            {
+              "name": "Stap 7",
+              "value": 6409.31
+            },
+            {
+              "name": "Stap 8",
+              "value": 6613.04
+            },
+            {
+              "name": "Stap 9",
+              "value": 6816.77
+            },
+            {
+              "name": "Stap 10",
+              "value": 7020.5
+            },
+            {
+              "name": "Stap 11",
+              "value": 7224.19
+            }
+          ]
+        },
+        {
+          "name": "A",
+          "minValue": 2219.37,
+          "maxValue": 2347.42,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2219.37
+            },
+            {
+              "name": "Stap 2",
+              "value": 2283.4
+            },
+            {
+              "name": "Stap 3",
+              "value": 2347.42
+            }
+          ]
+        },
+        {
+          "name": "B",
+          "minValue": 2251.69,
+          "maxValue": 2621.24,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2251.69
+            },
+            {
+              "name": "Stap 2",
+              "value": 2313.28
+            },
+            {
+              "name": "Stap 3",
+              "value": 2374.87
+            },
+            {
+              "name": "Stap 4",
+              "value": 2436.46
+            },
+            {
+              "name": "Stap 5",
+              "value": 2498.05
+            },
+            {
+              "name": "Stap 6",
+              "value": 2559.64
+            },
+            {
+              "name": "Stap 7",
+              "value": 2621.23
+            }
+          ]
+        },
+        {
+          "name": "C",
+          "minValue": 2296.65,
+          "maxValue": 2933.74,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2296.65
+            },
+            {
+              "name": "Stap 2",
+              "value": 2367.44
+            },
+            {
+              "name": "Stap 3",
+              "value": 2438.23
+            },
+            {
+              "name": "Stap 4",
+              "value": 2509.02
+            },
+            {
+              "name": "Stap 5",
+              "value": 2579.81
+            },
+            {
+              "name": "Stap 6",
+              "value": 2650.6
+            },
+            {
+              "name": "Stap 7",
+              "value": 2721.39
+            },
+            {
+              "name": "Stap 8",
+              "value": 2792.18
+            },
+            {
+              "name": "Stap 9",
+              "value": 2862.97
+            },
+            {
+              "name": "Stap 10",
+              "value": 2933.74
+            }
+          ]
+        },
+        {
+          "name": "D",
+          "minValue": 2445.05,
+          "maxValue": 3287.41,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2445.05
+            },
+            {
+              "name": "Stap 2",
+              "value": 2529.29
+            },
+            {
+              "name": "Stap 3",
+              "value": 2613.53
+            },
+            {
+              "name": "Stap 4",
+              "value": 2697.77
+            },
+            {
+              "name": "Stap 5",
+              "value": 2782.01
+            },
+            {
+              "name": "Stap 6",
+              "value": 2866.25
+            },
+            {
+              "name": "Stap 7",
+              "value": 2950.49
+            },
+            {
+              "name": "Stap 8",
+              "value": 3034.73
+            },
+            {
+              "name": "Stap 9",
+              "value": 3118.97
+            },
+            {
+              "name": "Stap 10",
+              "value": 3203.21
+            },
+            {
+              "name": "Stap 11",
+              "value": 3287.41
+            }
+          ]
+        },
+        {
+          "name": "E",
+          "minValue": 2732.16,
+          "maxValue": 3689.31,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2732.16
+            },
+            {
+              "name": "Stap 2",
+              "value": 2827.88
+            },
+            {
+              "name": "Stap 3",
+              "value": 2923.6
+            },
+            {
+              "name": "Stap 4",
+              "value": 3019.32
+            },
+            {
+              "name": "Stap 5",
+              "value": 3115.04
+            },
+            {
+              "name": "Stap 6",
+              "value": 3210.76
+            },
+            {
+              "name": "Stap 7",
+              "value": 3306.48
+            },
+            {
+              "name": "Stap 8",
+              "value": 3402.2
+            },
+            {
+              "name": "Stap 9",
+              "value": 3497.92
+            },
+            {
+              "name": "Stap 10",
+              "value": 3593.64
+            },
+            {
+              "name": "Stap 11",
+              "value": 3689.31
+            }
+          ]
+        },
+        {
+          "name": "F",
+          "minValue": 3087.15,
+          "maxValue": 4143.77,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3087.15
+            },
+            {
+              "name": "Stap 2",
+              "value": 3192.81
+            },
+            {
+              "name": "Stap 3",
+              "value": 3298.47
+            },
+            {
+              "name": "Stap 4",
+              "value": 3404.13
+            },
+            {
+              "name": "Stap 5",
+              "value": 3509.79
+            },
+            {
+              "name": "Stap 6",
+              "value": 3615.45
+            },
+            {
+              "name": "Stap 7",
+              "value": 3721.11
+            },
+            {
+              "name": "Stap 8",
+              "value": 3826.77
+            },
+            {
+              "name": "Stap 9",
+              "value": 3932.43
+            },
+            {
+              "name": "Stap 10",
+              "value": 4038.09
+            },
+            {
+              "name": "Stap 11",
+              "value": 4143.75
+            }
+          ]
+        },
+        {
+          "name": "G",
+          "minValue": 3431.95,
+          "maxValue": 4666.28,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3431.95
+            },
+            {
+              "name": "Stap 2",
+              "value": 3555.38
+            },
+            {
+              "name": "Stap 3",
+              "value": 3678.81
+            },
+            {
+              "name": "Stap 4",
+              "value": 3802.24
+            },
+            {
+              "name": "Stap 5",
+              "value": 3925.67
+            },
+            {
+              "name": "Stap 6",
+              "value": 4049.1
+            },
+            {
+              "name": "Stap 7",
+              "value": 4172.53
+            },
+            {
+              "name": "Stap 8",
+              "value": 4295.96
+            },
+            {
+              "name": "Stap 9",
+              "value": 4419.39
+            },
+            {
+              "name": "Stap 10",
+              "value": 4542.82
+            },
+            {
+              "name": "Stap 11",
+              "value": 4666.25
+            }
+          ]
+        },
+        {
+          "name": "H",
+          "minValue": 3854.74,
+          "maxValue": 5292.96,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3854.74
+            },
+            {
+              "name": "Stap 2",
+              "value": 3998.56
+            },
+            {
+              "name": "Stap 3",
+              "value": 4142.38
+            },
+            {
+              "name": "Stap 4",
+              "value": 4286.2
+            },
+            {
+              "name": "Stap 5",
+              "value": 4430.02
+            },
+            {
+              "name": "Stap 6",
+              "value": 4573.84
+            },
+            {
+              "name": "Stap 7",
+              "value": 4717.66
+            },
+            {
+              "name": "Stap 8",
+              "value": 4861.48
+            },
+            {
+              "name": "Stap 9",
+              "value": 5005.3
+            },
+            {
+              "name": "Stap 10",
+              "value": 5149.12
+            },
+            {
+              "name": "Stap 11",
+              "value": 5292.94
+            }
+          ]
+        },
+        {
+          "name": "I",
+          "minValue": 4332.66,
+          "maxValue": 5949.63,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4332.66
+            },
+            {
+              "name": "Stap 2",
+              "value": 4494.36
+            },
+            {
+              "name": "Stap 3",
+              "value": 4656.06
+            },
+            {
+              "name": "Stap 4",
+              "value": 4817.76
+            },
+            {
+              "name": "Stap 5",
+              "value": 4979.46
+            },
+            {
+              "name": "Stap 6",
+              "value": 5141.16
+            },
+            {
+              "name": "Stap 7",
+              "value": 5302.86
+            },
+            {
+              "name": "Stap 8",
+              "value": 5464.56
+            },
+            {
+              "name": "Stap 9",
+              "value": 5626.26
+            },
+            {
+              "name": "Stap 10",
+              "value": 5787.96
+            },
+            {
+              "name": "Stap 11",
+              "value": 5949.63
+            }
+          ]
+        },
+        {
+          "name": "J",
+          "minValue": 4873.37,
+          "maxValue": 6749.86,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4873.37
+            },
+            {
+              "name": "Stap 2",
+              "value": 5061.02
+            },
+            {
+              "name": "Stap 3",
+              "value": 5248.67
+            },
+            {
+              "name": "Stap 4",
+              "value": 5436.32
+            },
+            {
+              "name": "Stap 5",
+              "value": 5623.97
+            },
+            {
+              "name": "Stap 6",
+              "value": 5811.62
+            },
+            {
+              "name": "Stap 7",
+              "value": 5999.27
+            },
+            {
+              "name": "Stap 8",
+              "value": 6186.92
+            },
+            {
+              "name": "Stap 9",
+              "value": 6374.57
+            },
+            {
+              "name": "Stap 10",
+              "value": 6562.22
+            },
+            {
+              "name": "Stap 11",
+              "value": 6749.86
+            }
+          ]
+        },
+        {
+          "name": "K",
+          "minValue": 5498.15,
+          "maxValue": 7657.64,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 5498.15
+            },
+            {
+              "name": "Stap 2",
+              "value": 5714.1
+            },
+            {
+              "name": "Stap 3",
+              "value": 5930.05
+            },
+            {
+              "name": "Stap 4",
+              "value": 6146.0
+            },
+            {
+              "name": "Stap 5",
+              "value": 6361.95
+            },
+            {
+              "name": "Stap 6",
+              "value": 6577.9
+            },
+            {
+              "name": "Stap 7",
+              "value": 6793.85
+            },
+            {
+              "name": "Stap 8",
+              "value": 7009.8
+            },
+            {
+              "name": "Stap 9",
+              "value": 7225.75
+            },
+            {
+              "name": "Stap 10",
+              "value": 7441.7
+            },
+            {
+              "name": "Stap 11",
+              "value": 7657.64
+            }
+          ]
+        },
+        {
+          "name": "A",
+          "minValue": 2357.28,
+          "maxValue": 2441.32,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2357.28
+            },
+            {
+              "name": "Stap 2",
+              "value": 2399.3
+            },
+            {
+              "name": "Stap 3",
+              "value": 2441.32
+            }
+          ]
+        },
+        {
+          "name": "B",
+          "minValue": 2357.28,
+          "maxValue": 2726.09,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2357.28
+            },
+            {
+              "name": "Stap 2",
+              "value": 2418.75
+            },
+            {
+              "name": "Stap 3",
+              "value": 2480.22
+            },
+            {
+              "name": "Stap 4",
+              "value": 2541.69
+            },
+            {
+              "name": "Stap 5",
+              "value": 2603.16
+            },
+            {
+              "name": "Stap 6",
+              "value": 2664.63
+            },
+            {
+              "name": "Stap 7",
+              "value": 2726.09
+            }
+          ]
+        },
+        {
+          "name": "C",
+          "minValue": 2388.52,
+          "maxValue": 3051.09,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2388.52
+            },
+            {
+              "name": "Stap 2",
+              "value": 2462.14
+            },
+            {
+              "name": "Stap 3",
+              "value": 2535.76
+            },
+            {
+              "name": "Stap 4",
+              "value": 2609.38
+            },
+            {
+              "name": "Stap 5",
+              "value": 2683.0
+            },
+            {
+              "name": "Stap 6",
+              "value": 2756.62
+            },
+            {
+              "name": "Stap 7",
+              "value": 2830.24
+            },
+            {
+              "name": "Stap 8",
+              "value": 2903.86
+            },
+            {
+              "name": "Stap 9",
+              "value": 2977.48
+            },
+            {
+              "name": "Stap 10",
+              "value": 3051.09
+            }
+          ]
+        },
+        {
+          "name": "D",
+          "minValue": 2542.85,
+          "maxValue": 3418.91,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2542.85
+            },
+            {
+              "name": "Stap 2",
+              "value": 2630.46
+            },
+            {
+              "name": "Stap 3",
+              "value": 2718.07
+            },
+            {
+              "name": "Stap 4",
+              "value": 2805.68
+            },
+            {
+              "name": "Stap 5",
+              "value": 2893.29
+            },
+            {
+              "name": "Stap 6",
+              "value": 2980.9
+            },
+            {
+              "name": "Stap 7",
+              "value": 3068.51
+            },
+            {
+              "name": "Stap 8",
+              "value": 3156.12
+            },
+            {
+              "name": "Stap 9",
+              "value": 3243.73
+            },
+            {
+              "name": "Stap 10",
+              "value": 3331.34
+            },
+            {
+              "name": "Stap 11",
+              "value": 3418.91
+            }
+          ]
+        },
+        {
+          "name": "E",
+          "minValue": 2841.45,
+          "maxValue": 3836.88,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 2841.45
+            },
+            {
+              "name": "Stap 2",
+              "value": 2940.99
+            },
+            {
+              "name": "Stap 3",
+              "value": 3040.53
+            },
+            {
+              "name": "Stap 4",
+              "value": 3140.07
+            },
+            {
+              "name": "Stap 5",
+              "value": 3239.61
+            },
+            {
+              "name": "Stap 6",
+              "value": 3339.15
+            },
+            {
+              "name": "Stap 7",
+              "value": 3438.69
+            },
+            {
+              "name": "Stap 8",
+              "value": 3538.23
+            },
+            {
+              "name": "Stap 9",
+              "value": 3637.77
+            },
+            {
+              "name": "Stap 10",
+              "value": 3737.31
+            },
+            {
+              "name": "Stap 11",
+              "value": 3836.88
+            }
+          ]
+        },
+        {
+          "name": "F",
+          "minValue": 3210.64,
+          "maxValue": 4309.52,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3210.64
+            },
+            {
+              "name": "Stap 2",
+              "value": 3320.53
+            },
+            {
+              "name": "Stap 3",
+              "value": 3430.42
+            },
+            {
+              "name": "Stap 4",
+              "value": 3540.31
+            },
+            {
+              "name": "Stap 5",
+              "value": 3650.2
+            },
+            {
+              "name": "Stap 6",
+              "value": 3760.09
+            },
+            {
+              "name": "Stap 7",
+              "value": 3869.98
+            },
+            {
+              "name": "Stap 8",
+              "value": 3979.87
+            },
+            {
+              "name": "Stap 9",
+              "value": 4089.76
+            },
+            {
+              "name": "Stap 10",
+              "value": 4199.65
+            },
+            {
+              "name": "Stap 11",
+              "value": 4309.52
+            }
+          ]
+        },
+        {
+          "name": "G",
+          "minValue": 3569.23,
+          "maxValue": 4852.93,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 3569.23
+            },
+            {
+              "name": "Stap 2",
+              "value": 3697.6
+            },
+            {
+              "name": "Stap 3",
+              "value": 3825.97
+            },
+            {
+              "name": "Stap 4",
+              "value": 3954.34
+            },
+            {
+              "name": "Stap 5",
+              "value": 4082.71
+            },
+            {
+              "name": "Stap 6",
+              "value": 4211.08
+            },
+            {
+              "name": "Stap 7",
+              "value": 4339.45
+            },
+            {
+              "name": "Stap 8",
+              "value": 4467.82
+            },
+            {
+              "name": "Stap 9",
+              "value": 4596.19
+            },
+            {
+              "name": "Stap 10",
+              "value": 4724.56
+            },
+            {
+              "name": "Stap 11",
+              "value": 4852.93
+            }
+          ]
+        },
+        {
+          "name": "H",
+          "minValue": 4008.93,
+          "maxValue": 5504.68,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4008.93
+            },
+            {
+              "name": "Stap 2",
+              "value": 4158.51
+            },
+            {
+              "name": "Stap 3",
+              "value": 4308.09
+            },
+            {
+              "name": "Stap 4",
+              "value": 4457.67
+            },
+            {
+              "name": "Stap 5",
+              "value": 4607.25
+            },
+            {
+              "name": "Stap 6",
+              "value": 4756.83
+            },
+            {
+              "name": "Stap 7",
+              "value": 4906.41
+            },
+            {
+              "name": "Stap 8",
+              "value": 5055.99
+            },
+            {
+              "name": "Stap 9",
+              "value": 5205.57
+            },
+            {
+              "name": "Stap 10",
+              "value": 5355.15
+            },
+            {
+              "name": "Stap 11",
+              "value": 5504.68
+            }
+          ]
+        },
+        {
+          "name": "I",
+          "minValue": 4505.97,
+          "maxValue": 6355.79,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 4505.97
+            },
+            {
+              "name": "Stap 2",
+              "value": 4690.95
+            },
+            {
+              "name": "Stap 3",
+              "value": 4875.93
+            },
+            {
+              "name": "Stap 4",
+              "value": 5060.91
+            },
+            {
+              "name": "Stap 5",
+              "value": 5245.89
+            },
+            {
+              "name": "Stap 6",
+              "value": 5430.87
+            },
+            {
+              "name": "Stap 7",
+              "value": 5615.85
+            },
+            {
+              "name": "Stap 8",
+              "value": 5800.83
+            },
+            {
+              "name": "Stap 9",
+              "value": 5985.81
+            },
+            {
+              "name": "Stap 10",
+              "value": 6170.79
+            },
+            {
+              "name": "Stap 11",
+              "value": 6355.77
+            }
+          ]
+        },
+        {
+          "name": "J",
+          "minValue": 5068.3,
+          "maxValue": 7410.17,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 5068.3
+            },
+            {
+              "name": "Stap 2",
+              "value": 5302.49
+            },
+            {
+              "name": "Stap 3",
+              "value": 5536.68
+            },
+            {
+              "name": "Stap 4",
+              "value": 5770.87
+            },
+            {
+              "name": "Stap 5",
+              "value": 6005.06
+            },
+            {
+              "name": "Stap 6",
+              "value": 6239.25
+            },
+            {
+              "name": "Stap 7",
+              "value": 6473.44
+            },
+            {
+              "name": "Stap 8",
+              "value": 6707.63
+            },
+            {
+              "name": "Stap 9",
+              "value": 6941.82
+            },
+            {
+              "name": "Stap 10",
+              "value": 7176.01
+            },
+            {
+              "name": "Stap 11",
+              "value": 7410.17
+            }
+          ]
+        },
+        {
+          "name": "K",
+          "minValue": 5718.08,
+          "maxValue": 8637.72,
+          "currency": "EUR",
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          },
+          "salaryStep": [
+            {
+              "name": "Stap 1",
+              "value": 5718.08
+            },
+            {
+              "name": "Stap 2",
+              "value": 6009.99
+            },
+            {
+              "name": "Stap 3",
+              "value": 6301.9
+            },
+            {
+              "name": "Stap 4",
+              "value": 6593.81
+            },
+            {
+              "name": "Stap 5",
+              "value": 6885.72
+            },
+            {
+              "name": "Stap 6",
+              "value": 7177.63
+            },
+            {
+              "name": "Stap 7",
+              "value": 7469.54
+            },
+            {
+              "name": "Stap 8",
+              "value": 7761.45
+            },
+            {
+              "name": "Stap 9",
+              "value": 8053.36
+            },
+            {
+              "name": "Stap 10",
+              "value": 8345.27
+            },
+            {
+              "name": "Stap 11",
+              "value": 8637.72
+            }
+          ]
+        }
+      ],
+      "individualSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Recurring",
+            "date": "R/--01-01"
+          },
+          "line": {
+            "lineId": {
+              "value": "PeriodiekeVerhoging"
+            },
+            "amount": {
+              "value": 1,
+              "unitCode": "SalaryStep",
+              "baseAmount": {
+                "unitCode": "Fixed",
+                "baseType": "BaseWage"
+              }
+            },
+            "interval": {
+              "value": 1,
+              "unitCode": "Year"
+            },
+            "conditions": [
+              {
+                "conditionType": "Text",
+                "description": "Indien in dienst voor 1 september van het voorafgaande jaar en nog niet het maximum van de salarisschaal bereikt."
+              }
+            ]
+          }
+        }
+      ],
+      "generalSalaryIncrease": [
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2024-01-01"
+          },
+          "amount": {
+            "value": 300,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "BaseWage"
+            },
+            "proportional": {
+              "partTimePercentage": true,
+              "employmentDuration": false,
+              "description": "Naar rato voor parttime dienstverband."
+            }
+          },
+          "description": "Verhoging van het maandsalaris met €300 bruto. Voor schalen A-H minimaal 7% verhoging, voor schalen I-K minimaal 6% verhoging. Minimumuurloon wordt €15 per uur."
+        },
+        {
+          "effectiveDate": {
+            "occurrenceType": "Single",
+            "date": "2025-01-01"
+          },
+          "amount": {
+            "value": 4,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "description": "Verhoging van het salaris met 4%. Minimumuurloon wordt €16 per uur. Aanpassing schaalmaxima salarisschalen I, J en K per 31 december 2024."
+        }
+      ]
+    }
+  ],
+  "allowance": [
+    {
+      "name": "Toeslag verruimde bedrijfstijd",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ORT",
+      "period": [
+        {
+          "timePeriod": {
+            "start": "19:00:00",
+            "end": "22:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            },
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            },
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "09:00:00",
+            "end": "17:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            }
+          ]
+        }
+      ],
+      "line": [
+        {
+          "lineId": {
+            "value": "VerruimdeBedrijfstijdMaVr"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris."
+        },
+        {
+          "lineId": {
+            "value": "VerruimdeBedrijfstijdZa"
+          },
+          "amount": {
+            "value": 46,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris."
+        }
+      ],
+      "description": "Geldt niet voor Eurocross. Toeslag wordt ook uitbetaald over vakantie-uren."
+    },
+    {
+      "name": "Overwerktoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Overwerktoeslag",
+      "line": [
+        {
+          "lineId": {
+            "value": "OverwerkMaVr"
+          },
+          "amount": {
+            "value": 35,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Functiegroep A t/m H, maandag t/m vrijdag, van 07.00 tot 21.00 uur."
+            }
+          ],
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris."
+        },
+        {
+          "lineId": {
+            "value": "OverwerkZa"
+          },
+          "amount": {
+            "value": 60,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Functiegroep A t/m H, zaterdag van 09.00 tot 17.00 uur."
+            }
+          ],
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris."
+        },
+        {
+          "lineId": {
+            "value": "OverwerkZonFeest"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Functiegroep A t/m H, op zondagen, tweede paasdag, Koningsdag, 5 mei (lustrumjaar), Hemelvaartsdag, tweede pinksterdag, 24 december (16.00-27 07.00 uur), 31 december (16.00-2 januari 07.00 uur)."
+            }
+          ],
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris."
+        }
+      ],
+      "description": "Overwerk is meer uren werken in opdracht van leidinggevende dan de individuele arbeidsduur of op een bedrijfsgesloten dag. Maximaal 9 uur per week overwerk. Functiegroep I of hoger: geen toeslag, tijd voor tijd. Bij samenvallen van toeslagen telt de hoogste."
+    },
+    {
+      "name": "Stand-by vergoeding",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "StandByVergoeding",
+      "line": [
+        {
+          "lineId": {
+            "value": "StandByMaVr2023"
+          },
+          "amount": {
+            "value": 2.37,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag, 00.00 tot 24.00 uur (peildatum 1 januari 2023)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2023-01-01",
+            "validTo": "2023-12-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "StandByZaZonFeest2023"
+          },
+          "amount": {
+            "value": 3.94,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag, zondag en feestdagen, 00.00 tot 24.00 uur (peildatum 1 januari 2023)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2023-01-01",
+            "validTo": "2023-12-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "StandByMaVr2024"
+          },
+          "amount": {
+            "value": 2.39,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag, 00.00 tot 24.00 uur (peildatum 1 januari 2024)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "StandByZaZonFeest2024"
+          },
+          "amount": {
+            "value": 3.98,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag, zondag en feestdagen, 00.00 tot 24.00 uur (peildatum 1 januari 2024)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "StandByMaVr2025"
+          },
+          "amount": {
+            "value": 2.56,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag t/m vrijdag, 00.00 tot 24.00 uur (peildatum 1 januari 2025)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "StandByZaZonFeest2025"
+          },
+          "amount": {
+            "value": 4.25,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag, zondag en feestdagen, 00.00 tot 24.00 uur (peildatum 1 januari 2025)."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2025-01-01",
+            "validTo": "2025-08-31"
+          }
+        }
+      ],
+      "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris. Jaarlijkse verhoging met cao-verhoging van het kalenderjaar daarvoor. Toeslag vervalt voor uren dat er gewerkt wordt in stand-by tijd (dan geldt overwerktoeslag)."
+    },
+    {
+      "name": "Inconveniëntentoeslag Eurocross",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ORT",
+      "effectivePeriod": {
+        "validFrom": "2017-01-01"
+      },
+      "period": [
+        {
+          "timePeriod": {
+            "start": "00:00:00",
+            "end": "06:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "06:00:00",
+            "end": "08:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "18:00:00",
+            "end": "20:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "20:00:00",
+            "end": "24:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Monday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00:00",
+            "end": "06:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "06:00:00",
+            "end": "08:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "18:00:00",
+            "end": "20:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "20:00:00",
+            "end": "24:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Tuesday"
+            },
+            {
+              "value": "Wednesday"
+            },
+            {
+              "value": "Thursday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00:00",
+            "end": "06:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "06:00:00",
+            "end": "08:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "18:00:00",
+            "end": "20:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "20:00:00",
+            "end": "23:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "23:00:00",
+            "end": "24:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Friday"
+            }
+          ]
+        },
+        {
+          "timePeriod": {
+            "start": "00:00:00",
+            "end": "24:00:00"
+          },
+          "weekday": [
+            {
+              "value": "Saturday"
+            },
+            {
+              "value": "Sunday"
+            },
+            {
+              "value": "PublicHoliday"
+            }
+          ]
+        }
+      ],
+      "line": [
+        {
+          "lineId": {
+            "value": "InconvenientMon0006"
+          },
+          "amount": {
+            "value": 65,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag van 00.00 tot 06.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientMon0608"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag van 06.00 tot 08.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientMon1820"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag van 18.00 tot 20.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientMon2024"
+          },
+          "amount": {
+            "value": 42,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maandag van 20.00 tot 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientTueThu0006"
+          },
+          "amount": {
+            "value": 42,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Dinsdag t/m donderdag van 00.00 tot 06.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientTueThu0608"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Dinsdag t/m donderdag van 06.00 tot 08.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientTueThu1820"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Dinsdag t/m donderdag van 18.00 tot 20.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientTueThu2024"
+          },
+          "amount": {
+            "value": 42,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Dinsdag t/m donderdag van 20.00 tot 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientFri0006"
+          },
+          "amount": {
+            "value": 42,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrijdag van 00.00 tot 06.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientFri0608"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrijdag van 06.00 tot 08.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientFri1820"
+          },
+          "amount": {
+            "value": 28,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrijdag van 18.00 tot 20.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientFri2023"
+          },
+          "amount": {
+            "value": 42,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrijdag van 20.00 tot 23.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientFri2324"
+          },
+          "amount": {
+            "value": 65,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vrijdag van 23.00 tot 24.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "InconvenientSatSunHoliday"
+          },
+          "amount": {
+            "value": 65,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Zaterdag, zondag en feestdagen (hele dag)."
+            }
+          ]
+        }
+      ],
+      "description": "Alleen van toepassing op medewerkers van Eurocross. Bij samenvallen met overwerk, alleen overwerktoeslag (uitgezonderd overwerk op feestdagen, dan beide). Toeslag wordt ook uitbetaald over vakantie-uren."
+    },
+    {
+      "name": "Overwerktoeslag Eurocross",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Overwerktoeslag",
+      "line": [
+        {
+          "lineId": {
+            "value": "OverwerkEurocrossBasis"
+          },
+          "amount": {
+            "value": 166,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "value": 145,
+              "unitCode": "Percentage",
+              "baseType": "HourlyRate"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Uurloon voor overwerk is 166/145 keer het normale uurloon. Geldt voor salarisschaal G of lager."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "OverwerkEurocrossToeslag1"
+          },
+          "amount": {
+            "value": 16.33,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Op alle dagen (uitgezonderd feestdagen), voor de uren tot 8 uur per dag en/of 40 uur per week."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "OverwerkEurocrossToeslag2"
+          },
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Op alle dagen (uitgezonderd feestdagen), voor de uren boven 8 uur per dag en/of 40 uur per week gelegen op maandag t/m vrijdag tussen 07.00 en 23.00 uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "OverwerkEurocrossToeslag3"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Op alle dagen (uitgezonderd feestdagen), op alle andere tijdstippen voor elk uur."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "OverwerkEurocrossFeestdagen"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Op feestdagen (Nieuwjaarsdag, 1e/2e Paasdag, Koningsdag, 5 mei (lustrum), Hemelvaartsdag, 1e/2e Pinksterdag, 1e/2e Kerstdag, 5, 24 en 31 december: middag/avonddienst)."
+            }
+          ]
+        }
+      ],
+      "description": "Alleen van toepassing op medewerkers van Eurocross in salarisschaal G of lager. Maximaal 6 uur per week overwerken (30 uur per kwartaal). Overuren worden in principe in geld betaald, maximaal de helft kan in vrije tijd worden opgenomen."
+    },
+    {
+      "name": "Oproepcompensatie Eurocross",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Oproepcompensatie",
+      "line": [
+        {
+          "lineId": {
+            "value": "OproepcompensatieEurocross"
+          },
+          "amount": {
+            "value": 13.62,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Bij calamiteiten in het bedrijf, indien binnen 24 uur opgeroepen en daadwerkelijk overwerkt."
+            }
+          ]
+        }
+      ],
+      "description": "Deze oproepcompensatie staat los van de overwerkvergoeding."
+    },
+    {
+      "name": "Ploegendiensttoeslag IT Monitoring en Control Center",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Ploegendiensttoeslag",
+      "effectivePeriod": {
+        "validFrom": "2014-01-01"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "PloegendienstRoostertoeslag"
+          },
+          "amount": {
+            "value": 27,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "HourlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Hour"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Over de uren die daadwerkelijk gewerkt zijn in het ploegendienstrooster (gemiddeld 33,6 uur per week)."
+            }
+          ],
+          "description": "Inclusief vakantietoeslag. Onderdeel van pensioengevend salaris. Telt niet mee voor vakantietoeslag en eindejaarsuitkering."
+        }
+      ],
+      "description": "Geldt voor medewerkers bij het Monitoring en Control Center van IT. Artikelen over bedrijfstijden (4.4) en bedrijfsgesloten dagen (5.3) gelden niet. Compensatie in tijd voor werken op een feestdag. Gewenningsuitkering mogelijk bij verval of verlaging van toeslag na minimaal 2 jaar werken in ploegendienstrooster, afbouw in 4 stappen over 12 maanden."
+    },
+    {
+      "name": "Reiskostenvergoeding woon-werkverkeer",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Reiskostenvergoeding",
+      "line": [
+        {
+          "lineId": {
+            "value": "ReiskostenOV"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding van vervoersbewijs 2e klas voor openbaar vervoer. Geldt tot 1 juli 2024 en vanaf 1 juli 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ReiskostenFietsOV"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding voor abonnement fietsenstalling of fietskluis op trein- of busstation. Geldt tot 1 juli 2024 en vanaf 1 juli 2024."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ReiskostenEigenVervoer2023"
+          },
+          "amount": {
+            "value": 0.0,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Kilometer"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Kilometer"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding voor eigen vervoer per 1 januari 2023. Afhankelijk van afstand (heenreis) en aantal reisdagen per week. Geen vergoeding voor 0 t/m 10 km. Maximaal 50 km vergoed. Zie tabel in artikel 10.1A."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2023-01-01",
+            "validTo": "2024-06-30"
+          }
+        },
+        {
+          "lineId": {
+            "value": "ReiskostenEigenVervoerFietsElektrisch2024"
+          },
+          "amount": {
+            "value": 0.23,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Kilometer"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Kilometer"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reizen per fiets of met een elektrisch of PHEV vervoermiddel. Fiscaal vrije bedrag per kilometer (per 1 januari 2024). Geldt vanaf 1 juli 2024. Enkele reis meer dan 10 km, maximaal 50 km vergoed."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-07-01",
+            "validTo": "2025-08-31"
+          }
+        },
+        {
+          "lineId": {
+            "value": "ReiskostenEigenVervoerFossiel2024"
+          },
+          "amount": {
+            "value": 0.21,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Kilometer"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Kilometer"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor reizen met een vervoermiddel met fossiele brandstof. Geldt vanaf 1 juli 2024. Enkele reis meer dan 10 km, maximaal 50 km vergoed."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-07-01",
+            "validTo": "2025-08-31"
+          }
+        }
+      ],
+      "description": "Vergoeding voor de reis tussen huisadres en standplaats. Geldt niet voor medewerkers met een leaseauto of autoregeling."
+    },
+    {
+      "name": "Reiskostenvergoeding zakelijke reiskosten",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Reiskostenvergoeding",
+      "line": [
+        {
+          "lineId": {
+            "value": "ZakelijkeReizenOV"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Gratis openbaar vervoerbewijs of vergoeding van zelf gekochte vervoerbewijzen."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ZakelijkeReizenEigenAuto"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Kilometer"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding van zakelijke kilometers met eigen auto, indien reizen met OV niet goed mogelijk is. Huurauto is ook een optie."
+            }
+          ]
+        }
+      ],
+      "description": "Zakelijke reizen zijn reizen in opdracht van de werkgever voor Achmea."
+    },
+    {
+      "name": "Werkgeversbijdrage zorgverzekering",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "ZorgverzekeringBijdrage",
+      "line": [
+        {
+          "lineId": {
+            "value": "WerkgeversbijdrageZorgverzekering"
+          },
+          "amount": {
+            "value": 250,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Extra werkgeversbijdrage bruto per jaar bij afsluiten basisverzekering binnen de collectieve overeenkomst. In 2024 als netto bedrag uitbetaald."
+            }
+          ]
+        }
+      ],
+      "description": "Achmea sluit een collectieve zorgverzekering af voor medewerkers (basis- en aanvullend pakket)."
+    },
+    {
+      "name": "Vergoeding kosten Wet BIG",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Opleidingskosten",
+      "line": [
+        {
+          "lineId": {
+            "value": "VergoedingKostenWetBIG"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Vergoeding van kosten voor verplichte scholing en accreditatie, (her)registratie en lidmaatschap van 1 beroepsvereniging in het kader van Wet BIG."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Klimaatbudget",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Klimaatbudget",
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "Klimaatbudget"
+          },
+          "amount": {
+            "value": 2500,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "proportional": {
+              "partTimePercentage": true,
+              "employmentDuration": false,
+              "description": "Naar rato van parttimepercentage voor contractuele arbeidsduur minder dan 34 uur."
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Netto budget voor investeringen in duurzaamheid en klimaat in de eigen leefomgeving. Beschikbaar voor medewerkers in dienst tussen 1 december 2023 en 31 augustus 2025, langer dan 1 jaar in dienst, en niet eerder gebruik gemaakt. Te gebruiken binnen 1 jaar na terbeschikkingstelling."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eindejaarsuitkering",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Eindejaarsuitkering",
+      "line": [
+        {
+          "lineId": {
+            "value": "EindejaarsuitkeringPercentage"
+          },
+          "amount": {
+            "value": 8.33,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Berekend over het vaste salaris. Naar rato bij dienstverband korter dan een volledig kalenderjaar. Maandelijks 1/12 deel uitbetaald in het keuzebudget."
+        }
+      ]
+    },
+    {
+      "name": "Winstuitkering",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Winstuitkering",
+      "line": [
+        {
+          "lineId": {
+            "value": "WinstuitkeringPercentage"
+          },
+          "amount": {
+            "value": 3.3,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            },
+            "maxValue": 3.3
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Maximaal 3,3% van 12 keer het bruto maandsalaris (feitelijk uitbetaalde jaarsalaris inclusief Select meer- en minderuren). Besluit door Raad van Bestuur op basis van bedrijfsresultaat. Uitbetaling in juni."
+        }
+      ]
+    },
+    {
+      "name": "Variabel salaris",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "VariabelSalaris",
+      "effectivePeriod": {
+        "validFrom": "2015-01-01"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "VariabelSalarisPercentage"
+          },
+          "amount": {
+            "value": 20,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "BaseWage"
+            },
+            "maxValue": 20
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Maximaal 20% van het jaarsalaris. Voor commerciële buitendienst, binnendienst, treasury en vermogensbeheer. Gebaseerd op vooraf bepaalde, beoordeelbare en beïnvloedbare targets op persoonlijk, onderdeel/divisie en Achmea niveau."
+        },
+        {
+          "lineId": {
+            "value": "CompensatieVariabelSalaris"
+          },
+          "amount": {
+            "value": 0.32,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Compensatieregeling voor medewerkers die voor 1 januari 2015 meer dan 20% variabel salaris konden realiseren. Het verschil tussen het oude en nieuwe maximum wordt vermenigvuldigd met 0,32 en als persoonlijke maandelijkse toeslag uitbetaald. Telt mee voor pensioen, niet voor vakantietoeslag en eindejaarsuitkering."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arbeidsmarkttoeslag",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Arbeidsmarkttoeslag",
+      "line": [
+        {
+          "lineId": {
+            "value": "Arbeidsmarkttoeslag"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "description": "Tijdelijke toeslag voor specialistische functies met krapte op de arbeidsmarkt. Functiegebonden, gebenchmarkt elke 2-3 jaar. Telt mee voor pensioenopbouw, PKB, Select uren en variabele beloning. Niet voor personeelshypotheekkorting. Geldt voor nieuwe toeslagen vanaf 1 december 2018."
+        }
+      ]
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "VakantietoeslagPercentage"
+          },
+          "amount": {
+            "value": 8,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Berekend over het vaste salaris. Naar rato bij dienstverband korter dan een volledig kalenderjaar."
+        }
+      ],
+      "payDate": {
+        "occurrenceType": "Recurring",
+        "date": "R/--01-01",
+        "description": "Maandelijks 1/12 deel uitbetaald in het keuzebudget."
+      }
+    }
+  ],
+  "sickPay": [
+    {
+      "name": "Loondoorbetaling bij ziekte",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "Ziektejaar1"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 12,
+            "unitCode": "Month"
+          },
+          "description": "Volledige doorbetaling van bruto salaris (maandsalaris inclusief vaste toeslagen, gemiddeld variabel salaris, structurele salarisverhogingen en periodieken)."
+        },
+        {
+          "lineId": {
+            "value": "Ziektejaar2"
+          },
+          "amount": {
+            "value": 80,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 12,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Aanvulling tot 100% van bruto salaris indien actief meegewerkt aan re-integratie."
+            }
+          ],
+          "description": "80% doorbetaling van bruto salaris (maandsalaris inclusief vaste toeslagen, gemiddeld variabel salaris, structurele salarisverhogingen en periodieken)."
+        }
+      ]
+    }
+  ],
+  "leave": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "paidLeave": [
+        {
+          "name": "Wettelijke vakantie-uren",
+          "amount": {
+            "value": 4,
+            "unitCode": "Week",
+            "baseAmount": {
+              "unitCode": "WeeklyRate",
+              "baseType": "WorkDuration"
+            },
+            "proportional": {
+              "partTimePercentage": true,
+              "employmentDuration": false
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Vier keer de individuele arbeidsduur per week (bij 34 uur/week is dit 136 uur). Naar rato bij indiensttreding in de loop van het kalenderjaar. Minimaal 3 weken aaneengesloten vakantie mogelijk."
+        },
+        {
+          "name": "Extra vakantie-uren kopen",
+          "amount": {
+            "value": 10,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "WorkDuration"
+            },
+            "maxValue": 10
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "ikbReference": [
+            {
+              "relationType": "FinancedBy",
+              "id": {
+                "value": "Keuzebudget"
+              },
+              "description": "Aankoop via Achmea Select keuzebudget."
+            }
+          ],
+          "description": "Maximaal 10% van de individuele jaarlijkse arbeidsduur. Geen toestemming leidinggevende nodig voor aankoop, wel voor opname."
+        },
+        {
+          "name": "Vakantie op niet-christelijke feestdagen",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Recht om vakantie op te nemen op niet-christelijke feestdagen, aanvraag 1 maand van tevoren."
+            }
+          ]
+        }
+      ],
+      "adv": [
+        {
+          "name": "Roostervrije tijd",
+          "amount": {
+            "value": 0,
+            "unitCode": "Hour",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Opbouw van roostervrije tijd bij meer uren werken dan contract. Opname in hetzelfde kalenderjaar, vervalt anders. Niet in geld uitbetaald. Opbouw en opname ook tijdens verlof/ziekteverlof."
+        }
+      ],
+      "holidays": [
+        {
+          "name": "Nieuwjaarsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede Paasdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Koningsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "5 Mei (Lustrumjaar)",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 5,
+            "unitCode": "Year"
+          },
+          "description": "Eén keer per 5 jaar."
+        },
+        {
+          "name": "Hemelvaartsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede Pinksterdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Eerste Kerstdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        },
+        {
+          "name": "Tweede Kerstdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          }
+        }
+      ],
+      "specialLeave": [
+        {
+          "name": "Huwelijk of partnerschapsregistratie",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Betaald bijzonder verlof."
+        },
+        {
+          "name": "Verhuizing",
+          "amount": {
+            "value": 2,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "maxValue": 2
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Maximaal 2 dagen per kalenderjaar betaald bijzonder verlof."
+        },
+        {
+          "name": "Rouwverlof",
+          "amount": {
+            "value": 3,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "minValue": 3
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Minimaal 3 dagen betaald bijzonder verlof bij overlijden van een familielid of goede vriend/vriendin. Flexibele afspraken met leidinggevende mogelijk."
+        },
+        {
+          "name": "Doktersbezoek",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "WorkDuration"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof indien doktersbezoek niet buiten werktijd kan plaatsvinden en dit onmogelijk is door omstandigheden waar de medewerker geen invloed op heeft."
+            }
+          ]
+        },
+        {
+          "name": "Diversiteitsdag",
+          "amount": {
+            "value": 1,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald verlof voor een activiteit die past bij religie, levensovertuiging of arbeidsparticipatie van allochtonen, vrouwen of gedeeltelijk arbeidsgeschikten. Aanvraag minimaal 1 maand van tevoren."
+            }
+          ]
+        },
+        {
+          "name": "Maatschappelijk verlof",
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "WorkDuration"
+            },
+            "maxValue": 4
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Verlof voor onbetaalde activiteiten die de sociale samenhang van de maatschappij verbeteren. Verlof voor de helft van de tijd van de activiteiten, maximaal 4 werkdagen per kalenderjaar. Salaris wordt doorbetaald. Goedkeuring leidinggevende vereist."
+        },
+        {
+          "name": "Verlof voor pensioen",
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Onbetaald verlof voorafgaand aan pensioen. Volledig verlof maximaal 3 jaar, gedeeltelijk verlof kan langer. Aanvraag 6 maanden van tevoren. Gevolgen voor arbeidsvoorwaarden (salaris, toeslagen, vakantie-uren, kostenvergoedingen stoppen; pensioenopbouw 6 maanden door; personeelshypotheek, korting eigen producten, collectieve zorgverzekering blijven). Bij gedeeltelijk verlof: alles naar rato."
+        },
+        {
+          "name": "Verlof vakbondswerk",
+          "amount": {
+            "value": 10,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "maxValue": 10
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald bijzonder verlof voor kaderleden van vakorganisaties voor het bijwonen van vergaderingen van besturende colleges of als afgevaardigde."
+            }
+          ]
+        },
+        {
+          "name": "Cursussen vakbondswerk",
+          "amount": {
+            "value": 6,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "maxValue": 6
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Betaald bijzonder verlof voor kaderleden en leden van vakorganisaties voor het volgen van door de vakorganisaties georganiseerde cursussen."
+            }
+          ]
+        }
+      ],
+      "wazo": [
+        {
+          "name": "Zwangerschaps- en bevallingsverlof",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Achmea vult de WAZO-uitkering aan tot 100% van het salaris. Pensioenopbouw loopt volledig door."
+        },
+        {
+          "name": "Adoptie- en pleegzorgverlof",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 6,
+            "unitCode": "Week"
+          },
+          "description": "Achmea vult de WAZO-uitkering aan tot 100% van het salaris voor maximaal 6 weken. Verlenging met 2 weken mogelijk (totaal 8 weken) bij adoptie in het buitenland, dan 50% salaris tijdens verlenging. Pensioenopbouw loopt volledig door."
+        },
+        {
+          "name": "Kortdurend zorgverlof",
+          "amount": {
+            "value": 90,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 12,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximaal 2 keer de gemiddelde individuele arbeidsduur per week (incl. Select uren) binnen een periode van 12 aaneengesloten maanden. Minimaal wettelijk minimumloon. Pensioenopbouw loopt volledig door."
+            }
+          ]
+        },
+        {
+          "name": "Langdurend zorgverlof",
+          "amount": {
+            "value": 50,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            },
+            "maxValue": 1
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximaal 13 keer de contractuele arbeidsduur per week per kalenderjaar. Gedeeltelijk betaald verlof, Achmea betaalt de helft van de opgenomen verlofuren door, tot maximaal 1 maandsalaris per kalenderjaar. Verlenging mogelijk in specifieke situaties. Pensioenopbouw loopt volledig door."
+            }
+          ]
+        },
+        {
+          "name": "Geboorteverlof voor partners",
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 6,
+            "unitCode": "Week"
+          },
+          "description": "Totaal 6 weken volledig betaald geboorteverlof (inclusief wettelijk verlof). Bestaat uit 1 week geboorteverlof (binnen 4 weken na geboorte) en 5 weken aanvullend geboorteverlof (binnen 6 maanden na geboorte). Achmea vult wettelijke uitkering aan tot 100% salaris. Pensioenopbouw loopt volledig door."
+        }
+      ]
+    }
+  ],
+  "individualChoiceBudget": [
+    {
+      "id": {
+        "value": "Keuzebudget",
+        "schemeAgencyId": "Achmea"
+      },
+      "name": "Keuzebudget (Achmea Select)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "VakantietoeslagIKB"
+          },
+          "amount": {
+            "value": 8,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "description": "Maandelijks 1/12e deel van de vakantietoeslag (8% van bruto jaarsalaris)."
+        },
+        {
+          "lineId": {
+            "value": "EindejaarsuitkeringIKB"
+          },
+          "amount": {
+            "value": 8.33,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "description": "Maandelijks 1/12e deel van de eindejaarsuitkering (8,33% van bruto jaarsalaris)."
+        },
+        {
+          "lineId": {
+            "value": "BovenwettelijkVerlofIKB"
+          },
+          "amount": {
+            "value": 3.85,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "BaseWage"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "description": "Maandelijks 1/12e deel van de waarde van het bovenwettelijk verlof (3,85% van maandsalaris)."
+        }
+      ],
+      "option": [
+        {
+          "description": "Kopen van extra verlof (maximaal 10% van individuele jaarlijkse arbeidsduur)."
+        },
+        {
+          "description": "Verkopen van aangekochte bovenwettelijke vakantie-uren (indien niet opgenomen in hetzelfde kalenderjaar)."
+        },
+        {
+          "description": "Uitbetalen van het budget (resterend budget wordt automatisch in december uitbetaald)."
+        },
+        {
+          "description": "Kopen bedrijfsfiets (aankoopbedrag verrekenen met keuzebudget)."
+        },
+        {
+          "description": "Betalen vakbondscontributie (contributie verrekenen met keuzebudget)."
+        }
+      ],
+      "description": "Arbeidsvoorwaarden keuzesysteem om een arbeidsvoorwaardenpakket op maat te maken. Maandelijks keuzes mogelijk. Jaarlijkse keuzeronde voor meer of minder uren werken (oktober-november voor volgend kalenderjaar). Arbeidsduur gerelateerde arbeidsvoorwaarden worden naar verhouding aangepast."
+    }
+  ],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "effectivePeriod": {
+        "validFrom": "2014-01-01"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "Pensioenopbouw"
+          },
+          "amount": {
+            "value": 1.875,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensionableSalary"
+            },
+            "maxValue": 1.875
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Pensioenopbouw op basis van een voorwaardelijk geïndexeerde middelloonregeling. Maximaal 1,875% van de pensioengrondslag. Pensioengrondslag is pensioengevend salaris minus franchise."
+        },
+        {
+          "lineId": {
+            "value": "WerknemersbijdragePensioen"
+          },
+          "amount": {
+            "value": 3.25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensionableSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "effectivePeriod": {
+            "validFrom": "2015-01-01"
+          },
+          "description": "Eigen bijdrage van 3,25% van de geldende pensioengrondslag. Minder of geen bijdrage bij WAO- of WIA-uitkering."
+        },
+        {
+          "lineId": {
+            "value": "Partnerpensioen"
+          },
+          "amount": {
+            "value": 70,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "FictiefOuderdomspensioen"
+            },
+            "maxValue": 70
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Levenslang partnerpensioen, maximaal 70% van het fictief te bereiken levenslang ouderdomspensioen (uitgaande van 1,875% opbouw). Inclusief voorziening voor Anw-hiaat."
+        },
+        {
+          "lineId": {
+            "value": "Wezenpensioen"
+          },
+          "amount": {
+            "value": 14,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "FictiefOuderdomspensioen"
+            },
+            "maxValue": 14
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Maximaal 14% van het fictief te bereiken levenslang ouderdomspensioen. Uitgekeerd tot 18 jaar (27 jaar voor studerende/invalide kinderen). Verdubbeld als beide ouders zijn overleden."
+        },
+        {
+          "lineId": {
+            "value": "CompensatieFiscaalMaximumIndividueel"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensionableSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Individueel pensioenbudget voor pensioengevend salaris boven het fiscale maximum (€137.800 in 2024). Percentage afhankelijk van leeftijd (staffel). Uitbetaald in maandelijkse termijnen. Geen onderdeel van pensioengevend salaris of andere arbeidsvoorwaarden."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2015-01-01"
+          }
+        },
+        {
+          "lineId": {
+            "value": "CompensatieFiscaalMaximumLoontoeslag"
+          },
+          "amount": {
+            "value": 8.0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "PensionableSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Loontoeslag van 8,0% (2024) van het pensioengevend salaris boven het fiscale maximum. Jaarlijks vastgesteld. Uitbetaald in maandelijkse termijnen. Geen onderdeel van pensioengevend salaris of andere arbeidsvoorwaarden."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-01-01"
+          }
+        }
+      ],
+      "franchise": {
+        "description": "Franchise voor levenslang ouderdomspensioen is €17.545 (2024). Jaarlijks verhoogd met algemene cao-verhogingen. Minimaal gelijk aan fiscaal minimale franchise."
+      },
+      "description": "Pensioenregeling uitgevoerd door Stichting Pensioenfonds Achmea (SPA). Levenslang ouderdomspensioen vanaf 68 jaar. Pensioenopbouw loopt door bij (gedeeltelijke) arbeidsongeschiktheid. Mogelijkheid tot eerder ingaan ouderdomspensioen (vanaf 55 jaar, actuarieel neutraal) en deeltijdpensioen (vanaf 55 jaar). Mogelijkheid tot uitruil ouderdoms- en partnerpensioen. Netto pensioenregeling vrijwillig voor salaris boven fiscaal maximum."
+    }
+  ],
+  "sustainableEmployability": [
+    {
+      "name": "Onbeperkt opleidingsbudget ‘all you can learn’",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Education",
+      "line": [
+        {
+          "lineId": {
+            "value": "AllYouCanLearn"
+          },
+          "amount": {
+            "value": 100,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "Medewerkers kunnen zelf een opleiding kiezen uit een brede opleidingscatalogus zonder toestemming van leidinggevende of afdelingsbudgetbeperking. Spelregels op Achmeanet. Uren voor oriëntatie-interventies, les- en contacturen, examen- en tentamentijd kunnen in werktijd worden gevolgd."
+        }
+      ]
+    },
+    {
+      "name": "Inzetbaarheidstijd",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "Inzetbaarheidstijd"
+          },
+          "amount": {
+            "value": 3,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "description": "3 dagen per jaar naar eigen inzicht te gebruiken voor inzetbaarheidsactiviteiten die de arbeidsmarktwaarde vergroten, of als studietijd. Opname tijdig afstemmen met leidinggevende."
+        }
+      ]
+    },
+    {
+      "name": "Cursus ‘Pensioen in zicht’",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Education",
+      "line": [
+        {
+          "lineId": {
+            "value": "CursusPensioenInZicht"
+          },
+          "amount": {
+            "value": 5,
+            "unitCode": "Day",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "5 dagen betaald opleidingsverlof voor de cursus ter voorbereiding op pensioen."
+        }
+      ]
+    },
+    {
+      "name": "Health check",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Health",
+      "line": [
+        {
+          "lineId": {
+            "value": "HealthCheck"
+          },
+          "amount": {
+            "value": 1,
+            "unitCode": "Occurrence",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 3,
+            "unitCode": "Year"
+          },
+          "description": "1 keer per 3 jaar een persoonlijk gezondheidsonderzoek, betaald door Achmea. Aandacht voor stress, werkdruk, beeldschermwerk en nachtarbeid."
+        }
+      ]
+    },
+    {
+      "name": "Loopbaancheck",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "Loopbaancheck"
+          },
+          "amount": {
+            "value": 1,
+            "unitCode": "Occurrence",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 3,
+            "unitCode": "Year"
+          },
+          "description": "1 keer per 3 jaar een loopbaancheck bij een loopbaanadviseur (intern of extern), in overleg met leidinggevende en via ‘Mijn Leeromgeving’."
+        }
+      ]
+    },
+    {
+      "name": "Arbeidsmarktwaarde scan",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "ArbeidsmarktwaardeScan"
+          },
+          "amount": {
+            "value": 1,
+            "unitCode": "Occurrence",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 3,
+            "unitCode": "Year"
+          },
+          "description": "1 keer per 3 jaar een arbeidsmarktwaarde scan beschikbaar voor medewerkers."
+        }
+      ]
+    },
+    {
+      "name": "Sabbatical leave",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "SabbaticalLeaveUnpaid"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 2,
+            "unitCode": "Month"
+          },
+          "minValue": 2,
+          "maxValue": 6,
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "2 tot 6 maanden onbetaald verlof. Minimaal 5 jaar aaneengesloten in dienst. Maximaal 1 keer per 5 jaar. Pensioenopbouw loopt door op basis van pensioengrondslag voor verlof. Geen betaald werk toegestaan, tenzij afgesproken."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "SabbaticalLeavePaid"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "25% van het salaris doorbetaald indien sabbatical leave nodig is voor studie of het opdoen van nieuwe energie (opgenomen in groeiplan). Opbouw vakantie-uren over betaalde uren. Uitstel mogelijk bij 4 weken aaneengesloten ziekte."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Boventalligheidsbudget",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "effectivePeriod": {
+        "validFrom": "2018-01-01"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "Boventalligheidsbudget"
+          },
+          "amount": {
+            "value": 2000,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Budget van €2.000 (incl. BTW) voor outplacementbegeleiding en/of financieel fitheid inzicht, beschikbaar bij vaststelling boventalligheid. Kan ook gebruikt worden voor opleidingen voor overstap naar onderwijs."
+        }
+      ]
+    },
+    {
+      "name": "Stap-terug-regeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "StapTerugLagereSchaal"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "description": "Bij functie in lagere salarisschaal: verschil tussen oud salaris en maximum nieuwe schaal wordt afgebouwd. Na 12 maanden naar 33,33% van verschil, na 24 maanden naar maximum nieuwe schaal. Bovenschaligheidstoeslag blijft behouden."
+        },
+        {
+          "lineId": {
+            "value": "StapTerugMinderUren"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "GrossSalary"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Voor medewerkers van 60 jaar of ouder die minder uren gaan werken (minimaal de helft van oude contracturen). Eerste jaar 66,66% van salaris over minder gewerkte uren doorbetaald, na 12 maanden 33,33%, na 24 maanden salaris behorend bij nieuwe contracturen. Pensioenopbouw over oud salaris gedurende afbouwperiode (24 maanden). Geen gebruik van meeruren via Achmea Select of overgangsuren."
+            }
+          ]
+        }
+      ],
+      "description": "Regeling voor duurzame inzetbaarheid om vitaal en gezond aan het werk te blijven."
+    },
+    {
+      "name": "Verlofspaarregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "typeCode": "Career",
+      "line": [
+        {
+          "lineId": {
+            "value": "VerlofspaarurenAankopen"
+          },
+          "amount": {
+            "value": 10,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "YearlyRate",
+              "baseType": "WorkDuration"
+            },
+            "maxValue": 10
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "ikbReference": [
+            {
+              "relationType": "FinancedBy",
+              "id": {
+                "value": "Keuzebudget"
+              },
+              "description": "Aankoop vanuit keuzebudget. Waarde van een uur is gelijk aan gehanteerd uurloon in keuzebudget in jaar van inleg."
+            }
+          ],
+          "description": "Maximaal 10% van de individuele arbeidsduur per kalenderjaar aankopen en inleggen. Totaal saldo (verlofspaaruren + vakantie-uren) mag niet meer zijn dan 50 keer de individuele arbeidsduur per week. Wettelijke vakantie-uren kunnen niet worden ingelegd. Keuze eenmaal per jaar in oktober/november."
+        }
+      ],
+      "description": "Verlof sparen om later in te zetten voor duurzame inzetbaarheid (minder uren werken, eerder stoppen, opleiding/stage, stap-terug-regeling). Kan ook voor ander doel worden opgenomen (uitbetaling tegen inlegwaarde). Gevolgen voor arbeidsvoorwaarden bij opname in tijd: salaris, vakantietoeslag, eindejaarsuitkering, wettelijke vakantie-uren doorbetaald/opgebouwd over opgenomen uren; pensioenopbouw 6 maanden volledig, daarna 50% bij eerder stoppen; Selectkeuze stopt; kostenvergoeding stopgezet/naar rato; leaseauto afspraken."
+    }
+  ],
+  "supplementaryArrangement": [
+    {
+      "name": "Regeling Vervroegde Uittreding (RVU)",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "description": "Wettelijke regeling voor werknemers die eerder dan hun AOW-leeftijd stoppen met werken. Beschikbaar t/m 31 december 2025.",
+      "typeCode": "RVU",
+      "line": [
+        {
+          "lineId": {
+            "value": "RVUVergoeding"
+          },
+          "amount": {
+            "value": 2182,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "RVU-vergoeding in 2024 is €2.182 bruto per maand (niet afhankelijk van parttime percentage). Maximaal 36 maanden voor AOW-leeftijd. Totale maximale vergoeding €78.552 bruto. Eenmalige uitkering ineens in de maand na uitdiensttreding."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-01-01",
+            "validTo": "2025-12-31"
+          }
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-12-31"
+      }
+    }
+  ],
+  "otherArrangement": [
+    {
+      "name": "Personeelshypotheekregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "RenteVergoedingPersoneelshypotheek"
+          },
+          "amount": {
+            "value": 25,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed",
+              "baseType": "MarketInterestRate"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Rentepercentage waarover rentevergoeding wordt gegeven is maximaal 8%. Rentepercentage na aftrek vergoeding is niet lager dan 3,5%. Vergoeding is geen onderdeel van salaris. Maximaal 3,5 keer het jaarsalaris (incl. vakantietoeslag en eindejaarsuitkering) als basis voor berekening. Afgeschaft per 1 juli 2016, maar bestaande hypotheken behouden voorwaarden."
+            }
+          ]
+        }
+      ],
+      "description": "Regeling voor medewerkers die een personeelshypotheek hebben. Na 30 juni 2016 geen nieuwe personeelshypotheken meer af te sluiten. Bestaande hypotheken behouden voorwaarden, maar leensom kan niet worden verhoogd."
+    },
+    {
+      "name": "Korting op eigen Achmea-producten",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "KortingAchmeaProducten"
+          },
+          "amount": {
+            "value": 0,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "description": "Medewerkers kunnen met korting Achmea-producten kopen. Uitgewerkt in een personeelsregeling met de COR."
+        }
+      ]
+    },
+    {
+      "name": "Faciliteiten voor vakbondswerk",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "FinancieleBijdrageVakorganisaties"
+          },
+          "amount": {
+            "value": 190000,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Gezamenlijke jaarlijkse werkgeversbijdrage aan de stichting BVA vanaf 2024."
+            }
+          ],
+          "effectivePeriod": {
+            "validFrom": "2024-01-01"
+          }
+        },
+        {
+          "lineId": {
+            "value": "ProjectbijdrageVakorganisaties"
+          },
+          "amount": {
+            "value": 15000,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Occurrence"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Eenmalig €15.000 beschikbaar voor projecten in het kader van internationale of nationale solidariteit, vastgesteld in overleg met partijen, voor de looptijd van de cao."
+            }
+          ]
+        },
+        {
+          "lineId": {
+            "value": "ContributieNieuweLedenVakorganisaties"
+          },
+          "amount": {
+            "value": 100000,
+            "unitCode": "Euro",
+            "baseAmount": {
+              "unitCode": "Fixed"
+            },
+            "maxValue": 100000
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Year"
+          },
+          "conditions": [
+            {
+              "conditionType": "Text",
+              "description": "Maximale bijdrage van €100.000 gedurende de looptijd van de cao voor de vergoeding van de contributie van nieuwe leden van de 3 vakorganisaties gedurende het eerste jaar van het lidmaatschap."
+            }
+          ]
+        }
+      ],
+      "description": "Achmea biedt middelen voor communicatie en overleg met vakorganisaties. Kaderleden krijgen bescherming en betaald bijzonder verlof voor vakbondswerk (zie Leave sectie). Faciliteiten voor vergaderingen en spreekuren. Communicatie- en publicatiemogelijkheden op Achmeanet. Fiscale verrekening van vakbondscontributie via Werkkostenregeling."
+    }
+  ],
+  "_extraction_metadata": {
+    "extractor": "gemini-primary",
+    "model": "gemini-2.5-flash",
+    "cao_name": "Achmea",
+    "extracted_at": "2026-03-05T10:06:55.475622",
+    "input_chars": 249018,
+    "elapsed_seconds": 197.11697
+  }
+}

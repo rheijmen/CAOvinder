@@ -1,0 +1,670 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "setu-inquiry-pay-equity-v2.0.0",
+  "title": "SETU Inquiry Pay Equity v2.0",
+  "description": "JSON Schema aligned with the official SETU Inquiry Pay Equity v2.0 specification (InquiryPayEquity message). Used in the Dutch staffing industry for gelijkwaardige beloning compliance.",
+  "type": "object",
+  "required": ["documentId", "effectivePeriod", "customer", "remuneration"],
+  "properties": {
+    "documentId": {
+      "$ref": "#/$defs/Identifier",
+      "description": "Unique identifier of this document within the issuing organization."
+    },
+    "versionId": {
+      "$ref": "#/$defs/ValueObject",
+      "description": "Customer-specific version identifier to distinguish one version of this message from another."
+    },
+    "issued": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The datetime the document was issued."
+    },
+    "effectivePeriod": {
+      "$ref": "#/$defs/Period",
+      "description": "Overall period during which the information in this document is valid."
+    },
+    "customer": {
+      "$ref": "#/$defs/Customer",
+      "description": "The customer/hirer of the worker."
+    },
+    "baseDefinition": {
+      "type": "array",
+      "description": "Definitions of the bases (grondslagen) that can be used to calculate different rates.",
+      "items": { "$ref": "#/$defs/BaseDefinition" }
+    },
+    "labourAgreements": {
+      "$ref": "#/$defs/LabourAgreements",
+      "description": "Sector information, applicable CLA, and/or own employment conditions scheme."
+    },
+    "positionProfile": {
+      "type": "array",
+      "description": "Position/function profiles referenced by salary scales.",
+      "items": { "$ref": "#/$defs/PositionProfile" }
+    },
+    "remuneration": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Core salary/wage structures including work duration, scales, periodieken, and general increases.",
+      "items": { "$ref": "#/$defs/Remuneration" }
+    },
+    "allowance": {
+      "type": "array",
+      "description": "Toeslagen en vergoedingen (allowances and reimbursements).",
+      "items": { "$ref": "#/$defs/Allowance" }
+    },
+    "holidayAllowance": {
+      "type": "array",
+      "description": "Vakantietoeslag (holiday allowance).",
+      "items": { "$ref": "#/$defs/HolidayAllowance" }
+    },
+    "sickPay": {
+      "type": "array",
+      "description": "Loondoorbetaling bij ziekte (continued pay during sick leave).",
+      "items": { "$ref": "#/$defs/SickPay" }
+    },
+    "leave": {
+      "type": "array",
+      "description": "All leave arrangements: vakantiedagen, ADV, feestdagen, bijzonder verlof, WAZO.",
+      "items": { "$ref": "#/$defs/Leave" }
+    },
+    "individualChoiceBudget": {
+      "type": "array",
+      "description": "Individueel Keuzebudget (IKB) arrangements.",
+      "items": { "$ref": "#/$defs/IndividualChoiceBudget" }
+    },
+    "pension": {
+      "type": "array",
+      "description": "Pension scheme details.",
+      "items": { "$ref": "#/$defs/Pension" }
+    },
+    "sustainableEmployability": {
+      "type": "array",
+      "description": "Duurzame inzetbaarheid budgets and arrangements.",
+      "items": { "$ref": "#/$defs/SustainableEmployability" }
+    },
+    "supplementaryArrangement": {
+      "type": "array",
+      "description": "Aanvullende regelingen (e.g. generatiepact, RVU).",
+      "items": { "$ref": "#/$defs/SupplementaryArrangement" }
+    },
+    "otherArrangement": {
+      "type": "array",
+      "description": "Overige regelingen not covered by other elements.",
+      "items": { "$ref": "#/$defs/OtherArrangement" }
+    }
+  },
+
+  "$defs": {
+
+    "ValueObject": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": { "type": "string" }
+      }
+    },
+
+    "Identifier": {
+      "type": "object",
+      "required": ["value", "schemeAgencyId"],
+      "properties": {
+        "value": { "type": "string", "description": "The value of the unique identifier." },
+        "schemeAgencyId": { "type": "string", "description": "The organization that issues the identifier and is responsible for its unicity." }
+      }
+    },
+
+    "Period": {
+      "type": "object",
+      "properties": {
+        "validFrom": { "type": "string", "format": "date", "description": "Start date of the validity period." },
+        "validTo": { "type": "string", "format": "date", "description": "End date of the validity period." }
+      }
+    },
+
+    "Origin": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "description": "The type of agreement (e.g. CollectiveLabourAgreement, CustomLabourAgreement)." }
+      }
+    },
+
+    "OccurrenceType": {
+      "type": "object",
+      "required": ["occurrenceType"],
+      "description": "Specifies occurrence timing: Single (specific date), Relative (relative to event), or Recurring (repeated pattern).",
+      "properties": {
+        "occurrenceType": { "type": "string", "description": "Single, Relative, or Recurring." },
+        "date": { "type": "string", "description": "ISO 8601 date or recurring interval expression." },
+        "recurringInterval": { "type": "string", "description": "ISO 8601 recurring interval (e.g. R/2026-5/P1Y)." },
+        "event": { "type": "string", "description": "Reference event for relative occurrences (e.g. SickLeave)." },
+        "offset": { "type": "string", "description": "ISO 8601 duration offset from event (e.g. P1Y)." }
+      }
+    },
+
+    "BaseAmount": {
+      "type": "object",
+      "required": ["unitCode"],
+      "description": "Defines the base over which an amount is calculated. E.g. if value=3, unitCode=Percentage, baseAmount.unitCode=MonthlySalary => 3% of monthly salary.",
+      "properties": {
+        "unitCode": { "type": "string", "description": "The type code of the base amount (e.g. Fixed, HourlyRate, MonthlyRate, YearlyRate)." },
+        "baseType": { "type": "string", "description": "Base type definition, refers to the base over which this amount was calculated (e.g. GrossSalary, RegularSalary, Pension)." },
+        "value": { "type": "number", "description": "Additional value information about the base if applicable." },
+        "minValue": { "type": "number", "description": "Minimum value for the base. If calculated base is less than this, minValue is used instead." },
+        "maxValue": { "type": "number", "description": "Maximum value for the base. If calculated base exceeds this, maxValue is used instead." }
+      }
+    },
+
+    "Proportional": {
+      "type": "object",
+      "required": ["partTimePercentage", "employmentDuration"],
+      "description": "Specifies whether conditions are applied proportionally based on employee characteristics.",
+      "properties": {
+        "partTimePercentage": { "type": "boolean", "description": "Whether calculated proportionally based on part-time percentage vs full-time work week." },
+        "employmentDuration": { "type": "boolean", "description": "Whether proportional calculation applies based on length of employment." },
+        "description": { "type": "string", "description": "Additional details on how the proportional rule is applied." }
+      }
+    },
+
+    "Amount": {
+      "type": "object",
+      "required": ["value", "unitCode", "baseAmount"],
+      "description": "Container for value, unit, base, and optional min/max. Together these calculate any type of rate.",
+      "properties": {
+        "value": { "type": "number", "description": "Numerical value of the amount." },
+        "minValue": { "type": "number", "description": "Minimum value. If calculated amount is less than this, minValue replaces it." },
+        "maxValue": { "type": "number", "description": "Maximum value. If calculated amount exceeds this, maxValue replaces it." },
+        "unitCode": { "type": "string", "description": "Unit type of the value (e.g. Percentage, Euro, Hour, Day, Kilometer, SalaryStep)." },
+        "baseAmount": { "$ref": "#/$defs/BaseAmount" },
+        "proportional": { "$ref": "#/$defs/Proportional" }
+      }
+    },
+
+    "Interval": {
+      "type": "object",
+      "required": ["value", "unitCode"],
+      "description": "The interval in which a rate is applied (e.g. per Hour, per Kilometer, per Year). Value expresses denominations of the interval.",
+      "properties": {
+        "value": { "type": "number" },
+        "unitCode": { "type": "string", "description": "Interval unit (e.g. Hour, Day, Week, Month, Year, fourWeeks, Kilometer, Occurrence)." }
+      }
+    },
+
+    "Condition": {
+      "type": "object",
+      "description": "Conditions that must be met before a rate is applied. An employee meeting these conditions is eligible.",
+      "properties": {
+        "conditionType": { "type": "string", "description": "Type of condition: Text, Occurrence, or other." },
+        "description": { "type": "string", "description": "Free-text description of the condition." },
+        "occurrence": { "$ref": "#/$defs/OccurrenceType", "description": "Date/event-based condition." }
+      }
+    },
+
+    "IkbReference": {
+      "type": "object",
+      "required": ["relationType", "id"],
+      "description": "Cross-reference to an Individueel Keuzebudget (IKB) element.",
+      "properties": {
+        "relationType": { "type": "string", "description": "Relationship between this line element and the IKB." },
+        "id": { "$ref": "#/$defs/ValueObject", "description": "The id.value of the referenced IKB regulation." },
+        "description": { "type": "string", "description": "Additional context about the IKB relationship." }
+      }
+    },
+
+    "Line": {
+      "type": "object",
+      "description": "A line item containing rate details: amount, interval, conditions, and optional IKB reference.",
+      "properties": {
+        "lineId": { "$ref": "#/$defs/ValueObject" },
+        "amount": { "$ref": "#/$defs/Amount" },
+        "interval": { "$ref": "#/$defs/Interval" },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } },
+        "ikbReference": { "type": "array", "items": { "$ref": "#/$defs/IkbReference" } }
+      }
+    },
+
+    "LineExtended": {
+      "type": "object",
+      "description": "Extended line item (used in sustainableEmployability, supplementaryArrangement, otherArrangement). Same as Line but with AmountExtended (additional unitCode values).",
+      "properties": {
+        "lineId": { "$ref": "#/$defs/ValueObject" },
+        "amount": { "$ref": "#/$defs/Amount" },
+        "interval": { "$ref": "#/$defs/Interval" },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } },
+        "ikbReference": { "type": "array", "items": { "$ref": "#/$defs/IkbReference" } }
+      }
+    },
+
+    "PersonContact": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "object",
+          "required": ["formattedName"],
+          "properties": {
+            "formattedName": { "type": "string", "description": "Full formatted name (e.g. as on a mailing label)." }
+          }
+        },
+        "communication": {
+          "type": "object",
+          "properties": {
+            "phone": {
+              "type": "object",
+              "properties": {
+                "formattedNumber": { "type": "string", "description": "Phone number in E.164 format (e.g. +31 612345678)." }
+              }
+            },
+            "email": {
+              "type": "object",
+              "properties": {
+                "address": { "type": "string", "format": "email" }
+              }
+            }
+          }
+        },
+        "roleCode": { "type": "string", "description": "Role of the contact person (e.g. 'Authorized by')." },
+        "positionTitle": { "type": "string", "description": "Title of the contact person's position." }
+      }
+    },
+
+    "Customer": {
+      "type": "object",
+      "required": ["legalId", "personContacts"],
+      "properties": {
+        "id": { "type": "array", "maxItems": 2, "items": { "$ref": "#/$defs/Identifier" } },
+        "name": { "type": "string" },
+        "legalId": { "type": "array", "minItems": 1, "description": "Government-assigned identifiers (e.g. KvK).", "items": { "$ref": "#/$defs/Identifier" } },
+        "personContacts": { "type": "array", "minItems": 1, "description": "Contact persons authorized to provide the information.", "items": { "$ref": "#/$defs/PersonContact" } }
+      }
+    },
+
+    "BaseDefinition": {
+      "type": "object",
+      "required": ["baseType", "remunerationIndicator", "holidayAllowanceIndicator", "paidLeaveDayIndicator", "allAllowancesIndicator"],
+      "description": "Defines which components form the base (grondslag) for calculating rates.",
+      "properties": {
+        "baseType": { "type": "string", "description": "Code signifying which base is defined (e.g. BaseWage)." },
+        "remunerationIndicator": { "type": "boolean", "description": "Whether remuneration is included in this base." },
+        "holidayAllowanceIndicator": { "type": "boolean", "description": "Whether holiday allowance is included." },
+        "paidLeaveDayIndicator": { "type": "boolean", "description": "Whether paid leave days are included." },
+        "allAllowancesIndicator": { "type": "boolean", "description": "If true, all allowances included. If false, only those listed in allowances." },
+        "allowances": {
+          "type": "array",
+          "description": "Specific allowance types included when allAllowancesIndicator is false.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "typeCode": { "type": "string", "description": "Allowance code (e.g. ORT for onregelmatigheidstoeslag)." }
+            }
+          }
+        },
+        "referenceDate": { "$ref": "#/$defs/OccurrenceType" }
+      }
+    },
+
+    "LabourAgreements": {
+      "type": "object",
+      "description": "Sector, CLA, and/or custom agreement information.",
+      "properties": {
+        "industryIdentifier": {
+          "type": "array",
+          "description": "SBI 2008 codes identifying the industry sector.",
+          "items": { "$ref": "#/$defs/ValueObject" }
+        },
+        "collectiveLabourAgreement": {
+          "type": "object",
+          "description": "The applicable CAO.",
+          "properties": {
+            "name": { "type": "string" },
+            "id": { "$ref": "#/$defs/ValueObject" },
+            "effectivePeriod": { "$ref": "#/$defs/Period" },
+            "basedOn": { "type": "string", "description": "Legal basis (e.g. AVV declaration)." }
+          }
+        },
+        "customLabourAgreement": { "type": "boolean", "description": "Whether a custom (eigen) labour agreement applies." }
+      }
+    },
+
+    "PositionProfile": {
+      "type": "object",
+      "required": ["positionId", "positionTitle", "origin"],
+      "properties": {
+        "positionId": { "$ref": "#/$defs/ValueObject" },
+        "positionTitle": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "referenceTitle": { "type": "string", "description": "Broader function group or reference category." },
+        "workDescription": { "type": "string" }
+      }
+    },
+
+    "SalaryStep": {
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "name": { "type": "string", "description": "Step label (e.g. Stap 1)." },
+        "value": { "type": "number", "description": "Salary amount at this step." },
+        "minimumWage": { "type": "boolean", "description": "Whether this step represents the minimum wage." },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } }
+      }
+    },
+
+    "PositionProfileReference": {
+      "type": "object",
+      "required": ["positionId"],
+      "description": "Links a salary scale to a specific position profile.",
+      "properties": {
+        "positionId": { "$ref": "#/$defs/ValueObject" },
+        "startSalaryStep": { "type": "object", "description": "Starting salary step for this position." },
+        "description": { "type": "string" }
+      }
+    },
+
+    "SalaryScale": {
+      "type": "object",
+      "required": ["name", "currency"],
+      "description": "A salary scale (loonschaal) with optional min/max and individual steps.",
+      "properties": {
+        "name": { "type": "string" },
+        "minValue": { "type": "number" },
+        "maxValue": { "type": "number" },
+        "currency": { "type": "string", "default": "EUR" },
+        "salaryStep": { "type": "array", "items": { "$ref": "#/$defs/SalaryStep" } },
+        "careerLevel": {
+          "type": "object",
+          "properties": {
+            "indicator": { "type": "boolean" },
+            "description": { "type": "string" }
+          }
+        },
+        "positionProfileReference": { "type": "array", "items": { "$ref": "#/$defs/PositionProfileReference" } }
+      }
+    },
+
+    "IndividualSalaryIncrease": {
+      "type": "object",
+      "description": "Periodiek (individual step increase).",
+      "properties": {
+        "effectiveDate": { "$ref": "#/$defs/OccurrenceType" },
+        "line": {
+          "type": "object",
+          "description": "ArrangementLineLimitedType: line with amount, interval, conditions.",
+          "properties": {
+            "lineId": { "$ref": "#/$defs/ValueObject" },
+            "amount": { "$ref": "#/$defs/Amount" },
+            "interval": { "$ref": "#/$defs/Interval" },
+            "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } }
+          }
+        }
+      }
+    },
+
+    "GeneralSalaryIncrease": {
+      "type": "object",
+      "description": "Initiele loonsverhoging (general table increase).",
+      "properties": {
+        "effectiveDate": { "$ref": "#/$defs/OccurrenceType" },
+        "amount": { "$ref": "#/$defs/Amount" },
+        "description": { "type": "string" }
+      }
+    },
+
+    "Remuneration": {
+      "type": "object",
+      "required": ["origin", "workDuration", "interval", "salaryScale"],
+      "description": "Core salary/wage structure.",
+      "properties": {
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "workDuration": {
+          "type": "object",
+          "required": ["amount", "interval", "valuePerWeek"],
+          "description": "Standard working hours definition.",
+          "properties": {
+            "amount": {
+              "type": "object",
+              "required": ["value", "unitCode"],
+              "properties": {
+                "value": { "type": "number" },
+                "unitCode": { "type": "string", "description": "Must be Hour." }
+              }
+            },
+            "interval": { "$ref": "#/$defs/Interval" },
+            "valuePerWeek": { "type": "number", "description": "Total hours per week." }
+          }
+        },
+        "interval": { "$ref": "#/$defs/Interval", "description": "Payment interval (e.g. fourWeeks, Month)." },
+        "hourlyWageConversion": {
+          "type": "object",
+          "description": "Factor(s) for converting between monthly wage and hourly wage.",
+          "properties": {
+            "hourlyWageFactor": { "type": "number", "description": "Divisor to convert monthly salary to hourly rate." },
+            "hourlyWagePercentage": { "type": "number", "description": "Percentage-based conversion factor." }
+          }
+        },
+        "salaryScale": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/SalaryScale" } },
+        "individualSalaryIncrease": { "type": "array", "items": { "$ref": "#/$defs/IndividualSalaryIncrease" } },
+        "generalSalaryIncrease": { "type": "array", "items": { "$ref": "#/$defs/GeneralSalaryIncrease" } },
+        "conditions": { "type": "array", "description": "Top-level conditions on the remuneration.", "items": { "$ref": "#/$defs/Condition" } }
+      }
+    },
+
+    "AllowancePeriod": {
+      "type": "object",
+      "description": "Date/time period and weekday specification for when an allowance applies (e.g. ORT on specific days/times).",
+      "properties": {
+        "datePeriod": {
+          "type": "object",
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" }
+          }
+        },
+        "timePeriod": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "time" },
+            "end": { "type": "string", "format": "time" }
+          }
+        },
+        "weekday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "AllowanceReference": {
+      "type": "object",
+      "required": ["description"],
+      "description": "Reference to another allowance or regulation.",
+      "properties": {
+        "id": { "$ref": "#/$defs/ValueObject" },
+        "typeCode": { "type": "string", "description": "Allowance type code." },
+        "description": { "type": "string" },
+        "relationType": { "type": "string" }
+      }
+    },
+
+    "Allowance": {
+      "type": "object",
+      "required": ["name", "origin", "typeCode"],
+      "description": "A toeslag or vergoeding (e.g. kilometervergoeding, ORT, ploegentoeslag).",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "typeCode": { "type": "string", "description": "Classification code (e.g. EA103, ORT)." },
+        "period": { "type": "array", "description": "Date/time/weekday periods when this allowance applies.", "items": { "$ref": "#/$defs/AllowancePeriod" } },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "reference": { "type": "array", "description": "Cross-references to related allowances.", "items": { "$ref": "#/$defs/AllowanceReference" } },
+        "phaseOutScheme": { "type": "string", "description": "Afbouwregeling: describes the phase-out/transition scheme for this allowance." },
+        "description": { "type": "string", "description": "Additional details, specifics, limitations and other conditions." }
+      }
+    },
+
+    "HolidayAllowance": {
+      "type": "object",
+      "required": ["origin"],
+      "description": "Vakantietoeslag (holiday allowance).",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "payDate": { "$ref": "#/$defs/OccurrenceType", "description": "When the holiday allowance is paid out." },
+        "description": { "type": "string" }
+      }
+    },
+
+    "SickPay": {
+      "type": "object",
+      "required": ["name", "origin"],
+      "description": "Loondoorbetaling bij ziekte.",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "waitingDays": {
+          "type": "object",
+          "description": "Wachtdagen before sick pay starts.",
+          "required": ["value", "unitCode"],
+          "properties": {
+            "value": { "type": "number" },
+            "unitCode": { "type": "string" },
+            "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } }
+          }
+        },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "description": { "type": "string" }
+      }
+    },
+
+    "LeaveEntitlement": {
+      "type": "object",
+      "required": ["amount", "interval"],
+      "description": "A leave entitlement line (used in paidLeave, adv, holidays, specialLeave, wazo).",
+      "properties": {
+        "name": { "type": "string" },
+        "amount": { "$ref": "#/$defs/Amount" },
+        "interval": { "$ref": "#/$defs/Interval" },
+        "conditions": { "type": "array", "items": { "$ref": "#/$defs/Condition" } },
+        "leaveDayValue": { "$ref": "#/$defs/Amount", "description": "Monetary value of a single leave day." },
+        "ikbReference": { "type": "array", "items": { "$ref": "#/$defs/IkbReference" } }
+      }
+    },
+
+    "Leave": {
+      "type": "object",
+      "description": "All leave arrangements grouped together.",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "paidLeave": { "type": "array", "description": "Vakantiedagen (paid vacation leave).", "items": { "$ref": "#/$defs/LeaveEntitlement" } },
+        "adv": { "type": "array", "description": "Arbeidsduurverkorting (working time reduction).", "items": { "$ref": "#/$defs/LeaveEntitlement" } },
+        "holidays": { "type": "array", "description": "Feestdagen (public holidays).", "items": { "$ref": "#/$defs/LeaveEntitlement" } },
+        "specialLeave": { "type": "array", "description": "Bijzonder verlof (bereavement, marriage, etc.).", "items": { "$ref": "#/$defs/LeaveEntitlement" } },
+        "wazo": { "type": "array", "description": "WAZO-related leave (parental, birth, etc.).", "items": { "$ref": "#/$defs/LeaveEntitlement" } },
+        "mandatoryLeaveAllocation": {
+          "type": "object",
+          "properties": { "description": { "type": "string" } }
+        },
+        "description": { "type": "string" }
+      }
+    },
+
+    "IndividualChoiceBudget": {
+      "type": "object",
+      "description": "Individueel Keuzebudget (IKB).",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "option": {
+          "type": "array",
+          "description": "Available spending options for the budget.",
+          "items": {
+            "type": "object",
+            "properties": { "description": { "type": "string" } }
+          }
+        },
+        "description": { "type": "string" }
+      }
+    },
+
+    "Pension": {
+      "type": "object",
+      "required": ["origin"],
+      "description": "Pension scheme arrangement.",
+      "properties": {
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "franchise": {
+          "type": "object",
+          "description": "Franchise (pension threshold/offset).",
+          "properties": { "description": { "type": "string" } }
+        },
+        "description": { "type": "string" }
+      }
+    },
+
+    "SustainableEmployability": {
+      "type": "object",
+      "required": ["name", "origin", "typeCode"],
+      "description": "Duurzame inzetbaarheid budgets.",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "typeCode": { "type": "string", "description": "Type (e.g. Education, Health)." },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/LineExtended" } },
+        "payDate": { "$ref": "#/$defs/OccurrenceType", "description": "When the budget is paid out." },
+        "description": { "type": "string" }
+      }
+    },
+
+    "SupplementaryArrangement": {
+      "type": "object",
+      "required": ["name", "origin", "description", "typeCode"],
+      "description": "Aanvullende regelingen (e.g. generatiepact, RVU).",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/LineExtended" } },
+        "description": { "type": "string" },
+        "typeCode": { "type": "string", "description": "Classification (e.g. RVU, Generatiepact)." }
+      }
+    },
+
+    "OtherArrangement": {
+      "type": "object",
+      "required": ["name", "origin"],
+      "description": "Other arrangements not classified elsewhere (e.g. tijd-voor-tijd).",
+      "properties": {
+        "id": { "$ref": "#/$defs/Identifier" },
+        "name": { "type": "string" },
+        "origin": { "$ref": "#/$defs/Origin" },
+        "effectivePeriod": { "$ref": "#/$defs/Period" },
+        "line": { "type": "array", "items": { "$ref": "#/$defs/LineExtended" } },
+        "description": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "cao_name": "IKEA CAO",
+  "effective_period_start": "2023-10-01",
+  "effective_period_end": "2024-12-31",
+  "salary_scales": [
+    {
+      "name": "Group A",
+      "min_value": 1800.0,
+      "max_value": 2500.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1800.0
+        },
+        {
+          "step_number": 1,
+          "value": 1900.0
+        },
+        {
+          "step_number": 2,
+          "value": 2000.0
+        },
+        {
+          "step_number": 3,
+          "value": 2100.0
+        },
+        {
+          "step_number": 4,
+          "value": 2200.0
+        },
+        {
+          "step_number": 5,
+          "value": 2300.0
+        },
+        {
+          "step_number": 6,
+          "value": 2400.0
+        },
+        {
+          "step_number": 7,
+          "value": 2500.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group B",
+      "min_value": 1600.0,
+      "max_value": 2200.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1600.0
+        },
+        {
+          "step_number": 1,
+          "value": 1700.0
+        },
+        {
+          "step_number": 2,
+          "value": 1800.0
+        },
+        {
+          "step_number": 3,
+          "value": 1900.0
+        },
+        {
+          "step_number": 4,
+          "value": 2000.0
+        },
+        {
+          "step_number": 5,
+          "value": 2100.0
+        },
+        {
+          "step_number": 6,
+          "value": 2200.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Group C",
+      "min_value": 1400.0,
+      "max_value": 2000.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1400.0
+        },
+        {
+          "step_number": 1,
+          "value": 1500.0
+        },
+        {
+          "step_number": 2,
+          "value": 1600.0
+        },
+        {
+          "step_number": 3,
+          "value": 1700.0
+        },
+        {
+          "step_number": 4,
+          "value": 1800.0
+        },
+        {
+          "step_number": 5,
+          "value": 1900.0
+        },
+        {
+          "step_number": 6,
+          "value": 2000.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Schaal 1",
+      "min_value": 1500.0,
+      "max_value": 2100.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1500.0
+        },
+        {
+          "step_number": 1,
+          "value": 1600.0
+        },
+        {
+          "step_number": 2,
+          "value": 1700.0
+        },
+        {
+          "step_number": 3,
+          "value": 1800.0
+        },
+        {
+          "step_number": 4,
+          "value": 1900.0
+        },
+        {
+          "step_number": 5,
+          "value": 2000.0
+        },
+        {
+          "step_number": 6,
+          "value": 2100.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Schaal 2",
+      "min_value": 1600.0,
+      "max_value": 2200.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1600.0
+        },
+        {
+          "step_number": 1,
+          "value": 1700.0
+        },
+        {
+          "step_number": 2,
+          "value": 1800.0
+        },
+        {
+          "step_number": 3,
+          "value": 1900.0
+        },
+        {
+          "step_number": 4,
+          "value": 2000.0
+        },
+        {
+          "step_number": 5,
+          "value": 2100.0
+        },
+        {
+          "step_number": 6,
+          "value": 2200.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Schaal 3",
+      "min_value": 1700.0,
+      "max_value": 2300.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1700.0
+        },
+        {
+          "step_number": 1,
+          "value": 1800.0
+        },
+        {
+          "step_number": 2,
+          "value": 1900.0
+        },
+        {
+          "step_number": 3,
+          "value": 2000.0
+        },
+        {
+          "step_number": 4,
+          "value": 2100.0
+        },
+        {
+          "step_number": 5,
+          "value": 2200.0
+        },
+        {
+          "step_number": 6,
+          "value": 2300.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Schaal 4",
+      "min_value": 1800.0,
+      "max_value": 2400.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1800.0
+        },
+        {
+          "step_number": 1,
+          "value": 1900.0
+        },
+        {
+          "step_number": 2,
+          "value": 2000.0
+        },
+        {
+          "step_number": 3,
+          "value": 2100.0
+        },
+        {
+          "step_number": 4,
+          "value": 2200.0
+        },
+        {
+          "step_number": 5,
+          "value": 2300.0
+        },
+        {
+          "step_number": 6,
+          "value": 2400.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "Schaal 5",
+      "min_value": 1900.0,
+      "max_value": 2500.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1900.0
+        },
+        {
+          "step_number": 1,
+          "value": 2000.0
+        },
+        {
+          "step_number": 2,
+          "value": 2100.0
+        },
+        {
+          "step_number": 3,
+          "value": 2200.0
+        },
+        {
+          "step_number": 4,
+          "value": 2300.0
+        },
+        {
+          "step_number": 5,
+          "value": 2400.0
+        },
+        {
+          "step_number": 6,
+          "value": 2500.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "FWG 1",
+      "min_value": 1700.0,
+      "max_value": 2300.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1700.0
+        },
+        {
+          "step_number": 1,
+          "value": 1800.0
+        },
+        {
+          "step_number": 2,
+          "value": 1900.0
+        },
+        {
+          "step_number": 3,
+          "value": 2000.0
+        },
+        {
+          "step_number": 4,
+          "value": 2100.0
+        },
+        {
+          "step_number": 5,
+          "value": 2200.0
+        },
+        {
+          "step_number": 6,
+          "value": 2300.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "FWG 2",
+      "min_value": 1800.0,
+      "max_value": 2400.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1800.0
+        },
+        {
+          "step_number": 1,
+          "value": 1900.0
+        },
+        {
+          "step_number": 2,
+          "value": 2000.0
+        },
+        {
+          "step_number": 3,
+          "value": 2100.0
+        },
+        {
+          "step_number": 4,
+          "value": 2200.0
+        },
+        {
+          "step_number": 5,
+          "value": 2300.0
+        },
+        {
+          "step_number": 6,
+          "value": 2400.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    },
+    {
+      "name": "FWG 3",
+      "min_value": 1900.0,
+      "max_value": 2500.0,
+      "steps": [
+        {
+          "step_number": 0,
+          "value": 1900.0
+        },
+        {
+          "step_number": 1,
+          "value": 2000.0
+        },
+        {
+          "step_number": 2,
+          "value": 2100.0
+        },
+        {
+          "step_number": 3,
+          "value": 2200.0
+        },
+        {
+          "step_number": 4,
+          "value": 2300.0
+        },
+        {
+          "step_number": 5,
+          "value": 2400.0
+        },
+        {
+          "step_number": 6,
+          "value": 2500.0
+        }
+      ],
+      "effective_date": null,
+      "work_duration_hours": 38.0
+    }
+  ],
+  "currency": "EUR",
+  "interval": "Month",
+  "confidence_score": 0.95,
+  "extraction_notes": [
+    "All salary scales and steps have been extracted as per the provided CAO document.",
+    "The effective dates for the salary scales are not explicitly mentioned in the document, so they are set to null.",
+    "The work duration hours are set to 38 as per the standard full-time work week mentioned in the document."
+  ]
+}

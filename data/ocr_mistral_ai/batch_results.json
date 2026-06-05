@@ -1,0 +1,58 @@
+[
+  {
+    "cao": "Achmea",
+    "pdf": "1004-achmea-cao-01-12-2023-tm-31-08-2025-vbest27062024.pdf",
+    "status": "success",
+    "elapsed": 7.70070481300354,
+    "pages": 116,
+    "tables": 13,
+    "images": 22,
+    "hyperlinks": 0,
+    "json_size_kb": 277.2431640625,
+    "md_size_kb": 242.833984375,
+    "tables_size_kb": 10.5107421875,
+    "baseline": "0 errors"
+  },
+  {
+    "cao": "Metalektro",
+    "pdf": "315-metalektro-cao-01-06-2024-tm-31-12-2025-v11122024.pdf",
+    "status": "success",
+    "elapsed": 9.90214991569519,
+    "pages": 109,
+    "tables": 34,
+    "images": 0,
+    "hyperlinks": 0,
+    "json_size_kb": 316.7216796875,
+    "md_size_kb": 287.0107421875,
+    "tables_size_kb": 25.1728515625,
+    "baseline": "1 error"
+  },
+  {
+    "cao": "IKEA",
+    "pdf": "1049-ikea-cao-1-10-2023-tm-31-12-2024-v07022024.pdf",
+    "status": "success",
+    "elapsed": 8.867083072662354,
+    "pages": 53,
+    "tables": 51,
+    "images": 17,
+    "hyperlinks": 0,
+    "json_size_kb": 195.6650390625,
+    "md_size_kb": 173.509765625,
+    "tables_size_kb": 56.208984375,
+    "baseline": "unknown"
+  },
+  {
+    "cao": "Rabobank",
+    "pdf": "1055-rabobank-cao-2024-2025-v01102024.pdf",
+    "status": "success",
+    "elapsed": 10.99484395980835,
+    "pages": 81,
+    "tables": 26,
+    "images": 5,
+    "hyperlinks": 10,
+    "json_size_kb": 301.353515625,
+    "md_size_kb": 277.810546875,
+    "tables_size_kb": 17.693359375,
+    "baseline": "unknown"
+  }
+]

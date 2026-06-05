@@ -1,0 +1,18 @@
+{
+  "total_errors": 1,
+  "errors_by_validator": {
+    "enum": 1
+  },
+  "errors_by_path": {
+    "legalId": 1
+  },
+  "all_errors": [
+    {
+      "message": "'Customer' is not one of ['KvK', 'OIN', 'RSIN']",
+      "path": "customer/legalId/0/schemeAgencyId",
+      "schema_path": "properties/customer/properties/legalId/items/properties/schemeAgencyId/enum",
+      "validator": "enum",
+      "category": "fixable"
+    }
+  ]
+}

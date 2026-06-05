@@ -1,0 +1,32 @@
+{
+  "documentId": {
+    "value": "achmea-2023-12-01-tm-2025-08-31",
+    "schemeAgencyId": "achmea"
+  },
+  "effectivePeriod": {
+    "start": "2023-12-01",
+    "end": "2025-08-31"
+  },
+  "customer": {
+    "id": {
+      "value": "achmea"
+    },
+    "name": "Achmea"
+  },
+  "remuneration": [
+    {
+      "name": "Default remuneration"
+    }
+  ],
+  "versionId": {
+    "value": "v20232025"
+  },
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": []
+    }
+  ]
+}

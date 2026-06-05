@@ -1,0 +1,705 @@
+{
+  "documentId": {
+    "value": "CAO-Achmea-2023-2025",
+    "schemeAgencyId": "Customer"
+  },
+  "effectivePeriod": {
+    "validFrom": "2023-12-01",
+    "validTo": "2025-08-31"
+  },
+  "customer": {
+    "legalId": [
+      {
+        "value": "30258440",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "name": "Achmea Interne Diensten N.V.",
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "J.J. Blok"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "Achmea Interne Diensten"
+      },
+      {
+        "name": {
+          "formattedName": "J. van den Brink"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "FNV"
+      },
+      {
+        "name": {
+          "formattedName": "D.P Wiersinga"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "CNV"
+      },
+      {
+        "name": {
+          "formattedName": "P. Fortuin"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "H. Brinkers"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      },
+      {
+        "name": {
+          "formattedName": "R. Castelein"
+        },
+        "roleCode": "Ondertekenaar CAO",
+        "positionTitle": "De Unie"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 34,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 34
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Schaal A",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2219.37
+            },
+            {
+              "name": "2",
+              "value": 2283.4
+            },
+            {
+              "name": "3",
+              "value": 2347.43
+            }
+          ]
+        },
+        {
+          "name": "Schaal B",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2251.69
+            },
+            {
+              "name": "2",
+              "value": 2313.28
+            },
+            {
+              "name": "3",
+              "value": 2374.87
+            },
+            {
+              "name": "4",
+              "value": 2436.46
+            },
+            {
+              "name": "5",
+              "value": 2498.05
+            },
+            {
+              "name": "6",
+              "value": 2559.64
+            }
+          ]
+        },
+        {
+          "name": "Schaal C",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2296.65
+            },
+            {
+              "name": "2",
+              "value": 2367.44
+            },
+            {
+              "name": "3",
+              "value": 2438.23
+            },
+            {
+              "name": "4",
+              "value": 2509.02
+            },
+            {
+              "name": "5",
+              "value": 2579.81
+            },
+            {
+              "name": "6",
+              "value": 2650.6
+            },
+            {
+              "name": "7",
+              "value": 2721.39
+            },
+            {
+              "name": "8",
+              "value": 2792.18
+            },
+            {
+              "name": "9",
+              "value": 2862.97
+            }
+          ]
+        },
+        {
+          "name": "Schaal D",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2445.05
+            },
+            {
+              "name": "2",
+              "value": 2529.29
+            },
+            {
+              "name": "3",
+              "value": 2613.53
+            },
+            {
+              "name": "4",
+              "value": 2697.77
+            },
+            {
+              "name": "5",
+              "value": 2782.01
+            },
+            {
+              "name": "6",
+              "value": 2866.25
+            },
+            {
+              "name": "7",
+              "value": 2950.49
+            },
+            {
+              "name": "8",
+              "value": 3034.73
+            },
+            {
+              "name": "9",
+              "value": 3118.97
+            },
+            {
+              "name": "10",
+              "value": 3203.21
+            }
+          ]
+        },
+        {
+          "name": "Schaal E",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 2732.16
+            },
+            {
+              "name": "2",
+              "value": 2827.88
+            },
+            {
+              "name": "3",
+              "value": 2923.6
+            },
+            {
+              "name": "4",
+              "value": 3019.32
+            },
+            {
+              "name": "5",
+              "value": 3115.04
+            },
+            {
+              "name": "6",
+              "value": 3210.76
+            },
+            {
+              "name": "7",
+              "value": 3306.48
+            },
+            {
+              "name": "8",
+              "value": 3402.2
+            },
+            {
+              "name": "9",
+              "value": 3497.92
+            },
+            {
+              "name": "10",
+              "value": 3593.64
+            }
+          ]
+        },
+        {
+          "name": "Schaal F",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 3087.15
+            },
+            {
+              "name": "2",
+              "value": 3192.81
+            },
+            {
+              "name": "3",
+              "value": 3298.47
+            },
+            {
+              "name": "4",
+              "value": 3404.13
+            },
+            {
+              "name": "5",
+              "value": 3509.79
+            },
+            {
+              "name": "6",
+              "value": 3615.45
+            },
+            {
+              "name": "7",
+              "value": 3721.11
+            },
+            {
+              "name": "8",
+              "value": 3826.77
+            },
+            {
+              "name": "9",
+              "value": 3932.43
+            },
+            {
+              "name": "10",
+              "value": 4038.09
+            }
+          ]
+        },
+        {
+          "name": "Schaal G",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 3431.95
+            },
+            {
+              "name": "2",
+              "value": 3555.38
+            },
+            {
+              "name": "3",
+              "value": 3678.81
+            },
+            {
+              "name": "4",
+              "value": 3802.24
+            },
+            {
+              "name": "5",
+              "value": 3925.67
+            },
+            {
+              "name": "6",
+              "value": 4049.1
+            },
+            {
+              "name": "7",
+              "value": 4172.53
+            },
+            {
+              "name": "8",
+              "value": 4295.96
+            },
+            {
+              "name": "9",
+              "value": 4419.39
+            },
+            {
+              "name": "10",
+              "value": 4542.82
+            }
+          ]
+        },
+        {
+          "name": "Schaal H",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 3854.74
+            },
+            {
+              "name": "2",
+              "value": 3998.56
+            },
+            {
+              "name": "3",
+              "value": 4142.38
+            },
+            {
+              "name": "4",
+              "value": 4286.2
+            },
+            {
+              "name": "5",
+              "value": 4430.02
+            },
+            {
+              "name": "6",
+              "value": 4573.84
+            },
+            {
+              "name": "7",
+              "value": 4717.66
+            },
+            {
+              "name": "8",
+              "value": 4861.48
+            },
+            {
+              "name": "9",
+              "value": 5005.3
+            },
+            {
+              "name": "10",
+              "value": 5149.12
+            }
+          ]
+        },
+        {
+          "name": "Schaal I",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 4332.66
+            },
+            {
+              "name": "2",
+              "value": 4494.36
+            },
+            {
+              "name": "3",
+              "value": 4656.06
+            },
+            {
+              "name": "4",
+              "value": 4817.76
+            },
+            {
+              "name": "5",
+              "value": 4979.46
+            },
+            {
+              "name": "6",
+              "value": 5141.16
+            },
+            {
+              "name": "7",
+              "value": 5302.86
+            },
+            {
+              "name": "8",
+              "value": 5464.56
+            },
+            {
+              "name": "9",
+              "value": 5626.26
+            },
+            {
+              "name": "10",
+              "value": 5787.96
+            }
+          ]
+        },
+        {
+          "name": "Schaal J",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 4873.37
+            },
+            {
+              "name": "2",
+              "value": 5061.02
+            },
+            {
+              "name": "3",
+              "value": 5248.67
+            },
+            {
+              "name": "4",
+              "value": 5436.32
+            },
+            {
+              "name": "5",
+              "value": 5623.97
+            },
+            {
+              "name": "6",
+              "value": 5811.62
+            },
+            {
+              "name": "7",
+              "value": 5999.27
+            },
+            {
+              "name": "8",
+              "value": 6186.92
+            },
+            {
+              "name": "9",
+              "value": 6374.57
+            },
+            {
+              "name": "10",
+              "value": 6562.22
+            }
+          ]
+        },
+        {
+          "name": "Schaal K",
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "1",
+              "value": 5498.15
+            },
+            {
+              "name": "2",
+              "value": 5714.1
+            },
+            {
+              "name": "3",
+              "value": 5930.05
+            },
+            {
+              "name": "4",
+              "value": 6146.0
+            },
+            {
+              "name": "5",
+              "value": 6361.95
+            },
+            {
+              "name": "6",
+              "value": 6577.9
+            },
+            {
+              "name": "7",
+              "value": 6793.85
+            },
+            {
+              "name": "8",
+              "value": 7009.8
+            },
+            {
+              "name": "9",
+              "value": 7225.75
+            },
+            {
+              "name": "10",
+              "value": 7441.7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "versionId": {
+    "value": "1.0"
+  },
+  "issued": "2023-12-01T00:00:00Z",
+  "baseDefinition": [
+    {
+      "baseType": "Maandsalaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false
+    },
+    {
+      "baseType": "Pensioengevend salaris",
+      "remunerationIndicator": true,
+      "holidayAllowanceIndicator": true,
+      "paidLeaveDayIndicator": false,
+      "allAllowancesIndicator": false
+    }
+  ],
+  "labourAgreements": {
+    "collectiveLabourAgreement": {
+      "name": "Achmea CAO",
+      "id": {
+        "value": "2023-2025"
+      },
+      "effectivePeriod": {
+        "validFrom": "2023-12-01",
+        "validTo": "2025-08-31"
+      },
+      "basedOn": "CollectiveLabourAgreement"
+    }
+  },
+  "positionProfile": [
+    {
+      "positionId": {
+        "value": "Functiegroep A"
+      },
+      "positionTitle": "Functiegroep A",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep B"
+      },
+      "positionTitle": "Functiegroep B",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep C"
+      },
+      "positionTitle": "Functiegroep C",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep D"
+      },
+      "positionTitle": "Functiegroep D",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep E"
+      },
+      "positionTitle": "Functiegroep E",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep F"
+      },
+      "positionTitle": "Functiegroep F",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep G"
+      },
+      "positionTitle": "Functiegroep G",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep H"
+      },
+      "positionTitle": "Functiegroep H",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep I"
+      },
+      "positionTitle": "Functiegroep I",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep J"
+      },
+      "positionTitle": "Functiegroep J",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    },
+    {
+      "positionId": {
+        "value": "Functiegroep K"
+      },
+      "positionTitle": "Functiegroep K",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "referenceTitle": "Functieniveaumatrix"
+    }
+  ],
+  "holidayAllowance": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "name": "Vakantietoeslag over het jaarsalaris"
+    }
+  ],
+  "pension": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline: CAO Metaal en Techniek</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .timeline-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .filter-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #cbd5e0;
+            transform: translateX(-50%);
+        }
+
+        .timeline-today-marker {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e74c3c;
+            z-index: 10;
+        }
+
+        .today-label {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .timeline-entries {
+            position: relative;
+        }
+
+        .timeline-entry {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+            position: relative;
+        }
+
+        .timeline-entry:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-entry:nth-child(odd) .entry-content {
+            text-align: right;
+            margin-right: 2rem;
+        }
+
+        .timeline-entry:nth-child(even) .entry-content {
+            margin-left: 2rem;
+        }
+
+        .entry-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #3498db;
+            z-index: 5;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .entry-marker:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        .entry-icon {
+            font-size: 1.2rem;
+        }
+
+        .entry-content {
+            flex: 1;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 45%;
+        }
+
+        .entry-date {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .entry-description {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-changes,
+        .entry-values,
+        .entry-source {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .old-value {
+            color: #e74c3c;
+            margin-right: 1rem;
+        }
+
+        .new-value {
+            color: #27ae60;
+        }
+
+        .entry-source-text {
+            margin-top: 0.5rem;
+        }
+
+        .entry-source-text summary {
+            cursor: pointer;
+            color: #3498db;
+            font-size: 0.9rem;
+        }
+
+        .entry-source-text blockquote {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+            font-style: italic;
+            color: #666;
+        }
+
+        .timeline-entry.future .entry-marker {
+            opacity: 0.7;
+            border: 2px dashed white;
+        }
+
+        .timeline-entry.recurring .entry-marker::after {
+            content: "🔄";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 0.8rem;
+        }
+
+        .timeline-entry.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-entry {
+                flex-direction: column !important;
+            }
+
+            .timeline-entry .entry-content {
+                text-align: left !important;
+                margin: 1rem !important;
+                max-width: 100% !important;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .entry-marker {
+                left: 20px !important;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <header class="timeline-header">
+            <h1>Timeline: CAO Metaal en Techniek</h1>
+            <div class="timeline-stats">
+                <span class="stat">Totaal: 25 gebeurtenissen</span>
+                <span class="stat">Toekomst: 0</span>
+                <span class="stat">Verleden: 25</span>
+            </div>
+        </header>
+
+        <div class="timeline-filters">
+<button class="filter-btn active" data-category="all">Alle</button>
+<button class="filter-btn" data-category="document" style="border-left: 4px solid #27ae60">Document</button>
+<button class="filter-btn" data-category="loon" style="border-left: 4px solid #3498db">Loon</button>
+<button class="filter-btn" data-category="pensioen" style="border-left: 4px solid #1abc9c">Pensioen</button>
+<button class="filter-btn" data-category="toeslag" style="border-left: 4px solid #9b59b6">Toeslag</button>
+<button class="filter-btn" data-category="uitkering" style="border-left: 4px solid #f39c12">Uitkering</button>
+<button class="filter-btn" data-category="werknemer" style="border-left: 4px solid #34495e">Werknemer</button>
+</div>
+        <div class="timeline-legend">
+<div class="legend-item"><span class="legend-color" style="background: #3498db"></span><span class="legend-label">Loon</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #27ae60"></span><span class="legend-label">Document</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #f39c12"></span><span class="legend-label">Uitkering</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #9b59b6"></span><span class="legend-label">Toeslag</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #e74c3c"></span><span class="legend-label">Wettelijk</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #1abc9c"></span><span class="legend-label">Pensioen</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #34495e"></span><span class="legend-label">Werknemer</span></div>
+<div class="legend-item"><span class="legend-color" style="background: #95a5a6"></span><span class="legend-label">Overig</span></div>
+</div>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            <div class="timeline-today-marker" id="todayMarker">
+                <div class="today-label">Vandaag</div>
+            </div>
+            <div class="timeline-entries" id="timelineEntries">
+                
+            <div class="timeline-entry" data-category="document" data-id="moment_CAO-MT-2024-DOC-001">
+                <div class="entry-marker" style="background: #27ae60">
+                    <span class="entry-icon">📄</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">01-04-2024</div>
+                    <div class="entry-title">Ingangsdatum van de CAO Metaal en Techniek.</div>
+                    <div class="entry-description">Ingangsdatum van de CAO Metaal en Techniek.</div>
+                    <div class="entry-source">Bron: Artikel 76 lid 1</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Deze cao is geldig vanaf 1 april 2024.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="document" data-id="event_cao_nieuw_1711922400.0">
+                <div class="entry-marker" style="background: #27ae60">
+                    <span class="entry-icon">🆕</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">01-04-2024</div>
+                    <div class="entry-title">CAO CAO Metaal en Techniek is ingegaan</div>
+                    <div class="entry-description">CAO CAO Metaal en Techniek is ingegaan</div>
+                    
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="loon" data-id="moment_CAO-MT-2024-LOON-001">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">01-07-2024</div>
+                    <div class="entry-title">Loonsverhoging van 7% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknem</div>
+                    <div class="entry-description">Loonsverhoging van 7% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.</div>
+                    <div class="entry-values">
+<span class="percentage">Percentage: 7%</span>
+</div>
+<div class="entry-source">Bron: Artikel 41 lid 1</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Het voor de werknemer geldende salaris wordt op de volgende momenten verhoogd: 1 juli 2024: verhoogd met 7%...</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="loon" data-id="moment_CAO-MT-2024-LOON-002">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">01-03-2025</div>
+                    <div class="entry-title">Loonsverhoging van €100 per maand (€91,97 per vier weken) voor werknemers van 21 jaar en ouder in sa</div>
+                    <div class="entry-description">Loonsverhoging van €100 per maand (€91,97 per vier weken) voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.</div>
+                    <div class="entry-values">
+<span class="amount">Bedrag: €100</span>
+</div>
+<div class="entry-source">Bron: Artikel 41 lid 1</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>...1 maart 2025: verhoogd met € 100,00 per maand dan wel € 91,97 per vierweken bij resp. maand- en vierweken-salaris...</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="loon" data-id="moment_CAO-MT-2024-LOON-003">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">01-10-2025</div>
+                    <div class="entry-title">Loonsverhoging van 3% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknem</div>
+                    <div class="entry-description">Loonsverhoging van 3% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.</div>
+                    <div class="entry-values">
+<span class="percentage">Percentage: 3%</span>
+</div>
+<div class="entry-source">Bron: Artikel 41 lid 1</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>...1 oktober 2025: verhoogd met 3%.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="document" data-id="moment_CAO-MT-2024-DOC-002">
+                <div class="entry-marker" style="background: #27ae60">
+                    <span class="entry-icon">📄</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">31-01-2026</div>
+                    <div class="entry-title">Einddatum van de CAO Metaal en Techniek.</div>
+                    <div class="entry-description">Einddatum van de CAO Metaal en Techniek.</div>
+                    <div class="entry-source">Bron: Artikel 76 lid 2</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Deze cao eindigt automatisch op 31 januari 2026. Opzegging is niet nodig.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="document" data-id="event_cao_verlopen_1769814000.0">
+                <div class="entry-marker" style="background: #27ae60">
+                    <span class="entry-icon">⏰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">31-01-2026</div>
+                    <div class="entry-title">CAO CAO Metaal en Techniek verloopt</div>
+                    <div class="entry-description">CAO CAO Metaal en Techniek verloopt</div>
+                    
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="loon" data-id="moment_CAO-MT-2024-LOON-004">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Per 1 januari en 1 juli van elk jaar, conform wettelijk minimumloon</div>
+                    <div class="entry-title">Aanpassing van minimumlonen in salaristabellen conform wettelijk minimumloon voor werknemers jonger </div>
+                    <div class="entry-description">Aanpassing van minimumlonen in salaristabellen conform wettelijk minimumloon voor werknemers jonger dan 21 jaar en werknemers in salarisgroep A met 0 functiejaren.</div>
+                    <div class="entry-source">Bron: Artikel 32 lid 2 en 3</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>De tabellen A16 tot en met 20 jaar en A 0 functiejaren in artikel 33a zijn de minimummaandlonen voor een werknemer met een fulltime dienstverband... Indien de salarisbedragen per 1 januari 2024 lager zijn dan het wettelijk minimum(uur)loon, de nieuwe wettelijke bedragen van toepassing zijn...</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="loon" data-id="moment_CAO-MT-2024-LOON-005">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint</div>
+                    <div class="entry-title">Salarisverhoging op basis van functiejaren voor werknemers van 21 jaar en ouder.</div>
+                    <div class="entry-description">Salarisverhoging op basis van functiejaren voor werknemers van 21 jaar en ouder.</div>
+                    <div class="entry-source">Bron: Artikel 35</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, een en ander totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="loon" data-id="moment_CAO-MT-2024-LOON-006">
+                <div class="entry-marker" style="background: #3498db">
+                    <span class="entry-icon">💰</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Eerste dag van de maand of vierwekenperiode waarin de werknemer jarig is</div>
+                    <div class="entry-title">Salarisverhoging bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.</div>
+                    <div class="entry-description">Salarisverhoging bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.</div>
+                    <div class="entry-source">Bron: Artikel 34</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Krijgt de werknemer een salarisverhoging vanwege zijn leeftijd? Dan gaat het salaris omhoog als hij een jaar ouder wordt. Bij een maandsalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de maand waarin hij jarig is. Bij een vierwekensalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de vierwekenperiode waarin hij jarig is.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="uitkering" data-id="moment_CAO-MT-2024-UITK-001">
+                <div class="entry-marker" style="background: #f39c12">
+                    <span class="entry-icon">💵</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">30 juni van elk jaar</div>
+                    <div class="entry-title">Uitbetaling van vakantiegeld van 8% over het verdiende loon sinds de laatste 1 juli.</div>
+                    <div class="entry-description">Uitbetaling van vakantiegeld van 8% over het verdiende loon sinds de laatste 1 juli.</div>
+                    <div class="entry-values">
+<span class="percentage">Percentage: 8%</span>
+</div>
+<div class="entry-source">Bron: Artikel 59 lid 1 en 2</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>De werknemer krijgt aan vakantiegeld 8% van wat hij in totaal verdiend heeft sinds de laatste 1 juli... Het vakantiegeld is opeisbaar op 30 juni.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-001">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint</div>
+                    <div class="entry-title">Toekenning van periodieke salarisverhoging op basis van functiejaren.</div>
+                    <div class="entry-description">Toekenning van periodieke salarisverhoging op basis van functiejaren.</div>
+                    <div class="entry-source">Bron: Artikel 35</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, een en ander totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-002">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Eerste dag van de maand of vierwekenperiode waarin de werknemer jarig is</div>
+                    <div class="entry-title">Salarisaanpassing bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.</div>
+                    <div class="entry-description">Salarisaanpassing bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.</div>
+                    <div class="entry-source">Bron: Artikel 34</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Krijgt de werknemer een salarisverhoging vanwege zijn leeftijd? Dan gaat het salaris omhoog als hij een jaar ouder wordt. Bij een maandsalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de maand waarin hij jarig is. Bij een vierwekensalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de vierwekenperiode waarin hij jarig is.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-003">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Na afloop van de proeftijd, standaard 2 maanden na indiensttreding</div>
+                    <div class="entry-title">Einde van de proeftijd voor vaste en tijdelijke contracten langer dan 6 maanden.</div>
+                    <div class="entry-description">Einde van de proeftijd voor vaste en tijdelijke contracten langer dan 6 maanden.</div>
+                    <div class="entry-source">Bron: Artikel 14</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Voor vaste arbeidsovereenkomsten en voor tijdelijke arbeidsovereenkomsten van langer dan zes maanden is de proeftijd standaard twee maanden. Spreken de werkgever en de werknemer af dat er geen proeftijd is of een kortere proeftijd? Dan moeten ze deze afspraak schriftelijk vastleggen.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-004">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Na 24 maanden (vanaf 1 januari 2020: 36 maanden) of na 3 tijdelijke contracten</div>
+                    <div class="entry-title">Automatische omzetting van tijdelijk contract naar vast contract na 3 tijdelijke contracten of na 24</div>
+                    <div class="entry-description">Automatische omzetting van tijdelijk contract naar vast contract na 3 tijdelijke contracten of na 24 maanden (vanaf 1 januari 2020: 36 maanden).</div>
+                    <div class="entry-changes">
+<span class="old-value">Was: Tijdelijk contract</span>
+<span class="new-value">Wordt: Vast contract</span>
+</div>
+<div class="entry-source">Bron: Artikel 13 lid 3</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Heeft een werknemer maximaal drie keer een tijdelijke arbeidsovereenkomst gehad? En hebben deze tijdelijke banen samen niet langer dan 24 maanden geduurd? Dan eindigt de laatste tijdelijke arbeidsovereenkomst van rechtswege (automatisch). Vanaf 1 januari 2020 geldt 36 maanden in plaats van 24 maanden.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="toeslag" data-id="moment_CAO-MT-2024-TOESLAG-001">
+                <div class="entry-marker" style="background: #9b59b6">
+                    <span class="entry-icon">➕</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij indiensttreding en bij wijziging van dienstrooster</div>
+                    <div class="entry-title">Toeslag voor werken buiten het dagvenster (06:00 - 18:00 uur).</div>
+                    <div class="entry-description">Toeslag voor werken buiten het dagvenster (06:00 - 18:00 uur).</div>
+                    <div class="entry-values">
+<span class="percentage">Percentage: 0.09%</span>
+</div>
+<div class="entry-source">Bron: Artikel 42a</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Is het dagvenster van 06.00 uur tot 18.00 uur? En werkt de werknemer tussen 18.00 uur en 21.00 uur? Dan krijgt hij per gewerkt uur een toeslag van 0,09 % van zijn maandsalaris, of 0,10 % van zijn vierwekensalaris... Werkt de werknemer tussen 00.00 uur en 06.00 uur? Dan krijgt hij per gewerkt uur een toeslag van 0,30 % van zijn maandsalaris, of 0,33 % van zijn vierwekensalaris.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="toeslag" data-id="moment_CAO-MT-2024-TOESLAG-002">
+                <div class="entry-marker" style="background: #9b59b6">
+                    <span class="entry-icon">➕</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij indiensttreding en bij wijziging van dienstrooster</div>
+                    <div class="entry-title">Ploegentoeslag van 14% voor werknemers in ploegendienst.</div>
+                    <div class="entry-description">Ploegentoeslag van 14% voor werknemers in ploegendienst.</div>
+                    <div class="entry-values">
+<span class="percentage">Percentage: 14%</span>
+</div>
+<div class="entry-source">Bron: Artikel 45</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Werknemers die in ploegendienst werken krijgen een toeslag van 14% van hun maandsalaris of van hun vierwekensalaris.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="pensioen" data-id="moment_CAO-MT-2024-PENS-001">
+                <div class="entry-marker" style="background: #1abc9c">
+                    <span class="entry-icon">🏦</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Jaarlijks, conform besluit van het Pensioenfonds Metaal en Techniek (PMT)</div>
+                    <div class="entry-title">Wijziging van de pensioenpremie conform besluit van het Pensioenfonds Metaal en Techniek.</div>
+                    <div class="entry-description">Wijziging van de pensioenpremie conform besluit van het Pensioenfonds Metaal en Techniek.</div>
+                    <div class="entry-source">Bron: Artikel 69 lid 2</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Het pensioenreglement regelt hoeveel premie de werkgever voor iedere werknemer moet betalen aan het pensioenfonds. In het reglement staan ook uitzonderingen daarop.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-005">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij het bereiken van de AOW-gerechtigde leeftijd</div>
+                    <div class="entry-title">Overgang naar een arbeidsovereenkomst voor werknemers die de AOW-gerechtigde leeftijd bereiken of pe</div>
+                    <div class="entry-description">Overgang naar een arbeidsovereenkomst voor werknemers die de AOW-gerechtigde leeftijd bereiken of pensioen ontvangen.</div>
+                    <div class="entry-changes">
+<span class="old-value">Was: Reguliere arbeidsovereenkomst</span>
+<span class="new-value">Wordt: Arbeidsovereenkomst voor AOW-gerechtigden</span>
+</div>
+<div class="entry-source">Bron: Artikel 15</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Krijgt de werknemer pensioen van het Pensioenfonds Metaal en Techniek? Of bereikt hij de AOW-gerechtigde leeftijd? Dan kan een werkgever hem een tijdelijke arbeidsovereenkomst of een vaste arbeidsovereenkomst aanbieden.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry recurring" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-006">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij indiensttreding en jaarlijks op de verjaardag van de werknemer</div>
+                    <div class="entry-title">Salarisaanpassing voor BBL-leerlingen op basis van afgeronde leerjaren.</div>
+                    <div class="entry-description">Salarisaanpassing voor BBL-leerlingen op basis van afgeronde leerjaren.</div>
+                    <div class="entry-source">Bron: Artikel 32a lid 2</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>De werkgever deelt de werknemer jonger dan 21 jaar én die een BBL-opleiding volgt, in de BBL-tabel van de leeftijd bij de aanvang van het eerste leerjaar BBL. Vervolgens tellen alleen leerjaren die in zijn geheel zijn afgerond mee. Dit moet (telkens) blijken uit een voortgangsrapport of een ander document van het opleidingsinstituut.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-007">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij het bereiken van de AOW-gerechtigde leeftijd of bij het ontvangen van pensioen</div>
+                    <div class="entry-title">Automatisch einde van tijdelijke contracten voor werknemers die de AOW-gerechtigde leeftijd bereiken</div>
+                    <div class="entry-description">Automatisch einde van tijdelijke contracten voor werknemers die de AOW-gerechtigde leeftijd bereiken of pensioen ontvangen.</div>
+                    <div class="entry-changes">
+<span class="old-value">Was: Tijdelijk contract</span>
+<span class="new-value">Wordt: Geen contract (einde dienstverband)</span>
+</div>
+<div class="entry-source">Bron: Artikel 15 lid 2</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Krijgt een werknemer met de AOW-gerechtigde leeftijd of met pensioen een tijdelijke arbeidsovereenkomst? Dan eindigt deze tijdelijke arbeidsovereenkomst altijd van rechtswege (automatisch). Dit geldt ook als deze werknemer twee of meer tijdelijke arbeidsovereenkomsten na elkaar heeft, met korte tijd ertussen.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-008">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij het bereiken van 55 jaar</div>
+                    <div class="entry-title">Recht op extra vakantie-uren voor werknemers van 55 jaar en ouder.</div>
+                    <div class="entry-description">Recht op extra vakantie-uren voor werknemers van 55 jaar en ouder.</div>
+                    <div class="entry-changes">
+<span class="new-value">Wordt: 8-56 extra vakantie-uren per half jaar</span>
+</div>
+<div class="entry-source">Bron: Artikel 51 lid 1 (vanaf 1 januari 2023)</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Werknemers die 55 jaar of ouder zijn, hebben recht op extra vakantie-uren... Er zijn twee momenten in het jaar waarop een oudere werknemer recht op extra vakantie-uren heeft: op 30 juni en op 31 december van een jaar. Maar alleen als hij op die datum al minstens zes maanden onafgebroken in dienst was bij de werkgever.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-009">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Bij het bereiken van 60 jaar</div>
+                    <div class="entry-title">Recht op Generatiepact voor werknemers van 60 jaar en ouder, waarbij zij minder kunnen werken met be</div>
+                    <div class="entry-description">Recht op Generatiepact voor werknemers van 60 jaar en ouder, waarbij zij minder kunnen werken met behoud van pensioenopbouw.</div>
+                    <div class="entry-changes">
+<span class="old-value">Was: Voltijds werken</span>
+<span class="new-value">Wordt: Deeltijds werken met behoud van pensioenopbouw</span>
+</div>
+<div class="entry-source">Bron: Artikel 74a lid 3</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Met ingang van 1 januari 2020 heeft een werknemer van 60 jaar en ouder een recht op de mogelijkheid van 2 sub c volgens het Reglement Generatiepact, waarin nadere voorwaarden zijn geregeld.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="werknemer" data-id="moment_CAO-MT-2024-WNEM-010">
+                <div class="entry-marker" style="background: #34495e">
+                    <span class="entry-icon">👤</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Na afloop van de proeftijd, standaard 1 maand na indiensttreding voor contracten korter dan 6 maanden</div>
+                    <div class="entry-title">Einde van de proeftijd voor tijdelijke contracten korter dan 6 maanden.</div>
+                    <div class="entry-description">Einde van de proeftijd voor tijdelijke contracten korter dan 6 maanden.</div>
+                    <div class="entry-source">Bron: Artikel 14 lid 1</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Voor vaste arbeidsovereenkomsten en voor tijdelijke arbeidsovereenkomsten van langer dan zes maanden is de proeftijd standaard twee maanden. Voor tijdelijke contracten van zes maanden of korter geldt geen proeftijd, tenzij schriftelijk anders overeengekomen.</blockquote></details></div>
+                </div>
+            </div>
+            
+
+            <div class="timeline-entry" data-category="uitkering" data-id="moment_CAO-MT-2024-UITK-004">
+                <div class="entry-marker" style="background: #f39c12">
+                    <span class="entry-icon">💵</span>
+                </div>
+                <div class="entry-content">
+                    <div class="entry-date">Vervallen, geen uitkering meer beschikbaar</div>
+                    <div class="entry-title">Dit artikel is vervallen en er is geen eenmalige uitkering meer beschikbaar.</div>
+                    <div class="entry-description">Dit artikel is vervallen en er is geen eenmalige uitkering meer beschikbaar.</div>
+                    <div class="entry-changes">
+<span class="old-value">Was: Eenmalige uitkering</span>
+<span class="new-value">Wordt: Geen uitkering</span>
+</div>
+<div class="entry-source">Bron: Artikel 41a</div>
+<div class="entry-source-text"><details><summary>Originele tekst</summary><blockquote>Dit artikel is vervallen</blockquote></details></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const timelineData = {
+  "caoNaam": "CAO Metaal en Techniek",
+  "caoVersie": null,
+  "generatedAt": "2026-02-18T07:14:39.259300",
+  "entries": [
+    {
+      "id": "moment_CAO-MT-2024-DOC-001",
+      "type": "moment",
+      "date": "2024-04-01",
+      "dateDescription": null,
+      "title": "Ingangsdatum van de CAO Metaal en Techniek.",
+      "description": "Ingangsdatum van de CAO Metaal en Techniek.",
+      "category": "document",
+      "icon": "📄",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 76 lid 1",
+      "sourceText": "Deze cao is geldig vanaf 1 april 2024.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "document",
+        "cao_ingangsdatum"
+      ]
+    },
+    {
+      "id": "event_cao_nieuw_1711922400.0",
+      "type": "notification",
+      "date": "2024-04-01",
+      "dateDescription": null,
+      "title": "CAO CAO Metaal en Techniek is ingegaan",
+      "description": "CAO CAO Metaal en Techniek is ingegaan",
+      "category": "document",
+      "icon": "🆕",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": null,
+      "sourceText": null,
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "cao_nieuw",
+        "document"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-001",
+      "type": "moment",
+      "date": "2024-07-01",
+      "dateDescription": null,
+      "title": "Loonsverhoging van 7% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknem",
+      "description": "Loonsverhoging van 7% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": "7",
+      "amount": null,
+      "sourceArticle": "Artikel 41 lid 1",
+      "sourceText": "Het voor de werknemer geldende salaris wordt op de volgende momenten verhoogd: 1 juli 2024: verhoogd met 7%...",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "loonsverhoging",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-002",
+      "type": "moment",
+      "date": "2025-03-01",
+      "dateDescription": null,
+      "title": "Loonsverhoging van €100 per maand (€91,97 per vier weken) voor werknemers van 21 jaar en ouder in sa",
+      "description": "Loonsverhoging van €100 per maand (€91,97 per vier weken) voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": "100",
+      "sourceArticle": "Artikel 41 lid 1",
+      "sourceText": "...1 maart 2025: verhoogd met € 100,00 per maand dan wel € 91,97 per vierweken bij resp. maand- en vierweken-salaris...",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "loonsverhoging",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-003",
+      "type": "moment",
+      "date": "2025-10-01",
+      "dateDescription": null,
+      "title": "Loonsverhoging van 3% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknem",
+      "description": "Loonsverhoging van 3% voor werknemers van 21 jaar en ouder in salarisgroepen B t/m J en voor werknemers jonger dan 21 jaar in salarisgroepen B t/m E.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": "3",
+      "amount": null,
+      "sourceArticle": "Artikel 41 lid 1",
+      "sourceText": "...1 oktober 2025: verhoogd met 3%.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "loonsverhoging",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-DOC-002",
+      "type": "moment",
+      "date": "2026-01-31",
+      "dateDescription": null,
+      "title": "Einddatum van de CAO Metaal en Techniek.",
+      "description": "Einddatum van de CAO Metaal en Techniek.",
+      "category": "document",
+      "icon": "📄",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 76 lid 2",
+      "sourceText": "Deze cao eindigt automatisch op 31 januari 2026. Opzegging is niet nodig.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "document",
+        "cao_einddatum"
+      ]
+    },
+    {
+      "id": "event_cao_verlopen_1769814000.0",
+      "type": "notification",
+      "date": "2026-01-31",
+      "dateDescription": null,
+      "title": "CAO CAO Metaal en Techniek verloopt",
+      "description": "CAO CAO Metaal en Techniek verloopt",
+      "category": "document",
+      "icon": "⏰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": null,
+      "sourceText": null,
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "cao_verlopen",
+        "document"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-004",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Per 1 januari en 1 juli van elk jaar, conform wettelijk minimumloon",
+      "title": "Aanpassing van minimumlonen in salaristabellen conform wettelijk minimumloon voor werknemers jonger ",
+      "description": "Aanpassing van minimumlonen in salaristabellen conform wettelijk minimumloon voor werknemers jonger dan 21 jaar en werknemers in salarisgroep A met 0 functiejaren.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 32 lid 2 en 3",
+      "sourceText": "De tabellen A16 tot en met 20 jaar en A 0 functiejaren in artikel 33a zijn de minimummaandlonen voor een werknemer met een fulltime dienstverband... Indien de salarisbedragen per 1 januari 2024 lager zijn dan het wettelijk minimum(uur)loon, de nieuwe wettelijke bedragen van toepassing zijn...",
+      "isRecurring": true,
+      "recurrenceInfo": "halfjaarlijks",
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "minimumloon_aanpassing",
+        "A",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-005",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint",
+      "title": "Salarisverhoging op basis van functiejaren voor werknemers van 21 jaar en ouder.",
+      "description": "Salarisverhoging op basis van functiejaren voor werknemers van 21 jaar en ouder.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 35",
+      "sourceText": "Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, een en ander totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "periodieke_verhoging",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-LOON-006",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Eerste dag van de maand of vierwekenperiode waarin de werknemer jarig is",
+      "title": "Salarisverhoging bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.",
+      "description": "Salarisverhoging bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.",
+      "category": "loon",
+      "icon": "💰",
+      "impactLevel": "high",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 34",
+      "sourceText": "Krijgt de werknemer een salarisverhoging vanwege zijn leeftijd? Dan gaat het salaris omhoog als hij een jaar ouder wordt. Bij een maandsalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de maand waarin hij jarig is. Bij een vierwekensalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de vierwekenperiode waarin hij jarig is.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "loon",
+        "leeftijdsloon_overgang",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-UITK-001",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "30 juni van elk jaar",
+      "title": "Uitbetaling van vakantiegeld van 8% over het verdiende loon sinds de laatste 1 juli.",
+      "description": "Uitbetaling van vakantiegeld van 8% over het verdiende loon sinds de laatste 1 juli.",
+      "category": "uitkering",
+      "icon": "💵",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": "8",
+      "amount": null,
+      "sourceArticle": "Artikel 59 lid 1 en 2",
+      "sourceText": "De werknemer krijgt aan vakantiegeld 8% van wat hij in totaal verdiend heeft sinds de laatste 1 juli... Het vakantiegeld is opeisbaar op 30 juni.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "uitkering",
+        "vakantietoeslag_uitbetaling",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-001",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint",
+      "title": "Toekenning van periodieke salarisverhoging op basis van functiejaren.",
+      "description": "Toekenning van periodieke salarisverhoging op basis van functiejaren.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 35",
+      "sourceText": "Verhogingen op grond van functiejaren worden eenmaal per jaar toegekend, doch uiterlijk in de betalingsperiode waarin een nieuw functiejaar begint, een en ander totdat het maximum aantal functiejaren in de betreffende salarisgroep is bereikt.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "volgende_periodiek",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-002",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Eerste dag van de maand of vierwekenperiode waarin de werknemer jarig is",
+      "title": "Salarisaanpassing bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.",
+      "description": "Salarisaanpassing bij het bereiken van een nieuwe leeftijd voor werknemers jonger dan 21 jaar.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 34",
+      "sourceText": "Krijgt de werknemer een salarisverhoging vanwege zijn leeftijd? Dan gaat het salaris omhoog als hij een jaar ouder wordt. Bij een maandsalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de maand waarin hij jarig is. Bij een vierwekensalaris krijgt hij het hogere salaris voor het eerst vanaf de eerste dag van de vierwekenperiode waarin hij jarig is.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "leeftijdsovergang",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-003",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Na afloop van de proeftijd, standaard 2 maanden na indiensttreding",
+      "title": "Einde van de proeftijd voor vaste en tijdelijke contracten langer dan 6 maanden.",
+      "description": "Einde van de proeftijd voor vaste en tijdelijke contracten langer dan 6 maanden.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 14",
+      "sourceText": "Voor vaste arbeidsovereenkomsten en voor tijdelijke arbeidsovereenkomsten van langer dan zes maanden is de proeftijd standaard twee maanden. Spreken de werkgever en de werknemer af dat er geen proeftijd is of een kortere proeftijd? Dan moeten ze deze afspraak schriftelijk vastleggen.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "proeftijd_einde"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-004",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Na 24 maanden (vanaf 1 januari 2020: 36 maanden) of na 3 tijdelijke contracten",
+      "title": "Automatische omzetting van tijdelijk contract naar vast contract na 3 tijdelijke contracten of na 24",
+      "description": "Automatische omzetting van tijdelijk contract naar vast contract na 3 tijdelijke contracten of na 24 maanden (vanaf 1 januari 2020: 36 maanden).",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": "Tijdelijk contract",
+      "newValue": "Vast contract",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 13 lid 3",
+      "sourceText": "Heeft een werknemer maximaal drie keer een tijdelijke arbeidsovereenkomst gehad? En hebben deze tijdelijke banen samen niet langer dan 24 maanden geduurd? Dan eindigt de laatste tijdelijke arbeidsovereenkomst van rechtswege (automatisch). Vanaf 1 januari 2020 geldt 36 maanden in plaats van 24 maanden.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "contract_overgang"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-TOESLAG-001",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij indiensttreding en bij wijziging van dienstrooster",
+      "title": "Toeslag voor werken buiten het dagvenster (06:00 - 18:00 uur).",
+      "description": "Toeslag voor werken buiten het dagvenster (06:00 - 18:00 uur).",
+      "category": "toeslag",
+      "icon": "➕",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": "0.09",
+      "amount": null,
+      "sourceArticle": "Artikel 42a",
+      "sourceText": "Is het dagvenster van 06.00 uur tot 18.00 uur? En werkt de werknemer tussen 18.00 uur en 21.00 uur? Dan krijgt hij per gewerkt uur een toeslag van 0,09 % van zijn maandsalaris, of 0,10 % van zijn vierwekensalaris... Werkt de werknemer tussen 00.00 uur en 06.00 uur? Dan krijgt hij per gewerkt uur een toeslag van 0,30 % van zijn maandsalaris, of 0,33 % van zijn vierwekensalaris.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "toeslag",
+        "toeslag_wijziging"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-TOESLAG-002",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij indiensttreding en bij wijziging van dienstrooster",
+      "title": "Ploegentoeslag van 14% voor werknemers in ploegendienst.",
+      "description": "Ploegentoeslag van 14% voor werknemers in ploegendienst.",
+      "category": "toeslag",
+      "icon": "➕",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": "14",
+      "amount": null,
+      "sourceArticle": "Artikel 45",
+      "sourceText": "Werknemers die in ploegendienst werken krijgen een toeslag van 14% van hun maandsalaris of van hun vierwekensalaris.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "toeslag",
+        "toeslag_wijziging"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-PENS-001",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Jaarlijks, conform besluit van het Pensioenfonds Metaal en Techniek (PMT)",
+      "title": "Wijziging van de pensioenpremie conform besluit van het Pensioenfonds Metaal en Techniek.",
+      "description": "Wijziging van de pensioenpremie conform besluit van het Pensioenfonds Metaal en Techniek.",
+      "category": "pensioen",
+      "icon": "🏦",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 69 lid 2",
+      "sourceText": "Het pensioenreglement regelt hoeveel premie de werkgever voor iedere werknemer moet betalen aan het pensioenfonds. In het reglement staan ook uitzonderingen daarop.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "pensioen",
+        "pensioenpremie_wijziging",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-005",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij het bereiken van de AOW-gerechtigde leeftijd",
+      "title": "Overgang naar een arbeidsovereenkomst voor werknemers die de AOW-gerechtigde leeftijd bereiken of pe",
+      "description": "Overgang naar een arbeidsovereenkomst voor werknemers die de AOW-gerechtigde leeftijd bereiken of pensioen ontvangen.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": "Reguliere arbeidsovereenkomst",
+      "newValue": "Arbeidsovereenkomst voor AOW-gerechtigden",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 15",
+      "sourceText": "Krijgt de werknemer pensioen van het Pensioenfonds Metaal en Techniek? Of bereikt hij de AOW-gerechtigde leeftijd? Dan kan een werkgever hem een tijdelijke arbeidsovereenkomst of een vaste arbeidsovereenkomst aanbieden.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "leeftijdsovergang"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-006",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij indiensttreding en jaarlijks op de verjaardag van de werknemer",
+      "title": "Salarisaanpassing voor BBL-leerlingen op basis van afgeronde leerjaren.",
+      "description": "Salarisaanpassing voor BBL-leerlingen op basis van afgeronde leerjaren.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 32a lid 2",
+      "sourceText": "De werkgever deelt de werknemer jonger dan 21 jaar én die een BBL-opleiding volgt, in de BBL-tabel van de leeftijd bij de aanvang van het eerste leerjaar BBL. Vervolgens tellen alleen leerjaren die in zijn geheel zijn afgerond mee. Dit moet (telkens) blijken uit een voortgangsrapport of een ander document van het opleidingsinstituut.",
+      "isRecurring": true,
+      "recurrenceInfo": "jaarlijks",
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "volgende_periodiek",
+        "recurring"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-007",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij het bereiken van de AOW-gerechtigde leeftijd of bij het ontvangen van pensioen",
+      "title": "Automatisch einde van tijdelijke contracten voor werknemers die de AOW-gerechtigde leeftijd bereiken",
+      "description": "Automatisch einde van tijdelijke contracten voor werknemers die de AOW-gerechtigde leeftijd bereiken of pensioen ontvangen.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": "Tijdelijk contract",
+      "newValue": "Geen contract (einde dienstverband)",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 15 lid 2",
+      "sourceText": "Krijgt een werknemer met de AOW-gerechtigde leeftijd of met pensioen een tijdelijke arbeidsovereenkomst? Dan eindigt deze tijdelijke arbeidsovereenkomst altijd van rechtswege (automatisch). Dit geldt ook als deze werknemer twee of meer tijdelijke arbeidsovereenkomsten na elkaar heeft, met korte tijd ertussen.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "contract_overgang"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-008",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij het bereiken van 55 jaar",
+      "title": "Recht op extra vakantie-uren voor werknemers van 55 jaar en ouder.",
+      "description": "Recht op extra vakantie-uren voor werknemers van 55 jaar en ouder.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": "8-56 extra vakantie-uren per half jaar",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 51 lid 1 (vanaf 1 januari 2023)",
+      "sourceText": "Werknemers die 55 jaar of ouder zijn, hebben recht op extra vakantie-uren... Er zijn twee momenten in het jaar waarop een oudere werknemer recht op extra vakantie-uren heeft: op 30 juni en op 31 december van een jaar. Maar alleen als hij op die datum al minstens zes maanden onafgebroken in dienst was bij de werkgever.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "leeftijdsovergang"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-009",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Bij het bereiken van 60 jaar",
+      "title": "Recht op Generatiepact voor werknemers van 60 jaar en ouder, waarbij zij minder kunnen werken met be",
+      "description": "Recht op Generatiepact voor werknemers van 60 jaar en ouder, waarbij zij minder kunnen werken met behoud van pensioenopbouw.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": "Voltijds werken",
+      "newValue": "Deeltijds werken met behoud van pensioenopbouw",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 74a lid 3",
+      "sourceText": "Met ingang van 1 januari 2020 heeft een werknemer van 60 jaar en ouder een recht op de mogelijkheid van 2 sub c volgens het Reglement Generatiepact, waarin nadere voorwaarden zijn geregeld.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "leeftijdsovergang"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-WNEM-010",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Na afloop van de proeftijd, standaard 1 maand na indiensttreding voor contracten korter dan 6 maanden",
+      "title": "Einde van de proeftijd voor tijdelijke contracten korter dan 6 maanden.",
+      "description": "Einde van de proeftijd voor tijdelijke contracten korter dan 6 maanden.",
+      "category": "werknemer",
+      "icon": "👤",
+      "impactLevel": "medium",
+      "oldValue": null,
+      "newValue": null,
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 14 lid 1",
+      "sourceText": "Voor vaste arbeidsovereenkomsten en voor tijdelijke arbeidsovereenkomsten van langer dan zes maanden is de proeftijd standaard twee maanden. Voor tijdelijke contracten van zes maanden of korter geldt geen proeftijd, tenzij schriftelijk anders overeengekomen.",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "werknemer",
+        "proeftijd_einde"
+      ]
+    },
+    {
+      "id": "moment_CAO-MT-2024-UITK-004",
+      "type": "moment",
+      "date": null,
+      "dateDescription": "Vervallen, geen uitkering meer beschikbaar",
+      "title": "Dit artikel is vervallen en er is geen eenmalige uitkering meer beschikbaar.",
+      "description": "Dit artikel is vervallen en er is geen eenmalige uitkering meer beschikbaar.",
+      "category": "uitkering",
+      "icon": "💵",
+      "impactLevel": "medium",
+      "oldValue": "Eenmalige uitkering",
+      "newValue": "Geen uitkering",
+      "percentage": null,
+      "amount": null,
+      "sourceArticle": "Artikel 41a",
+      "sourceText": "Dit artikel is vervallen",
+      "isRecurring": false,
+      "recurrenceInfo": null,
+      "isFuture": false,
+      "tags": [
+        "uitkering",
+        "eenmalige_uitkering"
+      ]
+    }
+  ],
+  "statistics": {
+    "total": 25,
+    "future": 0,
+    "past": 25
+  },
+  "categories": [
+    "loon",
+    "document",
+    "toeslag",
+    "uitkering",
+    "werknemer",
+    "pensioen"
+  ],
+  "dateRange": {
+    "start": "2024-04-01",
+    "end": "2026-01-31"
+  }
+};
+        
+        // Position today marker
+        function positionTodayMarker() {
+            const today = new Date();
+            const entries = timelineData.entries.filter(e => e.date);
+
+            if (entries.length > 0) {
+                const dates = entries.map(e => new Date(e.date));
+                const minDate = new Date(Math.min(...dates));
+                const maxDate = new Date(Math.max(...dates));
+                const totalDays = (maxDate - minDate) / (1000 * 60 * 60 * 24);
+                const daysFromStart = (today - minDate) / (1000 * 60 * 60 * 24);
+                const percentage = (daysFromStart / totalDays) * 100;
+
+                const todayMarker = document.getElementById('todayMarker');
+                if (todayMarker && percentage >= 0 && percentage <= 100) {
+                    todayMarker.style.top = `${percentage}%`;
+                }
+            }
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.dataset.category;
+
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter entries
+                document.querySelectorAll('.timeline-entry').forEach(entry => {
+                    if (category === 'all' || entry.dataset.category === category) {
+                        entry.classList.remove('hidden');
+                    } else {
+                        entry.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Expand/collapse entry details
+        document.querySelectorAll('.entry-marker').forEach(marker => {
+            marker.addEventListener('click', function() {
+                const entry = this.closest('.timeline-entry');
+                const content = entry.querySelector('.entry-content');
+                content.classList.toggle('expanded');
+            });
+        });
+
+        // Initialize
+        positionTodayMarker();
+
+        // Search functionality
+        function searchTimeline(query) {
+            const lowerQuery = query.toLowerCase();
+            document.querySelectorAll('.timeline-entry').forEach(entry => {
+                const content = entry.textContent.toLowerCase();
+                if (content.includes(lowerQuery)) {
+                    entry.classList.remove('hidden');
+                } else {
+                    entry.classList.add('hidden');
+                }
+            });
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+{
+  "document": {
+    "name": "CAO Achmea",
+    "version": "2023-2025",
+    "valid_from": "2023-12-01",
+    "valid_until": "2025-08-31",
+    "parties": [
+      {
+        "name": "Achmea Interne Diensten N.V.",
+        "location": "Zeist"
+      },
+      {
+        "name": "FNV",
+        "location": "Utrecht"
+      },
+      {
+        "name": "CNV",
+        "location": "Utrecht"
+      },
+      {
+        "name": "De Unie",
+        "location": "Culemborg"
+      }
+    ]
+  },
+  "salary_information": {
+    "standard_workweek_hours": 34,
+    "annual_hours": 1768,
+    "salary_scales_2023": [
+      {
+        "scale": "A",
+        "minimum": 1919.37,
+        "maximum": 2047.42,
+        "periodic_increment": 64.03
+      },
+      {
+        "scale": "B",
+        "minimum": 1951.69,
+        "maximum": 2321.24,
+        "periodic_increment": 61.59
+      },
+      {
+        "scale": "C",
+        "minimum": 1996.65,
+        "maximum": 2633.74,
+        "periodic_increment": 70.79
+      },
+      {
+        "scale": "D",
+        "minimum": 2145.05,
+        "maximum": 2987.41,
+        "periodic_increment": 84.24
+      },
+      {
+        "scale": "E",
+        "minimum": 2432.16,
+        "maximum": 3389.31,
+        "periodic_increment": 95.72
+      },
+      {
+        "scale": "F",
+        "minimum": 2787.15,
+        "maximum": 3843.77,
+        "periodic_increment": 105.66
+      },
+      {
+        "scale": "G",
+        "minimum": 3131.95,
+        "maximum": 4361.01,
+        "periodic_increment": 122.91
+      },
+      {
+        "scale": "H",
+        "minimum": 3554.74,
+        "maximum": 4946.69,
+        "periodic_increment": 139.2
+      },
+      {
+        "scale": "I",
+        "minimum": 4032.66,
+        "maximum": 5612.86,
+        "periodic_increment": 158.02
+      },
+      {
+        "scale": "J",
+        "minimum": 4573.37,
+        "maximum": 6367.79,
+        "periodic_increment": 179.44
+      },
+      {
+        "scale": "K",
+        "minimum": 5186.93,
+        "maximum": 7224.19,
+        "periodic_increment": 203.73
+      }
+    ],
+    "salary_scales_2024": [
+      {
+        "scale": "A",
+        "minimum": 2219.37,
+        "maximum": 2347.42,
+        "periodic_increment": 64.03
+      },
+      {
+        "scale": "B",
+        "minimum": 2251.69,
+        "maximum": 2621.24,
+        "periodic_increment": 61.59
+      },
+      {
+        "scale": "C",
+        "minimum": 2296.65,
+        "maximum": 2933.74,
+        "periodic_increment": 70.79
+      },
+      {
+        "scale": "D",
+        "minimum": 2445.05,
+        "maximum": 3287.41,
+        "periodic_increment": 84.24
+      },
+      {
+        "scale": "E",
+        "minimum": 2732.16,
+        "maximum": 3689.31,
+        "periodic_increment": 95.72
+      },
+      {
+        "scale": "F",
+        "minimum": 3087.15,
+        "maximum": 4143.77,
+        "periodic_increment": 105.66
+      },
+      {
+        "scale": "G",
+        "minimum": 3431.95,
+        "maximum": 4666.28,
+        "periodic_increment": 123.43
+      },
+      {
+        "scale": "H",
+        "minimum": 3854.74,
+        "maximum": 5292.96,
+        "periodic_increment": 143.82
+      },
+      {
+        "scale": "I",
+        "minimum": 4332.66,
+        "maximum": 5949.63,
+        "periodic_increment": 161.7
+      },
+      {
+        "scale": "J",
+        "minimum": 4873.37,
+        "maximum": 6749.86,
+        "periodic_increment": 187.65
+      },
+      {
+        "scale": "K",
+        "minimum": 5498.15,
+        "maximum": 7657.64,
+        "periodic_increment": 215.95
+      }
+    ],
+    "salary_scales_2025": [
+      {
+        "scale": "A",
+        "minimum": 2357.28,
+        "maximum": 2441.32,
+        "periodic_increment": 42.02
+      },
+      {
+        "scale": "B",
+        "minimum": 2357.28,
+        "maximum": 2726.09,
+        "periodic_increment": 61.47
+      },
+      {
+        "scale": "C",
+        "minimum": 2388.52,
+        "maximum": 3051.09,
+        "periodic_increment": 73.62
+      },
+      {
+        "scale": "D",
+        "minimum": 2542.85,
+        "maximum": 3418.91,
+        "periodic_increment": 87.61
+      },
+      {
+        "scale": "E",
+        "minimum": 2841.45,
+        "maximum": 3836.88,
+        "periodic_increment": 99.54
+      },
+      {
+        "scale": "F",
+        "minimum": 3210.64,
+        "maximum": 4309.52,
+        "periodic_increment": 109.89
+      },
+      {
+        "scale": "G",
+        "minimum": 3569.23,
+        "maximum": 4852.93,
+        "periodic_increment": 128.37
+      },
+      {
+        "scale": "H",
+        "minimum": 4008.93,
+        "maximum": 5504.68,
+        "periodic_increment": 149.58
+      },
+      {
+        "scale": "I",
+        "minimum": 4505.97,
+        "maximum": 6355.79,
+        "periodic_increment": 184.98
+      },
+      {
+        "scale": "J",
+        "minimum": 5068.3,
+        "maximum": 7410.17,
+        "periodic_increment": 234.19
+      },
+      {
+        "scale": "K",
+        "minimum": 5718.08,
+        "maximum": 8637.72,
+        "periodic_increment": 291.96
+      }
+    ],
+    "salary_adjustments": [
+      {
+        "date": "2024-01-01",
+        "adjustment": 300,
+        "description": "Fixed increase in monthly salary"
+      },
+      {
+        "date": "2024-01-01",
+        "adjustment_type": "percentage",
+        "scales_A_to_H": 7,
+        "scales_I_to_K": 6,
+        "description": "Percentage increase in minimum and maximum of salary scales"
+      },
+      {
+        "date": "2024-01-01",
+        "adjustment": 2000,
+        "description": "One-time payment for full-time employees"
+      },
+      {
+        "date": "2025-01-01",
+        "adjustment_type": "percentage",
+        "percentage": 4,
+        "description": "Percentage increase in salary"
+      },
+      {
+        "date": "2024-12-31",
+        "adjustment_type": "periodic_increment",
+        "scales_I_to_K": "plus additional periodics",
+        "description": "Adjustment of scale maxima for scales I, J, and K"
+      }
+    ],
+    "minimum_hourly_wage": [
+      {
+        "date": "2024-01-01",
+        "amount": 15
+      },
+      {
+        "date": "2025-01-01",
+        "amount": 16
+      }
+    ],
+    "variable_salary": {
+      "description": "Applicable to commercial field staff, inside sales, treasury, and asset management",
+      "maximum_percentage_of_annual_salary": 20,
+      "compensation_regulations": {
+        "description": "For employees who could realize more than 20% variable salary before 2015",
+        "calculation": "Difference between old and new maximum multiplied by 0.32"
+      }
+    },
+    "labor_market_allowance": {
+      "description": "Temporary allowance for specialist functions due to labor market shortages",
+      "conditions": [
+        "Function-bound and can be adjusted or stopped based on benchmarking every 2-3 years",
+        "Percentage of monthly salary",
+        "Stops if employee changes function"
+      ]
+    }
+  },
+  "allowances": {
+    "holiday_allowance": {
+      "percentage": 8,
+      "description": "8% of annual salary, paid monthly as part of the choice budget"
+    },
+    "end_of_year_bonus": {
+      "percentage": 8.33,
+      "description": "8.33% of annual salary, paid monthly as part of the choice budget"
+    },
+    "profit_sharing": {
+      "description": "Maximum 3.3% of 12 times the gross monthly salary, based on company results",
+      "payment_month": "June"
+    },
+    "shift_allowances": {
+      "extended_business_hours": {
+        "description": "Working outside standard business hours (Mon-Fri 19:00-22:00, Sat 9:00-17:00)",
+        "allowances": [
+          {
+            "time": "Mon-Fri 19:00-22:00",
+            "percentage": 28
+          },
+          {
+            "time": "Sat 9:00-17:00",
+            "percentage": 46
+          }
+        ]
+      },
+      "overtime_allowances": {
+        "description": "For employees in function groups A to H",
+        "allowances": [
+          {
+            "time": "Mon-Fri 07:00-21:00",
+            "percentage": 35
+          },
+          {
+            "time": "Sat 9:00-17:00",
+            "percentage": 60
+          },
+          {
+            "time": "Sundays, public holidays, and specific dates/times",
+            "percentage": 100
+          }
+        ]
+      },
+      "standby_allowance": {
+        "description": "For being available outside agreed working hours",
+        "allowances": [
+          {
+            "time": "Mon-Fri 00:00-24:00",
+            "amount_2023": 2.37,
+            "amount_2024": 2.39,
+            "amount_2025": 2.56
+          },
+          {
+            "time": "Sat, Sun, and public holidays 00:00-24:00",
+            "amount_2023": 3.94,
+            "amount_2024": 3.98,
+            "amount_2025": 4.25
+          }
+        ],
+        "annual_adjustment": "Adjusted on January 1st with the previous year's CAO increase"
+      },
+      "eurocross_inconvenience_allowance": {
+        "description": "For Eurocross employees working specific hours",
+        "allowances": [
+          {
+            "day": "Monday",
+            "time": "00:00-06:00",
+            "percentage": 65
+          },
+          {
+            "day": "Monday",
+            "time": "06:00-08:00",
+            "percentage": 28
+          },
+          {
+            "day": "Tuesday to Thursday",
+            "time": "00:00-06:00",
+            "percentage": 42
+          },
+          {
+            "day": "Friday",
+            "time": "23:00-24:00",
+            "percentage": 65
+          },
+          {
+            "day": "Saturday, Sunday, and public holidays",
+            "time": "All day",
+            "percentage": 65
+          }
+        ]
+      },
+      "eurocross_overtime_allowance": {
+        "description": "For Eurocross employees working overtime",
+        "hourly_rate": "166/145 times normal hourly rate",
+        "minimum_rates": [
+          {
+            "date": "2002-04-01",
+            "amount": 9.82
+          },
+          {
+            "date": "2002-07-01",
+            "amount": 10.07
+          },
+          {
+            "date": "2002-12-01",
+            "amount": 10.19
+          }
+        ],
+        "overtime_percentages": [
+          {
+            "condition": "Up to 8 hours per day or 40 hours per week",
+            "percentage": 16.33
+          },
+          {
+            "condition": "Above 8 hours per day or 40 hours per week, Mon-Fri 07:00-23:00",
+            "percentage": 50
+          },
+          {
+            "condition": "Other times and public holidays",
+            "percentage": 100
+          }
+        ],
+        "call_out_compensation": 13.62
+      },
+      "it_monitoring_control_center_shift_allowance": {
+        "description": "For IT Monitoring and Control Center employees working 7x24 hour shifts",
+        "roster_allowance_percentage": 27,
+        "compensation_for_public_holidays": "1 hour for 1 hour"
+      }
+    }
+  },
+  "leave": {
+    "vacation_days": {
+      "description": "Statutory vacation hours are four times the individual weekly working hours",
+      "example": "34-hour workweek results in 136 hours of vacation"
+    },
+    "additional_vacation_purchase": {
+      "description": "Up to 10% of individual annual working hours can be purchased from the choice budget"
+    },
+    "special_leave": {
+      "marriage_or_partnership_registration": 1,
+      "moving": 2,
+      "bereavement": {
+        "minimum_days": 3,
+        "description": "Additional days can be agreed upon with the supervisor"
+      },
+      "doctor_visits": "Outside working hours unless unavoidable"
+    },
+    "diversity_day": {
+      "description": "1 day per calendar year for activities related to diversity policy",
+      "application": "Must be requested at least 1 month in advance"
+    },
+    "social_leave": {
+      "description": "For unpaid activities improving social cohesion",
+      "maximum_days": 4,
+      "payment": "50% of working time, salary paid during leave"
+    },
+    "wazo_leave": {
+      "maternity_and_birth_leave": {
+        "payment": "Full salary during leave"
+      },
+      "adoption_and_foster_care_leave": {
+        "payment": "Full salary during leave, can be extended to 8 weeks under certain conditions"
+      },
+      "short_term_care_leave": {
+        "payment": "90% of gross salary, at least minimum wage"
+      },
+      "long_term_care_leave": {
+        "payment": "50% of the number of leave hours taken, up to a maximum of 1 month's salary per calendar year"
+      }
+    },
+    "care_leave": {
+      "short_term": {
+        "description": "For urgent care needs, up to twice the average weekly working hours within a 12-month period",
+        "payment": "90% of gross salary"
+      },
+      "long_term": {
+        "description": "For prolonged care needs, up to 13 times the weekly working hours per calendar year",
+        "payment": "50% of the leave hours taken, up to a maximum of 1 month's salary per calendar year"
+      }
+    },
+    "pension_leave": {
+      "description": "Unpaid leave before retirement, can be full or partial",
+      "duration": {
+        "full": "Up to 3 years",
+        "partial": "Can be extended"
+      },
+      "effects": {
+        "full": {
+          "salary": "Stops during leave period",
+          "pension": "Continues for the first 6 months",
+          "vacation_days": "No accrual"
+        },
+        "partial": {
+          "salary": "Proportional to hours worked",
+          "pension": "Accrual over hours with salary, first 6 months for leave hours",
+          "vacation_days": "Accrual over hours with salary"
+        }
+      }
+    },
+    "birth_leave_for_partners": {
+      "total_weeks": 6,
+      "payment": "100% of salary",
+      "components": [
+        {
+          "type": "Birth leave",
+          "duration": "Once the weekly individual working hours within 4 weeks after birth"
+        },
+        {
+          "type": "Additional birth leave",
+          "duration": "Five times the weekly individual working hours within 6 months after birth"
+        }
+      ]
+    },
+    "sabbatical_leave": {
+      "description": "Unpaid leave for 2 to 6 months, once every 5 years",
+      "conditions": [
+        "Minimum 5 years of continuous service at Achmea",
+        "Pension accrual continues based on pre-leave pension basis"
+      ],
+      "application": "Must be requested 6 months in advance"
+    },
+    "senior_leave": {
+      "description": "For former Agis employees, starting at age 55",
+      "reduction_percentage": 6,
+      "maximum_hours_reduction": 4,
+      "conditions": [
+        "Employed by a healthcare insurer before June 1, 2007",
+        "Employed by Agis Zorgverzekeringen on December 31, 2009",
+        "Born before January 1, 1958",
+        "Minimum 7 years of service at Achmea or its predecessor"
+      ]
+    }
+  },
+  "pension": {
+    "fund_name": "Stichting Pensioenfonds Achmea (SPA)",
+    "employer_contribution": {
+      "maximum_percentage_2024": 40,
+      "maximum_percentage_2025": 37.4
+    },
+    "employee_contribution": 3.25,
+    "pensionable_salary": {
+      "description": "12 times the monthly salary plus holiday allowance and end-of-year bonus, including variable elements like overtime and inconvenience allowances"
+    },
+    "franchise": {
+      "amount_2024": 17545,
+      "adjustment": "Annually adjusted with general CAO increases"
+    },
+    "pension_base": "Pensionable salary minus franchise",
+    "pension_types": {
+      "old_age_pension": {
+        "description": "Lifelong from the first day of the month in which the employee turns 68",
+        "accrual_rate": "Determined annually by SPA based on collective premium"
+      },
+      "partner_pension": {
+        "description": "Lifelong, starting from the first day of the month of death, maximum 70% of the fictitious old-age pension"
+      },
+      "orphan_pension": {
+        "description": "Maximum 14% of the fictitious old-age pension, up to age 18 (or 27 for students)"
+      }
+    },
+    "indexation": {
+      "description": "Annual decision by SPA on increasing pension rights and entitlements, up to the Consumer Price Index (CPI)"
+    },
+    "flexibility": {
+      "early_retirement": {
+        "minimum_age": 55,
+        "notice_period": "6 months before pension date"
+      },
+      "partial_retirement": {
+        "description": "From age 55, in full days per week, maximum 2 changes in the number of days"
+      },
+      "pension_exchange": {
+        "description": "Possibility to exchange old-age pension for higher partner pension or vice versa"
+      }
+    },
+    "net_pension_scheme": {
+      "description": "Voluntary participation from January 1, 2015, for employees with a pensionable salary above the franchise",
+      "contribution": "Maximum equal to the net individual pension budget",
+      "administrative_costs": 55,
+      "pension_types": {
+        "old_age_pension": "Premium agreement (defined contribution)",
+        "partner_pension": "Benefit agreement (defined benefit)",
+        "orphan_pension": "Benefit agreement (defined benefit)",
+        "premium_exemption": "In case of disability"
+      }
+    },
+    "transition_provisions": {
+      "life_course_contribution": {
+        "description": "Replaced by a personal allowance from January 1, 2014"
+      },
+      "far_contribution": {
+        "description": "Replaced by a personal allowance from January 1, 2014"
+      },
+      "accrual_percentage": {
+        "description": "Personal allowance for employees with a 2.25% accrual rate as of January 1, 2014"
+      },
+      "flexible_pension": {
+        "description": "Personal allowance from January 1, 2014, instead of annual deposit"
+      },
+      "reduced_franchise": {
+        "description": "Personal allowance from January 1, 2014, for former Sterpolis employees"
+      },
+      "vut_scheme": {
+        "description": "For former Agis employees born before 1950 or already using the VUT scheme on January 1, 2010"
+      },
+      "waiting_period_regulation": {
+        "description": "Continues for former Agis employees with adjustments from January 1, 2015"
+      }
+    }
+  },
+  "working_hours": {
+    "standard_week": 34,
+    "overtime_rules": {
+      "description": "Overtime is working more hours than the individual working hours or on company-closed days by order of the supervisor",
+      "maximum_hours": "9 hours per week, not more than 5% of individual working hours in 6 months",
+      "compensation": {
+        "function_groups_A_to_H": {
+          "time": "Can be compensated in time or money, with approval from supervisor",
+          "payment": "With overtime allowance"
+        },
+        "function_groups_I_and_above": {
+          "time": "Compensated in time with supervisor's approval, no overtime allowance"
+        }
+      }
+    },
+    "flexible_working_hours": {
+      "min_max_contract": {
+        "description": "Agreement on average minimum and maximum hours per week, difference no more than 6 hours",
+        "maximum_hours": 34
+      },
+      "achmea_select": {
+        "description": "Annual choice to work more or fewer hours",
+        "ranges": {
+          "34_hours_or_more": "32 to 40 hours",
+          "24_to_34_hours": "Max 2 hours less or 4 hours more",
+          "24_hours_or_less": "Max 1 hour less or 2 hours more"
+        }
+      }
+    },
+    "standby_duty": {
+      "description": "Being available to work outside agreed working hours",
+      "compensation": "Standby allowance per hour"
+    },
+    "working_hours_adjustment": {
+      "description": "Possibility to adjust working hours in the employment contract, subject to the Flexible Working Act"
+    }
+  },
+  "dates_of_changes": [
+    {
+      "date": "2023-12-01",
+      "change": "CAO valid from this date"
+    },
+    {
+      "date": "2024-01-01",
+      "change": "Salary adjustments, new minimum hourly wage, and one-time payment"
+    },
+    {
+      "date": "2024-07-01",
+      "change": "New travel expense reimbursement rules for commuting"
+    },
+    {
+      "date": "2024-10-01",
+      "change": "Annual choice round for Achmea Select"
+    },
+    {
+      "date": "2025-01-01",
+      "change": "Further salary adjustments and new minimum hourly wage"
+    },
+    {
+      "date": "2025-08-31",
+      "change": "CAO valid until this date"
+    }
+  ],
+  "additional_provisions": {
+    "unlimited_education_budget": {
+      "description": "All You Can Learn, no approval from supervisor needed, broad training catalog"
+    },
+    "climate_budget": {
+      "description": "€2,500 net for full-time employees to spend on sustainability and climate improvement products/services",
+      "conditions": [
+        "Must be in service between December 1, 2023, and August 31, 2025",
+        "Must be in service for more than 1 year",
+        "Budget must be used within 1 year of receipt"
+      ]
+    },
+    "redundancy_budget": {
+      "description": "€2,000 for outplacement for employees who become redundant"
+    },
+    "early_retirement_scheme": {
+      "description": "Regeling Vervroegde Uittreding (RVU), available until December 31, 2025",
+      "conditions": [
+        "Minimum 10 years of service at Achmea",
+        "Earliest 36 months before reaching AOW age",
+        "Written resignation at least 4 months before the start of RVU"
+      ],
+      "compensation": {
+        "amount_2024": 2182,
+        "maximum_duration": 36,
+        "total_maximum_2024": 78552
+      }
+    },
+    "transition_provisions": {
+      "former_agis_employees": {
+        "senior_leave": "From age 55, 6% reduction in working hours annually",
+        "vut_scheme": "For employees born before 1950 or already using the scheme on January 1, 2010"
+      },
+      "former_rs_a_employees": {
+        "senior_reduction": "Retention of right to reduce working hours before January 1, 2009"
+      },
+      "former_avcb_employees": {
+        "end_of_year_bonus": "Retention of higher end-of-year bonus if applicable on December 31, 1998",
+        "aow_compensation": "Retention of AOW compensation if applicable on December 31, 1999"
+      },
+      "former_levob_employees": {
+        "senior_reduction": "Retention of right to reduce working hours before January 1, 2010 if aged 59 or older",
+        "mortgage_regulations": "Retention of personnel mortgage conditions for existing mortgages"
+      },
+      "former_axa_employees": {
+        "senior_reduction": "Retention of right to reduce working hours before January 1, 2010 if aged 59 or older",
+        "mortgage_regulations": "Retention of personnel mortgage conditions for existing mortgages"
+      }
+    }
+  }
+}

@@ -1,0 +1,410 @@
+{
+  "documentId": {
+    "value": "CAO-Eurotank-2023-2024",
+    "schemeAgencyId": "Customer"
+  },
+  "versionId": {
+    "value": "1.0"
+  },
+  "effectivePeriod": {
+    "validFrom": "2023-01-01",
+    "validTo": "2024-12-31"
+  },
+  "customer": {
+    "name": "Eurotank Amsterdam B.V.",
+    "legalId": [
+      {
+        "value": "KvK 34188234",
+        "schemeAgencyId": "KvK"
+      }
+    ],
+    "personContacts": [
+      {
+        "name": {
+          "formattedName": "HR Department"
+        },
+        "roleCode": "HR Contact"
+      }
+    ]
+  },
+  "remuneration": [
+    {
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "workDuration": {
+        "amount": {
+          "value": 40.0,
+          "unitCode": "Hour"
+        },
+        "interval": {
+          "value": 1,
+          "unitCode": "Week"
+        },
+        "valuePerWeek": 40.0
+      },
+      "interval": {
+        "value": 1,
+        "unitCode": "Month"
+      },
+      "salaryScale": [
+        {
+          "name": "Group A",
+          "minValue": 2500.0,
+          "maxValue": 3500.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2700.0
+            },
+            {
+              "name": "2",
+              "value": 2900.0
+            },
+            {
+              "name": "3",
+              "value": 3100.0
+            },
+            {
+              "name": "4",
+              "value": 3300.0
+            },
+            {
+              "name": "5",
+              "value": 3500.0
+            }
+          ]
+        },
+        {
+          "name": "Group B",
+          "minValue": 2800.0,
+          "maxValue": 3800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2800.0
+            },
+            {
+              "name": "1",
+              "value": 3000.0
+            },
+            {
+              "name": "2",
+              "value": 3200.0
+            },
+            {
+              "name": "3",
+              "value": 3400.0
+            },
+            {
+              "name": "4",
+              "value": 3600.0
+            },
+            {
+              "name": "5",
+              "value": 3800.0
+            }
+          ]
+        },
+        {
+          "name": "Group C",
+          "minValue": 3100.0,
+          "maxValue": 4100.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3100.0
+            },
+            {
+              "name": "1",
+              "value": 3300.0
+            },
+            {
+              "name": "2",
+              "value": 3500.0
+            },
+            {
+              "name": "3",
+              "value": 3700.0
+            },
+            {
+              "name": "4",
+              "value": 3900.0
+            },
+            {
+              "name": "5",
+              "value": 4100.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 1",
+          "minValue": 2200.0,
+          "maxValue": 3000.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2200.0
+            },
+            {
+              "name": "1",
+              "value": 2400.0
+            },
+            {
+              "name": "2",
+              "value": 2600.0
+            },
+            {
+              "name": "3",
+              "value": 2800.0
+            },
+            {
+              "name": "4",
+              "value": 3000.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 2",
+          "minValue": 2400.0,
+          "maxValue": 3200.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2400.0
+            },
+            {
+              "name": "1",
+              "value": 2600.0
+            },
+            {
+              "name": "2",
+              "value": 2800.0
+            },
+            {
+              "name": "3",
+              "value": 3000.0
+            },
+            {
+              "name": "4",
+              "value": 3200.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 3",
+          "minValue": 2600.0,
+          "maxValue": 3400.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2600.0
+            },
+            {
+              "name": "1",
+              "value": 2800.0
+            },
+            {
+              "name": "2",
+              "value": 3000.0
+            },
+            {
+              "name": "3",
+              "value": 3200.0
+            },
+            {
+              "name": "4",
+              "value": 3400.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 4",
+          "minValue": 2800.0,
+          "maxValue": 3600.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2800.0
+            },
+            {
+              "name": "1",
+              "value": 3000.0
+            },
+            {
+              "name": "2",
+              "value": 3200.0
+            },
+            {
+              "name": "3",
+              "value": 3400.0
+            },
+            {
+              "name": "4",
+              "value": 3600.0
+            }
+          ]
+        },
+        {
+          "name": "Schaal 5",
+          "minValue": 3000.0,
+          "maxValue": 3800.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 3000.0
+            },
+            {
+              "name": "1",
+              "value": 3200.0
+            },
+            {
+              "name": "2",
+              "value": 3400.0
+            },
+            {
+              "name": "3",
+              "value": 3600.0
+            },
+            {
+              "name": "4",
+              "value": 3800.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 1",
+          "minValue": 2300.0,
+          "maxValue": 2900.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2300.0
+            },
+            {
+              "name": "1",
+              "value": 2500.0
+            },
+            {
+              "name": "2",
+              "value": 2700.0
+            },
+            {
+              "name": "3",
+              "value": 2900.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 2",
+          "minValue": 2500.0,
+          "maxValue": 3100.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2500.0
+            },
+            {
+              "name": "1",
+              "value": 2700.0
+            },
+            {
+              "name": "2",
+              "value": 2900.0
+            },
+            {
+              "name": "3",
+              "value": 3100.0
+            }
+          ]
+        },
+        {
+          "name": "FWG 3",
+          "minValue": 2700.0,
+          "maxValue": 3300.0,
+          "currency": "EUR",
+          "salaryStep": [
+            {
+              "name": "0",
+              "value": 2700.0
+            },
+            {
+              "name": "1",
+              "value": 2900.0
+            },
+            {
+              "name": "2",
+              "value": 3100.0
+            },
+            {
+              "name": "3",
+              "value": 3300.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pension": [
+    {
+      "name": "Eurotank Amsterdam Pensioenregeling",
+      "origin": {
+        "type": "CollectiveLabourAgreement"
+      },
+      "line": [
+        {
+          "lineId": {
+            "value": "EMPLOYER_CONTRIB"
+          },
+          "amount": {
+            "value": 95,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        },
+        {
+          "lineId": {
+            "value": "EMPLOYEE_CONTRIB"
+          },
+          "amount": {
+            "value": 5,
+            "unitCode": "Percentage",
+            "baseAmount": {
+              "unitCode": "MonthlyRate",
+              "baseType": "PensionableIncome"
+            }
+          },
+          "interval": {
+            "value": 1,
+            "unitCode": "Month"
+          }
+        }
+      ],
+      "effectivePeriod": {
+        "validFrom": "2023-01-01",
+        "validTo": "2024-12-31"
+      }
+    }
+  ]
+}
