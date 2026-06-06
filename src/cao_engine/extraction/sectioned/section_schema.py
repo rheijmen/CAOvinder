@@ -2,9 +2,13 @@
 
 The rc.1 SETU schema is a bundle of named types; the root is InquiryPayEquity and
 refs are OpenAPI-style #/components/schemas/X. The Gemini API rejects oneOf,
-discriminator, additionalProperties, deep nesting, and unresolved refs. This transform
-slices the requested top-level properties, INLINES refs from the bundle, strips the
-rejected keywords, and caps depth (which also breaks the recursive Condition type).
+discriminator, additionalProperties, `required` mismatches, and unresolved refs, and
+chokes on very deep nesting. This transform slices the requested top-level properties,
+INLINES refs, strips the rejected keywords, and caps nesting at object/array *type
+boundaries* (not at every dict level — that would collapse a section to empty objects).
+Recursion (the polymorphic Condition type) is handled by the polymorphism strip, not by
+the depth cap, so the cap can stay generous and preserve real structure (e.g. the
+salaryScale -> salaryStep nesting that drives rich extraction).
 """
 import json
 from pathlib import Path
@@ -17,38 +21,29 @@ _DEFS = dict(_RC1)  # all 89 named types resolve by name
 
 _STRIP = ("$schema", "$id", "title", "description", "additionalProperties")
 _POLY = ("oneOf", "anyOf", "allOf", "discriminator")
-_MAX_DEPTH = 4
+_MAX_DEPTH = 8
 
 
-def _resolve(obj, depth):
-    if depth >= _MAX_DEPTH:
-        if isinstance(obj, dict) and obj.get("type") == "array":
-            return {"type": "array", "items": {"type": "object"}}
+def _resolve(node: dict, depth: int) -> dict:
+    if not isinstance(node, dict):
+        return node
+    if "$ref" in node:  # inline a referenced type at the SAME depth (a ref is not a level)
+        target = _DEFS.get(node["$ref"].split("/")[-1])
+        return _resolve(target, depth) if target is not None else {"type": "object"}
+    if any(k in node for k in _POLY):  # polymorphic/recursive -> permissive object
         return {"type": "object"}
-    if isinstance(obj, dict):
-        if "$ref" in obj:
-            name = obj["$ref"].split("/")[-1]
-            target = _DEFS.get(name)
-            return _resolve(target, depth + 1) if target is not None else {"type": "object"}
-        if any(k in obj for k in _POLY):
+    node = {k: v for k, v in node.items() if k not in _STRIP}
+    node_type = node.get("type")
+    if node_type == "object" and "properties" in node:
+        if depth >= _MAX_DEPTH:
             return {"type": "object"}
-        out = {}
-        for key, value in obj.items():
-            if key in _STRIP:
-                continue
-            out[key] = _resolve(value, depth + 1) if isinstance(value, (dict, list)) else value
-        req = out.get("required")
-        if isinstance(req, list):
-            props = out.get("properties")
-            kept = [r for r in req if isinstance(props, dict) and r in props]
-            if kept:
-                out["required"] = kept
-            else:
-                out.pop("required", None)
-        return out
-    if isinstance(obj, list):
-        return [_resolve(item, depth) for item in obj]
-    return obj
+        props = {k: _resolve(v, depth + 1) for k, v in node["properties"].items()}
+        return {"type": "object", "properties": props}
+    if node_type == "array" and "items" in node:
+        if depth >= _MAX_DEPTH:
+            return {"type": "array", "items": {"type": "object"}}
+        return {"type": "array", "items": _resolve(node["items"], depth + 1)}
+    return node  # scalar / leaf schema (drop nothing else)
 
 
 def build_section_schema(top_level_keys: list[str]) -> dict:

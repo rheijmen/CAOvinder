@@ -23,3 +23,15 @@ def test_unknown_top_level_key_is_ignored():
     schema = build_section_schema(["remuneration", "doesNotExist"])
     assert "doesNotExist" not in schema["properties"]
     assert "remuneration" in schema["properties"]
+
+
+def test_remuneration_preserves_salary_scale_step_structure():
+    """The depth cap must NOT collapse the section to empty objects (the b' failure):
+    the salaryScale -> salaryStep nesting is what drives rich extraction."""
+    schema = build_section_schema(["remuneration"])
+    step_props = (
+        schema["properties"]["remuneration"]["items"]["properties"]["salaryScale"]
+        ["items"]["properties"]["salaryStep"]["items"]["properties"]
+    )
+    assert "name" in step_props
+    assert "value" in step_props
