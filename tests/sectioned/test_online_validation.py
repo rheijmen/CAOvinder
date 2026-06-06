@@ -21,7 +21,8 @@ from cao_engine.extraction.sectioned import SectionedGeminiExtractor, make_gemin
 
 pytestmark = pytest.mark.online
 
-OCR = Path("data/ocr/1049-ikea-cao-1-10-2023-tm-31-12-2024-v07022024.md")
+_REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+OCR = _REPO_ROOT / "data" / "ocr" / "1049-ikea-cao-1-10-2023-tm-31-12-2024-v07022024.md"
 
 
 @pytest.mark.skipif(not os.environ.get("GOOGLE_API_KEY"), reason="no GOOGLE_API_KEY")

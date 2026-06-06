@@ -17,24 +17,32 @@ GenerateFn = Callable[[str, dict], tuple[str, str]]
 
 
 class SectionedGeminiExtractor:
-    def __init__(self, generate: GenerateFn, sections: list[SectionSpec] = SECTIONS) -> None:
+    def __init__(self, generate: GenerateFn, sections: list[SectionSpec] | None = None) -> None:
         self._generate = generate
-        self._sections = sections
+        self._sections = sections if sections is not None else SECTIONS
 
     def extract(self, markdown: str, cao_name: str | None = None) -> dict:
         slices: list[dict] = []
         meta: dict = {}
         for spec in self._sections:
+            finish: str | None = None
             try:
                 text, finish = self._generate(spec.build_prompt(markdown, cao_name), spec.schema)
                 data = json.loads(text)
                 slices.append(data)
                 meta[spec.key] = {"ok": True, "finish": finish}
                 logger.info("section extracted", section=spec.key, finish=finish)
-            except Exception as exc:  # API error, JSON parse, etc. -> isolate the section
-                meta[spec.key] = {"ok": False, "error": str(exc)}
-                logger.warning("section failed", section=spec.key, error=str(exc))
+            except Exception as exc:  # API error, JSON parse (truncation), etc. -> isolate
+                # keep `finish` so a MAX_TOKENS truncation is distinguishable from an API error
+                meta[spec.key] = {"ok": False, "finish": finish, "error": str(exc)}
+                logger.warning("section failed", section=spec.key, finish=finish, error=str(exc))
         merged = merge_sections(slices)
+        merged["_extraction_metadata"] = {
+            "extractor": "gemini-sectioned",
+            "cao_name": cao_name,
+            "sections_ok": [k for k, m in meta.items() if m["ok"]],
+            "sections_failed": [k for k, m in meta.items() if not m["ok"]],
+        }
         merged["_section_meta"] = meta
         return merged
 

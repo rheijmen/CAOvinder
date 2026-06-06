@@ -773,7 +773,9 @@ def extract_setu_pipeline(
     gemini_file = settings.setu_raw_dir / "gemini" / f"{ocr_path.stem}.gemini.json"
     gemini_file.write_text(json.dumps(gemini_output, indent=2, ensure_ascii=False))
     console.print(f"  ✓ Gemini extraction saved: {gemini_file.relative_to(settings.data_dir)}")
-    console.print(f"  Fields extracted: {len(gemini_output)}\n")
+    console.print(
+        f"  Fields extracted: {len([k for k in gemini_output if not k.startswith('_')])}\n"
+    )
 
     # Step 2: Mistral Review
     console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
