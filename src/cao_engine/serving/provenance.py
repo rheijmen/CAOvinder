@@ -27,6 +27,9 @@ class Provenance(BaseModel):
     status: Literal["verified", "unverified"] = "unverified"
     source: str = Field(default="ai_extracted", description="How the data was produced")
     confidence: float | None = Field(default=None, ge=0.0, le=1.0)
+    sections: dict[str, float] | None = Field(
+        default=None, description="Per-section inter-model agreement ratios"
+    )
 
 
 NEUTRAL_PROVENANCE = Provenance()
