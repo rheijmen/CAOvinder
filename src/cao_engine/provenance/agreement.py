@@ -5,6 +5,7 @@ Honest signal, NOT a correctness claim. Normalization absorbs cosmetic differenc
 not formatting noise.
 """
 import re
+from collections import Counter
 
 _NUM_THOUSANDS = re.compile(r"-?\d{1,3}(\.\d{3})+(,\d+)?$")  # 1.500,00
 _NUM_DECIMAL_COMMA = re.compile(r"-?\d+,\d+$")               # 14,25
@@ -29,37 +30,43 @@ def normalize_value(value) -> str:
         return text
 
 
-def _flatten(obj, prefix=""):
-    out = {}
-    if isinstance(obj, dict):
-        for key, value in obj.items():
-            if key.startswith("_"):
-                continue
-            path = f"{prefix}.{key}" if prefix else key
-            out.update(_flatten(value, path))
-    elif isinstance(obj, list):
-        for i, value in enumerate(obj):
-            out.update(_flatten(value, f"{prefix}[{i}]"))
-    else:
-        out[prefix] = obj
-    return out
+def _value_multiset(obj) -> Counter:
+    """Multiset of (index-stripped path, normalized value) leaf pairs.
+
+    Array indices are collapsed to `[]` so that the same fact at a different array
+    position (or with a different cardinality) still matches — we measure agreement
+    on extracted content, not on index alignment.
+    """
+    counter: Counter = Counter()
+
+    def walk(node, path: str) -> None:
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if not key.startswith("_"):
+                    walk(value, f"{path}.{key}" if path else key)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value, f"{path}[]")
+        else:
+            counter[(path, normalize_value(node))] += 1
+
+    walk(obj, "")
+    return counter
 
 
 def section_agreement(slice_a: dict, slice_b: dict) -> float | None:
-    """Matched / union of leaf paths, normalized. None when there is nothing to compare."""
-    leaves_a = _flatten(slice_a)
-    leaves_b = _flatten(slice_b)
-    paths = set(leaves_a) | set(leaves_b)
-    if not paths:
+    """Multiset Jaccard over (path-template, normalized value) pairs.
+
+    Robust to array order and cardinality; normalization absorbs formatting. Returns
+    None when there is nothing to compare on either side.
+    """
+    a = _value_multiset(slice_a)
+    b = _value_multiset(slice_b)
+    if not a and not b:
         return None
-    matched = sum(
-        1
-        for p in paths
-        if p in leaves_a
-        and p in leaves_b
-        and normalize_value(leaves_a[p]) == normalize_value(leaves_b[p])
-    )
-    return matched / len(paths)
+    intersection = sum((a & b).values())
+    union = sum((a | b).values())
+    return intersection / union if union else None
 
 
 def compute_agreement(gemini_doc: dict, mistral_doc: dict, sections) -> dict:
