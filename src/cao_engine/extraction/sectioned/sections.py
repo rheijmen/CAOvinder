@@ -15,11 +15,14 @@ class SectionSpec:
     key: str
     top_level_keys: list[str]
     prompt_focus: str
+    max_depth: int = 8  # per-section nesting cap; deep bundles need a lower value (live-API limit)
     schema: dict = field(default=None)
 
     def __post_init__(self) -> None:
         # frozen dataclass: set the derived schema via object.__setattr__
-        object.__setattr__(self, "schema", build_section_schema(self.top_level_keys))
+        object.__setattr__(
+            self, "schema", build_section_schema(self.top_level_keys, self.max_depth)
+        )
 
     def build_prompt(self, markdown: str, cao_name: str | None) -> str:
         return (
@@ -63,6 +66,9 @@ SECTIONS: list[SectionSpec] = [
     SectionSpec(
         key="leave",
         top_level_keys=["leave", "sickPay"],
+        # leave/sickPay are deeply nested; depth 8 (15KB) is rejected by the live API
+        # with a generic 400. Depth 6 (8KB) is accepted and keeps useful structure.
+        max_depth=6,
         prompt_focus=(
             "Leave & sick pay: leave[] = ADV/ATV, verlof, feestdagen, bijzonder verlof; "
             "sickPay[] = loondoorbetaling bij ziekte."

@@ -21,32 +21,35 @@ _DEFS = dict(_RC1)  # all 89 named types resolve by name
 
 _STRIP = ("$schema", "$id", "title", "description", "additionalProperties")
 _POLY = ("oneOf", "anyOf", "allOf", "discriminator")
-_MAX_DEPTH = 8
+_DEFAULT_MAX_DEPTH = 8
 
 
-def _resolve(node: dict, depth: int) -> dict:
+def _resolve(node: dict, depth: int, max_depth: int) -> dict:
     if not isinstance(node, dict):
         return node
     if "$ref" in node:  # inline a referenced type at the SAME depth (a ref is not a level)
         target = _DEFS.get(node["$ref"].split("/")[-1])
-        return _resolve(target, depth) if target is not None else {"type": "object"}
+        return _resolve(target, depth, max_depth) if target is not None else {"type": "object"}
     if any(k in node for k in _POLY):  # polymorphic/recursive -> permissive object
         return {"type": "object"}
     node = {k: v for k, v in node.items() if k not in _STRIP}
     node_type = node.get("type")
     if node_type == "object" and "properties" in node:
-        if depth >= _MAX_DEPTH:
+        if depth >= max_depth:
             return {"type": "object"}
-        props = {k: _resolve(v, depth + 1) for k, v in node["properties"].items()}
+        props = {k: _resolve(v, depth + 1, max_depth) for k, v in node["properties"].items()}
         return {"type": "object", "properties": props}
     if node_type == "array" and "items" in node:
-        if depth >= _MAX_DEPTH:
+        if depth >= max_depth:
             return {"type": "array", "items": {"type": "object"}}
-        return {"type": "array", "items": _resolve(node["items"], depth + 1)}
+        return {"type": "array", "items": _resolve(node["items"], depth + 1, max_depth)}
     return node  # scalar / leaf schema (drop nothing else)
 
 
-def build_section_schema(top_level_keys: list[str]) -> dict:
+def build_section_schema(top_level_keys: list[str], max_depth: int = _DEFAULT_MAX_DEPTH) -> dict:
+    """Build a Gemini-safe schema. `max_depth` is per-section: deep bundles (e.g. leave)
+    must use a lower cap (~6) or the live API rejects them with a generic 400, while the
+    salary bundle needs >=7 to preserve the salaryScale->salaryStep nesting."""
     ipe_props = _RC1["InquiryPayEquity"]["properties"]
     props = {k: ipe_props[k] for k in top_level_keys if k in ipe_props}
-    return _resolve({"type": "object", "properties": props}, 0)
+    return _resolve({"type": "object", "properties": props}, 0, max_depth)

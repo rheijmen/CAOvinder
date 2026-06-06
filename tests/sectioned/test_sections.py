@@ -25,6 +25,13 @@ def test_each_section_builds_a_gemini_safe_schema():
         _transformers.t_schema(None, copy.deepcopy(spec.schema))  # must not raise
 
 
+def test_leave_section_uses_lower_depth_for_live_api():
+    """leave/sickPay at depth 8 is rejected by the live API (generic 400); it must
+    stay capped at 6. Regression guard for the online-validation finding."""
+    leave = next(s for s in SECTIONS if s.key == "leave")
+    assert leave.max_depth == 6
+
+
 def test_build_prompt_includes_focus_and_markdown():
     spec = next(s for s in SECTIONS if s.key == "remuneration")
     prompt = spec.build_prompt("MARKDOWN_BODY", "IKEA CAO")
