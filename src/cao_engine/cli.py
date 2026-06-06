@@ -821,15 +821,20 @@ def extract_setu_pipeline(
             from cao_engine.provenance.provenance_writer import write_provenance
 
             console.print("[bold]Provenance:[/bold] independent Mistral-sectioned extraction")
-            m_generate = make_mistral_generate(settings.mistral_api_key, settings.extraction_model)
-            mistral_doc = SectionedGeminiExtractor(m_generate).extract(markdown_text, cao)
-            agreement = compute_agreement(gemini_output, mistral_doc, SECTIONS)
-            sidecar = write_provenance(
-                ocr_path.stem, agreement, settings.data_dir / "provenance"
-            )
-            console.print(f"  Agreement per section: {agreement}")
-            if sidecar:
-                console.print(f"  ✓ Provenance: {sidecar.relative_to(settings.data_dir)}")
+            try:
+                m_generate = make_mistral_generate(
+                    settings.mistral_api_key, settings.extraction_model
+                )
+                mistral_doc = SectionedGeminiExtractor(m_generate).extract(markdown_text, cao)
+                agreement = compute_agreement(gemini_output, mistral_doc, SECTIONS)
+                sidecar = write_provenance(
+                    ocr_path.stem, agreement, settings.data_dir / "provenance"
+                )
+                console.print(f"  Agreement per section: {agreement}")
+                if sidecar:
+                    console.print(f"  ✓ Provenance: {sidecar.relative_to(settings.data_dir)}")
+            except Exception as exc:  # advisory feature; never fail the primary command
+                console.print(f"[yellow]  ⚠ Provenance skipped: {exc}[/yellow]")
 
     console.print(Panel(
         f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"

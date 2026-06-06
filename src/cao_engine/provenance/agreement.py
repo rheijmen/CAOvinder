@@ -11,23 +11,32 @@ _NUM_THOUSANDS = re.compile(r"-?\d{1,3}(\.\d{3})+(,\d+)?$")  # 1.500,00
 _NUM_DECIMAL_COMMA = re.compile(r"-?\d+,\d+$")               # 14,25
 
 
+def _fmt_number(x: float) -> str:
+    return f"{x:.4f}".rstrip("0").rstrip(".")
+
+
 def normalize_value(value) -> str:
     if value is None:
         return "∅"
     if isinstance(value, bool):
         return "true" if value else "false"
     if isinstance(value, (int, float)):
-        return f"{float(value):.4f}".rstrip("0").rstrip(".")
+        return _fmt_number(float(value))
     text = str(value).strip().lower()
-    money = re.sub(r"[^\d.,-]", "", text.replace("€", "").replace("eur", ""))
-    if _NUM_THOUSANDS.fullmatch(money):
-        money = money.replace(".", "").replace(",", ".")
-    elif _NUM_DECIMAL_COMMA.fullmatch(money):
-        money = money.replace(",", ".")
-    try:
-        return f"{float(money):.4f}".rstrip("0").rstrip(".")
-    except ValueError:
-        return text
+    # Only numeric-normalize strings that are PURELY numeric after stripping currency/percent
+    # units. NEVER strip letters out of labels like "Groep-3" — that would falsely collapse
+    # distinct labels (and "trede 1") onto bare numbers and inflate agreement.
+    money = text.replace("€", "").replace("eur", "").replace("%", "").strip()
+    if re.fullmatch(r"-?[\d.,]+", money):
+        if _NUM_THOUSANDS.fullmatch(money):
+            money = money.replace(".", "").replace(",", ".")
+        elif _NUM_DECIMAL_COMMA.fullmatch(money):
+            money = money.replace(",", ".")
+        try:
+            return _fmt_number(float(money))
+        except ValueError:
+            pass
+    return text
 
 
 def _value_multiset(obj) -> Counter:

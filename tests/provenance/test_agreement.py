@@ -22,6 +22,15 @@ def test_none_and_bool():
     assert normalize_value(True) == "true"
 
 
+def test_alphanumeric_labels_are_not_mangled_to_numbers():
+    # "Groep-3" must NOT collapse to "-3" (would falsely agree with other *-3 labels / int 3)
+    assert normalize_value("Groep-3") != normalize_value("FG-3")
+    assert normalize_value("Groep-3") != normalize_value(3)
+    assert normalize_value("trede 1") != normalize_value(1)
+    # but percentages still normalize across formats
+    assert normalize_value("2,75%") == normalize_value("2.75")
+
+
 def test_identical_slices_agree_fully():
     a = {"remuneration": [{"salaryScale": [{"name": "A", "value": 14.25}]}]}
     assert section_agreement(a, dict(a)) == 1.0
