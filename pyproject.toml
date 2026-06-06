@@ -48,6 +48,9 @@ select = ["E", "F", "I", "N", "UP", "B", "SIM"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "online: tests that hit live LLM APIs (skipped by default; run with -m online)",
+]
 
 [tool.mypy]
 python_version = "3.11"
