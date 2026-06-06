@@ -790,8 +790,7 @@ def extract_setu_pipeline(
         f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
         f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
         f"[bold]Judge Statistics:[/bold]\n"
-        f"  Total fields compared: {judge_report.get('total_fields_compared', '?')}\n"
-        f"  Agreements: {judge_report.get('agreements', '?')}\n"
+        f"  Decisions made: {judge_report.get('num_decisions', '?')}\n"
         f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
         f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
         f"  Merged: {judge_report.get('merged', '?')}",

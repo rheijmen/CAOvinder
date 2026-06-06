@@ -51,15 +51,13 @@ For each top-level field, decide:
 Provide REASONING for each decision with confidence score (0.0-1.0).
 
 OUTPUT FORMAT:
+Return ONLY a "decisions" array — one entry per field you actually compared.
+Do NOT report aggregate counts (totals, agreements, preferred tallies); those are
+computed deterministically in code from your decisions, not self-reported.
 ```json
 {
   "final_setu": { /* merged SETU v2.0 */ },
   "judge_report": {
-    "total_fields_compared": 127,
-    "agreements": 98,
-    "gemini_preferred": 21,
-    "mistral_preferred": 8,
-    "merged": 0,
     "decisions": [
       {
         "field": "remuneration.salaryScale.functiegroepen[0].name",
@@ -76,6 +74,30 @@ OUTPUT FORMAT:
 
 Be thorough and transparent. Your decisions will be used for legal compliance.
 """
+
+
+def sanitize_judge_report(raw_report: dict) -> dict:
+    """Strip fabricated census stats; compute honest counts from real decisions[].
+
+    The judge prompt's OUTPUT FORMAT example contains literal total_fields_compared
+    and agreements values that the LLM echoes verbatim (identical on multiple docs),
+    implying a full field census that never happened. Those are dropped. The
+    per-source preference counts ARE honest facts about the surfaced decisions, so
+    they are recomputed deterministically in code here instead of trusting the LLM.
+    """
+    decisions = raw_report.get("decisions") or []
+    counts = {"gemini": 0, "mistral": 0, "merge": 0}
+    for decision in decisions:
+        choice = decision.get("decision")
+        if choice in counts:
+            counts[choice] += 1
+    return {
+        "num_decisions": len(decisions),
+        "gemini_preferred": counts["gemini"],
+        "mistral_preferred": counts["mistral"],
+        "merged": counts["merge"],
+        "decisions": decisions,
+    }
 
 
 class MistralJudge:
@@ -215,20 +237,24 @@ class MistralJudge:
             }
         }
 
-        # Add summary stats to report
+        # Replace LLM-self-reported aggregates with honest, code-computed counts.
+        # The prompt example numbers (127/98) were being echoed verbatim; the real
+        # per-source tallies are derived from the actual decisions[] in code.
         if "judge_report" in result:
-            result["judge_report"]["metadata"] = {
+            report = sanitize_judge_report(result["judge_report"])
+            report["metadata"] = {
                 "model": self._model,
                 "elapsed_seconds": elapsed,
                 "final_compliance": final_status.value,
                 "final_coverage": final_report["coverage"],
                 "judged_at": datetime.now().isoformat(),
             }
+            result["judge_report"] = report
 
         logger.info(
             "Judge decision complete with SETU Compliance validation",
             elapsed_seconds=elapsed,
-            total_decisions=result.get("judge_report", {}).get("total_fields_compared", 0),
+            num_decisions=result.get("judge_report", {}).get("num_decisions", 0),
             gemini_preferred=result.get("judge_report", {}).get("gemini_preferred", 0),
             mistral_preferred=result.get("judge_report", {}).get("mistral_preferred", 0),
             final_compliance=final_status.value,
