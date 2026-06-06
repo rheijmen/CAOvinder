@@ -716,6 +716,9 @@ def info() -> None:
 def extract_setu_pipeline(
     ocr_path: Path,
     cao: str | None = typer.Option(None, "--cao", help="CAO name for metadata"),
+    sectioned: bool = typer.Option(
+        False, "--sectioned", help="Use 6-pass sectioned Gemini extraction (Fase E)"
+    ),
 ) -> None:
     """Extract SETU v2.0 using 3-LLM pipeline: Gemini (primary) → Mistral (reviewer) → Judge.
 
@@ -733,7 +736,6 @@ def extract_setu_pipeline(
     settings = _get_settings()
     settings.ensure_dirs()
 
-    from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
     from cao_engine.extraction.mistral_judge import MistralJudge
     from cao_engine.extraction.mistral_reviewer import MistralReviewer
 
@@ -745,13 +747,27 @@ def extract_setu_pipeline(
 
     # Step 1: Gemini Primary Extraction
     console.print(f"[bold]Step 1/3:[/bold] {settings.gemini_model} (Primary Extractor)")
-    console.print(f"[dim]  Thinking level: {settings.gemini_thinking_level}[/dim]")
-    gemini = GeminiPrimaryExtractor(
-        settings.google_api_key,
-        settings.gemini_model,
-        settings.gemini_thinking_level
-    )
-    gemini_output = gemini.extract(markdown_text, cao)
+    if sectioned:
+        from cao_engine.extraction.sectioned import (
+            SectionedGeminiExtractor,
+            make_gemini_generate,
+        )
+
+        console.print("[dim]  Mode: sectioned (6 passes)[/dim]")
+        generate = make_gemini_generate(
+            settings.google_api_key, settings.gemini_model, settings.gemini_thinking_level
+        )
+        gemini_output = SectionedGeminiExtractor(generate).extract(markdown_text, cao)
+    else:
+        from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
+
+        console.print(f"[dim]  Thinking level: {settings.gemini_thinking_level}[/dim]")
+        gemini = GeminiPrimaryExtractor(
+            settings.google_api_key,
+            settings.gemini_model,
+            settings.gemini_thinking_level,
+        )
+        gemini_output = gemini.extract(markdown_text, cao)
 
     # Save Gemini's output
     gemini_file = settings.setu_raw_dir / "gemini" / f"{ocr_path.stem}.gemini.json"
