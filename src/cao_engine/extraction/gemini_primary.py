@@ -19,20 +19,13 @@ import structlog
 
 logger = structlog.get_logger(__name__)
 
-# Load OFFICIAL SETU v2.0.0-rc.1 schema (Release Candidate 1, released March 11, 2026)
-# CRITICAL: This is the official schema, NOT the draft.3 version
-SETU_SCHEMA_PATH = Path(__file__).parent.parent / "compliance" / "schemas" / "setu_v2.0.0-rc.1.json"
-_SETU_SCHEMA_RAW = json.loads(SETU_SCHEMA_PATH.read_text())
-
-# Strip JSON Schema Draft 2020-12 metadata fields that Gemini SDK doesn't support
-# Remove: $schema, $id, title, description
-# Keep: type, required, properties, AND $defs (needed for $ref resolution!)
-SETU_SCHEMA = {
-    "type": _SETU_SCHEMA_RAW.get("type"),
-    "required": _SETU_SCHEMA_RAW.get("required"),
-    "properties": _SETU_SCHEMA_RAW.get("properties"),
-    "$defs": _SETU_SCHEMA_RAW.get("$defs"),  # CRITICAL: Keep for $ref resolution
-}
+# NOTE: extraction is schema-less on purpose. The official SETU v2.0.0-rc.1 schema
+# CANNOT be used as a Gemini response_schema: its Condition type uses oneOf +
+# discriminator, which the google-genai structured-output Schema rejects
+# (extra_forbidden). We rely on the detailed field-mapping rules in the prompt below
+# plus response_mime_type=application/json, and validate against the SETU compliance
+# engine afterwards. (The prior code read top-level type/properties/$defs from the
+# rc.1 bundle — which has none — producing an all-None schema that crashed the SDK.)
 
 # Import field mapping rules
 FIELD_MAPPING_PATH = Path(__file__).parent.parent.parent / ".claude" / "skills" / "llm-field-mapping.md"
@@ -318,7 +311,8 @@ class GeminiPrimaryExtractor:
             self._config = types.GenerateContentConfig(
                 temperature=0.1,  # Low for factual extraction
                 response_mime_type="application/json",
-                response_schema=SETU_SCHEMA,  # Guaranteed valid JSON structure
+                # No response_schema: rc.1 uses oneOf/discriminator which the SDK
+                # rejects. Schema-less + compliance validation downstream.
             )
 
             # Add thinking_config if model supports it (Gemini 2.5/3 series)
@@ -377,7 +371,6 @@ class GeminiPrimaryExtractor:
         # Build prompt with full schema and full CAO text (1M context!)
         prompt = (
             f"{GEMINI_PRIMARY_PROMPT}\n\n"
-            f"SETU v2.0 Schema (follow this structure exactly):\n```json\n{json.dumps(SETU_SCHEMA, indent=2)}\n```\n\n"
             f"CAO Name: {cao_name or 'Unknown'}\n\n"
             f"COMPLETE CAO Document (Markdown from Mistral OCR):\n\n{markdown}"
         )
