@@ -1,0 +1,13 @@
+{
+  "status": "unverified",
+  "source": "inter_model_agreement",
+  "confidence": 0.1352371812523718,
+  "sections": {
+    "identity": 0.2196969696969697,
+    "remuneration": 0.18811881188118812,
+    "allowances": 0.0,
+    "leave": 0.12333333333333334,
+    "pension": 0.18666666666666668,
+    "supplementary": 0.09360730593607305
+  }
+}
