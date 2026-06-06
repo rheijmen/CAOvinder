@@ -719,6 +719,11 @@ def extract_setu_pipeline(
     sectioned: bool = typer.Option(
         False, "--sectioned", help="Use 6-pass sectioned Gemini extraction (Fase E)"
     ),
+    provenance: bool = typer.Option(
+        False,
+        "--provenance",
+        help="Run independent Mistral-sectioned + write inter-model agreement (needs --sectioned)",
+    ),
 ) -> None:
     """Extract SETU v2.0 using 3-LLM pipeline: Gemini (primary) → Mistral (reviewer) → Judge.
 
@@ -803,6 +808,28 @@ def extract_setu_pipeline(
     # Save judge report
     report_file = settings.setu_reports_dir / f"{ocr_path.stem}.judge_report.json"
     report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
+
+    # Fase C: independent second extraction -> per-section inter-model agreement
+    if provenance:
+        if not sectioned:
+            console.print("[yellow]--provenance requires --sectioned; skipping[/yellow]")
+        else:
+            from cao_engine.extraction.sectioned import SectionedGeminiExtractor
+            from cao_engine.extraction.sectioned.mistral_sectioned import make_mistral_generate
+            from cao_engine.extraction.sectioned.sections import SECTIONS
+            from cao_engine.provenance.agreement import compute_agreement
+            from cao_engine.provenance.provenance_writer import write_provenance
+
+            console.print("[bold]Provenance:[/bold] independent Mistral-sectioned extraction")
+            m_generate = make_mistral_generate(settings.mistral_api_key, settings.extraction_model)
+            mistral_doc = SectionedGeminiExtractor(m_generate).extract(markdown_text, cao)
+            agreement = compute_agreement(gemini_output, mistral_doc, SECTIONS)
+            sidecar = write_provenance(
+                ocr_path.stem, agreement, settings.data_dir / "provenance"
+            )
+            console.print(f"  Agreement per section: {agreement}")
+            if sidecar:
+                console.print(f"  ✓ Provenance: {sidecar.relative_to(settings.data_dir)}")
 
     console.print(Panel(
         f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"

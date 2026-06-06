@@ -49,3 +49,30 @@ def test_ikea_sectioned_extraction_hits_ground_truth_anchors():
         for s in sc.get("salaryStep", [])
     ]
     assert len(steps) >= 20, f"only {len(steps)} salary steps"
+
+
+@pytest.mark.skipif(
+    not os.environ.get("GOOGLE_API_KEY") or not os.environ.get("MISTRAL_API_KEY"),
+    reason="needs GOOGLE_API_KEY and MISTRAL_API_KEY",
+)
+def test_ikea_inter_model_agreement_is_sane():
+    from cao_engine.extraction.sectioned import SectionedGeminiExtractor, make_gemini_generate
+    from cao_engine.extraction.sectioned.mistral_sectioned import make_mistral_generate
+    from cao_engine.extraction.sectioned.sections import SECTIONS
+    from cao_engine.provenance.agreement import compute_agreement
+
+    markdown = OCR.read_text(encoding="utf-8")
+    gemini = SectionedGeminiExtractor(
+        make_gemini_generate(os.environ["GOOGLE_API_KEY"], "gemini-3.5-flash", "LOW")
+    ).extract(markdown, "IKEA CAO 2023-2024")
+    mistral = SectionedGeminiExtractor(
+        make_mistral_generate(os.environ["MISTRAL_API_KEY"], "mistral-large-latest")
+    ).extract(markdown, "IKEA CAO 2023-2024")
+
+    agreement = compute_agreement(gemini, mistral, SECTIONS)
+    measured = {k: v for k, v in agreement.items() if v is not None}
+    assert measured, "no section was measurable"
+    assert all(0.0 <= v <= 1.0 for v in measured.values()), agreement
+    # identity (documentId/customer/period) should agree more than model-variable salaries
+    assert measured.get("identity", 0) > 0.3, agreement
+
