@@ -18,6 +18,10 @@ except ImportError:
     pass
 
 from cao_engine.extraction.sectioned import SectionedGeminiExtractor, make_gemini_generate
+from cao_engine.extraction.sectioned.document_map import build_document_map
+from cao_engine.extraction.sectioned.routing import route_sections
+from cao_engine.extraction.sectioned.sections import SECTIONS
+from cao_engine.ocr.models import OCRResult
 
 pytestmark = pytest.mark.online
 
@@ -79,4 +83,25 @@ def test_ikea_inter_model_agreement_is_sane():
     # maxes 0.20-0.27 across the 4 ground-truth CAOs) and varies per LLM run; metric
     # correctness itself is unit-tested in tests/provenance/test_agreement.py.
     assert max(measured.values()) > 0.1, agreement
+
+
+@pytest.mark.skipif(not os.environ.get("GOOGLE_API_KEY"), reason="no GOOGLE_API_KEY")
+def test_ikea_sectioned_with_routing_still_hits_salary_anchors():
+    """Routing must not route the salary data away: >=20 salary steps with routing on."""
+    ocr_json = OCR.parent / (OCR.stem + ".ocr.json")
+    if not ocr_json.exists():
+        pytest.skip("ikea .ocr.json not on disk")
+
+    markdown = OCR.read_text(encoding="utf-8")
+    ocr_result = OCRResult.model_validate_json(ocr_json.read_text(encoding="utf-8"))
+    routed = route_sections(build_document_map(ocr_result), SECTIONS, markdown).inputs
+
+    generate = make_gemini_generate(os.environ["GOOGLE_API_KEY"], "gemini-3.5-flash", "LOW")
+    doc = SectionedGeminiExtractor(generate).extract(
+        markdown, "IKEA CAO 2023-2024", routed_inputs=routed
+    )
+
+    assert all(m["ok"] for m in doc["_section_meta"].values()), doc["_section_meta"]
+    steps = json.dumps(doc.get("remuneration", []), ensure_ascii=False).count('"value"')
+    assert steps >= 20, f"only {steps} salary steps with routing"
 
