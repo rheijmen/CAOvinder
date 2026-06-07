@@ -724,6 +724,11 @@ def extract_setu_pipeline(
         "--provenance",
         help="Run independent Mistral-sectioned + write inter-model agreement (needs --sectioned)",
     ),
+    no_routing: bool = typer.Option(
+        False,
+        "--no-routing",
+        help="Disable OCR-map section routing (feed the whole document to every pass)",
+    ),
 ) -> None:
     """Extract SETU v2.0 using 3-LLM pipeline: Gemini (primary) → Mistral (reviewer) → Judge.
 
@@ -746,6 +751,35 @@ def extract_setu_pipeline(
 
     # Read OCR markdown
     markdown_text = ocr_path.read_text(encoding="utf-8")
+
+    # OCR-first routing: build a document map from the sibling .ocr.json and route
+    # each sectioned pass to its relevant slice. Falls back to whole-doc on any issue.
+    routed_inputs = None
+    if sectioned and not no_routing:
+        try:
+            from cao_engine.extraction.sectioned.document_map import build_document_map
+            from cao_engine.extraction.sectioned.routing import route_sections
+            from cao_engine.extraction.sectioned.sections import SECTIONS
+            from cao_engine.ocr.models import OCRResult
+
+            ocr_json = ocr_path.parent / (ocr_path.stem + ".ocr.json")
+            if ocr_json.exists():
+                ocr_result = OCRResult.model_validate_json(ocr_json.read_text(encoding="utf-8"))
+                result = route_sections(build_document_map(ocr_result), SECTIONS, markdown_text)
+                routed_inputs = result.inputs
+                summary = ", ".join(
+                    f"{k}:{r.char_size // 1000}k{'(FB)' if r.fallback_used else ''}"
+                    for k, r in result.report.items()
+                )
+                console.print(f"[dim]  Routing: {summary}[/dim]")
+            else:
+                console.print(
+                    "[yellow]  No .ocr.json sibling; routing disabled (whole-doc)[/yellow]"
+                )
+        except Exception as exc:  # routing is advisory; never fail the command
+            console.print(f"[yellow]  Routing skipped ({exc}); whole-doc[/yellow]")
+            routed_inputs = None
+
     console.print("[bold cyan]3-LLM SETU Pipeline[/bold cyan]")
     console.print(f"Input: {ocr_path.name} ({len(markdown_text):,} chars)")
     console.print(f"CAO: {cao or 'Unknown'}\n")
@@ -762,7 +796,9 @@ def extract_setu_pipeline(
         generate = make_gemini_generate(
             settings.google_api_key, settings.gemini_model, settings.gemini_thinking_level
         )
-        gemini_output = SectionedGeminiExtractor(generate).extract(markdown_text, cao)
+        gemini_output = SectionedGeminiExtractor(generate).extract(
+            markdown_text, cao, routed_inputs=routed_inputs
+        )
     else:
         from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
 
@@ -837,7 +873,9 @@ def extract_setu_pipeline(
                 m_generate = make_mistral_generate(
                     settings.mistral_api_key, settings.extraction_model
                 )
-                mistral_doc = SectionedGeminiExtractor(m_generate).extract(markdown_text, cao)
+                mistral_doc = SectionedGeminiExtractor(m_generate).extract(
+                    markdown_text, cao, routed_inputs=routed_inputs
+                )
                 agreement = compute_agreement(gemini_output, mistral_doc, SECTIONS)
                 sidecar = write_provenance(
                     ocr_path.stem, agreement, settings.data_dir / "provenance"
