@@ -46,7 +46,13 @@ def _body_match(section: MappedSection, anchors: tuple[str, ...]) -> bool:
 
 
 def _has_salary_grid(section: MappedSection) -> bool:
-    return any(len(_MONEY.findall(t.content)) >= _SALARY_GRID_MIN for t in section.tables)
+    if section.tables:
+        return any(len(_MONEY.findall(t.content)) >= _SALARY_GRID_MIN for t in section.tables)
+    # Defend against inline-only OCR (empty page.tables, wage data left in the markdown):
+    # when a section has no extracted tables, scan its body for a wage grid. Scoped to the
+    # no-tables case so the common path (tables populated, content also inlined in the body)
+    # does not over-recall prose money amounts into remuneration.
+    return len(_MONEY.findall(section.body)) >= _SALARY_GRID_MIN
 
 
 def _assemble(secs: list[MappedSection]) -> str:

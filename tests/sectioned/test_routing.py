@@ -37,6 +37,18 @@ def test_wage_grid_table_rescues_section_into_remuneration():
     assert result.report["remuneration"].fallback_used is False
 
 
+def test_inline_wage_grid_without_tables_rescues_to_remuneration():
+    # Defends against inline-only OCR: page.tables empty, wage grid left in the body.
+    # Heading + body have NO anchors, and there are no extracted tables -> the ONLY
+    # path to remuneration is the body-scan rescue (>= 6 two-decimal money numbers).
+    wage_body = _LONG + "\n" + "\n".join(f"groep {i}: {10 + i},{i:02d}" for i in range(8))
+    doc = DocumentMap(sections=[
+        _section(0, "Bijlage A overzicht bedragen", body=wage_body, tables=[]),
+    ])
+    result = route_sections(doc, SECTIONS, fallback_markdown="FALLBACK")
+    assert "Bijlage A overzicht bedragen" in result.inputs["remuneration"]
+
+
 def test_unmatched_section_goes_to_catch_all_supplementary():
     doc = DocumentMap(sections=[_section(0, "Iets heel exotisch", body=_LONG)])
     result = route_sections(doc, SECTIONS, fallback_markdown="FALLBACK")
