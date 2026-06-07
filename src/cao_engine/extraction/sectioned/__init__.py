@@ -9,6 +9,11 @@ from cao_engine.extraction.sectioned.gemini_sectioned import (
     make_gemini_generate,
 )
 from cao_engine.extraction.sectioned.merge import merge_sections
+from cao_engine.extraction.sectioned.routing import (
+    RoutingResult,
+    SectionRoutingInfo,
+    route_sections,
+)
 from cao_engine.extraction.sectioned.sections import SECTIONS, SectionSpec
 
 __all__ = [
@@ -21,4 +26,7 @@ __all__ = [
     "MappedSection",
     "MappedTable",
     "build_document_map",
+    "RoutingResult",
+    "SectionRoutingInfo",
+    "route_sections",
 ]
