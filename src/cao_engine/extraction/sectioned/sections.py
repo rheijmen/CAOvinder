@@ -30,7 +30,7 @@ class SectionSpec:
         return (
             f"{_BASE}\nFOCUS: {self.prompt_focus}\n\n"
             f"CAO Name: {cao_name or 'Unknown'}\n\n"
-            f"COMPLETE CAO Document (Markdown from Mistral OCR):\n\n{markdown}"
+            f"CAO Document (Markdown from Mistral OCR):\n\n{markdown}"
         )
 
 
