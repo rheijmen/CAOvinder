@@ -29,7 +29,7 @@ class Settings(BaseSettings):
 
     # Extraction settings
     extraction_model: str = "mistral-large-latest"  # Reviewer model
-    gemini_model: str = "gemini-3-flash-preview"  # Primary extractor (Gemini 3 Flash Preview with thinking mode)
+    gemini_model: str = "gemini-3.5-flash"  # Primary extractor (Gemini 3.5 Flash GA, latest stable; thinking mode)
     gemini_thinking_level: str = "MEDIUM"  # Thinking level: MINIMAL, LOW, MEDIUM, or HIGH
     judge_model: str = "mistral-small-2506"  # Judge model for comparing outputs
 
