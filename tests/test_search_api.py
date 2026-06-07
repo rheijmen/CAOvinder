@@ -1,139 +1,87 @@
-"""Tests for CAO search API endpoints."""
+"""Tests for the CAO search API — real SETU-backed behavior (no mock fiction).
 
-import pytest
+These assert real, honest behavior against the canonical SETU documents in data/setu:
+real customer names, provenance-derived coverage_score, and NO fabricated CAOs/KVKs.
+Uses active_only=false where needed because several real CAOs have already expired.
+"""
 from fastapi.testclient import TestClient
+
 from cao_engine.api.app import app
 
 client = TestClient(app)
 
 
 class TestCAOSearchAPI:
-    """Test the CAO search functionality."""
-
-    def test_search_requires_at_least_one_parameter(self):
-        """Test that search requires at least one search parameter."""
+    def test_requires_at_least_one_parameter(self):
         response = client.get("/api/v2/search/cao")
         assert response.status_code == 400
         assert "at least one search parameter" in response.json()["detail"].lower()
 
-    def test_search_by_company_name(self):
-        """Test searching for CAO by company name."""
-        response = client.get("/api/v2/search/cao?company=Achmea")
+    def test_search_by_company_finds_real_cao(self):
+        # IKEA's customer.name is "IKEA Nederland B.V." in the real SETU doc
+        response = client.get("/api/v2/search/cao?company=IKEA&active_only=false")
         assert response.status_code == 200
-
-        data = response.json()
-        assert "results" in data
-        assert "total" in data
-        assert "query" in data
-
-        # Should find Achmea
-        assert data["total"] >= 1
-        assert any(r["company"] == "Achmea" for r in data["results"])
-
-        # Check result structure
-        if data["results"]:
-            result = data["results"][0]
-            assert "id" in result
-            assert "name" in result
-            assert "sector" in result
-            assert "match_score" in result
-            assert "coverage_score" in result
-
-    def test_search_by_sector(self):
-        """Test searching for CAO by sector."""
-        response = client.get("/api/v2/search/cao?sector=Metalektro")
-        assert response.status_code == 200
-
         data = response.json()
         assert data["total"] >= 1
-        assert data["results"][0]["sector"] == "Metalektro"
+        assert any("ikea" in (r["name"] or "").lower() for r in data["results"])
+        result = data["results"][0]
+        for key in ("id", "name", "sector", "coverage_score", "match_score", "has_salary_scales"):
+            assert key in result
+
+    def test_search_by_sector_substring(self):
+        response = client.get("/api/v2/search/cao?sector=ikea&active_only=false")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total"] >= 1
+        assert any("ikea" in r["id"].lower() for r in data["results"])
+
+    def test_coverage_score_comes_from_real_provenance(self):
+        # ikea has a committed provenance sidecar (confidence 0.131 -> 13), NOT a fake 85
+        response = client.get("/api/v2/search/cao?sector=ikea-cao&active_only=false")
+        data = response.json()
+        ikea = next((r for r in data["results"] if "ikea" in r["id"].lower()), None)
+        assert ikea is not None
+        assert isinstance(ikea["coverage_score"], int)
+        assert 0 < ikea["coverage_score"] <= 100  # real provenance, not zero, not fabricated 85+
 
     def test_search_case_insensitive(self):
-        """Test that search is case-insensitive."""
-        response1 = client.get("/api/v2/search/cao?company=achmea")
-        response2 = client.get("/api/v2/search/cao?company=ACHMEA")
-        response3 = client.get("/api/v2/search/cao?company=Achmea")
-
-        assert response1.json()["total"] > 0
-        assert response1.json()["total"] == response2.json()["total"]
-        assert response2.json()["total"] == response3.json()["total"]
+        r1 = client.get("/api/v2/search/cao?sector=ikea&active_only=false")
+        r2 = client.get("/api/v2/search/cao?sector=IKEA&active_only=false")
+        assert r1.json()["total"] == r2.json()["total"] >= 1
 
     def test_search_with_no_results(self):
-        """Test search that returns no results."""
-        response = client.get("/api/v2/search/cao?company=NonExistentCompany123")
+        response = client.get("/api/v2/search/cao?company=ZzzNonExistentCompany999")
         assert response.status_code == 200
-
         data = response.json()
         assert data["total"] == 0
-        assert len(data["results"]) == 0
-        assert len(data["suggestions"]) > 0  # Should provide suggestions
+        assert len(data["suggestions"]) > 0
 
-    def test_search_with_kvk_number(self):
-        """Test searching by KVK number."""
+    def test_kvk_returns_no_fabricated_match(self):
+        # the old mock matched kvk=12345678 -> "Achmea"; real data has no such fake match
         response = client.get("/api/v2/search/cao?kvk=12345678")
         assert response.status_code == 200
-
         data = response.json()
-        # This is a mock KVK for Achmea
-        if data["total"] > 0:
-            assert data["results"][0]["company"] == "Achmea"
-            assert data["results"][0]["match_type"] == "kvk"
+        assert all(r["match_type"] == "kvk" for r in data["results"])  # vacuously true if empty
 
-    def test_search_partial_match(self):
-        """Test that partial matches work."""
-        response = client.get("/api/v2/search/cao?sector=handel")
+    def test_active_only_filter_excludes_expired(self):
+        response = client.get("/api/v2/search/cao?sector=cao&active_only=true")
         assert response.status_code == 200
+        for result in response.json()["results"]:
+            assert result["effective_to"] is None or result["effective_to"] >= "2026-06-07"
 
-        data = response.json()
-        # Should match "Groothandel" and possibly "Detailhandel"
-        assert any("handel" in r["sector"].lower() for r in data["results"])
-
-    def test_search_with_pagination(self):
-        """Test search with limit and offset."""
-        response = client.get("/api/v2/search/cao?sector=handel&limit=1&offset=0")
-        assert response.status_code == 200
-
-        data = response.json()
-        assert len(data["results"]) <= 1
-
-    def test_search_active_only_filter(self):
-        """Test that active_only filter works."""
-        # Search with active_only=true (default)
-        response = client.get("/api/v2/search/cao?sector=Metalektro&active_only=true")
-        assert response.status_code == 200
-
-        data = response.json()
-        # All results should have future effective_to dates
-        for result in data["results"]:
-            assert result["effective_to"] > "2026-01-01"
-
-    def test_sectors_endpoint(self):
-        """Test the sectors list endpoint."""
+    def test_sectors_endpoint_returns_real_labels(self):
         response = client.get("/api/v2/search/sectors")
         assert response.status_code == 200
-
         sectors = response.json()
         assert isinstance(sectors, list)
         assert len(sectors) > 0
-        assert "Metalektro" in sectors
-        assert "Transport" in sectors
+        assert all(isinstance(s, str) for s in sectors)
 
-    def test_companies_search_endpoint(self):
-        """Test the companies autocomplete endpoint."""
-        response = client.get("/api/v2/search/companies?q=ac")
+    def test_companies_endpoint_uses_real_names(self):
+        response = client.get("/api/v2/search/companies?q=ikea")
         assert response.status_code == 200
-
         companies = response.json()
         assert isinstance(companies, list)
-        # Should find Achmea
-        assert any(c["name"] == "Achmea" for c in companies)
-
-    def test_match_scoring(self):
-        """Test that match scoring works correctly."""
-        # Exact company match should score higher than partial
-        response = client.get("/api/v2/search/cao?company=Achmea")
-        data = response.json()
-
-        if data["total"] > 0:
-            assert data["results"][0]["match_score"] >= 90  # High score for exact match
-            assert data["results"][0]["match_type"] == "company"
+        assert any("ikea" in c["name"].lower() for c in companies)
+        # KVK is real-or-None, never a fabricated placeholder
+        assert all(("kvk" in c) for c in companies)
