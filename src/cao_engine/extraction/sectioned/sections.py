@@ -16,6 +16,8 @@ class SectionSpec:
     top_level_keys: list[str]
     prompt_focus: str
     max_depth: int = 8  # per-section nesting cap; deep bundles need a lower value (live-API limit)
+    routing_anchors: tuple[str, ...] = ()  # keyword anchors for OCR-map section routing
+    is_catch_all: bool = False  # unmatched sections are routed here (coverage guarantee)
     schema: dict = field(default=None)
 
     def __post_init__(self) -> None:
@@ -42,6 +44,7 @@ SECTIONS: list[SectionSpec] = [
             "effectivePeriod (validFrom/validTo), customer (employer name + "
             "legalId/KvK), labourAgreements, positionProfile(s) and baseDefinition(s)."
         ),
+        routing_anchors=("looptijd", "werkingssfeer", "begrippen", "definities", "partijen"),
     ),
     SectionSpec(
         key="remuneration",
@@ -53,6 +56,8 @@ SECTIONS: list[SectionSpec] = [
             "algemene loonsverhoging (effectivePeriod.validFrom, percentage). A CAO has "
             "many scales each with many steps."
         ),
+        routing_anchors=("salaris", "loon", "loontabel", "loonsverhoging", "functiegroep",
+                         "salarisschaal", "salarisgroep", "periodiek", "garantieloon", "uurloon"),
     ),
     SectionSpec(
         key="allowances",
@@ -62,6 +67,8 @@ SECTIONS: list[SectionSpec] = [
             "reiskosten, etc.); holidayAllowance[] = vakantietoeslag (percentage + "
             "payment moment)."
         ),
+        routing_anchors=("toeslag", "ort", "onregelmatig", "ploegen", "overwerk",
+                         "reiskosten", "vakantietoeslag", "vakantiegeld", "reisuren"),
     ),
     SectionSpec(
         key="leave",
@@ -73,6 +80,8 @@ SECTIONS: list[SectionSpec] = [
             "Leave & sick pay: leave[] = ADV/ATV, verlof, feestdagen, bijzonder verlof; "
             "sickPay[] = loondoorbetaling bij ziekte."
         ),
+        routing_anchors=("verlof", "vakantie", "adv", "atv", "feestdag", "ziekte",
+                         "arbeidsongeschikt", "roostervrije"),
     ),
     SectionSpec(
         key="pension",
@@ -82,6 +91,8 @@ SECTIONS: list[SectionSpec] = [
             "(fund name, origin, contribution split); individualChoiceBudget[] = IKB; "
             "sustainableEmployability[] = duurzame inzetbaarheid / generatiepact."
         ),
+        routing_anchors=("pensioen", "ikb", "keuzebudget", "generatiepact",
+                         "duurzame inzetbaarheid"),
     ),
     SectionSpec(
         key="supplementary",
@@ -91,5 +102,7 @@ SECTIONS: list[SectionSpec] = [
             "afbouwregelingen; otherArrangement[] = remaining arrangements not covered "
             "above."
         ),
+        routing_anchors=("eenmalig", "uitkering", "bonus", "afbouw", "jubileum"),
+        is_catch_all=True,
     ),
 ]
