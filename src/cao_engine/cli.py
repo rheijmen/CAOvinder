@@ -782,32 +782,44 @@ def extract_setu_pipeline(
         f"  Fields extracted: {len([k for k in gemini_output if not k.startswith('_')])}\n"
     )
 
-    # Step 2: Mistral Review
-    console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
-    reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction_model)
-    mistral_output = reviewer.review(markdown_text, gemini_output, cao)
+    if sectioned:
+        # Gemini-sectioned output IS the canonical, comprehensive SETU. Skip the legacy
+        # single-pass reviewer/judge: re-emitting the full merged SETU via mistral-small
+        # truncates (it drops 'final_setu') and adds nothing — provenance now comes from
+        # the independent Mistral-sectioned agreement (--provenance / Fase C).
+        console.print(
+            "[dim]Steps 2-3 skipped (sectioned): Gemini-sectioned output is canonical[/dim]"
+        )
+        final_setu = {k: v for k, v in gemini_output.items() if not k.startswith("_")}
+        judge_report = {}
+    else:
+        # Step 2: Mistral Review
+        console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
+        reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction_model)
+        mistral_output = reviewer.review(markdown_text, gemini_output, cao)
 
-    # Save Mistral's output
-    mistral_file = settings.setu_raw_dir / "mistral" / f"{ocr_path.stem}.mistral.json"
-    mistral_file.write_text(json.dumps(mistral_output, indent=2, ensure_ascii=False))
-    console.print(f"  ✓ Mistral review saved: {mistral_file.relative_to(settings.data_dir)}")
-    console.print(f"  Fields extracted: {len(mistral_output)}\n")
+        # Save Mistral's output
+        mistral_file = settings.setu_raw_dir / "mistral" / f"{ocr_path.stem}.mistral.json"
+        mistral_file.write_text(json.dumps(mistral_output, indent=2, ensure_ascii=False))
+        console.print(f"  ✓ Mistral review saved: {mistral_file.relative_to(settings.data_dir)}")
+        console.print(f"  Fields extracted: {len(mistral_output)}\n")
 
-    # Step 3: Judge
-    console.print("[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
-    judge = MistralJudge(settings.mistral_api_key, settings.judge_model)
-    result = judge.judge(gemini_output, mistral_output, cao)
+        # Step 3: Judge
+        console.print("[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
+        judge = MistralJudge(settings.mistral_api_key, settings.judge_model)
+        result = judge.judge(gemini_output, mistral_output, cao)
 
-    final_setu = result["final_setu"]
-    judge_report = result.get("judge_report", {})
+        final_setu = result["final_setu"]
+        judge_report = result.get("judge_report", {})
 
     # Save final SETU
     setu_file = settings.setu_dir / f"{ocr_path.stem}.setu.json"
     setu_file.write_text(json.dumps(final_setu, indent=2, ensure_ascii=False))
 
-    # Save judge report
+    # Save judge report (only when the judge ran)
     report_file = settings.setu_reports_dir / f"{ocr_path.stem}.judge_report.json"
-    report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
+    if judge_report:
+        report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
 
     # Fase C: independent second extraction -> per-section inter-model agreement
     if provenance:
@@ -836,16 +848,19 @@ def extract_setu_pipeline(
             except Exception as exc:  # advisory feature; never fail the primary command
                 console.print(f"[yellow]  ⚠ Provenance skipped: {exc}[/yellow]")
 
-    console.print(Panel(
-        f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
-        f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
-        f"[bold]Judge Statistics:[/bold]\n"
-        f"  Decisions made: {judge_report.get('num_decisions', '?')}\n"
-        f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
-        f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
-        f"  Merged: {judge_report.get('merged', '?')}",
-        title="✅ 3-LLM Pipeline Complete",
-    ))
+    summary = f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
+    if judge_report:
+        summary += (
+            f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
+            f"[bold]Judge Statistics:[/bold]\n"
+            f"  Decisions made: {judge_report.get('num_decisions', '?')}\n"
+            f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
+            f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
+            f"  Merged: {judge_report.get('merged', '?')}"
+        )
+    else:
+        summary += "[dim]Sectioned mode: Gemini-sectioned output is canonical (no judge)[/dim]"
+    console.print(Panel(summary, title="✅ SETU Pipeline Complete"))
 
 
 # --- Timeline Commands ---
