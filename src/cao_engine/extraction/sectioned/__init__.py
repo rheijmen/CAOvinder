@@ -1,3 +1,9 @@
+from cao_engine.extraction.sectioned.document_map import (
+    DocumentMap,
+    MappedSection,
+    MappedTable,
+    build_document_map,
+)
 from cao_engine.extraction.sectioned.gemini_sectioned import (
     SectionedGeminiExtractor,
     make_gemini_generate,
@@ -11,4 +17,8 @@ __all__ = [
     "merge_sections",
     "SECTIONS",
     "SectionSpec",
+    "DocumentMap",
+    "MappedSection",
+    "MappedTable",
+    "build_document_map",
 ]
