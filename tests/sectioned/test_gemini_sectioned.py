@@ -53,3 +53,38 @@ def test_bad_json_is_isolated():
 
     result = SectionedGeminiExtractor(fake_generate, sections=sections).extract("MD", "CAO")
     assert result["_section_meta"]["identity"]["ok"] is False
+
+
+def test_routed_inputs_feed_each_pass_its_own_slice():
+    from cao_engine.extraction.sectioned import SectionedGeminiExtractor
+    from cao_engine.extraction.sectioned.sections import SECTIONS
+
+    seen: dict[str, str] = {}
+
+    # capture which markdown each section pass received (prompt embeds the markdown)
+    specs = SECTIONS
+
+    def fake_generate(prompt: str, schema: dict) -> tuple[str, str]:
+        for spec in specs:
+            if spec.prompt_focus[:20] in prompt:
+                seen[spec.key] = prompt
+        return "{}", "STOP"
+
+    routed = {spec.key: f"SLICE_FOR_{spec.key}" for spec in specs}
+    SectionedGeminiExtractor(fake_generate).extract("WHOLE_DOC", "X", routed_inputs=routed)
+
+    assert "SLICE_FOR_remuneration" in seen["remuneration"]
+    assert "WHOLE_DOC" not in seen["remuneration"]
+
+
+def test_without_routed_inputs_uses_whole_markdown():
+    from cao_engine.extraction.sectioned import SectionedGeminiExtractor
+
+    prompts: list[str] = []
+
+    def fake_generate(prompt: str, schema: dict) -> tuple[str, str]:
+        prompts.append(prompt)
+        return "{}", "STOP"
+
+    SectionedGeminiExtractor(fake_generate).extract("WHOLE_DOC", "X")
+    assert all("WHOLE_DOC" in p for p in prompts)
