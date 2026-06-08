@@ -21,13 +21,23 @@ class SectionedGeminiExtractor:
         self._generate = generate
         self._sections = sections if sections is not None else SECTIONS
 
-    def extract(self, markdown: str, cao_name: str | None = None) -> dict:
+    def extract(
+        self,
+        markdown: str,
+        cao_name: str | None = None,
+        routed_inputs: dict[str, str] | None = None,
+    ) -> dict:
         slices: list[dict] = []
         meta: dict = {}
         for spec in self._sections:
+            section_md = (
+                routed_inputs[spec.key]
+                if routed_inputs and spec.key in routed_inputs
+                else markdown
+            )
             finish: str | None = None
             try:
-                text, finish = self._generate(spec.build_prompt(markdown, cao_name), spec.schema)
+                text, finish = self._generate(spec.build_prompt(section_md, cao_name), spec.schema)
                 data = json.loads(text)
                 slices.append(data)
                 meta[spec.key] = {"ok": True, "finish": finish}
@@ -40,6 +50,7 @@ class SectionedGeminiExtractor:
         merged["_extraction_metadata"] = {
             "extractor": "gemini-sectioned",
             "cao_name": cao_name,
+            "routed": routed_inputs is not None,
             "sections_ok": [k for k, m in meta.items() if m["ok"]],
             "sections_failed": [k for k, m in meta.items() if not m["ok"]],
         }

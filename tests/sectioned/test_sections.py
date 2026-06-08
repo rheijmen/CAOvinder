@@ -38,3 +38,21 @@ def test_build_prompt_includes_focus_and_markdown():
     assert "MARKDOWN_BODY" in prompt
     assert "IKEA CAO" in prompt
     assert spec.prompt_focus in prompt
+
+
+def test_every_section_has_routing_anchors_or_is_catch_all():
+    from cao_engine.extraction.sectioned.sections import SECTIONS
+    for spec in SECTIONS:
+        assert spec.routing_anchors or spec.is_catch_all, spec.key
+
+
+def test_exactly_one_catch_all_section():
+    from cao_engine.extraction.sectioned.sections import SECTIONS
+    catch_alls = [s.key for s in SECTIONS if s.is_catch_all]
+    assert catch_alls == ["supplementary"], catch_alls
+
+
+def test_remuneration_anchors_include_salary_terms():
+    from cao_engine.extraction.sectioned.sections import SECTIONS
+    rem = next(s for s in SECTIONS if s.key == "remuneration")
+    assert "salaris" in rem.routing_anchors and "loon" in rem.routing_anchors

@@ -724,6 +724,11 @@ def extract_setu_pipeline(
         "--provenance",
         help="Run independent Mistral-sectioned + write inter-model agreement (needs --sectioned)",
     ),
+    no_routing: bool = typer.Option(
+        False,
+        "--no-routing",
+        help="Disable OCR-map section routing (feed the whole document to every pass)",
+    ),
 ) -> None:
     """Extract SETU v2.0 using 3-LLM pipeline: Gemini (primary) → Mistral (reviewer) → Judge.
 
@@ -746,6 +751,35 @@ def extract_setu_pipeline(
 
     # Read OCR markdown
     markdown_text = ocr_path.read_text(encoding="utf-8")
+
+    # OCR-first routing: build a document map from the sibling .ocr.json and route
+    # each sectioned pass to its relevant slice. Falls back to whole-doc on any issue.
+    routed_inputs = None
+    if sectioned and not no_routing:
+        try:
+            from cao_engine.extraction.sectioned.document_map import build_document_map
+            from cao_engine.extraction.sectioned.routing import route_sections
+            from cao_engine.extraction.sectioned.sections import SECTIONS
+            from cao_engine.ocr.models import OCRResult
+
+            ocr_json = ocr_path.parent / (ocr_path.stem + ".ocr.json")
+            if ocr_json.exists():
+                ocr_result = OCRResult.model_validate_json(ocr_json.read_text(encoding="utf-8"))
+                result = route_sections(build_document_map(ocr_result), SECTIONS, markdown_text)
+                routed_inputs = result.inputs
+                summary = ", ".join(
+                    f"{k}:{r.char_size // 1000}k{'(FB)' if r.fallback_used else ''}"
+                    for k, r in result.report.items()
+                )
+                console.print(f"[dim]  Routing: {summary}[/dim]")
+            else:
+                console.print(
+                    "[yellow]  No .ocr.json sibling; routing disabled (whole-doc)[/yellow]"
+                )
+        except Exception as exc:  # routing is advisory; never fail the command
+            console.print(f"[yellow]  Routing skipped ({exc}); whole-doc[/yellow]")
+            routed_inputs = None
+
     console.print("[bold cyan]3-LLM SETU Pipeline[/bold cyan]")
     console.print(f"Input: {ocr_path.name} ({len(markdown_text):,} chars)")
     console.print(f"CAO: {cao or 'Unknown'}\n")
@@ -762,7 +796,9 @@ def extract_setu_pipeline(
         generate = make_gemini_generate(
             settings.google_api_key, settings.gemini_model, settings.gemini_thinking_level
         )
-        gemini_output = SectionedGeminiExtractor(generate).extract(markdown_text, cao)
+        gemini_output = SectionedGeminiExtractor(generate).extract(
+            markdown_text, cao, routed_inputs=routed_inputs
+        )
     else:
         from cao_engine.extraction.gemini_primary import GeminiPrimaryExtractor
 
@@ -782,32 +818,44 @@ def extract_setu_pipeline(
         f"  Fields extracted: {len([k for k in gemini_output if not k.startswith('_')])}\n"
     )
 
-    # Step 2: Mistral Review
-    console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
-    reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction_model)
-    mistral_output = reviewer.review(markdown_text, gemini_output, cao)
+    if sectioned:
+        # Gemini-sectioned output IS the canonical, comprehensive SETU. Skip the legacy
+        # single-pass reviewer/judge: re-emitting the full merged SETU via mistral-small
+        # truncates (it drops 'final_setu') and adds nothing — provenance now comes from
+        # the independent Mistral-sectioned agreement (--provenance / Fase C).
+        console.print(
+            "[dim]Steps 2-3 skipped (sectioned): Gemini-sectioned output is canonical[/dim]"
+        )
+        final_setu = {k: v for k, v in gemini_output.items() if not k.startswith("_")}
+        judge_report = {}
+    else:
+        # Step 2: Mistral Review
+        console.print("[bold]Step 2/3:[/bold] Mistral Large (Reviewer)")
+        reviewer = MistralReviewer(settings.mistral_api_key, settings.extraction_model)
+        mistral_output = reviewer.review(markdown_text, gemini_output, cao)
 
-    # Save Mistral's output
-    mistral_file = settings.setu_raw_dir / "mistral" / f"{ocr_path.stem}.mistral.json"
-    mistral_file.write_text(json.dumps(mistral_output, indent=2, ensure_ascii=False))
-    console.print(f"  ✓ Mistral review saved: {mistral_file.relative_to(settings.data_dir)}")
-    console.print(f"  Fields extracted: {len(mistral_output)}\n")
+        # Save Mistral's output
+        mistral_file = settings.setu_raw_dir / "mistral" / f"{ocr_path.stem}.mistral.json"
+        mistral_file.write_text(json.dumps(mistral_output, indent=2, ensure_ascii=False))
+        console.print(f"  ✓ Mistral review saved: {mistral_file.relative_to(settings.data_dir)}")
+        console.print(f"  Fields extracted: {len(mistral_output)}\n")
 
-    # Step 3: Judge
-    console.print("[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
-    judge = MistralJudge(settings.mistral_api_key, settings.judge_model)
-    result = judge.judge(gemini_output, mistral_output, cao)
+        # Step 3: Judge
+        console.print("[bold]Step 3/3:[/bold] Mistral Small 2506 (Judge)")
+        judge = MistralJudge(settings.mistral_api_key, settings.judge_model)
+        result = judge.judge(gemini_output, mistral_output, cao)
 
-    final_setu = result["final_setu"]
-    judge_report = result.get("judge_report", {})
+        final_setu = result["final_setu"]
+        judge_report = result.get("judge_report", {})
 
     # Save final SETU
     setu_file = settings.setu_dir / f"{ocr_path.stem}.setu.json"
     setu_file.write_text(json.dumps(final_setu, indent=2, ensure_ascii=False))
 
-    # Save judge report
+    # Save judge report (only when the judge ran)
     report_file = settings.setu_reports_dir / f"{ocr_path.stem}.judge_report.json"
-    report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
+    if judge_report:
+        report_file.write_text(json.dumps(judge_report, indent=2, ensure_ascii=False))
 
     # Fase C: independent second extraction -> per-section inter-model agreement
     if provenance:
@@ -825,7 +873,9 @@ def extract_setu_pipeline(
                 m_generate = make_mistral_generate(
                     settings.mistral_api_key, settings.extraction_model
                 )
-                mistral_doc = SectionedGeminiExtractor(m_generate).extract(markdown_text, cao)
+                mistral_doc = SectionedGeminiExtractor(m_generate).extract(
+                    markdown_text, cao, routed_inputs=routed_inputs
+                )
                 agreement = compute_agreement(gemini_output, mistral_doc, SECTIONS)
                 sidecar = write_provenance(
                     ocr_path.stem, agreement, settings.data_dir / "provenance"
@@ -836,16 +886,19 @@ def extract_setu_pipeline(
             except Exception as exc:  # advisory feature; never fail the primary command
                 console.print(f"[yellow]  ⚠ Provenance skipped: {exc}[/yellow]")
 
-    console.print(Panel(
-        f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
-        f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
-        f"[bold]Judge Statistics:[/bold]\n"
-        f"  Decisions made: {judge_report.get('num_decisions', '?')}\n"
-        f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
-        f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
-        f"  Merged: {judge_report.get('merged', '?')}",
-        title="✅ 3-LLM Pipeline Complete",
-    ))
+    summary = f"[green]✓ Final SETU:[/green] {setu_file.relative_to(settings.data_dir)}\n"
+    if judge_report:
+        summary += (
+            f"[blue]✓ Judge Report:[/blue] {report_file.relative_to(settings.data_dir)}\n\n"
+            f"[bold]Judge Statistics:[/bold]\n"
+            f"  Decisions made: {judge_report.get('num_decisions', '?')}\n"
+            f"  Gemini preferred: {judge_report.get('gemini_preferred', '?')}\n"
+            f"  Mistral preferred: {judge_report.get('mistral_preferred', '?')}\n"
+            f"  Merged: {judge_report.get('merged', '?')}"
+        )
+    else:
+        summary += "[dim]Sectioned mode: Gemini-sectioned output is canonical (no judge)[/dim]"
+    console.print(Panel(summary, title="✅ SETU Pipeline Complete"))
 
 
 # --- Timeline Commands ---
